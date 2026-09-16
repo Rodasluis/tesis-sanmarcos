@@ -1,0 +1,115 @@
+# Facultad de Derecho y Ciencia Política.
+# Caso interesante: su reglamento NO define capítulos y remite expresamente al
+# Anexo 2 de la directiva general. Es la confirmación más clara de que el
+# perfil base es el piso normativo.
+
+id: derecho-fdcp
+facultad: Facultad de Derecho y Ciencia Política
+escuelas: [Derecho, Ciencia Política]
+nivel: pregrado
+hereda_de: unmsm-general
+estado: verificado
+
+fuente:
+  documento: Reglamento General de Grados y Títulos de la Facultad de Derecho y Ciencia Política
+  norma: RR N.° 007301-2022-R
+  fecha: 2022
+  pagina: "art. 24 inciso j, pág. 15"
+  url: https://derecho2.unmsm.edu.pe/ddocus/Reglamento%20de%20Grados%20y%20T%C3%ADtulos%20de%20la%20FDCP%20%20%20firmado%20%20-signed%20%20Final%20%20%20%201%20.pdf
+  archivo_local: normativa/facultades/derecho-y-ciencia-politica/Reglamento_Grados_y_Titulos_FDCP.pdf
+  estado: verificado
+  cadena_de_aprobacion:
+    - "RD N.° 001935-2021-D-FDCP del 13/12/2021, que aprobó el reglamento"
+    - "modificada por RD N.° 000016-2022-D-FDCP del 10/01/2022"
+    - "ratificada por RR N.° 007301-2022-R, anexo de 36 folios"
+  verificacion_documental:
+    portal: https://spsgd.unmsm.edu.pe/verifica/inicio.do
+    codigo: HVUXGIO
+    nota: >-
+      El código permite contrastar la autenticidad de la RR en el portal de la
+      universidad. Se registra para que el asesor pueda comprobarlo.
+  archivo_resolucion: normativa/facultades/derecho-y-ciencia-politica/RR_007301-2022-R.pdf
+
+enfoques_admitidos: [cuantitativo, cualitativo]
+
+estilo_citas: "[PENDIENTE-NORMATIVA]"
+estilo_citas_fuente: >-
+  El reglamento no fija estilo. Rige la regla general del Anexo 2A: «según los
+  estilos de cita-referencia de acuerdo a las áreas del conocimiento». En
+  Derecho conviven APA y sistemas de cita jurídica; debe decidirlo el asesor y
+  quedar registrado como decisión del estudiante.
+csl: null
+
+persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
+
+formato:
+  papel: A4
+  fuente: [Arial]
+  tamano: 12
+  interlineado: 1.0
+  margenes_cm: "[PENDIENTE-NORMATIVA]"
+  numeracion: {hereda: unmsm-general}
+  fuente_de_estos_datos: >-
+    Art. 24 inciso j: «escrito en computadora, en papel tamaño A4, a un espacio
+    simple, tipo de letra Arial 12».
+  advertencia: >-
+    El interlineado simple contrasta con el 1,5 habitual en otras facultades.
+    Se toma tal cual lo dice la norma.
+
+resumen: {hereda: unmsm-general}
+hipotesis: {hereda: unmsm-general}
+
+informe_final:
+  origen: herencia
+  hereda: unmsm-general
+  fuente: >-
+    Art. 24 inciso j: «El bachiller presentará la tesis de acuerdo con los
+    formatos establecidos en el Anexo 2 de la DIRECTIVA GENERAL […] aprobado por
+    la Resolución Rectoral N° 00744-R-20 […] según el tipo de investigación».
+  lectura: >-
+    La facultad remite explícitamente al Anexo 2. Por eso este perfil no
+    redefine la estructura capitular: usa la del perfil base, en su modelo
+    cuantitativo o cualitativo según el tipo de investigación.
+
+proceso_particular:
+  registro_de_tema:
+    fuente: "Art. 25"
+    regla: >-
+      El Vicedecanato Académico verifica que el tema no se haya inscrito antes
+      en el Libro de Registro. Si hay similitud de objetivos con una tesis ya
+      inscrita, puede rechazar la inscripción.
+    impacto_en_el_flujo: >-
+      /afinar-idea debe advertirlo: en Derecho la originalidad del tema se
+      comprueba administrativamente antes de empezar, no al final.
+  designacion_asesor:
+    fuente: "Art. 26"
+    regla: La Escuela emite Resolución Directoral y nombra al docente asesor.
+
+etica:
+  comite_requerido: "[PENDIENTE-NORMATIVA]"
+  consentimiento: condicional
+  comite: Comité de Ética en Investigación de la UNMSM
+
+autoria: {hereda: unmsm-general}
+vigencia_proyecto_meses: "[PENDIENTE-NORMATIVA]"
+
+sustentacion:
+  hereda: unmsm-general
+  escala: vigesimal
+  nota_minima: 11
+  exposicion_min: "[PENDIENTE-NORMATIVA]"
+  preguntas_min: "[PENDIENTE-NORMATIVA]"
+  rubrica: null
+
+esquema_de_facto: normativa/facultades/derecho-y-ciencia-politica/esquema_de_facto.md
+
+advertencias_al_estudiante:
+  - >-
+    Tu facultad no define una estructura propia: te rige el Anexo 2 de la
+    directiva general de la universidad. Eso simplifica las cosas.
+  - >-
+    El tema se inscribe en un Libro de Registro y puede rechazarse si coincide
+    en objetivos con una tesis ya inscrita. Conviene verificarlo temprano.
+  - >-
+    El estilo de citas no está fijado. En Derecho es una decisión real: confírmala
+    con tu asesor antes de redactar.

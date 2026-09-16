@@ -1,0 +1,206 @@
+# Facultad de Letras y Ciencias Humanas. Norma propia de PREGRADO verificada.
+
+id: letras-flch
+facultad: Facultad de Letras y Ciencias Humanas
+escuelas: [Arte, Bibliotecología y Ciencias de la Información, Comunicación Social,
+           Conservación y Restauración, Danza, Filosofía, Lingüística, Literatura]
+nivel: pregrado
+hereda_de: unmsm-general
+estado: verificado
+
+fuente:
+  documento: Instructivo para el trabajo de investigación y la tesis de la FLCH
+  norma: RD N.° 000057-2021-D-FLCH
+  fecha: 2021-01-22
+  pagina: "§7 (estructura), §8 (sustentación), Anexo 2 (especificaciones generales)"
+  url: https://letras.unmsm.edu.pe/wp-content/uploads/2021/04/2021_R.D-000057-D-FLCH-2021-Instructivo-Trabajo-de-investigacio%CC%81n_Tesis_RD_final.pdf
+  archivo_local: normativa/facultades/letras-y-ciencias-humanas/RD_000057-2021-D-FLCH_instructivo_TI_tesis.pdf
+  estado: verificado
+  cadena_de_aprobacion:
+    - "RD N.° 000057-2021-D-FLCH, firmada digitalmente el 21-22/01/2021"
+  documentos_complementarios:
+    - {norma: RR N.° 009747-2022-R, asunto: procedimiento de sustentación de tesis de pregrado,
+       archivo_local: normativa/facultades/letras-y-ciencias-humanas/RR_009747-2022-R_sustentacion_tesis_pregrado_FLCH.pdf}
+    - {norma: RR N.° 008954-2021-R, asunto: procedimientos para la obtención de grados y títulos,
+       archivo_local: normativa/facultades/letras-y-ciencias-humanas/RR_008954-2021-R_instructivo_grados_titulos_FLCH.pdf}
+  nota: >-
+    Sustituye como fuente al dictamen de la UPG de Letras que citaba la
+    especificación del encargo: aquel es de POSGRADO y por tanto no aplica a
+    pregrado (regla R4 de perfiles/_esquema.yaml).
+
+enfoques_admitidos: [cuantitativo, cualitativo, argumentativo]
+
+estilo_citas: apa7
+estilo_citas_fuente: "Anexo 2, incisos 4, 8 y 10: «según el estilo APA (7.ª ed.)»"
+csl: plantillas/csl/apa-es.csl
+
+persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
+
+formato:
+  margenes_cm: {superior: 3.0, inferior: 2.5, izquierdo: 3.0, derecho: 2.5}
+  fuente: [Arial, Times New Roman]
+  tamano: 12
+  tamano_notas_y_citas_largas: 10
+  interlineado: 1.5
+  interlineado_citas_largas: 1.0
+  interlineado_notas: 1.0
+  interlineado_referencias: 1.0
+  numeracion:
+    preliminares: romanos_minusculas      # heredado de unmsm-general
+    cuerpo: arabigos
+    posicion: esquina superior derecha
+  tabla_de_contenido_obligatoria: true
+  titulos: "capítulos y subtítulos de primer y segundo orden según estilo APA 7"
+  tablas_y_graficos: "según estilo APA 7"
+  referencias_orden: alfabético
+  fuente_de_estos_datos: "Anexo 2, incisos 1 a 10"
+
+resumen:
+  idiomas: [es, en]
+  palabras_max: 200                       # heredado de unmsm-general
+  palabras_clave: true
+  lineas_investigacion: true
+  fuente: "§7.1: «Resumen. Palabras clave. Línea de investigación. Abstract. Keywords»"
+
+hipotesis: condicional
+hipotesis_fuente: >-
+  Obligatoria en el modelo cuantitativo (capítulo III «Hipótesis y variables»);
+  ausente en el modelo cualitativo, que la sustituye por «Fundamentos teóricos»
+  y categorías de análisis.
+
+informe_final:
+  origen: plantilla_norma
+  fuente: "§7.1, págs. 8 y 9"
+  modelos:
+
+    cuantitativo:
+      nombre: "Modelo de tesis: investigación cuantitativa"
+      preliminares: ["Resumen. Palabras clave. Línea de investigación. Abstract. Keywords"]
+      secciones:
+        - {titulo: INTRODUCCIÓN}
+        - numero: I
+          titulo: "CAPÍTULO I. PROBLEMA DE INVESTIGACIÓN"
+          subsecciones:
+            - 1.1 Descripción del problema de investigación
+            - 1.2 Definición del problema
+            - 1.3 Objetivos
+            - 1.4 Justificación e importancia de la investigación
+            - 1.5 Hallazgos y limitaciones de la investigación
+        - numero: II
+          titulo: "CAPÍTULO II. REVISIÓN DE LITERATURA"
+          subsecciones:
+            - 2.1 Antecedentes del estudio
+            - 2.2 Bases teóricas, marco teórico
+            - 2.3 Definición de términos o categorías de análisis
+        - numero: III
+          titulo: "CAPÍTULO III. HIPÓTESIS Y VARIABLES"
+          subsecciones: [3.1 Hipótesis, 3.2 Variables, 3.3 Operacionalización de variables]
+        - numero: IV
+          titulo: "CAPÍTULO IV. MATERIALES Y MÉTODOS"
+          subsecciones:
+            - "4.1 Área de estudio (citar coordenadas)"
+            - 4.2 Diseño de investigación
+            - 4.3 Población y muestra
+            - 4.4 Procedimientos, técnicas e instrumentos de recolección de datos
+            - 4.5 Análisis estadístico
+        - numero: V
+          titulo: "CAPÍTULO V. RESULTADOS"
+          subsecciones: [5.1 Presentación y análisis de los resultados]
+        - {titulo: CONCLUSIONES Y RECOMENDACIONES}
+        - {titulo: REFERENCIAS BIBLIOGRÁFICAS}
+        - {titulo: ANEXOS}
+
+    cualitativo:
+      nombre: "Modelo de tesis: investigación cualitativa"
+      preliminares: ["Resumen. Palabras clave. Línea de investigación. Abstract. Keywords"]
+      secciones:
+        - {titulo: INTRODUCCIÓN}
+        - numero: I
+          titulo: "CAPÍTULO I. PROBLEMA DE INVESTIGACIÓN"
+          subsecciones:
+            - 1.1 Descripción del problema de investigación
+            - 1.2 Definición del problema
+            - 1.3 Objetivos
+            - 1.4 Justificación e importancia de la investigación
+            - 1.5 Hallazgos y limitaciones de la investigación
+        - numero: II
+          titulo: "CAPÍTULO II. REVISIÓN DE LITERATURA"
+          subsecciones:
+            - 2.1 Antecedentes del estudio
+            - 2.2 Bases teóricas, marco teórico
+            - 2.3 Definición de categorías de análisis
+        - numero: III
+          titulo: "CAPÍTULO III. FUNDAMENTOS TEÓRICOS"
+          subsecciones:
+            - 3.1 Fundamentación teórica
+            - "3.2 Sistemas y categorías de análisis (estructuración del contenido, secuencia)"
+        - numero: IV
+          titulo: "CAPÍTULO IV. METODOLOGÍA"
+          subsecciones: [4.1 Enfoque de la investigación, 4.2 Tipo de investigación,
+                         4.3 Diseño de investigación]
+        - numero: V
+          titulo: "CAPÍTULO V. RESULTADOS O ARGUMENTACIÓN TEÓRICA"
+          subsecciones: [5.1 Presentación y análisis de los resultados]
+        - numero: VI
+          titulo: "CAPÍTULO VI. DISCUSIÓN"
+          subsecciones: []
+        - {titulo: CONCLUSIONES Y RECOMENDACIONES}
+        - {titulo: REFERENCIAS BIBLIOGRÁFICAS}
+        - {titulo: ANEXOS}
+
+    argumentativo:
+      nombre: "Tesis argumentativa o por obra (Arte, Literatura, Filosofía)"
+      estado: solo_de_facto
+      advertencia: >-
+        NO está en la norma. Se observa en las tesis de Arte y Literatura
+        depositadas en Cybertesis, que titulan sus capítulos por contenido y no
+        llevan metodología empírica. Antes de usar este modelo, el asesor debe
+        confirmarlo por escrito y la decisión se registra en decisiones/.
+      secciones:
+        - {titulo: INTRODUCCIÓN}
+        - {titulo: "Capítulos titulados por contenido, uno por objetivo"}
+        - {titulo: CONCLUSIONES}
+        - {titulo: REFERENCIAS BIBLIOGRÁFICAS}
+        - {titulo: ANEXOS, nota: "en escritura creativa, la obra propia va como anexo"}
+
+etica:
+  comite_requerido: "[PENDIENTE-NORMATIVA]"
+  consentimiento: condicional
+  comite: Comité de Ética en Investigación de la UNMSM
+
+autoria: {hereda: unmsm-general}
+vigencia_proyecto_meses: null
+
+sustentacion:
+  jurado: "[PENDIENTE-NORMATIVA]"
+  informantes: 2
+  acto_publico: true
+  escala: vigesimal
+  nota_minima: 11
+  fuente: >-
+    §8.1: la EP designa a dos informantes o evaluadores que integran el jurado y
+    revisan el trabajo antes del acto; la sustentación es pública; la
+    calificación se hace conforme al art. 14 del Reglamento General de Grados y
+    Títulos de la UNMSM.
+  exposicion_min: "[PENDIENTE-NORMATIVA]"
+  preguntas_min: "[PENDIENTE-NORMATIVA]"
+  rubrica: null
+
+esquema_de_facto: normativa/facultades/letras-y-ciencias-humanas/esquema_de_facto.md
+
+notas_de_normalizacion:
+  - "El instructivo salta la subsección 2.2 (enumera 2.1, 2.3, 2.4). Aquí se renumeró de forma corrida y se dejó constancia."
+  - "El instructivo rotula «V. CONCLUSIONES Y RECOMENDACIONES» después del capítulo V. Se trató como sección final sin numeración de capítulo."
+  - "En el modelo cualitativo el instructivo escribe «MÉTODOLOGÍA»; se corrigió a «METODOLOGÍA»."
+
+advertencias_al_estudiante:
+  - >-
+    Los números de página van en la esquina SUPERIOR derecha, no en la inferior.
+    Es una particularidad de esta facultad.
+  - >-
+    El resumen debe incluir la línea de investigación, además de las palabras
+    clave. No todas las facultades lo piden.
+  - >-
+    Si tu tesis es argumentativa o por obra (Arte, Literatura, Filosofía), el
+    instructivo no contempla ese modelo: necesitas confirmación escrita de tu
+    asesor antes de avanzar.

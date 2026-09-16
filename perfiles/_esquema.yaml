@@ -1,0 +1,196 @@
+# Esquema que debe cumplir todo perfil de `perfiles/`.
+# Lo valida herramientas/verificar_perfil.py (Fase 2).
+#
+# Principio: ningún campo normativo puede quedar en blanco. O lleva `fuente`
+# (documento, artículo, página), o hereda explícitamente de otro perfil, o vale
+# la cadena literal "[PENDIENTE-NORMATIVA]".
+
+version_esquema: 1
+
+# ---------------------------------------------------------------------------
+# Modelo de herencia
+# ---------------------------------------------------------------------------
+# Hallazgo de la Fase 0b: la UNMSM tiene una estructura de tesis de pregrado
+# aprobada por resolución rectoral (Anexos 2A y 2B de la RR 00744-R-20), y el
+# §6.3 de esa misma directiva habilita a cada facultad a especializarla.
+#
+# Por eso los perfiles forman dos niveles:
+#   - `unmsm-general`  : perfil base, normativo, aplicable a toda la universidad
+#   - perfil de facultad: hereda del base y solo redefine lo que su norma cambia
+#
+# Una facultad sin documento propio NO queda sin perfil: hereda el base. Eso
+# sustituye la idea de una "plantilla no normativa" inventada por el repositorio.
+herencia:
+  campo: hereda_de
+  valor: id de otro perfil, o null en el perfil base
+  regla: >-
+    Un campo ausente en el perfil de facultad toma el valor del perfil padre.
+    Un campo presente lo sobrescribe y debe traer su propia `fuente`.
+
+# ---------------------------------------------------------------------------
+# Campos
+# ---------------------------------------------------------------------------
+campos:
+
+  id:
+    tipo: string
+    requerido: true
+    formato: kebab-case, único en perfiles/
+
+  facultad:      {tipo: string, requerido: true}
+  escuelas:      {tipo: [string], requerido: true, nota: escuelas profesionales cubiertas}
+  nivel:         {tipo: enum, valores: [pregrado, posgrado], requerido: true}
+  hereda_de:     {tipo: [string, "null"], requerido: true}
+
+  estado:
+    tipo: enum
+    requerido: true
+    valores:
+      verificado: >-
+        Existe norma propia, su PDF está en normativa/facultades/ y fue leído.
+        verificar_perfil.py bloquea este valor si el archivo no existe en disco.
+      hereda_general: >-
+        La facultad no publica documento propio de estructura. Rige el perfil
+        base, que sí es normativo. No es un vacío: es una herencia declarada.
+      verificar: >-
+        Hay un documento en mano o un indicio, pero falta acreditar su rango
+        normativo o su vigencia.
+      solo_fuente_secundaria: >-
+        El documento solo consta citado por terceros. No habilita a redactar.
+      plantilla_no_normativa: >-
+        Valor reservado. Tras la Fase 0b ningún perfil debería necesitarlo.
+
+  fuente:
+    tipo: objeto
+    requerido: true
+    campos:
+      documento: string
+      norma: [string, "null"]        # número de resolución
+      fecha: [fecha, "null"]
+      pagina: [int, string, "null"]
+      url: [string, "null"]
+      archivo_local: [string, "null"]
+      estado: enum                   # igual que `estado`
+      cadena_de_aprobacion: [string] # p. ej. RD ... ratificada por RR ...
+
+  enfoques_admitidos: {tipo: [enum], valores: [cuantitativo, cualitativo, mixto, argumentativo]}
+
+  estilo_citas:
+    tipo: enum
+    valores: [apa7, vancouver, otro, "[PENDIENTE-NORMATIVA]"]
+    nota: >-
+      El Anexo 2A no impone un estilo único: dice "según los estilos de
+      cita-referencia de acuerdo a las áreas del conocimiento". Por eso el
+      estilo vive en el perfil y no en el motor.
+    csl: ruta a plantillas/csl/*.csl
+
+  persona_gramatical: {tipo: [enum], valores: [primera_singular, primera_plural, tercera, impersonal]}
+
+  formato:
+    tipo: objeto
+    campos:
+      margenes_cm: {superior: float, inferior: float, izquierdo: float, derecho: float}
+      fuente: [string]              # familias tipográficas admitidas
+      tamano: int
+      interlineado: float
+      interlineado_referencias: [float, "null"]
+      papel: string
+      numeracion:
+        preliminares: enum          # romanos_minusculas | romanos_mayusculas | ninguna
+        cuerpo: enum                # arabigos
+        posicion: [string, "null"]
+
+  extension_paginas: {tipo: [objeto, "null"], campos: {min: int, max: int}}
+
+  resumen:
+    tipo: objeto
+    campos:
+      idiomas: [enum]               # es, en, qu
+      palabras_max: [int, "null"]
+      palabras_clave: [int, bool]
+      lineas_investigacion: bool
+      formato: [string, "null"]
+
+  hipotesis: {tipo: enum, valores: [obligatoria, condicional, no_aplica, "[PENDIENTE-NORMATIVA]"]}
+
+  proyecto:
+    tipo: objeto
+    campos:
+      definido_por_norma: bool
+      secciones: [string]           # en el orden y con las denominaciones de la norma
+      anexos_obligatorios: [string]
+      anexos_recomendados: [string]
+
+  informe_final:
+    tipo: objeto
+    campos:
+      origen: enum                  # plantilla_norma | esquema_capitular | herencia
+      modelos:                      # uno por enfoque admitido
+        <enfoque>:
+          secciones: [objeto]       # {numero, titulo, subsecciones: [string], opcional: bool}
+
+  preliminares: {tipo: [objeto], nota: partes previas al cuerpo, con opcionalidad}
+
+  etica:
+    tipo: objeto
+    campos:
+      comite_requerido: [bool, "[PENDIENTE-NORMATIVA]"]
+      consentimiento: enum          # obligatorio | condicional | no_aplica
+      comite: [string, "null"]      # nombre del comité competente
+
+  autoria:
+    tipo: objeto
+    campos:
+      max_autores: int
+      objetivos_por_autor: bool
+      condicion_grupal: [string, "null"]
+
+  vigencia_proyecto_meses: [int, "null"]
+
+  sustentacion:
+    tipo: objeto
+    campos:
+      exposicion_min: [string, int, "null"]
+      preguntas_min: [string, int, "null"]
+      jurado: [int, "null"]
+      asesor_con_voz_sin_voto: [bool, "null"]
+      rubrica: [objeto, "null"]     # criterio -> puntaje máximo
+      escala: [string, "null"]
+      nota_minima: [int, "null"]
+
+  esquema_de_facto:
+    tipo: [string, "null"]
+    nota: >-
+      Ruta al esquema observado en Cybertesis. Es material de contraste, nunca
+      fuente normativa. Su presencia jamás habilita `estado: verificado`.
+
+  advertencias_al_estudiante: {tipo: [string]}
+
+# ---------------------------------------------------------------------------
+# Reglas que verifica verificar_perfil.py
+# ---------------------------------------------------------------------------
+reglas:
+  - id: R1
+    texto: Todo campo normativo tiene `fuente`, hereda, o vale "[PENDIENTE-NORMATIVA]".
+  - id: R2
+    texto: >-
+      `estado: verificado` exige que `fuente.archivo_local` exista en disco bajo
+      normativa/facultades/. Si no existe, el perfil se rechaza.
+  - id: R3
+    texto: >-
+      Un perfil cuya única base sea `esquema_de_facto` no puede declarar
+      `verificado`; como mucho `hereda_general`.
+  - id: R4
+    texto: >-
+      Una norma de posgrado no puede sustentar un perfil de `nivel: pregrado`.
+  - id: R5
+    texto: >-
+      Toda sección declarada en `informe_final` debe poder marcarse
+      `opcional_con_justificacion` solo si la norma lo permite explícitamente.
+  - id: R6
+    texto: >-
+      `hereda_de` debe apuntar a un perfil existente y no puede formar ciclos.
+  - id: R7
+    texto: >-
+      Si `estado` no es `verificado`, `/proyecto` exige confirmación del asesor
+      antes de avanzar, y la advertencia se registra en `decisiones/`.

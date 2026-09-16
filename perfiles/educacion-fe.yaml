@@ -1,0 +1,106 @@
+# Facultad de Educación
+# Perfil por herencia: sin documento propio de facultad localizado.
+# Este perfil NO tiene documento propio de facultad. Hereda la estructura
+# del perfil base `unmsm-general`, que sí es normativa: los Anexos 2A y 2B de la
+# RR N.° 00744-R-20. Lo observado en Cybertesis se adjunta solo como contraste y
+# nunca habilita `estado: verificado`.
+
+id: educacion-fe
+facultad: Facultad de Educación
+escuelas:
+- Educación
+- Educación Física
+nivel: pregrado
+hereda_de: unmsm-general
+estado: solo_fuente_secundaria
+fuente:
+  documento: R.D. 1069-D-FE-2017, esquema de tesis de la Facultad de Educación
+  norma: null
+  fecha: null
+  url: null
+  archivo_local: null
+  estado: solo_fuente_secundaria
+  norma_aplicable: Directiva general RR N.° 00744-R-20, Anexos 2A y 2B, por remisión del perfil base `unmsm-general`
+  busqueda_realizada:
+  - rastreo del sitio web de la facultad, incluidas rutas de grados y títulos, trámites y normatividad
+  - consultas al buscador restringidas al dominio de la facultad y a unmsm.edu.pe
+  por_que_no_se_usa: 'El documento solo aparece reproducido en sitios de terceros (SlideShare y similares).
+    La especificación del proyecto prohíbe usar esas fuentes como norma: sirven de pista, no de respaldo.
+    Se buscó el original en el sitio de la facultad y en el buscador, sin resultado. Hasta obtenerlo,
+    el perfil hereda el base.'
+enfoques_admitidos:
+- cuantitativo
+- cualitativo
+estilo_citas: '[PENDIENTE-NORMATIVA]'
+estilo_citas_fuente: Ni la facultad ni la norma general fijan un estilo. El Anexo 2A dice «según los estilos
+  de cita-referencia de acuerdo a las áreas del conocimiento». Debe decidirlo el asesor y registrarse
+  como decisión del estudiante en /iniciar.
+csl: null
+persona_gramatical:
+- '[PENDIENTE-NORMATIVA]'
+formato:
+  hereda: unmsm-general
+resumen:
+  hereda: unmsm-general
+hipotesis:
+  hereda: unmsm-general
+proyecto:
+  definido_por_norma: false
+  hereda: unmsm-general
+  nota: La facultad no publica esquema de proyecto. Se usará el orden del informe final del Anexo 2B reducido
+    a propuesta, y el asesor debe aprobarlo antes de /analizar.
+informe_final:
+  origen: herencia
+  hereda: unmsm-general
+  enfoque_sugerido: cualitativo
+  nota: El enfoque sugerido proviene de lo observado en tesis recientes, no de una norma. El estudiante
+    elige y su decisión se registra.
+etica:
+  comite_requerido: '[PENDIENTE-NORMATIVA]'
+  consentimiento: condicional
+  comite: Comité de Ética en Investigación de la UNMSM (RR N.° 008534-2025-R)
+autoria:
+  hereda: unmsm-general
+vigencia_proyecto_meses: '[PENDIENTE-NORMATIVA]'
+sustentacion:
+  hereda: unmsm-general
+esquema_de_facto: normativa/facultades/educacion/esquema_de_facto.md
+observacion_de_facto:
+  advertencia: NO NORMATIVO. Solo material de contraste.
+  tesis_analizadas: 5
+  con_indice_legible: 4
+  anios:
+  - '2026'
+  secciones_observadas:
+  - seccion: Introducción
+    apariciones: 4 de 4
+  - seccion: Materiales y métodos
+    apariciones: 2 de 4
+  - seccion: Revision de la literatura
+    apariciones: 2 de 4
+  - seccion: Resumen
+    apariciones: 2 de 4
+  - seccion: Aspectos administrativos
+    apariciones: 1 de 4
+  - seccion: Marco de referencia
+    apariciones: 1 de 4
+  - seccion: Conclusiones y recomendaciones
+    apariciones: 1 de 4
+  - seccion: Abstract
+    apariciones: 1 de 4
+  - seccion: Aproximacion tematica
+    apariciones: 1 de 4
+  - seccion: Desarrollo
+    apariciones: 1 de 4
+advertencias_al_estudiante:
+- 'Existe una R.D. 1069-D-FE-2017 con un esquema de tesis de tu facultad, pero no pudimos obtener el documento
+  oficial. Pídeselo a tu escuela: si aparece, este perfil se actualiza y gana precisión.'
+- 'Tu escuela no publica un esquema propio de tesis. Te rige la estructura general de la universidad,
+  que sí es norma: los Anexos 2A y 2B de la RR N.° 00744-R-20.'
+- Antes de pasar a /proyecto necesitas que tu asesor confirme que esta estructura es la que tu escuela
+  espera. Queda registrado como decisión.
+- El estilo de citas no está fijado por ninguna norma aplicable a tu escuela. Decidirlo temprano evita
+  rehacer citas después.
+nota_del_relevamiento: La especificación del encargo la citaba desde una fuente secundaria. El relevamiento
+  no logró localizar el documento oficial ni confirmar su vigencia. No se creará perfil de Educación sobre
+  esa base.

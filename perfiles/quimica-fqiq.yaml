@@ -1,0 +1,99 @@
+# Facultad de Química e Ingeniería Química
+# Perfil por herencia: sin documento propio de facultad localizado.
+# Este perfil NO tiene documento propio de facultad. Hereda la estructura
+# del perfil base `unmsm-general`, que sí es normativa: los Anexos 2A y 2B de la
+# RR N.° 00744-R-20. Lo observado en Cybertesis se adjunta solo como contraste y
+# nunca habilita `estado: verificado`.
+
+id: quimica-fqiq
+facultad: Facultad de Química e Ingeniería Química
+escuelas:
+- Ingeniería Agroindustrial
+- Ingeniería Química
+- Química
+nivel: pregrado
+hereda_de: unmsm-general
+estado: hereda_general
+fuente:
+  documento: (sin documento propio de facultad localizado en el relevamiento de la Fase 0b)
+  norma: null
+  fecha: null
+  url: null
+  archivo_local: null
+  estado: hereda_general
+  norma_aplicable: Directiva general RR N.° 00744-R-20, Anexos 2A y 2B, por remisión del perfil base `unmsm-general`
+  busqueda_realizada:
+  - rastreo del sitio web de la facultad, incluidas rutas de grados y títulos, trámites y normatividad
+  - consultas al buscador restringidas al dominio de la facultad y a unmsm.edu.pe
+enfoques_admitidos:
+- cuantitativo
+- cualitativo
+estilo_citas: '[PENDIENTE-NORMATIVA]'
+estilo_citas_fuente: Ni la facultad ni la norma general fijan un estilo. El Anexo 2A dice «según los estilos
+  de cita-referencia de acuerdo a las áreas del conocimiento». Debe decidirlo el asesor y registrarse
+  como decisión del estudiante en /iniciar.
+csl: null
+persona_gramatical:
+- '[PENDIENTE-NORMATIVA]'
+formato:
+  hereda: unmsm-general
+resumen:
+  hereda: unmsm-general
+hipotesis:
+  hereda: unmsm-general
+proyecto:
+  definido_por_norma: false
+  hereda: unmsm-general
+  nota: La facultad no publica esquema de proyecto. Se usará el orden del informe final del Anexo 2B reducido
+    a propuesta, y el asesor debe aprobarlo antes de /analizar.
+informe_final:
+  origen: herencia
+  hereda: unmsm-general
+  enfoque_sugerido: null
+  nota: El enfoque sugerido proviene de lo observado en tesis recientes, no de una norma. El estudiante
+    elige y su decisión se registra.
+etica:
+  comite_requerido: '[PENDIENTE-NORMATIVA]'
+  consentimiento: condicional
+  comite: Comité de Ética en Investigación de la UNMSM (RR N.° 008534-2025-R)
+autoria:
+  hereda: unmsm-general
+vigencia_proyecto_meses: '[PENDIENTE-NORMATIVA]'
+sustentacion:
+  hereda: unmsm-general
+esquema_de_facto: normativa/facultades/quimica-e-ing-quimica/esquema_de_facto.md
+observacion_de_facto:
+  advertencia: NO NORMATIVO. Solo material de contraste.
+  tesis_analizadas: 5
+  con_indice_legible: 4
+  anios:
+  - '2025'
+  - '2026'
+  secciones_observadas:
+  - seccion: Introducción
+    apariciones: 3 de 4
+  - seccion: Resumen
+    apariciones: 2 de 4
+  - seccion: Marco teórico
+    apariciones: 2 de 4
+  - seccion: Metodologia y procedimientos
+    apariciones: 1 de 4
+  - seccion: Problematica
+    apariciones: 1 de 4
+  - seccion: Abstract
+    apariciones: 1 de 4
+  - seccion: Revision bibliografica
+    apariciones: 1 de 4
+  - seccion: 3.1. melaza de cana de azucar
+    apariciones: 1 de 4
+  - seccion: 4. microencapsulacion
+    apariciones: 1 de 4
+  - seccion: 2. formulacion del problema
+    apariciones: 1 de 4
+advertencias_al_estudiante:
+- 'Tu escuela no publica un esquema propio de tesis. Te rige la estructura general de la universidad,
+  que sí es norma: los Anexos 2A y 2B de la RR N.° 00744-R-20.'
+- Antes de pasar a /proyecto necesitas que tu asesor confirme que esta estructura es la que tu escuela
+  espera. Queda registrado como decisión.
+- El estilo de citas no está fijado por ninguna norma aplicable a tu escuela. Decidirlo temprano evita
+  rehacer citas después.

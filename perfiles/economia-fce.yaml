@@ -1,0 +1,143 @@
+# Facultad de Ciencias Económicas.
+# Su guía regula SOLO el proyecto o diseño de investigación, y no acredita rango
+# normativo. El informe final se rige por el perfil base.
+
+id: economia-fce
+facultad: Facultad de Ciencias Económicas
+escuelas: [Economía, Economía Internacional, Economía Pública]
+nivel: pregrado
+hereda_de: unmsm-general
+estado: verificar
+
+fuente:
+  documento: "Estructura del diseño y/o proyecto de investigación para optar el título profesional de economista (el archivo se titula «PAUTAS PARA SUSTENTACION DE TESIS»)"
+  norma: null
+  fecha: null
+  pagina: null
+  url: null
+  archivo_local: normativa/facultades/PAUTAS_PARA_SUSTENTACION_DE_TESIS_economia-fce.docx
+  estado: verificar
+  cadena_de_aprobacion: []
+  por_que_no_es_verificado: >-
+    El documento no consigna número de resolución, fecha, firma ni código de
+    verificación, y él mismo se declara «una GUIA BREVE […] en concordancia con
+    el Reglamento General de Grados y Títulos». La RR 00744-R-20 §6.3 exige que
+    la normativa específica la apruebe la facultad con conformidad del VRAP.
+    Mientras no aparezca esa resolución, verificar_perfil.py debe impedir
+    elevarlo a `verificado` (regla R2). Ver normativa/conflictos.md, C-03.
+  discrepancia_de_titulo: >-
+    El nombre del archivo dice «sustentación», pero su contenido regula el
+    diseño o proyecto. Ver normativa/conflictos.md, C-02.
+
+enfoques_admitidos: [cuantitativo, cualitativo, mixto]
+
+estilo_citas: apa7
+estilo_citas_fuente: >-
+  La guía dice «siguiendo para estos casos, las NORMAS APPA» (sic, con esa
+  errata) y no precisa edición ni año. Se adopta APA 7 como valor operativo y
+  queda marcado: [PENDIENTE-NORMATIVA] en cuanto a la edición exigida.
+csl: plantillas/csl/apa-es.csl
+
+persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
+formato: {hereda: unmsm-general}
+resumen: {hereda: unmsm-general}
+
+hipotesis: obligatoria
+hipotesis_fuente: >-
+  La guía dedica el ítem 2 a la hipótesis y la coloca ANTES de los objetivos,
+  a diferencia del Anexo 2B, donde los objetivos van en el capítulo I y la
+  hipótesis en el III. Es la particularidad más marcada de este perfil.
+
+proyecto:
+  definido_por_norma: true
+  orden_particular: hipótesis antes de objetivos
+  items_excluibles_con_justificacion: true
+  items_excluibles_fuente: >-
+    «la estructura formal de presentación del Diseño que el graduando podrá
+    efectuar algunas, así como excluir algunos ítems considerados en la
+    propuesta, siempre que sea justificado y lo amerite».
+  secciones:
+    - parte: Primera página
+      contenido: datos de carácter general
+    - parte: INTRODUCCIÓN
+      contenido: >-
+        descripción panorámica de los capítulos en secuencia lógica, que incluye
+        los ANTECEDENTES informativos y/o bibliográficos y la IMPORTANCIA de la
+        investigación
+    - numero: 1
+      titulo: Definición y planteamiento del problema
+      subsecciones:
+        - 1.1 Identificación del problema
+        - 1.2 Delimitación del problema
+        - 1.3 Formulación del problema
+        - 1.4 Justificación del estudio
+    - numero: 2
+      titulo: Hipótesis
+      contenido: >-
+        genéricas y específicas, o de otro modo, según la naturaleza del
+        problema del proyecto o trabajo de investigación
+    - numero: 3
+      titulo: Objetivos
+      contenido: >-
+        concretos y concisos; susceptibles de cuantificarse (metas); de
+        conocimiento y de solución de problemas
+    - numero: 4
+      titulo: Marco teórico
+      contenido: aspectos conceptuales y referenciales que explican teóricamente el fenómeno
+    - numero: 5
+      titulo: Metodología
+      subsecciones:
+        - >-
+          5.1 Consideraciones metodológicas: métodos y técnicas de recopilación,
+          selección y análisis de la información, incluidos en las respectivas
+          etapas o fases
+    - numero: 6
+      titulo: Esquema del proyecto de investigación
+      contenido: >-
+        esquema capitular tentativo de la tesis, itemizado en capítulos y
+        subcapítulos, en secuencia lógica con la hipótesis a demostrar
+    - numero: 7
+      titulo: Bibliografía
+      contenido: orden alfabético por autores, normas APA
+    - numero: 8
+      titulo: Anexos
+  anexos_obligatorios: []
+  anexos_recomendados: [matriz_consistencia, operacionalizacion, cronograma, presupuesto]
+  nota_sobre_anexos: >-
+    La guía NO exige matriz de consistencia, operacionalización, cronograma ni
+    presupuesto. verificar_estructura.py no debe reclamarlos en este perfil.
+
+informe_final:
+  origen: esquema_capitular
+  hereda: unmsm-general
+  regla: >-
+    La guía no define el informe final. Se construye desde el esquema capitular
+    del ítem 6, aprobado por el estudiante, y debe encajar en la estructura del
+    Anexo 2B del perfil base. Si el esquema capitular aprobado se aparta del
+    Anexo 2B, prevalece el Anexo 2B y la diferencia se registra en decisiones/.
+
+etica:
+  comite_requerido: false
+  consentimiento: condicional
+  comite: Comité de Ética en Investigación de la UNMSM
+  fuente: "[PENDIENTE-NORMATIVA] en cuanto a exigencia propia de la facultad"
+
+autoria: {hereda: unmsm-general}
+vigencia_proyecto_meses: "[PENDIENTE-NORMATIVA]"
+sustentacion: {hereda: unmsm-general}
+
+esquema_de_facto: normativa/facultades/ciencias-economicas/esquema_de_facto.md
+
+advertencias_al_estudiante:
+  - >-
+    En tu escuela la hipótesis va ANTES de los objetivos. Es al revés que en la
+    estructura general de la universidad; no lo cambies por costumbre.
+  - >-
+    La guía te permite excluir ítems si lo justificas. Esa justificación es una
+    decisión tuya y queda registrada: el jurado puede preguntártela.
+  - >-
+    La guía solo regula el proyecto. Para el informe final rige la estructura
+    general de la universidad (Anexo 2B), construida desde tu esquema capitular.
+  - >-
+    El documento que usamos no tiene número de resolución. Conviene que tu asesor
+    confirme que es el vigente en la escuela antes de que avances a /proyecto.

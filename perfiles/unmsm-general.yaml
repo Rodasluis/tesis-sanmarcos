@@ -1,0 +1,261 @@
+# Perfil base de la UNMSM. Todos los perfiles de facultad heredan de este.
+# Fuente: Anexos 2A y 2B de la directiva aprobada por RR N.° 00744-R-20.
+
+id: unmsm-general
+facultad: "(todas)"
+escuelas: ["(todas las escuelas profesionales de pregrado)"]
+nivel: pregrado
+hereda_de: null
+estado: verificado
+
+fuente:
+  documento: >-
+    Directiva general para realizar, presentar y sustentar el trabajo de
+    investigación para la obtención del grado académico de bachiller, la tesis o
+    el trabajo de suficiencia profesional para la obtención del título
+    profesional en la UNMSM
+  norma: RR N.° 00744-R-20
+  fecha: 2020-02-18
+  pagina: "13-14 (Anexos 2A y 2B)"
+  url: https://viceacademico.unmsm.edu.pe/wp-content/uploads/2020/02/ANEXO-RR-00744-R-200001.pdf
+  archivo_local: normativa/RR_00744-2020-R_ANEXO_directiva_general_tesis.pdf
+  estado: verificado
+  cadena_de_aprobacion:
+    - "Aprobada por RR N.° 00744-R-20 del 18/02/2020, anexo de 16 folios"
+  nota: >-
+    El PDF es un escaneo sin capa de texto. Se leyó rasterizando sus páginas.
+
+enfoques_admitidos: [cuantitativo, cualitativo]
+
+estilo_citas: "[PENDIENTE-NORMATIVA]"
+estilo_citas_fuente:
+  texto: >-
+    "Las referencias según los estilos de cita-referencia de acuerdo a las áreas
+    del conocimiento."
+  documento: RR N.° 00744-R-20, Anexo 2A, pág. 13
+  lectura: >-
+    La norma general deliberadamente NO fija un estilo único. Cada perfil de
+    facultad debe declararlo; si su norma no lo dice, se pregunta al asesor y
+    queda registrado como decisión del estudiante.
+csl: null
+
+persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
+
+formato:
+  margenes_cm: "[PENDIENTE-NORMATIVA]"
+  fuente: "[PENDIENTE-NORMATIVA]"
+  tamano: "[PENDIENTE-NORMATIVA]"
+  interlineado: "[PENDIENTE-NORMATIVA]"
+  interlineado_referencias: null
+  papel: "[PENDIENTE-NORMATIVA]"
+  numeracion:
+    preliminares: romanos_minusculas
+    cuerpo: arabigos
+    posicion: "[PENDIENTE-NORMATIVA]"
+    fuente: "RR N.° 00744-R-20, Anexo 2A, pág. 13: «numeración es en romanos minúscula, (p.e.: iv, v, vi)»"
+
+extension_paginas: null
+
+resumen:
+  idiomas: [es, en]
+  palabras_max: 200
+  palabras_clave: 5
+  lineas_investigacion: false
+  formato: null
+  fuente: "RR N.° 00744-R-20, Anexo 2A, pág. 13"
+
+hipotesis: obligatoria
+hipotesis_fuente: >-
+  El Anexo 2B incluye el capítulo III «Hipótesis y variables» en ambos modelos.
+  En el modelo cualitativo el propio anexo admite «HipóT o supuestos hipotéticos».
+
+preliminares:
+  - {parte: caratula, obligatorio: true,
+     contiene: [escudo de la universidad, facultad, escuela profesional,
+                título de la tesis,
+                "fórmula: Tesis para optar al título profesional de …",
+                nombres y apellidos del bachiller, nombres y apellidos del asesor,
+                "fecha (mes y año)"]}
+  - {parte: resumen, obligatorio: true, palabras_max: 200}
+  - {parte: abstract, obligatorio: true, palabras_max: 200}
+  - {parte: palabras_clave, obligatorio: true, cantidad: 5}
+  - {parte: keywords, obligatorio: true, cantidad: 5}
+  - {parte: acta_de_sustentacion, obligatorio: true}
+  - {parte: dedicatoria, obligatorio: false, nota: "el anexo dice «(Opcional)»"}
+  - {parte: agradecimiento, obligatorio: false, nota: "el anexo dice «(Opcional)»"}
+
+informacion_complementaria:
+  fuente: "RR N.° 00744-R-20, Anexo 2A, pág. 13"
+  campos: [DNI del bachiller, correo institucional del asesor,
+           grupo de investigación, fuente de financiamiento,
+           disciplina de la OCDE,
+           "título en inglés o en quechua (de ser necesario)"]
+
+proyecto:
+  definido_por_norma: false
+  secciones: []
+  anexos_obligatorios: []
+  anexos_recomendados: [matriz_consistencia, operacionalizacion, cronograma, presupuesto]
+  nota: >-
+    La directiva general describe la RUTA del proyecto (§7.2 c-f: se elabora, se
+    revisa según la normativa específica, se inscribe en el registro, se ejecuta
+    con el asesor), pero no fija sus secciones. Eso queda a la facultad.
+
+informe_final:
+  origen: plantilla_norma
+  fuente: "RR N.° 00744-R-20, Anexo 2B, pág. 14"
+  modelos:
+
+    cuantitativo:
+      nombre: "Modelo 1 (investigación cuantitativa)"
+      secciones:
+        - numero: I
+          titulo: Introducción
+          subsecciones:
+            - I.1 Introducción
+            - "I.2 Planteamiento del problema: determinación del problema; formulación del problema"
+            - I.3 Objetivos
+            - I.4 Importancia y alcance de la investigación
+            - I.5 Limitaciones de la investigación
+        - numero: II
+          titulo: Revisión de literatura
+          subsecciones: [II.1 Marco teórico, II.2 Antecedentes del estudio,
+                         II.3 Bases teóricas, II.4 Definición de términos]
+        - numero: III
+          titulo: Hipótesis y variables
+          subsecciones: [III.1 HipóT, III.2 Variables,
+                         III.3 Operacionalización de las variables]
+        - numero: IV
+          titulo: Materiales y métodos
+          subsecciones:
+            - "IV.1 Área de estudio (citar coordenadas)"
+            - IV.2 Diseño de investigación
+            - IV.3 Población y muestra
+            - IV.4 Procedimientos, técnicas e instrumentos de recolección de información
+            - IV.5 Análisis estadístico
+        - numero: V
+          titulo: Resultados
+          subsecciones: [V.1 Presentación y análisis de los resultados]
+        - numero: VI
+          titulo: Discusión
+          subsecciones: []
+        - numero: VII
+          titulo: Conclusiones y recomendaciones
+          subsecciones: []
+
+    cualitativo:
+      nombre: "Modelo 2 (investigación cualitativa)"
+      secciones:
+        - numero: I
+          titulo: Introducción
+          subsecciones:
+            - I.1 Introducción
+            - I.2 Descripción de la realidad problemática
+            - I.3 Definición del problema
+            - I.4 Objetivos
+            - I.5 Justificación e importancia de la investigación
+            - I.6 Limitaciones de la investigación
+        - numero: II
+          titulo: Revisión de literatura
+          subsecciones: [II.1 Marco teórico, II.2 Antecedentes del estudio,
+                         II.3 Bases teóricas, II.4 Definición de categorías de análisis]
+        - numero: III
+          titulo: Hipótesis y variables
+          subsecciones: ["III.1 HipóT o supuestos hipotéticos",
+                         III.2 Sistemas y categorías de análisis]
+        - numero: IV
+          titulo: Materiales y métodos
+          subsecciones:
+            - "IV.1 Enfoque de la investigación (HipóT inductiva)"
+            - IV.2 Tipo de investigación
+            - "IV.3 Diseño de investigación (flexible)"
+            - IV.4 Credibilidad de la investigación
+            - IV.5 Sujetos de estudio
+            - IV.6 Procedimientos, técnicas e instrumentos de recolección de información
+            - IV.7 Análisis de datos
+        - numero: V
+          titulo: Resultados
+          subsecciones: [V.1 Presentación y análisis de los resultados]
+        - numero: VI
+          titulo: Discusión
+          subsecciones: []
+        - numero: VII
+          titulo: Conclusiones y recomendaciones
+          subsecciones: []
+
+cierre:
+  - {parte: bibliografia, obligatorio: true,
+     nota: "solo las referencias de las citas utilizadas en el texto"}
+  - {parte: anexos, obligatorio: false,
+     ejemplos_de_la_norma: [base de datos, códigos de software, imágenes,
+                            vídeos, sonidos, procedimientos, gráficas]}
+
+etica:
+  comite_requerido: "[PENDIENTE-NORMATIVA]"
+  consentimiento: condicional
+  comite: Comité de Ética en Investigación de la UNMSM (RR N.° 008534-2025-R)
+  fuente: >-
+    Código de Ética en Investigación de la UNMSM (RR N.° 012648-2023-R), art. 5
+    (confidencialidad) y art. 12 (consentimiento informado); Ley N.° 29733 y su
+    reglamento DS N.° 016-2024-JUS para datos personales.
+
+autoria:
+  max_autores: 3
+  objetivos_por_autor: true
+  condicion_grupal: >-
+    Si la tesis es grupal, la escuela verifica que el proyecto resuelva un
+    problema complejo o multidisciplinario y que cada participante tenga
+    objetivos definidos.
+  fuente: "RR N.° 00744-R-20, §7.2 Realización, incisos a) y b), pág. 7"
+
+vigencia_proyecto_meses: null
+
+sustentacion:
+  exposicion_min: "[PENDIENTE-NORMATIVA]"
+  preguntas_min: "[PENDIENTE-NORMATIVA]"
+  jurado: "[PENDIENTE-NORMATIVA]"
+  asesor_con_voz_sin_voto: null
+  rubrica: null
+  escala: vigesimal
+  nota_minima: 11
+  escala_detalle:
+    "0 a 10": Desaprobado
+    "11 a 15": Aprobado
+    "16 a 18": Aprobado con mención honrosa
+    "19 y 20": Aprobado con máximos honores
+  fuente: >-
+    Reglamento General de Grados y Títulos, art. 14, aprobado por RR N.° 01827-R-17
+    y modificado por la propia RR N.° 00744-R-20 (págs. 1-2) y por
+    RR N.° 004503-2021-R y RR N.° 003078-2022-R.
+  modalidad_no_presencial: >-
+    Regulada por la Directiva general de sustentación de tesis en modalidad no
+    presencial, RR N.° 01242-2020-R.
+
+entrega:
+  fuente: "Directiva de originalidad y similitud, RR N.° 000947-2026-R, art. 13"
+  formato: docx
+  archivos:
+    - {orden: 1, rotulo: Desarrollo,
+       contiene: "el documento sin carátula, dedicatorias, agradecimientos, lista de figuras, lista de tablas, referencias bibliográficas ni anexos",
+       nombre: "(Apellidos y nombres) - Desarrollo (Título) - (Año).docx"}
+    - {orden: 2, rotulo: Protocolo y Complemento,
+       contiene: "carátula, dedicatorias, agradecimiento, lista de figuras, lista de tablas, bibliografía y anexos",
+       nombre: "(Apellidos y nombres) - Protocolo y Complemento (Título) - (Año).docx"}
+  carpetas: {TEXTO: "los dos .docx", DOCUMENTO: "nombrada según el tipo de documento"}
+  tablas_y_formulas: "como texto, nunca como imágenes"
+  similitud_permitida: "0 % a 20 %"
+  declaracion_jurada: "Anexo 4 de la RR N.° 000947-2026-R"
+
+esquema_de_facto: null
+
+advertencias_al_estudiante:
+  - >-
+    Este perfil es el piso normativo de la universidad. Si tu escuela tiene su
+    propio documento de estructura, ese manda sobre este en lo que difiera.
+  - >-
+    El estilo de citas no está fijado por la norma general. Confírmalo con tu
+    asesor antes de redactar: cambiarlo después obliga a rehacer todas las citas.
+  - >-
+    El tema debe salir de la relación publicada por tu escuela; si no figura,
+    hay que coordinar previamente con un docente para incluirlo
+    (RR N.° 00744-R-20, §7.1 c) y d), y §7.2).

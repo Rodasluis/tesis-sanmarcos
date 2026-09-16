@@ -1,0 +1,238 @@
+# Facultad de Medicina. Especializa `unmsm-general` con norma propia verificada.
+
+id: medicina-fm
+facultad: Facultad de Medicina
+escuelas: [Enfermería, Medicina Humana, Nutrición, Obstetricia, Tecnología Médica]
+nivel: pregrado
+hereda_de: unmsm-general
+estado: verificado
+
+fuente:
+  documento: Reglamento para la elaboración de tesis de pregrado de las cinco escuelas profesionales de la Facultad de Medicina
+  norma: RD N.° 002373-2023-D-FM
+  fecha: 2023-06-19
+  pagina: "anexos C, D, E y F (págs. 12 a 14 impresas)"
+  url: https://medicina.unmsm.edu.pe/wp-content/uploads/2022/07/RD-002373-2023-REGLAMENTO-ELABORACION-DE-TESIS-ACTUAL-NIVEL-FACULTAD-.pdf
+  archivo_local: normativa/facultades/medicina/RD_002373-2023-D-FM_reglamento_tesis.pdf
+  estado: verificado
+  cadena_de_aprobacion: ["Resolución Decanal N.° 002373-2023-D-FM del 19/06/2023"]
+
+enfoques_admitidos: [cuantitativo, cualitativo]
+
+estilo_citas: vancouver
+estilo_citas_fuente: "Anexos C, D, E y F: «Referencias bibliográficas según normas de Vancouver»"
+csl: plantillas/csl/vancouver.csl
+
+persona_gramatical: [tercera, impersonal]
+persona_gramatical_fuente: "[PENDIENTE-NORMATIVA]"
+
+formato:
+  margenes_cm: "[PENDIENTE-NORMATIVA]"
+  fuente: "[PENDIENTE-NORMATIVA]"
+  tamano: "[PENDIENTE-NORMATIVA]"
+  interlineado: "[PENDIENTE-NORMATIVA]"
+  papel: "[PENDIENTE-NORMATIVA]"
+  numeracion: {hereda: unmsm-general}
+
+resumen:
+  idiomas: [es, en]
+  palabras_max: "[PENDIENTE-NORMATIVA]"
+  palabras_clave: "[PENDIENTE-NORMATIVA]"
+  lineas_investigacion: false
+  formato: "según el formato de la Revista Anales de la Facultad de Medicina"
+  fuente: "Anexo E"
+  advertencia: >-
+    El anexo remite al formato de Anales sin reproducirlo. Antes de redactar hay
+    que consultar las instrucciones vigentes de la revista; el repositorio no las
+    inventa. Marcado como pendiente hasta contrastarlas.
+
+hipotesis: condicional
+hipotesis_fuente: "Anexo C, capítulo II: «Formulación de la hipótesis (si es pertinente)»"
+
+proyecto:
+  definido_por_norma: true
+  anexos_obligatorios: [cronograma, presupuesto, recursos_disponibles]
+  anexos_obligatorios_fuente: "Anexos C y D, capítulo III"
+  modelos:
+
+    cuantitativo:
+      nombre: "Anexo C — Esquema de un proyecto de tesis: diseño cuantitativo"
+      secciones:
+        - {parte: Carátula}
+        - {parte: Índice}
+        - numero: I
+          titulo: "CAPITULO I"
+          items:
+            - Planteamiento del problema, delimitación y formulación
+            - Formulación de objetivos
+            - Justificación de la investigación
+            - Limitaciones del estudio
+        - numero: II
+          titulo: "CAPITULO II"
+          items:
+            - Marco teórico
+            - "Formulación de la hipótesis (si es pertinente)"
+            - >-
+              Diseño metodológico: tipo de investigación, población, muestra,
+              variables, operacionalización de variables, técnicas e
+              instrumentos, plan de recolección y análisis estadístico de los
+              datos. Consideraciones éticas, consentimiento informado, así como
+              los requisitos de ensayos clínicos y experimentales según el tipo
+              de investigación
+        - numero: III
+          titulo: "CAPITULO III"
+          items: [Cronograma del trabajo, Presupuesto, Recursos disponibles]
+        - {parte: Referencias bibliográficas, nota: normas de Vancouver}
+        - {parte: Anexos}
+
+    cualitativo:
+      nombre: "Anexo D — Esquema de un proyecto de tesis: diseño cualitativo"
+      secciones:
+        - {parte: Carátula}
+        - {parte: Índice}
+        - numero: I
+          titulo: "CAPITULO I"
+          items:
+            - "El problema de investigación: delimitación y formulación"
+            - Objetivos
+            - Justificación de la investigación
+            - Limitaciones del estudio
+        - numero: II
+          titulo: "CAPITULO II"
+          items:
+            - Referente teórico
+            - >-
+              Referente metodológico: tipo de investigación, características de
+              las unidades informantes, técnicas a emplearse, plan de trabajo de
+              campo. Consideraciones éticas
+        - numero: III
+          titulo: "CAPITULO III"
+          items: [Cronograma del trabajo, Presupuesto, Recursos disponibles]
+        - {parte: Referencias bibliográficas, nota: normas de Vancouver}
+        - {parte: Anexos}
+
+informe_final:
+  origen: plantilla_norma
+  fuente: "Anexo E, pág. 14 impresa"
+  modelos:
+
+    cuantitativo:
+      nombre: "Esquema del informe final de la tesis cuantitativa"
+      secciones:
+        - {parte: Carátula}
+        - {parte: Página de agradecimiento}
+        - {parte: Página de dedicatoria}
+        - {parte: "Página de índice (índice de tablas, gráficos)"}
+        - {parte: "Resumen (español/inglés)", nota: "según formato de Anales de la Facultad de Medicina"}
+        - titulo: Introducción
+          contenido: >-
+            descripción breve de los antecedentes e importancia de la
+            investigación, objetivos, finalidad y referencia de la literatura
+            pertinente del trabajo realizado
+        - titulo: Métodos
+          contenido: >-
+            tipo de investigación, diseño, población, muestra, variables,
+            técnicas e instrumentos, procedimientos y análisis de los datos;
+            consideraciones éticas, consentimiento informado, y requisitos
+            aprobados para ensayos clínicos y experimentales cuando la
+            investigación lo requiera. Las tesis pueden referirse a series de
+            casos clínicos
+        - titulo: Resultados
+          contenido: >-
+            datos obtenidos en forma precisa, con tablas, gráficos y fotografías
+            ordenadas con números arábigos y su correspondiente leyenda
+        - titulo: Discusión
+          contenido: >-
+            interpretación y comentarios de los resultados, y su comparación con
+            otras experiencias nacionales e internacionales
+        - {titulo: Conclusiones y recomendaciones}
+        - {titulo: Referencias bibliográficas, nota: normas de Vancouver}
+        - {titulo: Anexos}
+
+    cualitativo:
+      nombre: "Esquema del informe final de la tesis cualitativa"
+      nota_clave: "Resultados y discusión van FUSIONADOS en una sola sección"
+      secciones:
+        - {parte: Carátula}
+        - {parte: Página de agradecimiento}
+        - {parte: Página de dedicatoria}
+        - {parte: "Página de índice (índice de tablas, gráficos)"}
+        - {parte: "Resumen (español/inglés)", nota: "según formato de Anales de la Facultad de Medicina"}
+        - titulo: Introducción
+          contenido: >-
+            situación problemática, formulación del problema, justificación de
+            la investigación, objetivos general y específicos
+        - titulo: Marco teórico
+          contenido: "antecedentes, base teórica, definición de términos"
+        - titulo: Método
+          contenido: >-
+            tipo de investigación (fenomenológico, etnográfico, de teoría
+            fundamentada, de investigación-acción, de caso u otras, con breve
+            fundamentación), escenario de estudio, participantes, técnicas e
+            instrumentos de recolección de datos, plan de recolección de datos,
+            método de análisis de información, consideraciones éticas
+        - {titulo: Resultados y discusión}
+        - {titulo: Conclusiones y recomendaciones}
+        - {titulo: Referencias bibliográficas, nota: normas de Vancouver}
+        - {titulo: Anexos}
+
+etica:
+  comite_requerido: true
+  consentimiento: obligatorio
+  comite: Comité de Investigación de la EP y Comité de Ética en Investigación
+  fuente: >-
+    Art. 23: la ejecución del proyecto requiere la aprobación del Comité de
+    Investigación de la escuela y de un Comité de Ética en Investigación, y la
+    resolución decanal de aprobación del proyecto.
+
+autoria: {hereda: unmsm-general}
+
+vigencia_proyecto_meses: 12
+vigencia_prorroga_meses: 6
+vigencia_fuente: >-
+  Art. 42: el proyecto aprobado tiene vigencia de un año calendario; vencido sin
+  informe final se anula de oficio. Se puede pedir por única vez una ampliación
+  no mayor de 6 meses, a solicitud del tesista y del asesor.
+
+sustentacion:
+  exposicion_min: "15 a 20"
+  preguntas_min: "hasta 20"
+  jurado: 4
+  asesor_con_voz_sin_voto: true
+  escala: vigesimal
+  nota_minima: 11
+  fuente: "Arts. 33 y 34"
+  momentos:
+    - "Exposición del tesista: 15 a 20 minutos"
+    - "Formulación de preguntas: hasta 20 minutos"
+    - "Deliberación del jurado: participa el asesor con voz, pero sin voto"
+    - "Lectura del acta de calificación en el acto de sustentación"
+  rubrica:
+    Coherencia entre aspectos metodológicos: 4
+    Originalidad y validez científica: 3
+    Fluidez y dominio del tema durante la exposición: 5
+    Uso de medios y materiales audiovisuales: 3
+    Solvencia y seguridad al absolver las preguntas del jurado: 5
+  rubrica_detalle_preguntas:
+    Suficiencia en absolver todas las preguntas: 5
+    Suficiencia para responder algunas preguntas: 4
+    Inseguridad en las respuestas: 3
+    Respuestas contradictorias: 1
+    No responde: 0
+  redondeo: "el promedio del jurado redondea la fracción 0.5 al entero superior"
+
+esquema_de_facto: normativa/facultades/medicina/esquema_de_facto.md
+
+advertencias_al_estudiante:
+  - >-
+    El proyecto necesita aprobación de un Comité de Ética antes de ejecutarse.
+    Ese trámite toma tiempo: planifícalo desde el inicio.
+  - >-
+    El proyecto vence al año. Si no presentas el informe final, se anula de
+    oficio; solo hay una prórroga posible de 6 meses.
+  - >-
+    El resumen debe seguir el formato de Anales de la Facultad de Medicina. El
+    reglamento no lo reproduce, así que hay que consultarlo aparte.
+  - >-
+    Las referencias van en Vancouver, no en APA. Si ya tienes tu biblioteca
+    Zotero en APA, el cambio es automático, pero revisa las citas textuales.

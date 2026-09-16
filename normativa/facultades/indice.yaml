@@ -169,12 +169,20 @@ facultades:
     escuelas: [Ciencia Política, Derecho]
     documento_estructura:
       nombre: Reglamento General de Grados y Títulos de la FDCP
-      norma: null                 # pendiente de identificar la RD que lo aprueba
-      fecha: null
+      norma: RR N.° 007301-2022-R
+      fecha: 2022
       nivel: pregrado
       url: https://derecho2.unmsm.edu.pe/ddocus/Reglamento%20de%20Grados%20y%20T%C3%ADtulos%20de%20la%20FDCP%20%20%20firmado%20%20-signed%20%20Final%20%20%20%201%20.pdf
       archivo_local: derecho-y-ciencia-politica/Reglamento_Grados_y_Titulos_FDCP.pdf
-      estado: verificar
+      estado: verificado
+      cadena_de_aprobacion:
+        - RD N.° 001935-2021-D-FDCP del 13/12/2021, que aprobó el reglamento
+        - modificada por RD N.° 000016-2022-D-FDCP del 10/01/2022
+        - ratificada por RR N.° 007301-2022-R, anexo de 36 folios
+      archivo_resolucion: derecho-y-ciencia-politica/RR_007301-2022-R.pdf
+      verificacion_documental:
+        portal: https://spsgd.unmsm.edu.pe/verifica/inicio.do
+        codigo: HVUXGIO
     rasgos_confirmados:
       alcance: procedimental
       remite_a: "Anexos 1, 2, 3A y 3B de la RR 00744-R-20"
@@ -335,3 +343,36 @@ documentos_generales_adicionales:
     archivo_local: ../Guia_elaboracion_proyectos_investigacion_formativa_UNMSM.pdf
     estado: verificado
     pertinencia: orientación metodológica; no fija estructura de tesis
+
+  - nombre: Modificatoria del Reglamento General de Grados y Títulos
+    norma: RR N.° 004503-2021-R
+    fecha: 2021-05-19
+    archivo_local: ../RR_004503-2021-R_modifica_reglamento_grados_titulos.pdf
+    estado: verificado
+    pertinencia: >-
+      Modifica el Reglamento aprobado por RR N.° 01827-R-17. Completa la cadena
+      normativa que rige la calificación y los requisitos de grado.
+
+  - nombre: Segunda modificatoria del Reglamento General de Grados y Títulos
+    norma: RR N.° 003078-2022-R
+    fecha: 2022-03
+    archivo_local: ../RR_003078-2022-R_reglamento_grados_titulos_vigente.pdf
+    estado: verificado
+    pertinencia: >-
+      Modifica la segunda disposición transitoria (bachillerato automático),
+      extendiéndola a los años académicos 2020 a 2023. No altera la estructura
+      de la tesis.
+
+  - nombre: Directiva general de sustentación de tesis en modalidad no presencial
+    norma: RR N.° 01242-2020-R
+    fecha: 2020-04-16
+    archivo_local: ../RR_01242-2020-R_sustentacion_modalidad_no_presencial.pdf
+    estado: verificado
+    pertinencia: aplica cuando la sustentación es virtual
+
+# Cadena vigente del Reglamento General de Grados y Títulos, confirmada al leer
+# los considerandos de la RR 003078-2022-R:
+#   RR 01827-R-17 (11/04/2017)  ->  base
+#   RR 004503-2021-R (19/05/2021)  ->  modifica art. 10 y agrega disposición transitoria
+#   RR 003078-2022-R (2022)  ->  modifica la segunda disposición transitoria
+#   RR 00744-R-20 también modificó su art. 14 (escala de calificación)
