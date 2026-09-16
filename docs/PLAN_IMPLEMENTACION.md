@@ -158,7 +158,28 @@ Los nombres de `capitulos/` los genera `/proyecto` desde el perfil y el esquema 
 
 ---
 
-## 7. Lo que necesito de ti
+## 7. Ajustes tras las Fases 0 y 0b
+
+**Repositorios de referencia.** Verifiqué la licencia de los seis. El resultado y el detalle de
+qué se toma y qué no de cada uno está en [`NOTICE.md`](../NOTICE.md). Lo que cambia el plan:
+`hugosantanna/clo-author` y `ccam80/thesis-writer` **no declaran licencia**, de modo que de
+ambos solo se toman ideas de diseño, nunca código. La especificación describía el primero como
+MIT; no lo es. `ambarja/template-tesis-unmsm-geografica` (CC0) aporta una referencia concreta de
+tesis UNMSM en Quarto para la Fase 1.
+
+**La Fase 1 cambia de forma.** El relevamiento encontró que la UNMSM tiene una estructura de
+tesis aprobada por resolución rectoral: los Anexos 2A y 2B de la RR 00744-R-20. Por tanto:
+
+- `perfiles/` deja de ser "cada facultad inventa su esquema" y pasa a ser **un perfil base
+  normativo más especializaciones de facultad**;
+- el tercer perfil de referencia deja de llamarse `generico-cualitativo` con
+  `estado: plantilla_no_normativa` y pasa a ser **`unmsm-general`**, con dos modelos
+  (cuantitativo y cualitativo) y `estado: verificado`, porque sí tiene norma detrás;
+- una escuela sin documento propio ya no queda bloqueada por falta de perfil: hereda el base;
+- los preliminares en **romanos minúsculos** son regla general, no una particularidad de Letras,
+  lo que eleva la prioridad del post-proceso de Word ya señalado como riesgo.
+
+## 8. Lo que necesito de ti
 
 1. **Aprobación de este plan** (sección 1 del prompt: no empiezo a programar sin ella).
 2. **Cómo obtengo la normativa:** camino A, B o C de la sección 2.

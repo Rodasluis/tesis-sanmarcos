@@ -168,6 +168,40 @@ Documento escaneado; leído por rasterización de páginas. Las páginas citadas
 
 **Motor:** `/afinar-idea` debe preguntar por la línea de investigación y advertir que la pregunta elegida requiere estar en la relación de la EP o coordinarse para incluirla. **Restricción que el encargo no contemplaba y que condiciona la etapa 2.**
 
+### R-26 · Estructura general de la tesis para título (Anexo 2A)
+**Anexo 2A**, pág. 13 de 16. Añadido en la Fase 0b.
+
+Fija las tres partes del documento y el contenido de los preliminares:
+
+- **Identificación y preliminares**, con numeración **en romanos minúsculos** (el propio anexo ejemplifica "iv, v, vi"). Carátula con escudo de la universidad, facultad, escuela profesional, título de la tesis, la fórmula "Tesis para optar al título profesional de …", nombres y apellidos del bachiller, nombres y apellidos del asesor, y fecha (mes y año). Luego: resumen/abstract de **200 palabras**, palabras clave/keywords (**5 palabras**), acta de sustentación, dedicatoria **(opcional)** y agradecimiento **(opcional)**.
+- **Información complementaria**: DNI del bachiller, correo institucional del asesor, grupo de investigación, fuente de financiamiento, disciplina de la OCDE y título en inglés o en quechua "de ser necesario".
+- **Cuerpo**: remite al Anexo 2B.
+- **Bibliografía y anexos**: > "Las referencias según los estilos de cita-referencia de acuerdo a las áreas del conocimiento."
+
+**Motor:** define la carátula y los preliminares que genera `entregar.py` para **todas** las facultades. La última frase es la base normativa de que el estilo de citas viva en el perfil y no en el motor.
+
+### R-27 · Estructura del cuerpo de la tesis (Anexo 2B)
+**Anexo 2B**, pág. 14 de 16. Añadido en la Fase 0b. Dos modelos de siete capítulos:
+
+| Cap. | Modelo 1 (cuantitativa) | Modelo 2 (cualitativa) |
+|---|---|---|
+| I | Introducción | Introducción |
+| II | Revisión de literatura | Revisión de literatura |
+| III | Hipótesis y variables | Hipótesis y variables (*HipóT o supuestos hipotéticos*) |
+| IV | Materiales y métodos | Materiales y métodos |
+| V | Resultados | Resultados |
+| VI | Discusión | Discusión |
+| VII | Conclusiones y recomendaciones | Conclusiones y recomendaciones |
+
+Se diferencian en el detalle: el modelo 1 incluye `III.3 Operacionalización de las variables` y `IV.5 Análisis estadístico`; el modelo 2 los sustituye por `III.2 Sistemas y categorías de análisis`, `IV.4 Credibilidad de la investigación`, `IV.5 Sujetos de estudio` y `IV.7 Análisis de datos`.
+
+**Motor:** es el **piso normativo** de la estructura. Un perfil de facultad especializa este esquema al amparo del §6.3 (R-13); una facultad sin norma propia lo hereda tal cual. Esto sustituye la idea de una "plantilla no normativa" para las escuelas sin documento.
+
+### R-28 · Estructuras del trabajo de investigación para bachiller (Anexo 1)
+**Anexo 1**, págs. 9 a 12 de 16. El TI tiene extensión de **10 000 a 20 000 palabras (20 a 50 páginas)** y cuatro modelos de cuerpo, según la naturaleza del trabajo: **1B documental**, **1C empírica**, **1D teórica o ensayo** y **1E técnica, tecnológica o innovación**.
+
+**Motor:** fuera del alcance de la versión 1, que se centra en la tesis para título. Se registra para no perderlo.
+
 ## 4. Reglamento General de Grados y Títulos — RR N.° 01827-R-17
 
 ### R-19 · Escala de calificación
@@ -235,3 +269,4 @@ Exigido por la directiva 00744 §7.2 (R-16) y por el Protocolo de depósito en C
 3. **La regla sobre IA generativa está en el artículo de definiciones** (art. 5 q), no en un artículo de obligaciones (R-02).
 4. **Requisitos no previstos en el encargo:** vigencia de 90 días del certificado de similitud (R-09), costo de S/ 20 desde la segunda revisión (R-10), obligación de elegir el tema de la relación publicada por la escuela (R-18) y registro en el sistema RAIS (directiva 00744 §7.1).
 5. **El fundamento normativo del diseño por perfiles existe y es explícito:** §6.3 de la directiva 00744 (R-13).
+6. **Sí existe una estructura de tesis aprobada para toda la UNMSM** (R-26, R-27). La premisa del encargo de que "no existe un esquema único" es cierta solo en cuanto a las especializaciones de facultad: hay un piso común, los Anexos 2A y 2B de la RR 00744-R-20. Se detectó en la Fase 0b, al leer las páginas escaneadas del anexo de la directiva que en la Fase 0 habían quedado sin revisar. Consecuencia de diseño: el perfil `generico-cualitativo` deja de ser una "plantilla no normativa" y pasa a ser un perfil **verificado** derivado del Anexo 2B, modelo 2.
