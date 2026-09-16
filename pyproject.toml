@@ -1,0 +1,58 @@
+[project]
+name = "tesis-sanmarcos"
+version = "0.1.0"
+description = "Elaboración de tesis de pregrado de la UNMSM con Claude Code, desde la idea hasta la sustentación."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+
+dependencies = [
+    "pyyaml>=6.0",          # perfiles y libros de códigos
+    "python-docx>=1.1",     # plantillas .docx y post-proceso de Word
+    "requests>=2.32",       # Crossref, OpenAlex, PubMed, Cybertesis
+    "rapidfuzz>=3.9",       # comparación difusa de títulos al validar citas
+    "pypdf>=5.0",           # lectura de PDF de la biblioteca
+    "jinja2>=3.1",          # plantillas de formularios y declaraciones
+    "pandas>=2.2",          # análisis cuantitativo
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+]
+analisis = [
+    "numpy>=2.0",
+    "statsmodels>=0.14",
+    "matplotlib>=3.9",
+]
+
+[project.scripts]
+# Se registran a medida que las herramientas existen (Fase 2).
+tesis-perfil = "herramientas.activar_perfil:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["herramientas"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+# ---------------------------------------------------------------------------
+# Nota sobre Python en Windows
+# ---------------------------------------------------------------------------
+# En muchas instalaciones de Windows el comando `python` del PATH es el stub de
+# Microsoft Store y no ejecuta nada. Usa siempre `uv run` (o `py -3`), nunca
+# `python` a secas. Todas las herramientas del repositorio asumen `uv run`.

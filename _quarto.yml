@@ -1,0 +1,30 @@
+# ARCHIVO GENERADO. No lo edites: se sobrescribe al activar un perfil.
+# Perfil activo : unmsm-general ((todas))
+# Estado        : verificado
+# Norma         : RR N.° 00744-R-20
+# Herencia      : unmsm-general
+# Regenerar con : uv run python -m herramientas.activar_perfil unmsm-general
+
+project:
+  type: default
+  output-dir: entregables/_render
+
+bibliography: referencias.bib
+lang: es
+
+format:
+  docx:
+    reference-doc: plantillas/unmsm-general/referencia.docx
+    number-sections: false
+    toc: false
+    fig-align: center
+    tbl-cap-location: top
+
+# La numeración romana de los preliminares y el reinicio en arábigos NO se
+# configuran aquí: Quarto no genera saltos de sección. Los aplica
+# herramientas/docx_numeracion.py sobre el .docx ya renderizado.
+
+execute:
+  echo: false
+  warning: false
+  freeze: auto

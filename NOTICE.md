@@ -96,9 +96,21 @@ verificarán contra su documentación vigente antes de documentarlas.
 
 | Componente | Origen | Licencia | Estado |
 |---|---|---|---|
-| Estilos CSL (`apa-es`, `vancouver`) | repositorio oficial de CSL | CC BY-SA 3.0 | Pendiente de incorporar en Fase 1 |
+| `plantillas/csl/apa.csl` — APA Style 7th edition | proyecto Citation Style Language | CC BY-SA 3.0 | Incorporado el 2026-09-16 |
+| `plantillas/csl/vancouver.csl` — NLM/Vancouver: Citing Medicine 2nd edition | proyecto Citation Style Language | CC BY-SA 3.0 | Incorporado el 2026-09-16 |
+| `plantillas/csl/locales-es-ES.xml` | proyecto Citation Style Language | CC BY-SA 3.0 | Incorporado el 2026-09-16 |
+| `reference.docx` base de las plantillas | pandoc (`--print-default-data-file`) | GPL-2.0-or-later | No se redistribuye: se extrae de pandoc al generar cada plantilla |
 | Quarto | Posit | MIT | Dependencia externa, no se redistribuye |
 | Pandoc | John MacFarlane | GPL-2.0-or-later | Dependencia externa, no se redistribuye |
+
+Dos precisiones sobre los CSL, documentadas en `plantillas/csl/README.md`:
+el proyecto CSL **no publica un `apa-es.csl`** (el español se obtiene con
+`apa.csl` más el archivo de localización y `lang: es`), y el estilo servido como
+"vancouver" tiene hoy el identificador interno `nlm-citation-sequence`.
+
+El `reference.docx` de partida lo genera pandoc en la máquina del estudiante cada
+vez que se construye una plantilla, de modo que este repositorio no distribuye
+ningún archivo derivado de pandoc.
 
 ## 4. Documentos normativos
 

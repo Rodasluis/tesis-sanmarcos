@@ -1,0 +1,43 @@
+# Formato aplicado — `educacion-fe`
+
+- Facultad: Facultad de Educación
+- Estado del perfil: `solo_fuente_secundaria`
+- Fuente del formato: R.D. 1069-D-FE-2017, esquema de tesis de la Facultad de Educación
+
+## Valores con los que se generó `referencia.docx`
+
+| Parámetro | Valor |
+|---|---|
+| Papel | A4 |
+| Tipografía | Times New Roman |
+| Cuerpo | 12 pt |
+| Interlineado | 1.5 |
+| Margen superior | 2.5 cm |
+| Margen inferior | 2.5 cm |
+| Margen izquierdo | 3.0 cm |
+| Margen derecho | 2.5 cm |
+
+## Atención: valores que NO vienen de una norma
+
+La norma aplicable a este perfil no fija los siguientes puntos. Se
+aplicaron valores operativos para poder maquetar. **No son requisitos**
+y conviene confirmarlos con el asesor antes de la entrega:
+
+- tipografía: Times New Roman (valor operativo; la norma no la fija)
+- cuerpo: 12 pt (valor operativo)
+- interlineado: 1.5 (valor operativo)
+- márgenes: 2,5 cm salvo el izquierdo, 3,0 cm para encuadernación (valores operativos; la norma no los fija)
+- papel: A4 (valor operativo)
+
+## Qué NO resuelve esta plantilla
+
+La numeración en romanos minúsculos de los preliminares y el reinicio en
+arábigos desde el cuerpo **no** se configuran aquí: Word los implementa con
+saltos de sección, que Quarto no genera. Los aplica
+`herramientas/docx_numeracion.py` al final, sobre el `.docx` ya renderizado.
+
+Este archivo se regenera con:
+
+```
+uv run python -m herramientas.plantilla_docx --perfil educacion-fe
+```

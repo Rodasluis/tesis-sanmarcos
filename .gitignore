@@ -28,3 +28,7 @@ _site/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Estado local del estudiante, no del repositorio
+.perfil-activo
+entregables/_render/
