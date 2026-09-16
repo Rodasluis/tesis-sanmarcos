@@ -1,0 +1,30 @@
+# Datos personales y material crudo: nunca salen del equipo del estudiante.
+datos/crudos/
+datos/procesados/*.parquet
+*.sav
+*.dta
+
+# Credenciales
+.env
+.env.*
+*.key
+credenciales*
+zotero_api*
+
+# Entornos y cachés
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.uv/
+
+# Salidas de render
+_site/
+*.docx.bak
+.quarto/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
