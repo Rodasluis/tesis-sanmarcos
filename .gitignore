@@ -32,3 +32,15 @@ desktop.ini
 # Estado local del estudiante, no del repositorio
 .perfil-activo
 entregables/_render/
+
+# Salidas de las herramientas de verificación: se regeneran en cada corrida
+registro/*.md
+registro/*.json
+registro/tablero.html
+registro/_cache_red/
+registro/registro_ia.jsonl
+
+# Entregables del estudiante
+entregables/TEXTO/
+entregables/DOCUMENTO/
+entregables/datos_de_entrega.yaml

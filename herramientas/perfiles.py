@@ -222,6 +222,16 @@ def validar_perfil(perfil: Perfil, raiz: pathlib.Path) -> None:
         raise ErrorDePerfil(f"{perfil.id}: " + "; ".join(fallos))
 
 
+def cargar_de(raiz: pathlib.Path, pid: str, validar: bool = True) -> Perfil:
+    """Carga un perfil desde `raiz/perfiles/`.
+
+    Las herramientas reciben la raíz del proyecto como parámetro para poder
+    trabajar sobre proyectos de prueba; sin esto acabarían leyendo siempre los
+    perfiles del repositorio instalado.
+    """
+    return cargar(pid, dir_perfiles=raiz / "perfiles", raiz=raiz, validar=validar)
+
+
 def listar(dir_perfiles: pathlib.Path | None = None) -> list[str]:
     """Ids de todos los perfiles disponibles, sin los archivos que empiezan por _."""
     dir_perfiles = dir_perfiles or DIR_PERFILES
