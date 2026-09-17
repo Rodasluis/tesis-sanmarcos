@@ -4,7 +4,7 @@ La regla que gobierna esta herramienta: **solo se exige lo que el perfil marca
 como obligatorio**. Es fácil escribir un verificador que reclame matriz de
 consistencia a todo el mundo; sería cómodo y estaría mal. La guía de Economía,
 por ejemplo, no pide matriz de consistencia ni cronograma, y exigírselos a un
-estudiante de la FCE sería inventar normativa.
+tesista de la FCE sería inventar normativa.
 
 Qué comprueba:
 

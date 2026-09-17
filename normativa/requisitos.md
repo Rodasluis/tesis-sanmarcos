@@ -59,7 +59,7 @@ Documentos adicionales descargados que no estaban en la lista de la sección 2 d
 
 Concordante con el **art. 12, inciso c**, pág. 10 PDF / pág. 9 impresa, que condiciona el depósito de la versión final a un resultado "igual o inferior al veinte por ciento (≤ 20%)".
 
-**Motor:** `similitud_interna.py` **no** mide esto (ver R-12). Solo se informa como dato al estudiante.
+**Motor:** `similitud_interna.py` **no** mide esto (ver R-12). Solo se informa como dato al tesista.
 
 ### R-04 · Entrega en dos archivos .docx
 **Art. 13, apartado A** (Condiciones para la evaluación de originalidad — Para tesis y libros), págs. 10-11 PDF / págs. 9-10 impresas.
@@ -74,7 +74,7 @@ Concordante con el **art. 12, inciso c**, pág. 10 PDF / pág. 9 impresa, que co
 
   Ejemplos que trae la propia directiva: `Julca Pereda Dante Jorge - Desarrollo Competencia digitales en personas adultas - 2025.docx` y `Julca Pereda Dante Jorge - Protocolo y Complemento Competencia digitales en personas adultas - 2025.docx`.
 
-**Motor:** `entregar.py`. La nomenclatura se genera, no se pide al estudiante. Obsérvese que el ejemplo oficial **no** usa guion entre el rótulo y el título.
+**Motor:** `entregar.py`. La nomenclatura se genera, no se pide al tesista. Obsérvese que el ejemplo oficial **no** usa guion entre el rótulo y el título.
 
 ### R-05 · Estructura de carpetas de entrega
 **Art. 13, A.4**, pág. 11 PDF / pág. 10 impresa.
@@ -100,7 +100,7 @@ Concordante con el **art. 12, inciso c**, pág. 10 PDF / pág. 9 impresa, que co
 Contenido real del Anexo 4 — importa porque **no es una declaración de originalidad**, sino de autorización:
 > "DECLARACIÓN JURADA PARA LA EVALUACIÓN DE DOCUMENTOS CON LA PIDS […] DECLARO BAJO JURAMENTO que autorizo la evaluación de mi documento a través de la Plataforma PIDS de la UNMSM, aceptando los resultados que se consignen en el informe correspondiente, así como las disposiciones, infracciones y sanciones que pudieran derivarse del análisis efectuado conforme a la normativa vigente."
 
-**Motor:** `entregar.py` genera el Anexo 4 con los datos del estudiante, listo para firma. **Corrección respecto del encargo:** el encargo describe el Anexo 4 como la declaración jurada de originalidad; en la norma vigente es la autorización para someter el documento a la PIDS.
+**Motor:** `entregar.py` genera el Anexo 4 con los datos del tesista, listo para firma. **Corrección respecto del encargo:** el encargo describe el Anexo 4 como la declaración jurada de originalidad; en la norma vigente es la autorización para someter el documento a la PIDS.
 
 ### R-09 · Documentación que se anexa obligatoriamente al expediente
 **Art. 17**, págs. 12-13 PDF / págs. 11-12 impresas.
@@ -235,11 +235,11 @@ Se diferencian en el detalle: el modelo 1 incluye `III.3 Operacionalización de 
 > d) La manipulación de la información, las cifras estadísticas y las conclusiones de las investigaciones."
 
 **Motor:** d) es el fundamento del principio "datos reales o nada" y de `verificar_cifras.py`.
-**b) merece una advertencia explícita** y está desarrollada en `conflictos.md`: la norma prohíbe el apoyo de terceros que exceda la asesoría. El repositorio debe hacer esto visible al estudiante y al asesor, no ocultarlo.
+**b) merece una advertencia explícita** y está desarrollada en `conflictos.md`: la norma prohíbe el apoyo de terceros que exceda la asesoría. El repositorio debe hacer esto visible al tesista y al asesor, no ocultarlo.
 
 ## 6. Protección de datos — Ley N.° 29733 y DS N.° 016-2024-JUS
 
-### R-24 · Marco aplicable a los datos que el estudiante recolecte
+### R-24 · Marco aplicable a los datos que el tesista recolecte
 El Código de Ética remite expresamente a la Ley 29733 en su base legal (pág. 4 PDF). El reglamento vigente es el **DS 016-2024-JUS** (30/11/2024), que derogó el DS 003-2013-JUS y entró en vigor el 30/03/2025.
 
 **Motor:** `datos/crudos/` fuera de git; anonimización antes de salir de `datos/crudos/`; consentimiento informado documentado. La extracción artículo por artículo de los 135 artículos del reglamento se hará al implementar la Fase 3 y no antes, porque solo aplica a proyectos con datos personales.
@@ -254,7 +254,7 @@ Exigido por la directiva 00744 §7.2 (R-16) y por el Protocolo de depósito en C
 
 | ID | Asunto | Estado |
 |---|---|---|
-| **P-01** | **Declaración de uso de IA por el estudiante.** Ninguna de las normas leídas exige declarar el uso de IA generativa en una tesis, ni fija un formato. La RR 008449-2025-R es una guía **pedagógica para docentes** (planificación de clases, evaluación, ejemplos de prompts); no regula la redacción de tesis por estudiantes ni establece obligación de declarar. | `[PENDIENTE-NORMATIVA]`. El anexo de declaración de uso de IA que genera el repositorio es una **medida voluntaria de transparencia**, apoyada en el principio de transparencia del Código de Ética (R-21), **no** un requisito normativo. Debe presentarse así al estudiante. |
+| **P-01** | **Declaración de uso de IA por el tesista.** Ninguna de las normas leídas exige declarar el uso de IA generativa en una tesis, ni fija un formato. La RR 008449-2025-R es una guía **pedagógica para docentes** (planificación de clases, evaluación, ejemplos de prompts); no regula la redacción de tesis por estudiantes ni establece obligación de declarar. | `[PENDIENTE-NORMATIVA]`. El anexo de declaración de uso de IA que genera el repositorio es una **medida voluntaria de transparencia**, apoyada en el principio de transparencia del Código de Ética (R-21), **no** un requisito normativo. Debe presentarse así al tesista. |
 | **P-02** | **Guía de IA generativa para estudiantes de la UNMSM.** Buscada; no encontrada. | `[PENDIENTE-NORMATIVA]`, conforme a lo previsto en el encargo. |
 | **P-03** | **Versión vigente del Código Nacional de Integridad Científica.** Hay dos PDF con distinta extensión (10 y 17 páginas) y dos resoluciones (RP 028-2024 y RP 035-2024-CONCYTEC-P, esta última modificatoria). | Verificar cuál es el texto vigente antes de citar artículos. |
 | **P-04** | **Directiva de depósito en Cybertesis (RR 06893-R-18) y su modificatoria RR 00584-R-19.** La primera está descargada como escaneo sin capa de texto; la segunda no se ha localizado. | Pendiente de lectura por imagen y de búsqueda. |
@@ -269,4 +269,8 @@ Exigido por la directiva 00744 §7.2 (R-16) y por el Protocolo de depósito en C
 3. **La regla sobre IA generativa está en el artículo de definiciones** (art. 5 q), no en un artículo de obligaciones (R-02).
 4. **Requisitos no previstos en el encargo:** vigencia de 90 días del certificado de similitud (R-09), costo de S/ 20 desde la segunda revisión (R-10), obligación de elegir el tema de la relación publicada por la escuela (R-18) y registro en el sistema RAIS (directiva 00744 §7.1).
 5. **El fundamento normativo del diseño por perfiles existe y es explícito:** §6.3 de la directiva 00744 (R-13).
-6. **Sí existe una estructura de tesis aprobada para toda la UNMSM** (R-26, R-27). La premisa del encargo de que "no existe un esquema único" es cierta solo en cuanto a las especializaciones de facultad: hay un piso común, los Anexos 2A y 2B de la RR 00744-R-20. Se detectó en la Fase 0b, al leer las páginas escaneadas del anexo de la directiva que en la Fase 0 habían quedado sin revisar. Consecuencia de diseño: el perfil `generico-cualitativo` deja de ser una "plantilla no normativa" y pasa a ser un perfil **verificado** derivado del Anexo 2B, modelo 2.
+6. **La RR 00744-R-20 declara un alcance por año de ingreso.** En sus considerandos dice que se aprueba "con la finalidad de establecer las normas y los procedimientos que regirán a los estudiantes que ingresaron a partir del año 2016 o se han incorporado a los planes de estudios del año de referencia". El régimen aplicable a quienes ingresaron antes de 2016 y no migraron de plan **no se localizó**.
+
+   **Decisión tomada:** el repositorio aplica los Anexos 2A y 2B a todo el mundo, sin preguntar el año de ingreso. La razón es de diseño, no normativa: empezar la tesis no debe depender de un trámite ni de una entrevista de admisibilidad (ver `CLAUDE.md`, «Empezar no requiere permiso»). El dato queda anotado aquí para que nadie lo descubra tarde, y porque si un tesista de una promoción anterior encuentra una discrepancia con lo que le pide su escuela, esta es la explicación probable.
+
+7. **Sí existe una estructura de tesis aprobada para toda la UNMSM** (R-26, R-27). La premisa del encargo de que "no existe un esquema único" es cierta solo en cuanto a las especializaciones de facultad: hay un piso común, los Anexos 2A y 2B de la RR 00744-R-20. Se detectó en la Fase 0b, al leer las páginas escaneadas del anexo de la directiva que en la Fase 0 habían quedado sin revisar. Consecuencia de diseño: el perfil `generico-cualitativo` deja de ser una "plantilla no normativa" y pasa a ser un perfil **verificado** derivado del Anexo 2B, modelo 2.

@@ -3,7 +3,7 @@
 > **Este esquema NO es normativo.** Se derivó observando tesis de
 > pregrado ya sustentadas y depositadas en Cybertesis, no de una norma
 > de la facultad. Nunca debe marcarse como `verificado`. Sirve para
-> orientar al estudiante mientras no se consiga el documento oficial de
+> orientar al tesista mientras no se consiga el documento oficial de
 > su escuela, y para contrastarlo con el Anexo 2B de la RR 00744-R-20.
 
 - Área: 5. Ingeniería

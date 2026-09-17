@@ -1,7 +1,7 @@
 """Pruebas del registro de decisiones: el principio 3 hecho comprobación.
 
 Lo que más importa aquí no es que grabe bien, sino que **se niegue** a grabar una
-decisión que el estudiante no tomó.
+decisión que el tesista no tomó.
 """
 from __future__ import annotations
 

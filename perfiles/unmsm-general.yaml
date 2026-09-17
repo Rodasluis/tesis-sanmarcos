@@ -36,7 +36,7 @@ estilo_citas_fuente:
   lectura: >-
     La norma general deliberadamente NO fija un estilo único. Cada perfil de
     facultad debe declararlo; si su norma no lo dice, se pregunta al asesor y
-    queda registrado como decisión del estudiante.
+    queda registrado como decisión del tesista.
 csl: null
 
 persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
@@ -248,7 +248,7 @@ entrega:
 
 esquema_de_facto: null
 
-advertencias_al_estudiante:
+advertencias_al_tesista:
   - >-
     Este perfil es el piso normativo de la universidad. Si tu escuela tiene su
     propio documento de estructura, ese manda sobre este en lo que difiera.

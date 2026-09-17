@@ -6,7 +6,7 @@ desde el perfil, para que el formato no viva duplicado en dos sitios.
 
 Se parte del `reference.docx` que trae pandoc y se sobrescriben los valores que
 el perfil fija. Cuando la norma calla, se aplica un valor operativo y se deja
-constancia en `plantillas/<perfil>/FORMATO.md`: el estudiante debe poder ver de
+constancia en `plantillas/<perfil>/FORMATO.md`: el tesista debe poder ver de
 un vistazo qué le exige su escuela y qué elegimos nosotros por él.
 
 Uso:

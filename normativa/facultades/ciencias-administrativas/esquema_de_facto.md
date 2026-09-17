@@ -3,7 +3,7 @@
 > **Este esquema NO es normativo.** Se derivó observando tesis de
 > pregrado ya sustentadas y depositadas en Cybertesis, no de una norma
 > de la facultad. Nunca debe marcarse como `verificado`. Sirve para
-> orientar al estudiante mientras no se consiga el documento oficial de
+> orientar al tesista mientras no se consiga el documento oficial de
 > su escuela, y para contrastarlo con el Anexo 2B de la RR 00744-R-20.
 
 - Área: 3. Ciencias Económicas y de la Gestión
@@ -49,7 +49,7 @@
 - Enlace: https://cybertesis.unmsm.edu.pe/items/c87d1475-7fc3-4d39-ad44-220270f6302f
 - Secuencia observada: Resumen → Abstract → Introducción → Planteamiento del problema → Marco teórico
 
-### Influencia de las estrategias de marketing digital en la comunicación externa según estudiantes del ciclo I de la Facultad de Ciencias Administrativas, UNMSM – 2023
+### Influencia de las estrategias de marketing digital en la comunicación externa según tesistas del ciclo I de la Facultad de Ciencias Administrativas, UNMSM – 2023
 
 - Escuela: EP Administración · Año: 2026
 - Enlace: https://cybertesis.unmsm.edu.pe/items/31d1de36-86a8-49b1-921c-86b6714ae7d8

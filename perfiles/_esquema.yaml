@@ -164,7 +164,7 @@ campos:
       Ruta al esquema observado en Cybertesis. Es material de contraste, nunca
       fuente normativa. Su presencia jamás habilita `estado: verificado`.
 
-  advertencias_al_estudiante: {tipo: [string]}
+  advertencias_al_tesista: {tipo: [string]}
 
 # ---------------------------------------------------------------------------
 # Reglas que verifica verificar_perfil.py

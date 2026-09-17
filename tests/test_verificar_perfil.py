@@ -93,7 +93,7 @@ def test_el_id_debe_coincidir_con_el_nombre_del_archivo(proyecto):
     assert "P02" in [h.codigo for h in _revisar(proyecto).errores]
 
 
-def test_un_perfil_no_verificado_debe_advertir_al_estudiante(proyecto):
+def test_un_perfil_no_verificado_debe_advertir_al_tesista(proyecto):
     escribir_perfil(proyecto, estado="hereda_general",
                     fuente={"documento": "(sin documento propio)", "norma": None,
                             "archivo_local": None})
@@ -105,7 +105,7 @@ def test_un_perfil_no_verificado_con_advertencias_solo_informa(proyecto):
     escribir_perfil(proyecto, estado="hereda_general",
                     fuente={"documento": "(sin documento propio)", "norma": None,
                             "archivo_local": None},
-                    advertencias_al_estudiante=["Confirma con tu asesor."])
+                    advertencias_al_tesista=["Confirma con tu asesor."])
     inf = _revisar(proyecto)
     assert not inf.hay_errores
     assert "P16" in [h.codigo for h in inf.hallazgos]

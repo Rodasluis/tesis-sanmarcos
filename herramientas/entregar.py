@@ -3,7 +3,7 @@
 La RR N.° 000947-2026-R, art. 13 apartado A, exige que la tesis se entregue en
 **dos archivos .docx** con nombres exactos, dentro de una estructura de carpetas
 concreta, y que las tablas y fórmulas estén como texto y no como imágenes. Todo
-eso se genera aquí; el estudiante no tiene que recordar ninguna de esas reglas.
+eso se genera aquí; el tesista no tiene que recordar ninguna de esas reglas.
 
 Lo que produce:
 
@@ -19,7 +19,7 @@ Lo que produce:
 Sobre la declaración de uso de IA: **ninguna norma leída la exige** (ver
 `normativa/requisitos.md`, P-01). Se genera desde `registro/registro_ia.jsonl`
 como medida voluntaria de transparencia, apoyada en el principio de transparencia
-del art. 5 del Código de Ética. Se le presenta al estudiante como tal, no como un
+del art. 5 del Código de Ética. Se le presenta al tesista como tal, no como un
 requisito.
 
 Uso:
@@ -51,7 +51,7 @@ DATOS = RAIZ / "entregables" / "datos_de_entrega.yaml"
 PROHIBIDOS = r'<>:"/\|?*'
 
 PLANTILLA_DATOS = """\
-# Datos para generar los entregables. Los completa /iniciar o el estudiante.
+# Datos para generar los entregables. Los completa /iniciar o el tesista.
 # Se usan tal cual en los nombres de archivo que exige el art. 13, así que
 # escríbelos como deben aparecer.
 

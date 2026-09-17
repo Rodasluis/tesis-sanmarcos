@@ -112,7 +112,7 @@ informe_final:
   hereda: unmsm-general
   regla: >-
     La guía no define el informe final. Se construye desde el esquema capitular
-    del ítem 6, aprobado por el estudiante, y debe encajar en la estructura del
+    del ítem 6, aprobado por el tesista, y debe encajar en la estructura del
     Anexo 2B del perfil base. Si el esquema capitular aprobado se aparta del
     Anexo 2B, prevalece el Anexo 2B y la diferencia se registra en decisiones/.
 
@@ -128,7 +128,7 @@ sustentacion: {hereda: unmsm-general}
 
 esquema_de_facto: normativa/facultades/ciencias-economicas/esquema_de_facto.md
 
-advertencias_al_estudiante:
+advertencias_al_tesista:
   - >-
     En tu escuela la hipótesis va ANTES de los objetivos. Es al revés que en la
     estructura general de la universidad; no lo cambies por costumbre.

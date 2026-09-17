@@ -3,7 +3,7 @@
 > **Este esquema NO es normativo.** Se derivó observando tesis de
 > pregrado ya sustentadas y depositadas en Cybertesis, no de una norma
 > de la facultad. Nunca debe marcarse como `verificado`. Sirve para
-> orientar al estudiante mientras no se consiga el documento oficial de
+> orientar al tesista mientras no se consiga el documento oficial de
 > su escuela, y para contrastarlo con el Anexo 2B de la RR 00744-R-20.
 
 - Área: 2. Ciencias de la salud
@@ -28,19 +28,19 @@
 
 ## Tesis analizadas
 
-### Fusión cognitiva y ansiedad en estudiantes de la Facultad de Psicología de una universidad estatal de Lima Metropolitana
+### Fusión cognitiva y ansiedad en tesistas de la Facultad de Psicología de una universidad estatal de Lima Metropolitana
 
 - Escuela: EP Psicología · Año: 2026
 - Enlace: https://cybertesis.unmsm.edu.pe/items/9c6f4a1a-9880-47ce-899d-bb292328fae8
 - Secuencia observada: Resumen → Abstract → Introducción → Planteamiento del problema → Marco teórico → Metodo → Resultados
 
-### Adaptación de la escala de ansiedad ante el aprendizaje de lenguas extranjeras (FLCAS) en estudiantes de un centro de idiomas de Lima Metropolitana
+### Adaptación de la escala de ansiedad ante el aprendizaje de lenguas extranjeras (FLCAS) en tesistas de un centro de idiomas de Lima Metropolitana
 
 - Escuela: EP Psicología · Año: 2026
 - Enlace: https://cybertesis.unmsm.edu.pe/items/808c46d9-f9d3-4f1c-b743-210db019201b
 - Secuencia observada: Introducción → Marco teórico → Metodo
 
-### Flexibilidad psicológica parental y estilos de crianza en padres y madres de estudiantes de una institución educativa privada de Lima Norte
+### Flexibilidad psicológica parental y estilos de crianza en padres y madres de tesistas de una institución educativa privada de Lima Norte
 
 - Escuela: EP Psicología · Año: 2026
 - Enlace: https://cybertesis.unmsm.edu.pe/items/96190860-9217-4693-884c-3bac5f027d6a
@@ -52,7 +52,7 @@
 - Enlace: https://cybertesis.unmsm.edu.pe/items/418b21b3-70ca-48aa-888b-26e758d2f2a0
 - Secuencia observada: Resumen → Abstract → Planteamiento del problema → Marco teórico
 
-### Personalidad eficaz y estrés percibido en estudiantes de Psicología de una universidad pública de Lima Metropolitana
+### Personalidad eficaz y estrés percibido en tesistas de Psicología de una universidad pública de Lima Metropolitana
 
 - Escuela: EP Psicología · Año: 2026
 - Enlace: https://cybertesis.unmsm.edu.pe/items/e4ab4d71-9eb1-4ae7-a710-e6bb578eddce

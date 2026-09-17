@@ -4,7 +4,7 @@
 porcentaje que vale lo calcula la plataforma PIDS de la UNMSM y lo carga el
 asesor (Directiva de originalidad, RR N.° 000947-2026-R, arts. 12 y 24). Aquí no
 hay acceso a esa base de datos ni a la web, así que cualquier número que saliera
-de este archivo sería falso y peligroso: le daría al estudiante una confianza que
+de este archivo sería falso y peligroso: le daría al tesista una confianza que
 no corresponde.
 
 Lo que sí hace, que es útil y distinto:
@@ -13,7 +13,7 @@ Lo que sí hace, que es útil y distinto:
    Suelen ser párrafos de marco teórico reciclados en la discusión, o resúmenes
    copiados del proyecto al informe final. Turnitin también los marca.
 2. **Fragmentos de la biblioteca sin comillas ni cita.** Busca en los PDF que el
-   estudiante tiene en Zotero pasajes de más de 20 palabras que aparecen en el
+   tesista tiene en Zotero pasajes de más de 20 palabras que aparecen en el
    texto sin entrecomillar y sin cita cercana. Eso es lo que la directiva llama
    presentar un manuscrito ajeno como propio (art. 30 a).
 

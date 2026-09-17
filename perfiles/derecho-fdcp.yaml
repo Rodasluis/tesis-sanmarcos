@@ -37,7 +37,7 @@ estilo_citas_fuente: >-
   El reglamento no fija estilo. Rige la regla general del Anexo 2A: «según los
   estilos de cita-referencia de acuerdo a las áreas del conocimiento». En
   Derecho conviven APA y sistemas de cita jurídica; debe decidirlo el asesor y
-  quedar registrado como decisión del estudiante.
+  quedar registrado como decisión del tesista.
 csl: null
 
 persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
@@ -103,7 +103,7 @@ sustentacion:
 
 esquema_de_facto: normativa/facultades/derecho-y-ciencia-politica/esquema_de_facto.md
 
-advertencias_al_estudiante:
+advertencias_al_tesista:
   - >-
     Tu facultad no define una estructura propia: te rige el Anexo 2 de la
     directiva general de la universidad. Eso simplifica las cosas.

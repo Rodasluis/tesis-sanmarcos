@@ -88,16 +88,50 @@ Cada fase indica entregables, de qué depende, cómo se cierra y qué puede sali
   - **Crossref / OpenAlex / PubMed:** límites de tasa y caídas. Mitigación: caché en disco, backoff y un modo `--sin-red` que degrada a advertencia en vez de error, para que el CI no dependa de la red.
   - **`--respaldo`** (buscar en el PDF el pasaje que respalda la cita) es la función con mayor riesgo de falso negativo. La diseño para que **solo** marque "sin respaldo encontrado" y nunca afirme respaldo, tal como exige el prompt.
   - **`similitud_interna.py` no sustituye a Turnitin** y no puede estimar el porcentaje oficial. Lo documentaré explícitamente para que nadie lo lea como un "voy 12 %".
-  - `verificar_cifras.py` depende de que los resultados se inserten por inclusión de Quarto; si el estudiante pega un número a mano, se reporta. Es lo buscado, pero generará fricción real de uso.
+  - `verificar_cifras.py` depende de que los resultados se inserten por inclusión de Quarto; si el tesista pega un número a mano, se reporta. Es lo buscado, pero generará fricción real de uso.
 
 ### Fase 3 — Hooks, registro de IA y protección de datos
 - **Entregables:** `.claude/settings.json`; hooks `PreToolUse`, `PostToolUse`, `Stop`/`SessionEnd`; hook de control de etapa; `.gitignore` y hook de pre-commit que bloquea datos personales; `registro/registro_ia.jsonl`.
 - **Depende de:** Fase 2 (`verificar_decisiones.py`).
-- **Riesgos:** los nombres y el contrato de los eventos de hooks **hay que verificarlos contra la documentación vigente** antes de escribirlos (el prompt lo exige). Un hook mal formado puede bloquear la sesión del estudiante; por eso todos fallarán "abierto" salvo los tres que deben fallar "cerrado": escritura en `decisiones/`, escritura en `datos/crudos/` y commit con datos personales.
+**Diseño revisado: un solo hook, y no puede bloquear.**
+
+Verificado en la documentación vigente de hooks (2026-09-17): **solo el código de
+salida 2 bloquea**, y solo en eventos bloqueables. Los códigos 1 y 3–127 son
+explícitamente no bloqueantes —muestran un aviso en la transcripción y la acción
+continúa—, y `PostToolUse` no puede bloquear en ningún caso porque la herramienta
+ya se ejecutó. Es decir: **un hook que se rompe no corta la sesión mientras nunca
+use exit 2.**
+
+Con eso, lo que el encargo planteaba como cinco o seis hooks se reduce a esto:
+
+| Qué se quería | Cómo se hace ahora | ¿Puede romper la sesión? |
+|---|---|---|
+| Impedir escritura directa en `decisiones/` y `datos/crudos/` | Reglas `deny` en `.claude/settings.json`, del tipo `Edit(./decisiones/**)` | No. Son declarativas: no hay script que pueda fallar |
+| Control de etapa | Dentro de cada skill: corre `verificar_decisiones --exigir-hasta <etapa>` y explica el resultado | No. Es visible y conversable, no un rechazo silencioso |
+| Registro de acciones de IA | **El único hook**: `PostToolUse` → añade a `registro/registro_ia.jsonl`. Siempre `exit 0` | No. `PostToolUse` no puede bloquear |
+| Sugerir commit al terminar | Se elimina. Claude lo sugiere hablando | — |
+| Bloquear commit con datos personales | Hook de **git** (`pre-commit`), fuera de la sesión de Claude | No corta la conversación |
+
+Dos razones por las que las reglas `deny` son mejores que un `PreToolUse` para
+proteger carpetas: la documentación dice que se evalúan **con independencia de lo
+que devuelva cualquier hook** y tienen precedencia, y al ser declarativas no hay
+código que pueda tener un error. Y lo que bloquean es *una llamada de
+herramienta*, no la conversación: Claude recibe el motivo y usa
+`registrar_decision.py`, que es exactamente la conducta buscada.
+
+Red de seguridad que ya existe: aunque alguien quite las reglas `deny`,
+`verificar_decisiones.py` detecta por hash que una decisión fue alterada. Para
+este caso la detección vale más que la prevención, porque el objetivo es que el
+asesor pueda ver el proceso, no impedir físicamente una escritura.
+
+- **Riesgo que queda:** ninguno de bloqueo. El riesgo real pasa a ser el
+  contrario —que el registro de IA se pierda en silencio si el hook falla—, así
+  que el hook escribe de forma atómica y `/estado` avisa si el registro lleva
+  tiempo sin crecer mientras hay trabajo nuevo.
 
 ### Fase 4 — Skills y agentes, etapas 0–5
 `/iniciar`, `/explorar-datos`, `/afinar-idea`, `/literatura`, `/proyecto`, `/analizar`, con sus pares trabajador-crítico.
-- **Riesgos:** `herramientas/fuentes/catalogo.yaml` exige **verificar cada URL y endpoint**; los de INEI y MEF cambian con frecuencia y varios no tienen API estable → quedarán como descarga manual documentada. Los umbrales 80/85/90 son juicio de un modelo, no una medición: los documentaré como semáforo orientativo, nunca como sustituto de la decisión del estudiante.
+- **Riesgos:** `herramientas/fuentes/catalogo.yaml` exige **verificar cada URL y endpoint**; los de INEI y MEF cambian con frecuencia y varios no tienen API estable → quedarán como descarga manual documentada. Los umbrales 80/85/90 son juicio de un modelo, no una medición: los documentaré como semáforo orientativo, nunca como sustituto de la decisión del tesista.
 
 ### Fase 5 — Skills y agentes, etapas 6–10
 `/redactar`, `/jurado`, `/verificar`, `/entregar`, `/sustentacion`, `/autopiloto`, más `/estado`, `/asesor`, `/checkpoint`.

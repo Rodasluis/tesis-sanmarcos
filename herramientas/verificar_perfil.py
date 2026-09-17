@@ -156,15 +156,15 @@ def revisar(pid: str, inf: Informe, raiz: pathlib.Path = RAIZ) -> None:
     # Todo perfil debe resolver una estructura utilizable
     modelos = (perfil.get("informe_final") or {}).get("modelos") or {}
     if not modelos:
-        inf.error("P14", "no resuelve ningún modelo de informe final: el estudiante "
+        inf.error("P14", "no resuelve ningún modelo de informe final: el tesista "
                          "se quedaría sin estructura", archivo=ruta)
 
-    # Advertencias al estudiante cuando el perfil no está verificado
+    # Advertencias al tesista cuando el perfil no está verificado
     if estado in ESTADOS_QUE_EXIGEN_ASESOR:
-        advertencias = perfil.get("advertencias_al_estudiante") or []
+        advertencias = perfil.get("advertencias_al_tesista") or []
         if not advertencias:
-            inf.aviso("P15", f"estado `{estado}` sin `advertencias_al_estudiante`; "
-                             "el estudiante no sabría que necesita confirmar con su "
+            inf.aviso("P15", f"estado `{estado}` sin `advertencias_al_tesista`; "
+                             "el tesista no sabría que necesita confirmar con su "
                              "asesor", archivo=ruta)
         else:
             inf.info("P16", f"estado `{estado}`: requiere confirmación del asesor "

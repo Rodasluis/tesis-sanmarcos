@@ -77,7 +77,7 @@ conservan su aviso de copyright y los avisos de su `NOTICE.md`.
 **Se toma:** la idea de aprobar un plan de capítulo antes de redactarlo y la de restringir las citas
 a la biblioteca Zotero del usuario. Es el antecedente de los puntos de decisión en sesión.
 **No se toma:** su supuesto de que el usuario redacta en colaboración. Aquí Claude redacta y el
-estudiante decide, revisa y aprueba.
+tesista decide, revisa y aprueba.
 
 ### `ambarja/template-tesis-unmsm-geografica` — CC0-1.0
 **Se toma:** la estructura de plan de tesis y de tesis de la UNMSM en Quarto, y los elementos de
@@ -108,7 +108,7 @@ el proyecto CSL **no publica un `apa-es.csl`** (el español se obtiene con
 `apa.csl` más el archivo de localización y `lang: es`), y el estilo servido como
 "vancouver" tiene hoy el identificador interno `nlm-citation-sequence`.
 
-El `reference.docx` de partida lo genera pandoc en la máquina del estudiante cada
+El `reference.docx` de partida lo genera pandoc en la máquina del tesista cada
 vez que se construye una plantilla, de modo que este repositorio no distribuye
 ningún archivo derivado de pandoc.
 

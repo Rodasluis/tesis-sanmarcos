@@ -34,7 +34,7 @@ Sin `lang: es`, la bibliografía sale en inglés aunque el texto esté en españ
 Es el estilo Vancouver vigente, con formato de cita numérico, que es lo que exige
 el reglamento de la Facultad de Medicina (RD N.° 002373-2023-D-FM, anexos C a F:
 "Referencias bibliográficas según normas de Vancouver"). Se conserva el nombre de
-archivo `vancouver.csl` por claridad para el estudiante, y se deja constancia
+archivo `vancouver.csl` por claridad para el tesista, y se deja constancia
 aquí de que su identificador difiere.
 
 ## Cómo actualizarlos
@@ -63,4 +63,4 @@ Cuando el asesor confirme un estilo:
 1. Descarga el `.csl` de `zotero.org/styles/<nombre>` a esta carpeta.
 2. Anótalo en la tabla de arriba y en `NOTICE.md` con su licencia.
 3. Apunta el perfil a él en su campo `csl:` y cambia `estilo_citas`.
-4. Registra la confirmación del asesor como decisión del estudiante.
+4. Registra la confirmación del asesor como decisión del tesista.

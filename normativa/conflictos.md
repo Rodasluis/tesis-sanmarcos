@@ -9,7 +9,7 @@ Fecha: 2026-09-16.
 
 ## C-01 · Apoyo de terceros que excede la asesoría (tensión con el diseño del repositorio)
 
-**Estado:** abierto. Requiere una decisión explícita del estudiante y, idealmente, del asesor.
+**Estado:** abierto. Requiere una decisión explícita del tesista y, idealmente, del asesor.
 
 **Normas en juego**
 
@@ -20,16 +20,16 @@ Fecha: 2026-09-16.
 
 **En qué consiste la tensión**
 
-El art. 10 b) está redactado como prohibición dirigida a los investigadores y docentes: prohíbe *ofrecer* apoyo que exceda la asesoría, "por sí o a través de terceros". No es una prohibición dirigida al estudiante ni menciona herramientas de software. La directiva de originalidad, que es posterior (2026) y sí contempla expresamente la IAG, la admite como apoyo.
+El art. 10 b) está redactado como prohibición dirigida a los investigadores y docentes: prohíbe *ofrecer* apoyo que exceda la asesoría, "por sí o a través de terceros". No es una prohibición dirigida al tesista ni menciona herramientas de software. La directiva de originalidad, que es posterior (2026) y sí contempla expresamente la IAG, la admite como apoyo.
 
 Aun así, el modelo de trabajo de `tesis-sanmarcos` —Claude ejecuta el 100 % del trabajo operativo, incluida la redacción de todos los capítulos— se apoya en una lectura amplia de "apoyo" que ninguna norma leída confirma ni desmiente para el caso de la IA generativa. Ninguna de las normas leídas define dónde termina el apoyo admisible y dónde empieza la sustitución del autor.
 
 **Lo que el repositorio hace y no hace**
 
 - **No** resuelve la tensión por su cuenta ni la oculta.
-- Mantiene el registro completo de decisiones (`decisiones/`) y de acciones de IA (`registro/registro_ia.jsonl`) precisamente para que el estudiante y el asesor puedan ver el alcance real de la participación de Claude y juzgarlo.
+- Mantiene el registro completo de decisiones (`decisiones/`) y de acciones de IA (`registro/registro_ia.jsonl`) precisamente para que el tesista y el asesor puedan ver el alcance real de la participación de Claude y juzgarlo.
 - Genera el anexo de declaración de uso de IA como medida voluntaria de transparencia, apoyada en el principio de transparencia del art. 5 del Código de Ética, no porque una norma lo exija (ver `requisitos.md`, P-01).
-- `/iniciar` debe mostrar esta tensión al estudiante **antes** de que empiece, y recomendarle conversarla con su asesor.
+- `/iniciar` debe mostrar esta tensión al tesista **antes** de que empiece, y recomendarle conversarla con su asesor.
 
 **Qué haría cambiar esta evaluación:** una norma de la UNMSM que regule expresamente el uso de IA generativa por estudiantes en trabajos conducentes a grado o título. Esa norma se busca en P-02 y aún no existe o no se ha encontrado.
 

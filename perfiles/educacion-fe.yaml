@@ -34,7 +34,7 @@ enfoques_admitidos:
 estilo_citas: '[PENDIENTE-NORMATIVA]'
 estilo_citas_fuente: Ni la facultad ni la norma general fijan un estilo. El Anexo 2A dice «según los estilos
   de cita-referencia de acuerdo a las áreas del conocimiento». Debe decidirlo el asesor y registrarse
-  como decisión del estudiante en /iniciar.
+  como decisión del tesista en /iniciar.
 csl: null
 persona_gramatical:
 - '[PENDIENTE-NORMATIVA]'
@@ -53,7 +53,7 @@ informe_final:
   origen: herencia
   hereda: unmsm-general
   enfoque_sugerido: cualitativo
-  nota: El enfoque sugerido proviene de lo observado en tesis recientes, no de una norma. El estudiante
+  nota: El enfoque sugerido proviene de lo observado en tesis recientes, no de una norma. El tesista
     elige y su decisión se registra.
 etica:
   comite_requerido: '[PENDIENTE-NORMATIVA]'
@@ -92,7 +92,7 @@ observacion_de_facto:
     apariciones: 1 de 4
   - seccion: Desarrollo
     apariciones: 1 de 4
-advertencias_al_estudiante:
+advertencias_al_tesista:
 - 'Existe una R.D. 1069-D-FE-2017 con un esquema de tesis de tu facultad, pero no pudimos obtener el documento
   oficial. Pídeselo a tu escuela: si aparece, este perfil se actualiza y gana precisión.'
 - 'Tu escuela no publica un esquema propio de tesis. Te rige la estructura general de la universidad,

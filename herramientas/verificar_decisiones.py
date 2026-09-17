@@ -4,7 +4,7 @@ Dos preguntas, que son distintas:
 
 1. **¿Falta alguna decisión?** Si el trabajo de una etapa ya existe en disco
    (capítulos, resultados, proyecto) pero nadie registró la decisión que lo
-   sostiene, algo se avanzó sin que el estudiante decidiera.
+   sostiene, algo se avanzó sin que el tesista decidiera.
 2. **¿Alguien editó una decisión después de registrarla?** Cada archivo lleva un
    sello; si el contenido cambió, el sello no cuadra.
 
@@ -87,7 +87,7 @@ def verificar(raiz: pathlib.Path = RAIZ, exigir_hasta: str | None = None,
 
         if not (datos.get("respuesta_textual") or "").strip():
             inf.error("D04", f"la decisión de `{etapa}` no conserva la respuesta "
-                             "textual del estudiante", archivo=ruta)
+                             "textual del tesista", archivo=ruta)
 
         sello = datos.get("hash")
         if not sello:

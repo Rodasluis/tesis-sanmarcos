@@ -7,7 +7,7 @@ cuando hay errores. Eso vive aquí una sola vez.
 Tres niveles, con un criterio fijo:
 
 - `error`  algo que impide entregar. Hace fallar el comando.
-- `aviso`  algo que el estudiante debe mirar, pero que no bloquea.
+- `aviso`  algo que el tesista debe mirar, pero que no bloquea.
 - `info`   contexto útil que no exige acción.
 
 Un principio que atraviesa todo el repositorio: **la ausencia de errores no es
@@ -211,7 +211,7 @@ def puntaje(informe: Informe, total_revisado: int) -> int:
 
     Cada error descuenta 10 puntos y cada aviso 2, sobre 100. No es una medida
     de calidad de la tesis: es un semáforo para saber si vale la pena seguir.
-    Nunca sustituye la decisión del estudiante ni la del asesor.
+    Nunca sustituye la decisión del tesista ni la del asesor.
     """
     if total_revisado == 0:
         return 0

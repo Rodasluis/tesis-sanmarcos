@@ -1,12 +1,30 @@
 # tesis-sanmarcos
 
-Elabora tu tesis de pregrado de la UNMSM con Claude Code, desde la idea hasta la
-sustentación.
+Haz tu tesis de la UNMSM con Claude Code, desde la idea hasta la sustentación.
+
+Está pensado para quienes **ya terminaron la carrera** y tienen la tesis
+pendiente: egresados y bachilleres que quieren obtener el título profesional,
+muchas veces años después y trabajando a la vez.
 
 No necesitas saber programar. Claude hace el trabajo operativo: busca y descarga
 datos, revisa literatura, analiza, redacta los capítulos, da formato y arma los
 archivos de entrega. **Tú decides, firmas y sustentas.** Esas tres cosas no las
 puede hacer nadie más por ti, y son justamente las que el jurado va a evaluar.
+
+## Puedes empezar hoy
+
+No hay requisitos para arrancar. No te vamos a preguntar si ya tienes el grado de
+bachiller, si tu escuela te asignó asesor, en qué año ingresaste ni cuánto tiempo
+libre tienes. Escribes `/iniciar` y empiezas.
+
+Los trámites existen —el bachiller, el asesor, la revisión de similitud— y son
+reales, pero son asunto tuyo con tu facultad, y este repositorio te los recuerda
+**cuando hacen falta**, no antes: el checklist que genera `/entregar` los lista
+todos. La tesis se puede empezar a escribir mucho antes de tener el expediente
+ordenado, y es mejor así, porque lo difícil es escribirla.
+
+Si llevas tiempo fuera de la universidad, una advertencia útil: el ritmo lo pones
+tú. Puedes dejarlo semanas y volver; `/estado` te dice dónde quedaste y qué sigue.
 
 ---
 
@@ -118,9 +136,13 @@ Sigue las instrucciones de <https://claude.com/claude-code>.
 /iniciar
 ```
 
-Claude te hará una entrevista: facultad, escuela, enfoque, temas que te
-interesan, si ya tienes datos, quién es tu asesor, cuánto tiempo tienes y si la
-tesis es individual o grupal. Con eso carga el perfil de tu escuela.
+Claude conversa contigo sobre tu tesis: de qué facultad y escuela vienes, qué te
+interesa investigar, si ya tienes datos y si la tesis es individual o grupal
+(hasta tres autores). Con eso carga el perfil de tu escuela y empiezas.
+
+Son preguntas para entender tu tesis, no para comprobar si puedes hacerla. Si no
+sabes algo todavía —el asesor, el enfoque, el tema exacto— dilo y sigue: el flujo
+está hecho para ir decidiendo sobre la marcha.
 
 ---
 

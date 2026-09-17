@@ -1,16 +1,16 @@
-"""Registra una decisión del estudiante. Es la única vía de escritura en `decisiones/`.
+"""Registra una decisión del tesista. Es la única vía de escritura en `decisiones/`.
 
 El principio 3 de CLAUDE.md dice que Claude no inventa, no resume ni reescribe
-las respuestas del estudiante, no elige por él y no avanza de etapa sin una
+las respuestas del tesista, no elige por él y no avanza de etapa sin una
 decisión aprobada. Esta herramienta es lo que hace que ese principio sea
 comprobable en lugar de ser una buena intención:
 
-- **Exige la respuesta textual del estudiante.** Sin ella no escribe nada. No
+- **Exige la respuesta textual del tesista.** Sin ella no escribe nada. No
   hay bandera para saltárselo, ni siquiera en `/autopiloto`.
 - **Sella el archivo con un hash.** Si alguien edita la decisión después,
   `verificar_decisiones.py` lo detecta.
 - **Guarda las opciones presentadas y cuál se recomendó**, para que el asesor vea
-  qué se le ofreció al estudiante, no solo qué eligió.
+  qué se le ofreció al tesista, no solo qué eligió.
 - **Guarda las preguntas de comprensión con sus respuestas**, que alimentan
   `/sustentacion`.
 
@@ -75,7 +75,7 @@ def validar(datos: dict[str, Any]) -> None:
     respuesta = (datos.get("respuesta_textual") or "").strip()
     if not respuesta:
         raise DecisionInvalida(
-            "falta `respuesta_textual`: la respuesta literal del estudiante. "
+            "falta `respuesta_textual`: la respuesta literal del tesista. "
             "Sin ella no hay decisión que registrar. Esto no se puede omitir, "
             "tampoco en /autopiloto."
         )
@@ -85,12 +85,12 @@ def validar(datos: dict[str, Any]) -> None:
     if datos.get("aprobado") is not True:
         raise DecisionInvalida(
             "`aprobado` debe ser true. Una decisión no aprobada no se registra: "
-            "se sigue iterando con el estudiante."
+            "se sigue iterando con el tesista."
         )
 
     if not (datos.get("eleccion") or "").strip():
         raise DecisionInvalida(
-            "falta `eleccion`: qué opción eligió el estudiante. Si propuso algo "
+            "falta `eleccion`: qué opción eligió el tesista. Si propuso algo "
             "distinto de lo ofrecido, descríbelo aquí con sus palabras."
         )
 
@@ -119,7 +119,7 @@ def _markdown(datos: dict[str, Any]) -> str:
         f"# Decisión {datos['numero']:02d} — etapa `{datos['etapa']}`",
         "",
         f"- Registrada: {datos['momento']}",
-        "- Aprobada por el estudiante: **sí**",
+        "- Aprobada por el tesista: **sí**",
         f"- Sello: `{datos['hash'][:16]}…`",
         "",
         "> Este archivo lo escribe `registrar_decision.py`. Si lo editas a mano, "
@@ -150,7 +150,7 @@ def _markdown(datos: dict[str, Any]) -> str:
             lineas.append("")
 
     lineas += [
-        "## Qué decidió el estudiante",
+        "## Qué decidió el tesista",
         "",
         f"**Eligió:** {datos['eleccion']}",
         "",
@@ -207,7 +207,7 @@ def registrar(datos: dict[str, Any], dir_decisiones: pathlib.Path = DIR_DECISION
         "cambios_pedidos": datos.get("cambios_pedidos") or [],
         "preguntas_comprension": datos.get("preguntas_comprension") or [],
         "aprobado": True,
-        "autor": datos.get("autor") or "estudiante",
+        "autor": datos.get("autor") or "tesista",
     }
     registro["hash"] = calcular_hash(registro)
 
