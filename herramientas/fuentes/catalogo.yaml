@@ -1,6 +1,6 @@
 # Catálogo de fuentes de datos abiertas para tesis de la UNMSM
 #
-# TODAS las URL de este archivo se comprobaron el 2026-10-04 con una petición
+# TODAS las URL de este archivo se comprobaron el 2026-10-05 con una petición
 # real. El campo `estado` dice qué pasó, no qué se esperaba:
 #
 #   api_verificada    responde y devuelve datos utilizables por programa
@@ -13,7 +13,7 @@
 # Las URL se rompen. Si una lleva tiempo en `verificar`, quítala del catálogo
 # antes de que alguien pierda una tarde con ella.
 
-comprobado: 2026-10-04
+comprobado: 2026-10-05
 
 fuentes:
 
@@ -670,6 +670,447 @@ fuentes:
       Plataforma Nacional de Datos Abiertos, donde muchos publican ya
       consolidado.
     relacionado: [inei_microdatos, datos_abiertos_peru]
+
+  # ===========================================================================
+  # Microdatos internacionales que incluyen al Perú
+  #
+  # Casi no se usan en tesis de pregrado y son gratuitos. Varios permiten algo
+  # que ninguna fuente peruana da: comparar al Perú con países parecidos con la
+  # misma medición, o seguir a las mismas personas durante veinte años.
+  # ===========================================================================
+
+  - id: bm_microdatos
+    nombre: Banco Mundial — Microdata Library
+    url: https://microdata.worldbank.org/index.php/catalog
+    api: https://microdata.worldbank.org/index.php/api/catalog/search?country[]=Peru
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: continua
+    desagregacion: [hogar, persona, empresa, según la encuesta]
+    facultades: [Ciencias Económicas, Ciencias Sociales, Educación,
+                 Ciencias Administrativas, Medicina, Psicología]
+    notas: >-
+      Catálogo de miles de encuestas de todo el mundo, con **microdatos
+      descargables** tras registro gratuito. Para el Perú tiene encuestas de
+      hogares, de empresas y estudios temáticos que no están en el portal del
+      INEI.
+
+      La API devuelve el catálogo en JSON; la descarga de los datos sí requiere
+      cuenta y aceptar las condiciones de uso de cada encuesta. Esas condiciones
+      hay que leerlas: algunas prohíben redistribuir los microdatos, lo que
+      significa que no se suben al repositorio aunque estén en `datos/crudos/`.
+    ejemplo: https://microdata.worldbank.org/index.php/api/catalog/search?country[]=Peru&ps=5
+
+  - id: dhs
+    nombre: DHS Program — Demographic and Health Surveys
+    url: https://dhsprogram.com/data/available-datasets.cfm
+    api: https://api.dhsprogram.com/rest/dhs/
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: "por encuesta; el Perú tiene ediciones desde 1986"
+    desagregacion: [nacional, región, urbano-rural, quintil de riqueza]
+    facultades: [Medicina, Psicología, Ciencias Sociales, Educación,
+                 Ciencias Económicas, Farmacia y Bioquímica]
+    notas: >-
+      **La ENDES peruana es parte del programa DHS.** Eso tiene dos
+      consecuencias que casi nadie aprovecha en una tesis de pregrado:
+
+      1. Los indicadores de la ENDES están disponibles por **API**, ya
+         calculados y comparables entre años, sin tener que procesar los
+         microdatos. Se comprobó: devuelve series del Perú desde 1986.
+      2. Son **comparables con otros países** que usan el mismo cuestionario.
+         Una tesis sobre desnutrición infantil puede poner al Perú al lado de
+         Bolivia, Colombia o Guatemala con la misma medición, que es algo que la
+         ENAHO no permite.
+
+      Los microdatos requieren registro gratuito y aprobación de un proyecto de
+      investigación, que suele tardar pocos días. Para los indicadores agregados
+      la API no pide nada.
+    ejemplo: https://api.dhsprogram.com/rest/dhs/data?countryIds=PE&indicatorIds=CN_NUTS_C_HA2&f=json
+    relacionado: [inei_microdatos]
+
+  - id: bm_enterprise_surveys
+    nombre: Banco Mundial — Enterprise Surveys
+    url: https://www.enterprisesurveys.org/en/data/exploreeconomies/2017/peru
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: "irregular; el Perú tiene ediciones de 2006, 2010 y 2017"
+    desagregacion: [empresa, sector, tamaño, región]
+    facultades: [Ciencias Administrativas, Ciencias Económicas, Ciencias Contables,
+                 Ingeniería Industrial]
+    notas: >-
+      Encuesta a empresas con cuestionario estandarizado internacionalmente:
+      acceso al crédito, corrupción, infraestructura, informalidad, innovación,
+      obstáculos percibidos. Permite comparar al Perú con la región usando la
+      misma pregunta, cosa que la ENE del INEI no permite.
+
+      Microdatos gratuitos tras registro.
+    relacionado: [bm_microdatos, produce]
+
+  - id: young_lives
+    nombre: Young Lives / Niños del Milenio — estudio longitudinal
+    url: https://www.younglives.org.uk/
+    url_peru: https://ninosdelmilenio.org/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: "rondas cada 3 a 4 años desde 2002"
+    desagregacion: [niño, hogar, comunidad]
+    facultades: [Educación, Psicología, Ciencias Sociales, Ciencias Económicas,
+                 Medicina]
+    notas: >-
+      **Lo más valioso que existe para el Perú y lo menos usado en tesis de
+      pregrado: un panel que sigue a las mismas personas desde 2002.** Dos
+      cohortes de niños, seguidas más de veinte años, con datos de educación,
+      salud, nutrición, trabajo infantil, aspiraciones y transición a la vida
+      adulta.
+
+      Es longitudinal de verdad: permite preguntas que ninguna encuesta de corte
+      transversal admite —qué pasó con los niños desnutridos a los 8 años cuando
+      llegaron a los 22—. En el Perú lo coordina GRADE.
+
+      Los datos se descargan del UK Data Service con registro gratuito.
+    descarga_manual: >-
+      1. Regístrate en el UK Data Service.
+      2. Busca la serie «Young Lives».
+      3. Descarga las rondas del Perú y sus cuestionarios.
+      4. Guarda en `datos/crudos/` y anota la ronda y la versión.
+    relacionado: [grade]
+
+  - id: ipums
+    nombre: IPUMS International — microdatos censales armonizados
+    url: https://international.ipums.org/international/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: por censo
+    desagregacion: [persona, hogar, región]
+    facultades: [Ciencias Sociales, Ciencias Económicas, Educación]
+    notas: >-
+      Muestras de censos de todo el mundo con **variables armonizadas**: la
+      misma variable significa lo mismo en el censo peruano de 1993 y en el de
+      2017, y también en el chileno. Eso ahorra el trabajo más pesado de un
+      análisis censal comparado.
+
+      Gratuito con registro y compromiso de citar. Requiere declarar el uso
+      previsto.
+
+  - id: encuestas_regionales_comparadas
+    nombre: Encuestas regionales comparadas (LAPOP, Latinobarómetro, WVS)
+    url: https://www.vanderbilt.edu/lapop/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: "bienal o irregular, según el proyecto"
+    desagregacion: [persona, región]
+    facultades: [Derecho y Ciencia Política, Ciencias Sociales, Psicología,
+                 Ciencias Económicas, Educación]
+    proyectos:
+      - {nombre: "Barómetro de las Américas (LAPOP)", url: "https://www.vanderbilt.edu/lapop/",
+         usos: "cultura política, confianza en instituciones, corrupción, apoyo a la democracia"}
+      - {nombre: "Latinobarómetro", url: "https://www.latinobarometro.org/latContents.jsp",
+         usos: "opinión pública regional, serie desde 1995"}
+      - {nombre: "World Values Survey", url: "https://www.worldvaluessurvey.org/wvs.jsp",
+         usos: "valores, religiosidad, confianza interpersonal"}
+    notas: >-
+      Las tres tienen microdatos gratuitos y cubren al Perú con series largas.
+      Para una tesis sobre confianza institucional, percepción de corrupción o
+      cultura política son mejores que cualquier fuente oficial, porque lo
+      oficial no pregunta por eso.
+
+      Ventaja compartida: permiten decir si el Perú se parece o no a la región,
+      con la misma pregunta y el mismo año.
+
+  # ===========================================================================
+  # APIs de organismos internacionales
+  # ===========================================================================
+
+  - id: who_gho
+    nombre: OMS — Global Health Observatory
+    url: https://www.who.int/data/gho
+    api: https://ghoapi.azureedge.net/api/
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: anual
+    desagregacion: [pais, sexo, grupo de edad]
+    facultades: [Medicina, Farmacia y Bioquímica, Odontología, Psicología,
+                 Medicina Veterinaria]
+    notas: >-
+      API OData sin clave. Indicadores de salud comparables entre países:
+      mortalidad, cobertura de servicios, factores de riesgo, recursos humanos
+      en salud. Útil para situar al Perú en el capítulo de antecedentes.
+    ejemplo: https://ghoapi.azureedge.net/api/Indicator
+
+  - id: ilostat
+    nombre: OIT — ILOSTAT
+    url: https://ilostat.ilo.org/
+    api: https://rplumber.ilo.org/data/indicator/
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: anual y trimestral
+    desagregacion: [pais, sexo, edad, rama de actividad]
+    facultades: [Ciencias Económicas, Ciencias Administrativas, Ciencias Sociales,
+                 Derecho y Ciencia Política, Ingeniería Industrial]
+    notas: >-
+      Indicadores laborales comparables internacionalmente, construidos a partir
+      de las encuestas nacionales —en el caso peruano, de la ENAHO—. Sirve para
+      contrastar: si tu cálculo con la ENAHO difiere mucho del de ILOSTAT,
+      probablemente tu definición de empleo no es la estándar.
+    ejemplo: https://rplumber.ilo.org/data/indicator/?id=UNE_DEAP_SEX_AGE_RT_A&ref_area=PER&format=.json
+
+  - id: unesco_uis
+    nombre: UNESCO — Instituto de Estadística (UIS)
+    url: https://uis.unesco.org/
+    api: https://api.uis.unesco.org/api/public/
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: anual
+    desagregacion: [pais, nivel educativo, sexo]
+    facultades: [Educación, Ciencias Sociales, Ciencias Económicas]
+    notas: >-
+      Indicadores educativos comparables: matrícula, finalización, gasto por
+      alumno, docentes. Complementa a ESCALE, que da el detalle peruano pero no
+      permite comparar.
+    ejemplo: https://api.uis.unesco.org/api/public/definitions/indicators
+
+  - id: comtrade
+    nombre: UN Comtrade — comercio internacional
+    url: https://comtradeplus.un.org/
+    api: https://comtradeapi.un.org/public/v1/preview/
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: anual y mensual
+    desagregacion: [producto HS, socio comercial, flujo]
+    facultades: [Ciencias Económicas, Ciencias Administrativas, Ciencias Contables]
+    notas: >-
+      Exportaciones e importaciones por producto y socio. La vista `preview`
+      funciona sin clave pero limita el número de registros; para descargas
+      grandes hace falta registrarse.
+
+      Para el Perú, contrastar con las estadísticas de SUNAT: las cifras espejo
+      —lo que el Perú dice exportar contra lo que el socio dice importar— son en
+      sí mismas un objeto de estudio.
+    ejemplo: https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=604&period=2022&cmdCode=TOTAL&flowCode=X
+    relacionado: [sunat, oec]
+
+  - id: owid
+    nombre: Our World in Data
+    url: https://ourworldindata.org/
+    api: https://ourworldindata.org/grapher/{indicador}.csv?country=PER
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: variable
+    desagregacion: [pais]
+    facultades: [todas]
+    notas: >-
+      Cada gráfico publicado tiene una versión descargable en CSV añadiendo
+      `.csv` a su URL y filtrando por país. Es la forma más rápida de conseguir
+      una serie internacional limpia y citable para el capítulo de antecedentes.
+
+      La API de indicadores por identificador numérico devolvió 404; lo que
+      funciona es la ruta del gráfico.
+    ejemplo: https://ourworldindata.org/grapher/gdp-per-capita-worldbank.csv?country=PER
+
+  - id: doaj
+    nombre: DOAJ — Directory of Open Access Journals
+    url: https://doaj.org/
+    api: https://doaj.org/api/search/
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: continua
+    desagregacion: [revista, artículo, país]
+    facultades: [todas]
+    notas: >-
+      Catálogo de revistas y artículos de acceso abierto, con API sin clave.
+      Útil para comprobar que una revista donde se piensa publicar es seria, y
+      para encontrar literatura abierta cuando la biblioteca no tiene acceso.
+    ejemplo: https://doaj.org/api/search/journals/peru?pageSize=5
+
+  - id: faostat
+    nombre: FAO — FAOSTAT
+    url: https://www.fao.org/faostat/es/
+    api: https://bulks-faostat.fao.org/production/datasets_E.json
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: anual
+    desagregacion: [pais, producto, año]
+    facultades: [Ciencias Biológicas, Medicina Veterinaria, Ciencias Económicas,
+                 Farmacia y Bioquímica]
+    notas: >-
+      Producción agropecuaria, seguridad alimentaria, uso de la tierra, precios.
+
+      **La API principal (fenixservices) devolvió 521**, que es un error de
+      origen: estaba caída. Lo que sí respondió es el catálogo de descargas
+      masivas, que funciona igual de bien para una tesis: se baja el conjunto
+      completo y se filtra por Perú en local.
+    ejemplo: https://bulks-faostat.fao.org/production/datasets_E.json
+
+  - id: oec
+    nombre: OEC — Observatory of Economic Complexity
+    url: https://oec.world/en/profile/country/per
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [producto, socio comercial]
+    facultades: [Ciencias Económicas, Ciencias Administrativas]
+    notas: >-
+      Visualizaciones y datos de complejidad económica y canasta exportadora.
+      Útil para el capítulo de contexto de una tesis sobre comercio o
+      diversificación productiva. La descarga masiva requiere cuenta de pago;
+      lo visible y citable es gratuito.
+    relacionado: [comtrade]
+
+  - id: undp_hdr
+    nombre: PNUD — Informe sobre Desarrollo Humano
+    url: https://hdr.undp.org/data-center/documentation-and-downloads
+    api: https://hdrdata.org/api/
+    estado: verificar
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [pais, y en algunos informes, región subnacional]
+    facultades: [Ciencias Sociales, Ciencias Económicas, Educación]
+    notas: >-
+      La API pide clave («Please provide API key»), así que queda como
+      descarga manual mientras no se gestione una. Los archivos del centro de
+      datos sí se bajan sin registro.
+
+      Para el Perú hay informes nacionales con **IDH a nivel distrital**, que es
+      una desagregación muy útil y difícil de conseguir.
+
+  - id: semantic_scholar
+    nombre: Semantic Scholar — API académica
+    url: https://www.semanticscholar.org/
+    api: https://api.semanticscholar.org/graph/v1/
+    estado: api_bloqueada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [artículo, autor, cita]
+    facultades: [todas]
+    notas: >-
+      Devolvió 429 («Too Many Requests») sin clave. La API existe y es buena
+      —da citas entrantes y salientes, útil para rastrear quién discute a
+      quién—, pero para usarla con regularidad hace falta pedir una clave
+      gratuita. Mientras tanto, OpenAlex cubre lo mismo sin límite agresivo.
+    relacionado: [alicia]
+
+  - id: scielo_redalyc
+    nombre: SciELO Perú y Redalyc — producción científica en español
+    url: https://www.scielo.org.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [revista, artículo, año]
+    facultades: [todas]
+    portales:
+      - {nombre: "SciELO Perú", url: "https://www.scielo.org.pe/"}
+      - {nombre: "Redalyc", url: "https://www.redalyc.org/"}
+    notas: >-
+      Revistas peruanas y latinoamericanas a texto completo. Un jurado peruano
+      espera ver literatura regional, y las bases anglosajonas no la indexan
+      bien. *Anales de la Facultad de Medicina* de la UNMSM está en SciELO, y es
+      la revista cuyo formato de resumen exige el reglamento de esa facultad.
+    relacionado: [alicia, cybertesis]
+
+  # ===========================================================================
+  # Centros de investigación, gremios y encuestadoras del Perú
+  #
+  # Producen datos y estudios que no son oficiales pero sí citables, y que a
+  # menudo cubren lo que el Estado no mide.
+  # ===========================================================================
+
+  - id: grade
+    nombre: GRADE — Grupo de Análisis para el Desarrollo
+    url: https://www.grade.org.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [según el estudio]
+    facultades: [Ciencias Económicas, Educación, Ciencias Sociales, Psicología]
+    notas: >-
+      El centro de investigación económica y social más citado del Perú.
+      Coordina **Niños del Milenio** —el panel longitudinal— y publica documentos
+      de investigación con sus bases de datos en varios casos.
+
+      Para antecedentes de una tesis peruana en economía, educación o pobreza,
+      es el primer sitio donde mirar después de Cybertesis.
+    relacionado: [young_lives]
+
+  - id: think_tanks_peru
+    nombre: Centros de investigación y observatorios peruanos
+    url: https://cies.org.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [según la institución]
+    facultades: [Ciencias Económicas, Ciencias Sociales, Derecho y Ciencia Política,
+                 Ciencias Administrativas, Educación]
+    entidades:
+      - {sigla: CIES, url: "https://cies.org.pe/",
+         usos: "consorcio de 48 instituciones; concursos y documentos de investigación"}
+      - {sigla: IEP, url: "https://iep.org.pe/",
+         usos: "estudios sociales y políticos; encuestas de opinión con El Comercio"}
+      - {sigla: IPE, url: "https://www.ipe.org.pe/",
+         usos: "índice de competitividad regional (INCORE), indicadores económicos regionales"}
+      - {sigla: ComexPerú, url: "https://www.comexperu.org.pe/",
+         usos: "semanario con datos de comercio exterior y empleo formal"}
+      - {sigla: CIUP, url: "https://ciup.up.edu.pe/",
+         usos: "investigación de la Universidad del Pacífico"}
+      - {sigla: Proética, url: "https://www.proetica.org.pe/",
+         usos: "Encuesta Nacional sobre Percepciones de la Corrupción"}
+      - {sigla: "Lima Cómo Vamos", url: "https://www.limacomovamos.org/",
+         usos: "encuesta anual de percepción sobre calidad de vida urbana en Lima y Callao"}
+    notas: >-
+      No son fuentes oficiales, y eso hay que decirlo al citarlos: sus encuestas
+      no tienen la representatividad ni la metodología publicada de una del
+      INEI. A cambio, miden cosas que el Estado no mide —percepción de
+      corrupción, calidad de vida urbana, competitividad regional— y publican
+      rápido.
+
+      El **INCORE del IPE** es especialmente útil: da un índice de
+      competitividad por región con sus componentes, listo para usar como
+      variable en un análisis regional.
+
+  - id: mercado_financiero_peru
+    nombre: Bolsa de Valores de Lima, ASBANC y gremios empresariales
+    url: https://www.bvl.com.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: [diaria para cotizaciones, mensual para estadísticas gremiales]
+    desagregacion: [empresa, banco, sector]
+    facultades: [Ciencias Contables, Ciencias Administrativas, Ciencias Económicas]
+    entidades:
+      - {sigla: BVL, url: "https://www.bvl.com.pe/",
+         usos: "cotizaciones, índices, hechos de importancia de emisoras"}
+      - {sigla: ASBANC, url: "https://www.asbanc.com.pe/",
+         usos: "estadísticas de la banca privada, informes sectoriales"}
+      - {sigla: CCL, url: "https://www.camaralima.org.pe/",
+         usos: "estudios económicos y encuestas empresariales de la Cámara de Comercio de Lima"}
+    notas: >-
+      Para finanzas corporativas, la BVL da precios y la SMV da estados
+      financieros: se usan juntas. ASBANC publica agregados de la banca que
+      complementan los de la SBS, aunque con el sesgo esperable de ser un
+      gremio.
+    relacionado: [smv, sbs]
+
+  - id: encuestadoras_peru
+    nombre: Encuestadoras de opinión pública
+    url: https://www.ipsos.com/es-pe
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: mensual
+    desagregacion: [nacional, Lima, urbano-rural]
+    facultades: [Derecho y Ciencia Política, Ciencias Sociales, Ciencias Administrativas,
+                 Letras y Ciencias Humanas]
+    entidades:
+      - {nombre: Ipsos Perú, url: "https://www.ipsos.com/es-pe",
+         usos: "opinión pública, perfiles del consumidor, estadística poblacional de Lima"}
+      - {nombre: Datum Internacional, url: "https://www.datum.com.pe/",
+         usos: "encuestas de opinión y estudios sociales"}
+    notas: >-
+      Publican fichas técnicas con muestra, margen de error y fechas de campo:
+      **sin esa ficha, una encuesta no se cita**. Las series mensuales de
+      aprobación o de expectativas sirven como variable de contexto.
+
+      Limitación que hay que declarar: muchas son urbanas o solo de Lima, y las
+      bases de datos rara vez se publican. Se cita el reporte, no los
+      microdatos.
 
   # ===========================================================================
   # No alcanzables en la comprobación

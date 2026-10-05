@@ -288,3 +288,57 @@ def test_el_explorador_sabe_que_hay_encuestas_fuera_del_inei():
     assert "No todo lo que se encuesta lo encuesta el INEI" in agente
     for sigla in ("ERESTEL", "ERCUE", "SBS", "Planilla Electrónica"):
         assert sigla in agente
+
+
+# --- fuentes internacionales y privadas ------------------------------------
+
+@pytest.mark.parametrize("ident", ["bm_microdatos", "dhs", "young_lives", "ipums",
+                                   "bm_enterprise_surveys",
+                                   "encuestas_regionales_comparadas"])
+def test_estan_los_microdatos_internacionales_con_peru(ident):
+    assert _fuente(ident)
+
+
+@pytest.mark.parametrize("ident", ["who_gho", "ilostat", "unesco_uis", "comtrade",
+                                   "owid", "faostat", "doaj"])
+def test_estan_las_apis_de_organismos_internacionales(ident):
+    assert _fuente(ident)["estado"] == "api_verificada"
+
+
+@pytest.mark.parametrize("ident", ["grade", "think_tanks_peru",
+                                   "mercado_financiero_peru", "encuestadoras_peru"])
+def test_estan_las_fuentes_privadas_peruanas(ident):
+    assert _fuente(ident)
+
+
+def test_el_catalogo_explica_que_endes_es_parte_de_dhs():
+    """Es lo que permite comparar al Perú con otros países con la misma medición."""
+    notas = _fuente("dhs")["notas"]
+    assert "ENDES" in notas
+    assert "comparables con otros países" in notas or "comparables" in notas
+
+
+def test_young_lives_se_presenta_como_longitudinal():
+    notas = _fuente("young_lives")["notas"]
+    assert "longitudinal" in notas.lower()
+    assert "2002" in notas
+
+
+def test_las_fuentes_privadas_declaran_que_no_son_oficiales():
+    """Citar una encuestadora como si fuera el INEI es un error de fondo."""
+    assert "no son fuentes oficiales" in _fuente("think_tanks_peru")["notas"].lower()
+    assert "ficha" in _fuente("encuestadoras_peru")["notas"].lower()
+
+
+def test_las_fuentes_con_registro_lo_advierten():
+    """Un microdato que exige cuenta no se puede prometer como descarga directa."""
+    for ident in ("bm_microdatos", "dhs", "ipums", "young_lives"):
+        fuente = _fuente(ident)
+        texto = str(fuente.get("notas", "")) + str(fuente.get("descarga_manual", ""))
+        assert "registr" in texto.lower(), f"{ident}: no advierte que pide registro"
+
+
+def test_owid_y_osiptel_declaran_formatos_que_no_son_json():
+    """El verificador acepta CSV y XML como acceso programático; el catálogo lo dice."""
+    assert ".csv" in _fuente("owid")["ejemplo"]
+    assert "oai" in _fuente("osiptel")["api"].lower()

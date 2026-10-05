@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import pathlib
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 import yaml
@@ -40,8 +41,15 @@ def cargar(ruta: pathlib.Path = CATALOGO) -> dict:
     return yaml.safe_load(ruta.read_text(encoding="utf8"))
 
 
-def _probar(url: str, timeout: float = 25.0) -> tuple[int | None, str, bool]:
-    """Devuelve (código, tipo de contenido, parece_json)."""
+def _probar(url: str, timeout: float = 30.0, intentos: int = 2
+            ) -> tuple[int | None, str, bool]:
+    """Devuelve (código, tipo de contenido, parece_json).
+
+    Reintenta una vez antes de dar una fuente por caída. Varios portales del
+    Estado peruano fallan de forma intermitente cuando se les consulta en
+    paralelo, y una falsa alarma es peor que no comprobar: si la herramienta
+    cría fama de equivocarse, nadie vuelve a mirar su salida.
+    """
     try:
         import requests
         import urllib3
@@ -50,11 +58,19 @@ def _probar(url: str, timeout: float = 25.0) -> tuple[int | None, str, bool]:
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     except ImportError:
         return None, "falta requests", False
-    try:
-        r = requests.get(url, headers={"User-Agent": UA}, timeout=timeout,
-                         verify=False, allow_redirects=True)
-    except Exception as e:  # noqa: BLE001
-        return None, type(e).__name__, False
+
+    r = None
+    for intento in range(intentos):
+        try:
+            r = requests.get(url, headers={"User-Agent": UA}, timeout=timeout,
+                             verify=False, allow_redirects=True)
+            break
+        except Exception as e:  # noqa: BLE001
+            if intento == intentos - 1:
+                return None, type(e).__name__, False
+            time.sleep(2.0)
+    if r is None:  # pragma: no cover - el bucle siempre devuelve o asigna
+        return None, "sin respuesta", False
     tipo = r.headers.get("content-type", "").split(";")[0]
     parece_json = False
     if r.status_code == 200:
@@ -96,9 +112,19 @@ def comprobar(solo_apis: bool = False, ruta: pathlib.Path = CATALOGO) -> list[di
         return list(ex.map(tarea, objetivos))
 
 
-def _es_oai(url: str) -> bool:
-    """OAI-PMH devuelve XML, no JSON, y sigue siendo acceso programático."""
-    return "/oai/" in (url or "").lower() or "verb=" in (url or "").lower()
+def _formato_no_json(url: str) -> str | None:
+    """¿El endpoint devuelve datos legibles por máquina que no son JSON?
+
+    Acceso programático no es sinónimo de JSON. OAI-PMH devuelve XML y la
+    descarga de Our World in Data devuelve CSV; ambos se leen con una línea de
+    código y cuentan como API verificada.
+    """
+    u = (url or "").lower()
+    if "/oai/" in u or "verb=" in u:
+        return "XML (OAI-PMH)"
+    if ".csv" in u:
+        return "CSV"
+    return None
 
 
 def _discrepa(fila: dict) -> str | None:
@@ -109,7 +135,7 @@ def _discrepa(fila: dict) -> str | None:
     if declarado == "api_verificada":
         if codigo != 200:
             return f"declara API verificada y respondió {codigo}"
-        if not fila.get("json") and not _es_oai(url):
+        if not fila.get("json") and not _formato_no_json(url):
             return "declara API verificada y no devolvió JSON"
     if declarado == "manual_verificada" and codigo != 200:
         return f"declara portal verificado y respondió {codigo}"

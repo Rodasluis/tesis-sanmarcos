@@ -58,6 +58,40 @@ oferta **a nivel distrital** —cajeros, deudores, depósitos— que se cruzan c
 sus encuestas de demanda. Esa brecha entre lo que hay y lo que la gente usa es,
 por sí sola, una tesis.
 
+## Lo internacional y lo privado, que casi nadie mira
+
+Tres cosas que existen, son gratuitas y rara vez aparecen en una tesis de
+pregrado peruana:
+
+**La ENDES es parte del programa DHS.** Eso significa que sus indicadores están
+en una API, ya calculados, con series del Perú **desde 1986**, y —esto es lo
+importante— **comparables con otros países** que usan el mismo cuestionario. Una
+tesis sobre desnutrición infantil puede poner al Perú al lado de Bolivia o
+Guatemala con la misma medición. La ENAHO no permite eso.
+
+**Young Lives / Niños del Milenio es un panel longitudinal desde 2002**,
+coordinado en el Perú por GRADE. Sigue a las mismas personas más de veinte años.
+Permite preguntas que ninguna encuesta de corte transversal admite: qué pasó con
+los niños desnutridos a los 8 años cuando llegaron a los 22. Es lo más valioso
+que hay para el Perú y lo menos usado.
+
+**Hay APIs internacionales sin clave** que resuelven el capítulo de antecedentes
+en minutos: OMS (salud), OIT (laboral), UNESCO (educación), UN Comtrade
+(comercio), Our World in Data (todo, en CSV), FAOSTAT (agro) y el catálogo de
+microdatos del Banco Mundial.
+
+Para lo privado peruano —GRADE, IEP, IPE, CIES, Proética, Lima Cómo Vamos,
+Ipsos, Datum— la regla al citarlo es una: **no son fuentes oficiales y hay que
+decirlo**. Miden lo que el Estado no mide —percepción de corrupción, calidad de
+vida urbana, competitividad regional— pero sin la representatividad ni la
+metodología publicada de una encuesta del INEI. Sin ficha técnica, una encuesta
+no se cita.
+
+Ojo con los microdatos que exigen registro —Banco Mundial, DHS, IPUMS, Young
+Lives—: varios prohíben redistribuirlos. Eso significa que van a
+`datos/crudos/`, que no se versiona, y que no se suben al repositorio aunque
+estén en el proyecto.
+
 ## Lo que hay que saber de las fuentes peruanas
 
 **ENAHO.** Módulos separados, cada uno un archivo. Se cruzan por CONGLOME,

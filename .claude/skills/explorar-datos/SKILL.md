@@ -42,6 +42,15 @@ Cuatro cosas que el catálogo ya sabe y te ahorran tiempo:
   SBS, la Planilla Electrónica del MTPE, los estados financieros de la SMV.
   Para su sector suelen ser mejores que la ENAHO. Míralas antes de concluir que
   no hay datos.
+- **Hay microdatos internacionales gratuitos sobre el Perú.** La ENDES es parte
+  del programa DHS, con API e indicadores comparables entre países desde 1986.
+  Young Lives sigue a las mismas personas desde 2002, que es lo único
+  longitudinal que hay. Y el Banco Mundial, IPUMS, LAPOP, Latinobarómetro y las
+  Enterprise Surveys cubren al Perú con registro gratuito.
+
+Cuando propongas una fuente privada —GRADE, IEP, IPE, Ipsos, Datum— di que **no
+es oficial**. Miden lo que el Estado no mide, pero sin la representatividad de
+una encuesta del INEI, y sin ficha técnica no se citan.
 
 Si el catálogo dice `verificar` o `api_bloqueada`, créele. Se comprobó de verdad.
 
