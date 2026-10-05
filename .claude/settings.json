@@ -1,0 +1,70 @@
+{
+  "$comentario": [
+    "Ajustes compartidos de tesis-sanmarcos.",
+    "",
+    "AQUÍ NO HAY HOOKS, a propósito. Un hook necesita saber con qué intérprete",
+    "arrancar, y eso cambia en cada máquina; si se equivoca, el registro de IA",
+    "falla en silencio. Por eso el hook se instala por máquina con:",
+    "    uv run python -m herramientas.instalar_hooks",
+    "que escribe .claude/settings.local.json con la ruta correcta.",
+    "",
+    "Lo que sí vive aquí son las reglas de permisos: son declarativas, no",
+    "ejecutan nada, no pueden romperse y se aplican de inmediato."
+  ],
+
+  "permissions": {
+    "deny": [
+      "Write(./decisiones/**)",
+      "Edit(./decisiones/**)",
+      "MultiEdit(./decisiones/**)",
+      "NotebookEdit(./decisiones/**)",
+
+      "Write(./datos/crudos/**)",
+      "Edit(./datos/crudos/**)",
+      "MultiEdit(./datos/crudos/**)",
+      "NotebookEdit(./datos/crudos/**)",
+
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/credenciales*)",
+      "Read(**/*.key)",
+      "Read(**/zotero_api*)",
+      "Read(**/.zotero/**)",
+
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(:(){ :|:& };:)"
+    ],
+
+    "ask": [
+      "Bash(git push*)",
+      "Bash(gh *)",
+      "Write(./normativa/**)",
+      "Edit(./normativa/**)"
+    ]
+  },
+
+  "$porQueCadaRegla": {
+    "decisiones": [
+      "Solo registrar_decision.py escribe ahí. La herramienta exige la respuesta",
+      "textual del tesista y sella el archivo con un hash; si Claude pudiera",
+      "escribir el archivo directamente, podría fabricar una decisión que nadie",
+      "tomó. La regla bloquea la herramienta de edición, no Bash, así que el",
+      "script sigue funcionando: ese es exactamente el camino que queremos."
+    ],
+    "datosCrudos": [
+      "Los datos tal como se recolectaron son inmutables. Si hay que limpiarlos,",
+      "el resultado va a datos/procesados/ y queda el código que hizo la",
+      "transformación. Principio 1 y principio 8 de CLAUDE.md."
+    ],
+    "credenciales": [
+      "Claude no necesita leer claves de API para hacer una tesis."
+    ],
+    "normativaPreguntaNoProhibe": [
+      "normativa/ es el registro de lo que dicen las normas. Cambiarlo no está",
+      "prohibido, pero debe ser una decisión consciente: por eso `ask` y no `deny`."
+    ]
+  }
+}

@@ -225,6 +225,40 @@ sustentación habiendo tomado y entendido cada decisión.
   edites a mano.
 - **Commits**: uno por borrador, mensaje `[claude] <etapa>: <resumen>`.
 
+### Hooks y permisos
+
+Hay **un solo hook** en todo el repositorio: `PostToolUse` anota cada escritura,
+edición y comando en `registro/registro_ia.jsonl`. Siempre termina con código 0,
+así que no puede bloquear la sesión. Se instala por máquina —el intérprete cambia
+en cada equipo— con `uv run python -m herramientas.instalar_hooks`.
+
+Lo que sí bloquea son **reglas de permisos** de `.claude/settings.json`, que son
+declarativas y no ejecutan nada:
+
+- `decisiones/` y `datos/crudos/` están cerrados a Write y Edit. No es un
+  obstáculo: es el camino. Para registrar una decisión usa
+  `registrar_decision.py`, que es lo que exige la respuesta textual del tesista y
+  sella el archivo.
+- `normativa/` pregunta antes de dejarte escribir. Cambiar lo que dice una norma
+  debe ser deliberado.
+
+**Al empezar cada etapa**, marca en qué etapa estás para que el registro quede
+bien etiquetado:
+
+```
+uv run python -c "from herramientas import registro_ia; registro_ia.marcar_etapa('redactar')"
+```
+
+Y antes de avanzar de etapa, comprueba que la anterior tenga su decisión:
+
+```
+uv run python -m herramientas.verificar_decisiones --exigir-hasta <etapa>
+```
+
+Eso va **dentro de la skill**, no en un hook: si falta una decisión, explícaselo
+al tesista y resuélvanlo conversando. Un rechazo silencioso del harness no
+enseña nada.
+
 ---
 
 ## 7. Cuando no sepas algo

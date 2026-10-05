@@ -1,0 +1,84 @@
+#!/bin/sh
+# Impide que suban datos personales al repositorio remoto.
+#
+# Esto NO es un hook de Claude Code: es un hook de git y vive fuera de la
+# sesión. Que bloquee un commit no interrumpe ninguna conversación.
+#
+# Dos reglas de diseño, y la segunda importa tanto como la primera:
+#
+# 1. Solo detiene el commit lo que nunca debe subirse: `datos/crudos/`, los
+#    .docx de entrega, archivos de entorno. Un DNI suelto o un correo se
+#    advierten y el commit sigue, porque son indicios y no certezas.
+#
+# 2. **Si la comprobación no puede ejecutarse, el commit pasa.** Un intérprete
+#    que no arranca, un import roto o un error nuestro no pueden dejar a nadie
+#    sin poder guardar su trabajo. Por eso solo el código 9 bloquea: es el que
+#    devuelve la herramienta cuando encontró algo de verdad. Cualquier otro
+#    código es un fallo del hook, no del commit.
+#
+# Se instala con:  uv run python -m herramientas.instalar_hooks
+
+set -u
+
+RAIZ=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
+cd "$RAIZ" || exit 0
+
+CODIGO_BLOQUEA=9
+
+# Un intérprete sirve si ARRANCA, no si existe: en Windows `python` y `python3`
+# suelen ser el atajo a la Microsoft Store, que está en el PATH y no ejecuta
+# nada. Por eso cada candidato se prueba antes de usarlo.
+PY=""
+PYARG=""
+
+probar() {
+    if [ -z "$1" ]; then
+        return 1
+    fi
+    if [ -n "${2:-}" ]; then
+        "$1" "$2" -c "pass" >/dev/null 2>&1
+    else
+        "$1" -c "pass" >/dev/null 2>&1
+    fi
+}
+
+for candidato in ".venv/Scripts/python.exe" ".venv/bin/python" "python3" "python"; do
+    if probar "$candidato"; then
+        PY="$candidato"
+        break
+    fi
+done
+
+if [ -z "$PY" ] && probar "py" "-3"; then
+    PY="py"
+    PYARG="-3"
+fi
+
+if [ -z "$PY" ]; then
+    echo "pre-commit: no se encontró un Python que arranque."
+    echo "            No se pudo revisar si hay datos personales; el commit continúa."
+    echo "            Revisa a mano lo que estás subiendo."
+    exit 0
+fi
+
+if [ -n "$PYARG" ]; then
+    "$PY" "$PYARG" -m herramientas.datos_personales --staged
+else
+    "$PY" -m herramientas.datos_personales --staged
+fi
+ESTADO=$?
+
+if [ "$ESTADO" -eq "$CODIGO_BLOQUEA" ]; then
+    echo ""
+    echo "Para saltarte esta comprobación — hazlo solo si estás seguro:"
+    echo "    git commit --no-verify"
+    exit 1
+fi
+
+if [ "$ESTADO" -ne 0 ]; then
+    echo "pre-commit: la comprobación falló (código $ESTADO), así que no se pudo"
+    echo "            revisar nada. El commit continúa: un error nuestro no debe"
+    echo "            impedirte guardar tu trabajo."
+fi
+
+exit 0

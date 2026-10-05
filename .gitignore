@@ -29,7 +29,7 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
-# Estado local del estudiante, no del repositorio
+# Estado local del tesista, no del repositorio
 .perfil-activo
 entregables/_render/
 
@@ -40,7 +40,11 @@ registro/tablero.html
 registro/_cache_red/
 registro/registro_ia.jsonl
 
-# Entregables del estudiante
+# Entregables del tesista
 entregables/TEXTO/
 entregables/DOCUMENTO/
 entregables/datos_de_entrega.yaml
+
+# Hooks: el intérprete depende de la máquina, lo escribe instalar_hooks
+.claude/settings.local.json
+registro/.etapa

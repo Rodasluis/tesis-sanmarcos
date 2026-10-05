@@ -25,6 +25,7 @@ import pathlib
 import sys
 import webbrowser
 
+from herramientas import registro_ia
 from herramientas.perfiles import ErrorDePerfil, cargar_de, perfil_activo
 from herramientas.registrar_decision import ETAPAS
 
@@ -145,6 +146,15 @@ def recolectar(raiz: pathlib.Path = RAIZ) -> dict:
                         "texto": "<code>referencias.bib</code> está vacío: ninguna cita "
                                  "puede verificarse."})
 
+    # El hook del registro nunca bloquea, así que si deja de funcionar lo hace en
+    # silencio. Alguien tiene que notar el hueco, y este es el sitio.
+    acciones_ia = registro_ia.leer(raiz)
+    al_dia, motivo = registro_ia.esta_al_dia(raiz)
+    if not al_dia:
+        alertas.append({
+            "estado": "atencion",
+            "texto": f"El registro de uso de IA {html.escape(motivo)}."})
+
     return {
         "generado": dt.datetime.now(),
         "perfil": perfil,
@@ -157,6 +167,7 @@ def recolectar(raiz: pathlib.Path = RAIZ) -> dict:
             "Referencias": entradas,
             "Resultados": _contar(raiz, "resultados/**/*"),
             "Decisiones": len(decisiones),
+            "AccionesIA": len(acciones_ia),
         },
     }
 
@@ -191,6 +202,9 @@ def construir_html(datos: dict) -> str:
               "bien" if datos["cuentas"]["Referencias"] else "critico"),
         _tile(str(datos["cuentas"]["Resultados"]), "archivos de resultados",
               "bien" if datos["cuentas"]["Resultados"] else "neutro"),
+        _tile(str(datos["cuentas"]["AccionesIA"]), "acciones de IA registradas",
+              "bien" if datos["cuentas"]["AccionesIA"] else "neutro",
+              "alimenta la declaración de uso de IA"),
     ]
 
     filas_etapas = []

@@ -30,7 +30,6 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
-import json
 import pathlib
 import re
 import shutil
@@ -40,7 +39,7 @@ from dataclasses import dataclass, field
 
 import yaml
 
-from herramientas import docx_numeracion
+from herramientas import docx_numeracion, registro_ia
 from herramientas.informe import Informe
 from herramientas.perfiles import ErrorDePerfil, cargar_de, perfil_activo
 
@@ -201,22 +200,10 @@ def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
 
 def declaracion_uso_de_ia(raiz: pathlib.Path, autores: list[Autor], datos: dict) -> str:
     """Anexo voluntario, construido desde registro/registro_ia.jsonl."""
-    registro = raiz / "registro" / "registro_ia.jsonl"
-    acciones: list[dict] = []
-    if registro.exists():
-        for linea in registro.read_text(encoding="utf8", errors="replace").splitlines():
-            linea = linea.strip()
-            if not linea:
-                continue
-            try:
-                acciones.append(json.loads(linea))
-            except json.JSONDecodeError:
-                continue
-
-    por_etapa: dict[str, int] = {}
-    for a in acciones:
-        etapa = str(a.get("etapa") or a.get("stage") or "sin etapa")
-        por_etapa[etapa] = por_etapa.get(etapa, 0) + 1
+    acciones = registro_ia.leer(raiz)
+    por_etapa = registro_ia.por_etapa(acciones)
+    archivos = registro_ia.archivos_tocados(acciones)
+    al_dia, motivo_registro = registro_ia.esta_al_dia(raiz)
 
     lineas = [
         "# Declaración de uso de inteligencia artificial generativa",
@@ -249,12 +236,30 @@ def declaracion_uso_de_ia(raiz: pathlib.Path, autores: list[Autor], datos: dict)
         "",
     ]
     if acciones:
-        lineas += [f"- Acciones registradas: **{len(acciones)}**", "",
-                   "| Etapa | Acciones |", "|---|---|"]
-        for etapa, n in sorted(por_etapa.items(), key=lambda kv: -kv[1]):
+        lineas += [
+            f"- Acciones registradas: **{len(acciones)}**",
+            f"- Archivos del repositorio que la herramienta escribió o editó: "
+            f"**{len(archivos)}**",
+            "",
+            "| Etapa | Acciones |", "|---|---|",
+        ]
+        for etapa, n in por_etapa.items():
             lineas.append(f"| {etapa} | {n} |")
+        if not al_dia:
+            lineas += [
+                "",
+                f"> **El registro puede estar incompleto:** {motivo_registro}. Se "
+                "declara aquí para no presentar como exhaustivo algo que no lo es.",
+            ]
     else:
-        lineas.append("No hay acciones registradas en `registro/registro_ia.jsonl`.")
+        lineas += [
+            "No hay acciones registradas en `registro/registro_ia.jsonl`.",
+            "",
+            "> Eso no significa que la herramienta no se haya usado: significa que el",
+            "> hook que lleva ese registro no estaba instalado. Se instala con",
+            "> `uv run python -m herramientas.instalar_hooks`. Si vas a presentar esta",
+            "> declaración, dilo tal cual en lugar de dejar entender que no hubo ayuda.",
+        ]
     lineas += [
         "",
         "## Lo que no se hizo",

@@ -122,6 +122,30 @@ Más adelante, `/iniciar` te guiará para configurar la exportación automática
 
 Sigue las instrucciones de <https://claude.com/claude-code>.
 
+### 5. Enciende el registro
+
+Una vez, en la carpeta de tu tesis:
+
+```powershell
+uv run python -m herramientas.instalar_hooks
+```
+
+Esto hace dos cosas. Deja un **registro automático** de lo que Claude escribe,
+edita y ejecuta, en `registro/registro_ia.jsonl` — de ahí sale la declaración de
+uso de IA, y es lo que tu asesor puede mirar para ver el proceso. Y pone una
+**protección en git** que impide subir sin querer tus datos crudos o los archivos
+de entrega.
+
+Para comprobar que quedó bien:
+
+```powershell
+uv run python -m herramientas.instalar_hooks --comprobar
+```
+
+> Ninguna de las dos cosas puede interrumpirte. El registro, si falla, pierde una
+> línea y sigue. La protección de git, si no puede ejecutarse, deja pasar el
+> commit con un aviso. Están pensadas para no estorbar nunca.
+
 ---
 
 ## Primer uso
