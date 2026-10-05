@@ -119,8 +119,13 @@ def test_no_revienta_si_no_encuentra_python(repo, monkeypatch):
     (capitulos / "a.qmd").write_text("# A\n", encoding="utf8")
     _git(repo, "add", "capitulos/a.qmd")
 
+    # Un PATH sin intérprete, pero **con** el shell: vaciarlo del todo deja a
+    # git sin `sh` y entonces la prueba ya no comprueba lo que dice comprobar,
+    # sino que git no puede lanzar el hook.
+    shell = shutil.which("sh") or shutil.which("bash")
     entorno = dict(os.environ)
-    entorno["PATH"] = str(repo)          # un PATH donde no hay python
+    entorno["PATH"] = os.pathsep.join([str(repo), str(pathlib.Path(shell).parent)])
+
     r = subprocess.run(["git", "commit", "-m", "sin python"], cwd=str(repo),
                        capture_output=True, text=True, timeout=120, env=entorno)
     assert r.returncode == 0, (r.stdout + r.stderr)

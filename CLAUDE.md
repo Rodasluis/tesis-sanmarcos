@@ -231,7 +231,18 @@ Cada etapa tiene un agente que hace el trabajo y otro que lo ataca. Viven en
 | `bibliotecario` | `critico-citas` | 3 |
 | `analista` | `critico-codigo` | 5 cuantitativa |
 | `codificador-cualitativo` | `critico-codificacion` | 5 cualitativa |
+| `redactor` | `critico-redaccion` | 6 |
 | `normativo` | `critico-perfil` | transversal |
+
+La etapa 7 no es un par: son **tres lectores hostiles en paralelo**, porque un
+jurado no es un revisor. `jurado-metodologico` ataca el método, `jurado-tematico`
+el aporte y la literatura, y `jurado-formal` la forma y la normativa. También son
+de solo lectura.
+
+Lo que `/jurado` produce **no es una nota ni un pronóstico de nota**. Es una
+simulación hecha por el mismo sistema que escribió los borradores, así que
+comparte sus puntos ciegos: lo que no se le ocurrió al redactar no se le ocurre
+al criticar. Eso se le dice al tesista cada vez.
 
 Tres reglas:
 

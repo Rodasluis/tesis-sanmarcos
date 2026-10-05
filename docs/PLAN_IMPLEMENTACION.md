@@ -136,6 +136,8 @@ asesor pueda ver el proceso, no impedir físicamente una escritura.
 ### Fase 5 — Skills y agentes, etapas 6–10
 `/redactar`, `/jurado`, `/verificar`, `/entregar`, `/sustentacion`, `/autopiloto`, más `/estado`, `/asesor`, `/checkpoint`.
 - **Riesgos:** `/entregar` concentra toda la complejidad de Word (los dos archivos del art. 13, nomenclatura exacta, tablas y fórmulas como texto). `/autopiloto` es el punto donde es más fácil violar el principio 3 (registrar una decisión no tomada): lo implemento de modo que `registrar_decision.py` **exija** una respuesta explícita y falle si no la hay.
+- **Hecho.** Cinco skills de etapa (`/redactar`, `/jurado`, `/verificar`, `/entregar`, `/sustentacion`), cuatro auxiliares (`/autopiloto`, `/estado`, `/asesor`, `/checkpoint`), el par `redactor`/`critico-redaccion` y los tres jurados simulados, todos de solo lectura. Más `herramientas/verificar_todo.py`, que orquesta las comprobaciones.
+- **Lo que salió de implementarlo:** el orquestador daba **100/100 y «listo para entregar» en un repositorio vacío**, porque donde no hay texto no hay errores. Cada componente informa ahora cuánto material revisó, y el que no revisó nada no puntúa ni entra en el promedio: bloquea los umbrales y dice qué falta. La etapa 7 no quedó como par trabajador-crítico sino como tres lectores en paralelo, porque un jurado no es un revisor.
 
 ### Fase 6 — Ejemplos end-to-end, CI y documentación
 Los dos ejemplos, GitHub Actions (ruff + pytest + render de ambos ejemplos a .docx) y `docs/`.

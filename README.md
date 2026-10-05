@@ -187,9 +187,12 @@ norma, más específica:
 | Las otras 16 | La estructura general de la universidad |
 
 Si tu escuela no tiene norma propia, **no estás en desventaja**: la estructura
-general es norma, no una plantilla inventada. Lo que sí te pedirá el sistema es
-que tu asesor confirme que es lo que tu escuela espera, antes de pasar a
-`/proyecto`.
+general es norma, no una plantilla inventada.
+
+Nada de esto te detiene. Si el perfil de tu facultad está marcado como no
+verificado, el repositorio te lo dice y sigue trabajando; conviene que tu asesor
+confirme que es lo que tu escuela espera, pero **no es un requisito para
+avanzar** y ninguna etapa queda esperándolo.
 
 ---
 
@@ -209,12 +212,29 @@ que tu asesor confirme que es lo que tu escuela espera, antes de pasar a
 | `/entregar` | Genera los archivos de entrega y las declaraciones |
 | `/sustentacion` | Diapositivas, guion y ensayo con preguntas |
 
-Además: `/estado` te muestra en qué vas, `/asesor` incorpora los comentarios de tu
-asesor, `/checkpoint` resume la sesión.
+Además, cuatro comandos que no son etapas:
 
-**`/autopiloto`** encadena todo de principio a fin. Claude hace cada etapa
-completa y se detiene **solo** en los puntos de decisión, con una opción ya
-recomendada. Nunca registra una decisión que no tomaste.
+- **`/estado`** te dice dónde quedaste, qué decidiste y qué toca ahora. Está
+  pensado para volver después de semanas sin tocar la tesis, que es lo normal.
+- **`/asesor`** prepara el material de la reunión y después convierte sus
+  observaciones en cambios. No es una puerta: puedes trabajar sin haber hablado
+  con él.
+- **`/checkpoint`** guarda el avance y deja escrito lo primero que hay que hacer
+  al volver.
+- **`/autopiloto`** encadena varias etapas seguidas. Claude hace cada una
+  completa y se detiene **solo** en los puntos de decisión, con una opción ya
+  recomendada. Nunca registra una decisión que no tomaste: la herramienta que
+  escribe las decisiones se niega a hacerlo sin tu respuesta.
+
+Para ver todo de una vez, sin pasar por una etapa:
+
+```
+uv run python -m herramientas.verificar_todo --detalle
+```
+
+Da un puntaje por componente. **Es un semáforo, no una nota**: un componente que
+no tenía nada que revisar no saca 100, sale como pendiente, porque una tesis
+vacía no tiene errores y eso no la acerca a estar lista.
 
 ---
 
