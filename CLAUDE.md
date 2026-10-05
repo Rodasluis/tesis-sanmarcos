@@ -219,6 +219,31 @@ El registro no pretende probar que el tesista escribió cada palabra. Su
 objetivo es que el asesor vea el proceso y que el tesista llegue a la
 sustentación habiendo tomado y entendido cada decisión.
 
+### Pares trabajador–crítico
+
+Cada etapa tiene un agente que hace el trabajo y otro que lo ataca. Viven en
+`.claude/agents/`.
+
+| Trabajador | Crítico | Etapa |
+|---|---|---|
+| `explorador-datos` | `critico-datos` | 1 |
+| `afinador-ideas` | `critico-identificacion` | 2 |
+| `bibliotecario` | `critico-citas` | 3 |
+| `analista` | `critico-codigo` | 5 cuantitativa |
+| `codificador-cualitativo` | `critico-codificacion` | 5 cualitativa |
+| `normativo` | `critico-perfil` | transversal |
+
+Tres reglas:
+
+- **Los críticos no pueden editar archivos.** No es una instrucción en su texto:
+  su lista de `tools` no incluye Write ni Edit, y hay una prueba que lo
+  comprueba. Encuentran problemas; quien los arregla es el flujo principal.
+- **Nadie se autoevalúa.** El trabajador no juzga su propio trabajo.
+- **Tres rondas como máximo.** Si tras tres el trabajador y el crítico siguen en
+  desacuerdo, las dos posturas van al tesista y decide él.
+
+Ningún agente aprueba nada. No existe un visto bueno suyo.
+
 ---
 
 ## 6. Cómo trabajar en este repositorio

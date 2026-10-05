@@ -1,0 +1,399 @@
+# Catálogo de fuentes de datos abiertas para tesis de la UNMSM
+#
+# TODAS las URL de este archivo se comprobaron el 2026-10-04 con una petición
+# real. El campo `estado` dice qué pasó, no qué se esperaba:
+#
+#   api_verificada    responde y devuelve datos utilizables por programa
+#   api_bloqueada     la API existe pero no se pudo usar desde aquí
+#   manual_verificada el portal responde; la descarga es a mano
+#   verificar         no respondió, o respondió algo inesperado
+#
+# Volver a comprobarlo:  uv run python -m herramientas.fuentes.verificar
+#
+# Las URL se rompen. Si una lleva tiempo en `verificar`, quítala del catálogo
+# antes de que alguien pierda una tarde con ella.
+
+comprobado: 2026-10-04
+
+fuentes:
+
+  # ===========================================================================
+  # Acceso programático comprobado
+  # ===========================================================================
+
+  - id: banco_mundial
+    nombre: Banco Mundial — World Development Indicators
+    url: https://data.worldbank.org/
+    api: https://api.worldbank.org/v2/country/PER/indicator/{indicador}?format=json
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: anual
+    desagregacion: [pais]
+    cobertura_temporal: "1960 en adelante, según el indicador"
+    facultades: [Ciencias Económicas, Ciencias Sociales, Ciencias Administrativas,
+                 Ciencias Contables, Educación]
+    notas: >-
+      La API más fiable de la lista: sin clave, sin límite agresivo y con JSON
+      limpio. Buena para contexto macro y comparación internacional, mala para
+      cualquier cosa subnacional: solo llega a nivel país.
+    ejemplo: https://api.worldbank.org/v2/country/PER/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2020:2023
+
+  - id: datos_abiertos_peru
+    nombre: Plataforma Nacional de Datos Abiertos
+    url: https://www.datosabiertos.gob.pe/
+    api: https://www.datosabiertos.gob.pe/api/3/action/package_list
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: variable
+    desagregacion: [variable]
+    facultades: [todas]
+    notas: >-
+      Es un CKAN, pero **no todas las acciones de CKAN están habilitadas**. Se
+      comprobó una por una:
+
+      - `package_list` → funciona. Devuelve los nombres de todos los conjuntos.
+      - `current_package_list_with_resources?limit=N` → funciona. Es la útil:
+        trae las fichas con sus recursos descargables.
+      - `package_search?q=…` → **devuelve 404**. La búsqueda por la API no está
+        disponible; para buscar por tema hay que usar el buscador de la web.
+
+      La calidad de los conjuntos es desigual: muchos son PDF o Excel sin
+      diccionario de variables.
+    ejemplo: https://www.datosabiertos.gob.pe/api/3/action/current_package_list_with_resources?limit=2
+
+  - id: cybertesis
+    nombre: Cybertesis UNMSM — repositorio institucional
+    url: https://cybertesis.unmsm.edu.pe/
+    api: https://cybertesis.unmsm.edu.pe/backend/api
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: continua
+    desagregacion: [facultad, escuela, año, tipo de documento]
+    facultades: [todas]
+    notas: >-
+      DSpace 7.6.2. Útil para dos cosas distintas: ver qué se ha hecho ya en tu
+      escuela —antecedentes, y comprobar que tu tema no está repetido— y, en
+      humanidades, como corpus de análisis.
+      Las colecciones de pregrado se llaman `Tesis EP <escuela>`; las de
+      posgrado cuelgan de `Unidad de Posgrado`, y no sirven como referencia
+      normativa para una tesis de título.
+    ejemplo: https://cybertesis.unmsm.edu.pe/backend/api/discover/search/objects?query=canon+minero
+
+  # ===========================================================================
+  # APIs que existen pero no se pudieron usar
+  # ===========================================================================
+
+  - id: bcrp
+    nombre: BCRP — Series estadísticas
+    url: https://estadisticas.bcrp.gob.pe/estadisticas/series/
+    api: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/{series}/json/{inicio}/{fin}/{idioma}
+    estado: api_bloqueada
+    tipo_acceso: manual
+    frecuencia: [diaria, mensual, trimestral, anual]
+    desagregacion: [nacional, departamental en algunas series]
+    facultades: [Ciencias Económicas, Ciencias Administrativas, Ciencias Contables]
+    notas: >-
+      **El endpoint documentado no devolvió JSON.** Se probó con varias
+      combinaciones de formato e idioma y todas respondieron con una página HTML
+      que ejecuta un script de protección contra bots. La API existe y está
+      documentada; sencillamente no atiende peticiones automatizadas desde aquí.
+
+      Mientras siga así, el camino es el buscador de series de la web: se elige
+      la serie, se marca el periodo y se descarga en Excel o CSV. El archivo va a
+      `datos/crudos/` y se anota de dónde salió.
+
+      Si algún día responde, el formato es
+      `.../api/{códigos}/json/{periodo inicial}/{periodo final}/{idioma}`.
+    descarga_manual: >-
+      1. Entra a https://estadisticas.bcrp.gob.pe/estadisticas/series/
+      2. Busca la serie por nombre o por código (p. ej. PN01288PM).
+      3. Elige el periodo y descarga en Excel.
+      4. Guarda el archivo en `datos/crudos/` sin modificarlo.
+
+  - id: cepalstat
+    nombre: CEPALSTAT — Bases de datos y publicaciones estadísticas
+    url: https://statistics.cepal.org/portal/cepalstat/
+    api: https://api-cepalstat.cepal.org/cepalstat/api/v1/
+    estado: verificar
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [pais]
+    facultades: [Ciencias Económicas, Ciencias Sociales]
+    notas: >-
+      La API responde e incluso se identifica ("uneclac cepalstat api", versión
+      2.0.0), pero las rutas que se probaron devolvieron `success: false`. No se
+      encontró documentación pública del esquema, así que queda en `verificar`:
+      el portal web sí funciona para descarga manual.
+
+  - id: fmi
+    nombre: FMI — DataMapper
+    url: https://www.imf.org/external/datamapper/
+    api: https://www.imf.org/external/datamapper/api/v1/{indicador}/{pais}
+    estado: api_bloqueada
+    tipo_acceso: manual
+    frecuencia: semestral
+    desagregacion: [pais]
+    facultades: [Ciencias Económicas]
+    notas: >-
+      Devolvió 403 tanto en la API como en la web. Puede ser un bloqueo
+      geográfico o de agente. Para proyecciones macro, el Banco Mundial suele
+      bastar; si hace falta el WEO, se descarga a mano desde el portal.
+
+  # ===========================================================================
+  # Descarga manual, portal comprobado
+  # ===========================================================================
+
+  - id: inei_microdatos
+    nombre: INEI — Microdatos
+    url: https://proyectos.inei.gob.pe/microdatos/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [hogar, persona, departamento, provincia, distrito]
+    facultades: [Ciencias Económicas, Ciencias Sociales, Educación, Medicina,
+                 Psicología, Ciencias Administrativas, Ciencias Contables]
+    encuestas:
+      - {sigla: ENAHO, nombre: Encuesta Nacional de Hogares, periodicidad: anual y trimestral,
+         usos: "pobreza, empleo, ingresos, educación, salud, gasto"}
+      - {sigla: ENDES, nombre: Encuesta Demográfica y de Salud Familiar, periodicidad: anual,
+         usos: "salud materna e infantil, nutrición, anemia, violencia"}
+      - {sigla: ENAPRES, nombre: Encuesta Nacional de Programas Presupuestales, periodicidad: anual,
+         usos: "acceso a servicios públicos, seguridad ciudadana"}
+      - {sigla: EPEN, nombre: Encuesta Permanente de Empleo Nacional, periodicidad: mensual,
+         usos: "empleo urbano"}
+      - {sigla: ENE, nombre: Encuesta Nacional de Empresas, periodicidad: anual,
+         usos: "productividad, formalidad empresarial"}
+      - {sigla: CENSOS, nombre: Censos Nacionales de Población y Vivienda, periodicidad: decenal,
+         usos: "demografía, vivienda, lengua materna, discapacidad"}
+    notas: >-
+      La fuente más útil para una tesis cuantitativa peruana, y la que más
+      trabajo da. Los módulos vienen en SPSS (.sav) o Stata (.dta), separados y
+      con diccionarios en PDF: cruzarlos exige las llaves de hogar y persona
+      (CONGLOME, VIVIENDA, HOGAR, CODPERSO en la ENAHO).
+
+      **Factores de expansión:** casi ningún resultado es válido sin ponderar.
+      Esto es lo que más veces desarma un jurado.
+
+      Los microdatos vienen anonimizados por el INEI, pero igual van a
+      `datos/crudos/`, que no se versiona.
+    descarga_manual: >-
+      1. Entra a https://proyectos.inei.gob.pe/microdatos/
+      2. Elige la encuesta, el año y el periodo.
+      3. Descarga los módulos que necesites y su diccionario.
+      4. Guárdalos en `datos/crudos/` tal cual vienen.
+
+  - id: mef_consulta_amigable
+    nombre: MEF — Consulta Amigable (Transparencia Económica)
+    url: https://apps5.mineco.gob.pe/transparencia/Navegador/default.aspx
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: diaria
+    desagregacion: [pliego, unidad ejecutora, departamento, provincia, distrito,
+                    función, programa presupuestal, genérica de gasto]
+    facultades: [Ciencias Económicas, Ciencias Contables, Ciencias Administrativas,
+                 Ciencias Sociales, Educación]
+    notas: >-
+      Presupuesto público ejecutado, desde 2012 y con detalle hasta el distrito.
+      No tiene API: la navegación es por formulario y la exportación a Excel sale
+      con celdas combinadas y encabezados en varias filas, así que el primer paso
+      del análisis siempre es limpiar la tabla.
+
+      Distingue PIA, PIM, Devengado y Girado. Usar uno por otro cambia las
+      conclusiones: el Devengado es lo que realmente se gastó.
+    descarga_manual: >-
+      1. Entra al Navegador y elige el nivel de gobierno.
+      2. Baja por los niveles que te interesen (pliego, departamento, función…).
+      3. Exporta a Excel con el botón de la esquina superior derecha.
+      4. Guarda el .xls en `datos/crudos/` y documenta los filtros que usaste.
+
+  - id: minedu_escale
+    nombre: MINEDU — ESCALE (Estadística de la Calidad Educativa)
+    url: https://escale.minedu.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [institución educativa, distrito, provincia, región, gestión, área]
+    facultades: [Educación, Ciencias Sociales, Ciencias Económicas, Psicología]
+    conjuntos:
+      - {nombre: Censo Escolar, usos: "matrícula, docentes, locales, servicios básicos"}
+      - {nombre: Padrón de instituciones educativas,
+         url: https://escale.minedu.gob.pe/padron-de-iiee,
+         usos: "universo de IIEE con código modular y georreferencia"}
+      - {nombre: "Evaluaciones de aprendizaje (ECE, EM, ERCE)",
+         usos: "resultados por IIEE y por región",
+         nota: "la plataforma de resultados cambia de nombre y de dirección con frecuencia"}
+    notas: >-
+      El **código modular** es la llave que une todo lo de MINEDU. Guárdalo como
+      texto: tiene ceros a la izquierda y Excel se los come.
+    descarga_manual: >-
+      1. Entra a https://escale.minedu.gob.pe/
+      2. Ve a «Padrón de IIEE» o a «Censo Escolar» según lo que busques.
+      3. Descarga el DBF o el CSV del año.
+      4. Guárdalo en `datos/crudos/`.
+
+  - id: seace
+    nombre: SEACE — Sistema Electrónico de Contrataciones del Estado
+    url: https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/buscadorPublico.xhtml
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [entidad, objeto de contratación, departamento, monto]
+    facultades: [Ciencias Económicas, Ciencias Contables, Ciencias Administrativas,
+                 Derecho y Ciencia Política, Ingeniería Industrial]
+    notas: >-
+      Procesos de contratación pública. El buscador exige rellenar un captcha y
+      pagina de 15 en 15, así que reunir una muestra grande a mano es lento.
+      Para series completas conviene mirar antes si el conjunto está publicado en
+      datos abiertos: suele estarlo, ya consolidado.
+    relacionado: [datos_abiertos_peru, oece]
+
+  - id: oece
+    nombre: OECE — Organismo Especializado para las Contrataciones Públicas Eficientes
+    url: https://www.gob.pe/oece
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [entidad, proveedor]
+    facultades: [Ciencias Contables, Ciencias Administrativas, Derecho y Ciencia Política]
+    notas: >-
+      Antes OSCE. Publica el RNP, sanciones a proveedores y estadísticas de
+      contrataciones. El cambio de nombre hace que muchas URL antiguas de OSCE
+      ya no resuelvan.
+
+  - id: alicia
+    nombre: ALICIA — Acceso Libre a Información Científica (CONCYTEC)
+    url: https://alicia.concytec.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [institución, tipo de documento, año]
+    facultades: [todas]
+    notas: >-
+      Agrega los repositorios institucionales del país, así que sirve para ver
+      qué se ha hecho sobre un tema fuera de la UNMSM. Para antecedentes de la
+      propia universidad, Cybertesis es más directo.
+
+  - id: bnp
+    nombre: Biblioteca Nacional del Perú — Biblioteca digital
+    url: https://bibliotecadigital.bnp.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [colección, época]
+    facultades: [Letras y Ciencias Humanas, Ciencias Sociales, Educación,
+                 Derecho y Ciencia Política]
+    notas: >-
+      Material histórico digitalizado. En humanidades esto es **corpus**, no
+      datos estadísticos: se cita como fuente primaria y las referencias se
+      tratan como las de cualquier documento de archivo.
+
+  - id: ins
+    nombre: INS — Repositorio del Instituto Nacional de Salud
+    url: https://repositorio.ins.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: continua
+    desagregacion: [tipo de documento, año]
+    facultades: [Medicina, Farmacia y Bioquímica, Odontología, Medicina Veterinaria,
+                 Psicología]
+    notas: Informes técnicos, guías y evaluaciones de tecnologías sanitarias.
+
+  - id: minsa
+    nombre: MINSA — datos de salud
+    url: https://www.minsa.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: variable
+    desagregacion: [región, establecimiento]
+    facultades: [Medicina, Farmacia y Bioquímica, Odontología, Psicología,
+                 Medicina Veterinaria]
+    notas: >-
+      Los conjuntos abiertos del sector salud están repartidos entre el portal
+      del MINSA y la Plataforma Nacional de Datos Abiertos; buscar primero en la
+      segunda ahorra tiempo.
+
+      **Atención:** cualquier base con datos de pacientes, aunque venga
+      anonimizada, exige el tratamiento de la Ley N.° 29733, y una tesis con
+      datos clínicos primarios necesita comité de ética (ver el perfil de tu
+      facultad).
+    relacionado: [datos_abiertos_peru]
+
+  - id: susalud
+    nombre: SUSALUD — Superintendencia Nacional de Salud
+    url: https://www.gob.pe/susalud
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: variable
+    desagregacion: [IPRESS, región]
+    facultades: [Medicina, Farmacia y Bioquímica, Odontología]
+    notas: >-
+      El dominio propio (www.susalud.gob.pe) no respondió en la comprobación; la
+      ficha de gob.pe sí. Registro Nacional de IPRESS y estadísticas de
+      aseguramiento.
+
+  - id: sunedu
+    nombre: SUNEDU — estadísticas de educación superior
+    url: https://www.sunedu.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [universidad, programa, región]
+    facultades: [Educación, Ciencias Sociales, Ciencias Económicas]
+    notas: >-
+      Registro de grados y títulos, licenciamiento y estadísticas
+      universitarias. La ruta `/sibe/` que se probó devolvió 404; entrar por la
+      portada.
+
+  - id: reniec
+    nombre: RENIEC — estadísticas agregadas
+    url: https://www.reniec.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: variable
+    desagregacion: [departamento, provincia, distrito]
+    facultades: [Ciencias Sociales, Derecho y Ciencia Política, Ciencias Económicas]
+    notas: >-
+      Solo estadísticas agregadas. RENIEC **no** entrega datos individuales para
+      una tesis, y pedirlos o usarlos sería tratamiento de datos personales sin
+      base legal.
+
+  # ===========================================================================
+  # No alcanzables en la comprobación
+  # ===========================================================================
+
+  - id: minedu_datos
+    nombre: MINEDU — portal de datos abiertos
+    url: https://datos.minedu.gob.pe/
+    estado: verificar
+    tipo_acceso: manual
+    facultades: [Educación]
+    notas: >-
+      No resolvió el DNS en la comprobación. Puede haberse retirado: lo de
+      MINEDU que sigue en pie es ESCALE y lo publicado en la Plataforma Nacional
+      de Datos Abiertos.
+    relacionado: [minedu_escale, datos_abiertos_peru]
+
+# ===========================================================================
+# Reglas de uso, para cualquier fuente
+# ===========================================================================
+reglas:
+  - >-
+    Lo descargado va a `datos/crudos/` **sin modificar**, y ahí se queda. Toda
+    limpieza produce un archivo nuevo en `datos/procesados/` y deja el código
+    que la hizo en `codigo/`. Sin eso, nadie puede reproducir el resultado, ni
+    siquiera tú dentro de seis meses.
+  - >-
+    De cada descarga se anota la fecha y los filtros exactos. Los portales
+    públicos corrigen sus series hacia atrás sin avisar, y una cifra que hoy no
+    cuadra con tu texto puede ser eso.
+  - >-
+    Si la encuesta tiene factor de expansión, se usa. Un promedio sin ponderar
+    de la ENAHO no describe al Perú, describe a la muestra.
+  - >-
+    Ninguna cifra llega al texto escrita a mano: sale de `resultados/` por una
+    expresión de Quarto. Lo comprueba `verificar_cifras.py`.
+  - >-
+    Datos de personas identificables: se anonimizan antes de salir de
+    `datos/crudos/` y nunca se suben al remoto (Ley N.° 29733 y
+    DS N.° 016-2024-JUS). El hook de git lo bloquea, pero la responsabilidad
+    es tuya.
