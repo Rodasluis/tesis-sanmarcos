@@ -12,18 +12,51 @@ pedir por transparencia y esperar dos meses.
 
 ## Lo que ya está comprobado
 
-Lee `herramientas/fuentes/catalogo.yaml` antes de buscar nada. Tiene 19 fuentes
-con su estado comprobado el 2026-10-04, y evita tres pérdidas de tiempo
-frecuentes:
+Lee `herramientas/fuentes/catalogo.yaml` antes de buscar nada. Tiene 33 fuentes
+con su estado comprobado, y evita tres pérdidas de tiempo frecuentes:
 
-- Solo **tres** fuentes tienen API usable: Banco Mundial, la Plataforma Nacional
-  de Datos Abiertos (CKAN, pero sin `package_search`) y Cybertesis.
+- Solo **cuatro** tienen acceso programático: Banco Mundial, la Plataforma
+  Nacional de Datos Abiertos (CKAN, pero sin `package_search`), Cybertesis y el
+  repositorio de OSIPTEL, por OAI-PMH.
 - La **API del BCRP devuelve un muro anti-bot**. No insistas con otro formato de
-  URL: ya se probó. Se descarga a mano del buscador de series.
+  URL: ya se probaron cuatro. Se descarga a mano del buscador de series.
 - **ESCALE y MEF no tienen API.** Son formularios.
 
 Para comprobar que algo sigue en pie:
 `uv run python -m herramientas.fuentes.verificar`
+
+## No todo lo que se encuesta lo encuesta el INEI
+
+Es el error de búsqueda más caro, y el que más veces lleva a concluir que "no
+hay datos" cuando sí los hay. Dos reglas:
+
+**1. El INEI aloja encuestas de otras entidades.** La ENA es del MIDAGRI,
+ENSUSALUD es de SUSALUD, la EMYPE fue de PRODUCE y el MEF. Quien busca "la
+encuesta de satisfacción de SUSALUD" en la web de SUSALUD pierde la tarde: los
+microdatos están en el portal del INEI.
+
+**2. Los reguladores levantan sus propias encuestas sectoriales**, y para su
+sector suelen ser mejores que la ENAHO, porque preguntan exactamente por él:
+
+| Entidad | Fuente | Para qué |
+|---|---|---|
+| **SBS** | Demanda de servicios financieros · Capacidades financieras | inclusión financiera, barreras, ahorro |
+| **OSIPTEL** | ERESTEL | acceso y uso de telecomunicaciones en hogares |
+| **OSINERGMIN** | ERCUE | consumo y usos de energía en hogares |
+| **MTPE** | Planilla Electrónica · ENVME | empleo formal privado, remuneraciones |
+| **SMV** | estados financieros auditados | finanzas de empresas listadas |
+| **SUNASS** | benchmarking de EPS | agua y saneamiento |
+| **SUNAT** | notas tributarias | recaudación por sector y región |
+| **PRODUCE** | Estadística MIPYME | universo empresarial formal |
+
+Ejemplo de por qué importa: para brecha digital, **ERESTEL es mejor que la
+ENAHO**. La ENAHO pregunta si hay internet en el hogar; ERESTEL pregunta por
+velocidad, operador, gasto y motivos de no contratación.
+
+Para inclusión financiera, la SBS tiene algo poco común en el Perú: series de
+oferta **a nivel distrital** —cajeros, deudores, depósitos— que se cruzan con
+sus encuestas de demanda. Esa brecha entre lo que hay y lo que la gente usa es,
+por sí sola, una tesis.
 
 ## Lo que hay que saber de las fuentes peruanas
 

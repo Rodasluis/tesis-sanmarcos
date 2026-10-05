@@ -96,14 +96,20 @@ def comprobar(solo_apis: bool = False, ruta: pathlib.Path = CATALOGO) -> list[di
         return list(ex.map(tarea, objetivos))
 
 
+def _es_oai(url: str) -> bool:
+    """OAI-PMH devuelve XML, no JSON, y sigue siendo acceso programático."""
+    return "/oai/" in (url or "").lower() or "verb=" in (url or "").lower()
+
+
 def _discrepa(fila: dict) -> str | None:
     """¿Lo observado contradice lo que declara el catálogo?"""
     declarado = fila.get("estado_declarado")
     codigo = fila.get("codigo")
+    url = fila.get("url") or ""
     if declarado == "api_verificada":
         if codigo != 200:
             return f"declara API verificada y respondió {codigo}"
-        if not fila.get("json"):
+        if not fila.get("json") and not _es_oai(url):
             return "declara API verificada y no devolvió JSON"
     if declarado == "manual_verificada" and codigo != 200:
         return f"declara portal verificado y respondió {codigo}"

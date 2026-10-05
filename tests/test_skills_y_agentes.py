@@ -226,3 +226,65 @@ def test_el_catalogo_recuerda_las_reglas_de_uso():
     assert "datos/crudos/" in reglas
     assert "29733" in reglas
     assert "factor de expansión" in reglas
+
+
+# --- encuestas que no son del INEI -----------------------------------------
+#
+# El error de búsqueda más caro de una tesis peruana es suponer que todo lo que
+# se encuesta lo encuesta el INEI. Estas pruebas protegen lo contrario.
+
+def _fuente(ident: str) -> dict:
+    return next(f for f in catalogo()["fuentes"] if f["id"] == ident)
+
+
+def test_el_inei_lista_sus_encuestas_nacionales():
+    siglas = {e["sigla"] for e in _fuente("inei_microdatos")["encuestas"]}
+    assert {"ENAHO", "ENDES", "ENAPRES", "CENSOS"} <= siglas
+
+
+def test_el_inei_declara_las_encuestas_que_aloja_por_encargo():
+    """ENA es del MIDAGRI y ENSUSALUD de SUSALUD, pero viven en el INEI."""
+    encuestas = {e["sigla"]: e for e in _fuente("inei_microdatos")["encuestas"]}
+    assert "ENA" in encuestas and encuestas["ENA"].get("encargada_por")
+    assert "ENSUSALUD" in encuestas and encuestas["ENSUSALUD"].get("encargada_por")
+    notas = _fuente("inei_microdatos")["notas"]
+    assert "por encargo" in notas
+
+
+@pytest.mark.parametrize("ident", ["sbs", "osiptel", "osinergmin", "produce",
+                                   "mtpe", "smv", "sunat", "sunass"])
+def test_estan_las_fuentes_de_organismos_supervisores(ident):
+    assert _fuente(ident)
+
+
+@pytest.mark.parametrize("ident,encuesta", [
+    ("sbs", "Demanda de Servicios Financieros"),
+    ("osiptel", "ERESTEL"),
+    ("osinergmin", "ERCUE"),
+])
+def test_cada_regulador_con_encuesta_la_nombra(ident, encuesta):
+    fuente = _fuente(ident)
+    texto = str(fuente.get("encuestas", "")) + str(fuente.get("notas", ""))
+    assert encuesta in texto
+
+
+def test_osiptel_declara_oai_y_no_una_api_json_que_no_existe():
+    """Su REST moderna devuelve 404; lo que funciona es OAI-PMH."""
+    osiptel = _fuente("osiptel")
+    assert osiptel["estado"] == "api_verificada"
+    assert "oai" in osiptel["api"].lower()
+    assert "OAI-PMH" in osiptel["notas"]
+
+
+def test_las_fuentes_de_registro_administrativo_declaran_su_limite():
+    """Un registro administrativo no tiene error muestral, pero sí omisiones."""
+    assert "informal" in _fuente("mtpe")["notas"]
+    assert "listadas" in _fuente("smv")["notas"]
+    assert "agregados" in _fuente("sunat")["notas"]
+
+
+def test_el_explorador_sabe_que_hay_encuestas_fuera_del_inei():
+    agente = (RAIZ / ".claude" / "agents" / "explorador-datos.md").read_text(encoding="utf8")
+    assert "No todo lo que se encuesta lo encuesta el INEI" in agente
+    for sigla in ("ERESTEL", "ERCUE", "SBS", "Planilla Electrónica"):
+        assert sigla in agente

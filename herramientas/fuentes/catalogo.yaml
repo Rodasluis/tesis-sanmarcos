@@ -165,11 +165,28 @@ fuentes:
          usos: "productividad, formalidad empresarial"}
       - {sigla: CENSOS, nombre: Censos Nacionales de Población y Vivienda, periodicidad: decenal,
          usos: "demografía, vivienda, lengua materna, discapacidad"}
+      - {sigla: ENA, nombre: Encuesta Nacional Agropecuaria, periodicidad: anual,
+         usos: "unidades agropecuarias, cultivos, superficie, prácticas agrícolas",
+         encargada_por: MIDAGRI}
+      - {sigla: ENSUSALUD, nombre: Encuesta Nacional de Satisfacción de Usuarios en Salud,
+         periodicidad: "2014, 2015 y 2016",
+         usos: "satisfacción del usuario, tiempos de espera, acceso a medicamentos, personal de salud",
+         encargada_por: SUSALUD}
+      - {sigla: EMYPE, nombre: Encuesta de Micro y Pequeña Empresa,
+         periodicidad: puntual,
+         usos: "caracterización de la micro y pequeña empresa",
+         encargada_por: "PRODUCE y MEF"}
     notas: >-
       La fuente más útil para una tesis cuantitativa peruana, y la que más
       trabajo da. Los módulos vienen en SPSS (.sav) o Stata (.dta), separados y
       con diccionarios en PDF: cruzarlos exige las llaves de hogar y persona
       (CONGLOME, VIVIENDA, HOGAR, CODPERSO en la ENAHO).
+
+      **Busca aquí antes que en el ministerio del sector.** El INEI ejecuta
+      encuestas por encargo de otras entidades y las aloja en este mismo portal:
+      la ENA es del MIDAGRI, ENSUSALUD es de SUSALUD, la EMYPE fue de PRODUCE y
+      el MEF. Quien busca "la encuesta de salud de SUSALUD" en la web de SUSALUD
+      pierde una tarde; los microdatos están aquí.
 
       **Factores de expansión:** casi ningún resultado es válido sin ponderar.
       Esto es lo que más veces desarma un jurado.
@@ -358,6 +375,303 @@ fuentes:
       base legal.
 
   # ===========================================================================
+  # Encuestas y datos de organismos supervisores y ministerios
+  #
+  # No todo lo que se encuesta en el Perú lo encuesta el INEI. Los reguladores
+  # levantan sus propias encuestas sectoriales, y suelen ser poco conocidas
+  # justamente porque no están en el portal del INEI. Para una tesis de
+  # Economía, Administración, Ingeniería o Derecho, muchas veces son mejores que
+  # la ENAHO: preguntan exactamente por el sector.
+  # ===========================================================================
+
+  - id: sbs
+    nombre: SBS — Superintendencia de Banca, Seguros y AFP
+    url: https://www.sbs.gob.pe/
+    url_encuestas: https://www.sbs.gob.pe/inclusion-financiera-principal/cifras-de-inclusion-financiera/encuestas
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: [mensual para las series, puntual para las encuestas]
+    desagregacion: [entidad financiera, departamento, urbano-rural]
+    facultades: [Ciencias Económicas, Ciencias Administrativas, Ciencias Contables]
+    encuestas:
+      - nombre: Encuesta Nacional de Demanda de Servicios Financieros e Inclusión Financiera
+        usos: "acceso y uso de servicios financieros, barreras, ahorro dentro y fuera del sistema"
+        nota: >-
+          Hecha con la Cooperación Suiza (SECO). La de 2015-2016 encuestó a
+          6565 personas de 18 a 70 años en los 24 departamentos y el Callao.
+      - nombre: Encuesta de Medición de Capacidades Financieras
+        usos: "conocimientos, actitudes y comportamientos financieros"
+        nota: "metodología OCDE/INFE, comparable con otros países"
+    series:
+      - "Indicadores de inclusión financiera: puntos de atención, deudores, depósitos por distrito"
+      - "Boletines estadísticos del sistema financiero, de seguros y de AFP"
+    notas: >-
+      **La fuente peruana sobre inclusión financiera**, y poco usada en tesis de
+      pregrado precisamente porque no está en el INEI.
+
+      Dos cosas distintas conviven aquí: las **encuestas de demanda**, que miran
+      a las personas, y las **series de oferta**, que miran a las entidades
+      —cuántos cajeros, cuántos deudores, cuánto depósito por distrito—.
+      Cruzarlas es lo que hace interesante una tesis de inclusión financiera: la
+      brecha entre lo que hay y lo que la gente usa.
+
+      Las series llegan a nivel distrital, que es una desagregación difícil de
+      conseguir en el Perú.
+    descarga_manual: >-
+      1. Encuestas: https://www.sbs.gob.pe/inclusion-financiera-principal/cifras-de-inclusion-financiera/encuestas
+      2. Series: portal de estadísticas de la SBS, boletín estadístico.
+      3. Guarda los archivos en `datos/crudos/` y anota el periodo.
+
+  - id: produce
+    nombre: PRODUCE — Ministerio de la Producción
+    url: https://www.gob.pe/produce
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [empresa, sector, tamaño, región]
+    facultades: [Ciencias Económicas, Ciencias Administrativas, Ciencias Contables,
+                 Ingeniería Industrial]
+    conjuntos:
+      - {nombre: "Estadística MIPYME", usos: "universo empresarial formal por tamaño, sector y región"}
+      - {nombre: "Anuario estadístico industrial, MIPYME y comercio interno",
+         usos: "producción manufacturera, empleo industrial"}
+      - {nombre: "Estadísticas pesqueras y acuícolas", usos: "desembarque, producción, precios"}
+    notas: >-
+      El subdominio de su oficina de estudios (ogeiee.produce.gob.pe) **no
+      respondió** en la comprobación; se llega por gob.pe y por la Plataforma
+      Nacional de Datos Abiertos, donde PRODUCE tiene su propio grupo.
+
+      Ojo con la unidad: casi todo lo de PRODUCE es **empresa formal**. Si la
+      pregunta es sobre informalidad, esta fuente describe justamente lo que
+      queda fuera del problema, y hay que decirlo.
+    relacionado: [datos_abiertos_peru, inei_microdatos]
+
+  - id: osiptel
+    nombre: OSIPTEL — Organismo Supervisor de la Inversión Privada en Telecomunicaciones
+    url: https://repositorio.osiptel.gob.pe/
+    api: https://repositorio.osiptel.gob.pe/oai/request?verb=ListSets
+    estado: api_verificada
+    tipo_acceso: api
+    frecuencia: [anual para ERESTEL, trimestral para indicadores]
+    desagregacion: [hogar, departamento, urbano-rural, operador]
+    facultades: [Ciencias Económicas, Ingeniería de Sistemas e Informática,
+                 Ingeniería Electrónica y Eléctrica, Ciencias Sociales,
+                 Ciencias Administrativas]
+    encuestas:
+      - sigla: ERESTEL
+        nombre: Encuesta Residencial de Servicios de Telecomunicaciones
+        usos: "acceso y uso de telefonía fija y móvil, internet y TV de paga en los hogares"
+        nota: >-
+          La única encuesta dedicada a servicios de telecomunicaciones en el
+          Perú. La de 2022 llegó a 15 493 hogares. Hay ediciones desde 2013 y se
+          ha usado en estudios con microdatos.
+    notas: >-
+      Su repositorio es un DSpace con **OAI-PMH funcionando**, lo que permite
+      recorrer el catálogo por programa. La API REST moderna devolvió 404: es
+      una versión anterior de DSpace. Para cosechar, usa OAI:
+      `?verb=ListRecords&metadataPrefix=oai_dc`.
+
+      Para una tesis sobre brecha digital, ERESTEL es mejor que la ENAHO: la
+      ENAHO pregunta si hay internet en el hogar; ERESTEL pregunta por
+      velocidad, operador, gasto, motivos de no contratación y uso efectivo.
+    ejemplo: https://repositorio.osiptel.gob.pe/oai/request?verb=ListSets
+
+  - id: osinergmin
+    nombre: OSINERGMIN — Organismo Supervisor de la Inversión en Energía y Minería
+    url: https://www.gob.pe/institucion/osinergmin/colecciones/1591-encuesta-residencial-de-consumo-y-usos-de-energia
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: "irregular; hay ediciones de 2007 a 2024"
+    desagregacion: [hogar, departamento, urbano-rural]
+    facultades: [Ciencias Económicas, Ingeniería Electrónica y Eléctrica,
+                 Ingeniería Geológica Minera Metalúrgica y Geográfica,
+                 Ciencias Sociales]
+    encuestas:
+      - sigla: ERCUE
+        nombre: Encuesta Residencial de Consumo y Usos de Energía
+        usos: >-
+          patrones de consumo de electricidad, GLP, leña y otras fuentes;
+          brechas de acceso; relación con la condición socioeconómica del hogar
+    notas: >-
+      Para pobreza energética, cocinas limpias o transición energética en
+      hogares, es la fuente. Las ediciones están publicadas como informes en
+      gob.pe; los microdatos no siempre, así que conviene mirar la ficha de cada
+      año antes de prometer un análisis a nivel de hogar.
+    descarga_manual: >-
+      1. Entra a la colección de ERCUE en gob.pe.
+      2. Elige la edición y descarga el informe y, si está, la base.
+      3. Anota en `datos/crudos/_procedencia.md` qué edición y qué contiene.
+
+  - id: smv
+    nombre: SMV — Superintendencia del Mercado de Valores
+    url: https://www.smv.gob.pe/
+    url_estados_financieros: https://www.smv.gob.pe/Frm_InformacionFinanciera.aspx
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: trimestral
+    desagregacion: [empresa, sector]
+    facultades: [Ciencias Contables, Ciencias Administrativas, Ciencias Económicas]
+    notas: >-
+      **Estados financieros auditados de las empresas que cotizan**, en formato
+      estructurado y por trimestre. Para una tesis de Contabilidad o Finanzas es
+      la fuente natural: ratios, estructura de capital, rentabilidad, gobierno
+      corporativo.
+
+      Limitación que hay que declarar: solo cubre empresas listadas, que en el
+      Perú son pocas y grandes. Ninguna conclusión sobre "las empresas
+      peruanas" se sostiene con esta muestra.
+
+  - id: sunat
+    nombre: SUNAT — estadísticas y estudios tributarios
+    url: https://www.sunat.gob.pe/estadisticasestudios/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: mensual
+    desagregacion: [tributo, sector económico, departamento, tamaño de contribuyente]
+    facultades: [Ciencias Contables, Ciencias Económicas, Ciencias Administrativas,
+                 Derecho y Ciencia Política]
+    notas: >-
+      Las "notas tributarias" traen recaudación por tributo, por sector y por
+      región, en series mensuales largas. También padrón de contribuyentes y
+      estadísticas de comercio exterior.
+
+      Son datos **agregados**. SUNAT no entrega información individual de
+      contribuyentes, y pedirla o usarla sería ilegal además de imposible.
+
+  - id: mtpe
+    nombre: MTPE — estadísticas laborales
+    url: https://www2.trabajo.gob.pe/estadisticas/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: mensual
+    desagregacion: [empresa, sector, región, tamaño]
+    facultades: [Ciencias Económicas, Ciencias Administrativas, Ciencias Sociales,
+                 Derecho y Ciencia Política, Ingeniería Industrial]
+    conjuntos:
+      - {nombre: "Planilla Electrónica", usos: "empleo formal privado, remuneraciones, rotación"}
+      - {nombre: "Encuesta Nacional de Variación Mensual del Empleo (ENVME)",
+         usos: "empleo en empresas de 10 y más trabajadores"}
+      - {nombre: "Anuario estadístico sectorial", usos: "series laborales consolidadas"}
+    notas: >-
+      La Planilla Electrónica es un **registro administrativo**, no una
+      encuesta: cubre el universo del empleo formal privado, sin error muestral
+      pero también sin nada de lo informal. Para el Perú esa omisión es enorme,
+      y hay que decirlo al interpretar.
+
+      Complementa bien a la ENAHO: la ENAHO ve a toda la fuerza laboral con
+      muestra; la Planilla ve solo la parte formal, pero entera.
+
+  - id: sunass
+    nombre: SUNASS — Superintendencia Nacional de Servicios de Saneamiento
+    url: https://www.sunass.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [empresa prestadora, localidad]
+    facultades: [Ingeniería Geológica Minera Metalúrgica y Geográfica,
+                 Ciencias Económicas, Ciencias Sociales, Ingeniería Industrial]
+    notas: >-
+      Benchmarking de las empresas prestadoras de servicios de saneamiento:
+      cobertura, continuidad, presión, agua no facturada, tarifas, indicadores
+      de gestión. Serie larga y comparable entre EPS.
+
+      Para tesis sobre acceso al agua, gestión de servicios públicos o
+      eficiencia de empresas públicas.
+
+  - id: senamhi
+    nombre: SENAMHI — datos hidrometeorológicos
+    url: https://www.senamhi.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: diaria
+    desagregacion: [estación, cuenca, distrito]
+    facultades: [Ciencias Físicas, Ingeniería Geológica Minera Metalúrgica y Geográfica,
+                 Ciencias Biológicas, Ciencias Económicas]
+    notas: >-
+      Temperatura, precipitación, caudales, por estación y día. Base de
+      cualquier tesis que cruce clima con producción agrícola, salud o
+      desastres.
+
+      Las estaciones tienen huecos y cambian de ubicación: comprueba la
+      continuidad de la serie antes de construir el análisis encima.
+
+  - id: infogob
+    nombre: INFOgob — Observatorio para la Gobernabilidad (JNE)
+    url: https://infogob.jne.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: por proceso electoral
+    desagregacion: [distrito, provincia, región, organización política, candidato]
+    facultades: [Derecho y Ciencia Política, Ciencias Sociales, Ciencias Económicas]
+    notas: >-
+      Resultados electorales, autoridades electas, hojas de vida de candidatos y
+      organizaciones políticas, desde 1963. Para Ciencia Política es la fuente
+      central, y permite cruzar con datos de gasto público por distrito.
+
+  - id: inpe
+    nombre: INPE — estadística penitenciaria
+    url: https://www.gob.pe/inpe
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: mensual
+    desagregacion: [establecimiento penitenciario, delito, situación jurídica, región]
+    facultades: [Derecho y Ciencia Política, Ciencias Sociales, Psicología]
+    notas: >-
+      Informes estadísticos mensuales con población penal por establecimiento,
+      delito, situación jurídica, edad y sexo. Para tesis sobre hacinamiento,
+      prisión preventiva o reincidencia.
+
+  - id: poder_judicial
+    nombre: Poder Judicial — estadística judicial
+    url: https://www.pj.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [distrito judicial, materia, instancia]
+    facultades: [Derecho y Ciencia Política, Ciencias Sociales]
+    notas: >-
+      Carga procesal, expedientes resueltos y pendientes, por distrito judicial
+      y materia. Para tesis sobre acceso a la justicia o demora judicial.
+
+      Hay también jurisprudencia sistematizada, que en Derecho es **corpus**, no
+      dato estadístico, y se cita como fuente primaria.
+
+  - id: sectoriales_gobpe
+    nombre: Ministerios y organismos sectoriales (vía gob.pe)
+    url: https://www.gob.pe/
+    estado: manual_verificada
+    tipo_acceso: manual
+    frecuencia: variable
+    desagregacion: [variable]
+    facultades: [todas]
+    entidades:
+      - {sigla: MIDIS, url: "https://www.gob.pe/midis",
+         usos: "padrones y evaluaciones de programas sociales (Juntos, Pensión 65, Qali Warma)"}
+      - {sigla: MINEM, url: "https://www.gob.pe/minem",
+         usos: "producción minera y energética, inversión, canon"}
+      - {sigla: MINCETUR, url: "https://www.gob.pe/mincetur",
+         usos: "turismo receptivo e interno, comercio exterior"}
+      - {sigla: MIDAGRI, url: "https://www.gob.pe/midagri",
+         usos: "producción agropecuaria, precios en chacra, SIEA"}
+      - {sigla: MTC, url: "https://www.gob.pe/mtc",
+         usos: "infraestructura vial, parque automotor, accidentes de tránsito"}
+      - {sigla: INDECOPI, url: "https://www.gob.pe/indecopi",
+         usos: "reclamos de consumidores, propiedad intelectual, competencia"}
+      - {sigla: OEFA, url: "https://www.gob.pe/oefa",
+         usos: "supervisión y fiscalización ambiental, sanciones"}
+    notas: >-
+      Todos publican en «Informes y publicaciones» de gob.pe, con calidad y
+      periodicidad desiguales. Sus dominios propios fallan a menudo —INDECOPI y
+      OEFA no respondieron en la comprobación, ONPE devolvió 403— pero sus
+      fichas de gob.pe sí.
+
+      **Antes de ir al ministerio, mira dos sitios:** el portal de microdatos del
+      INEI, por si la encuesta del sector la ejecuta el INEI por encargo, y la
+      Plataforma Nacional de Datos Abiertos, donde muchos publican ya
+      consolidado.
+    relacionado: [inei_microdatos, datos_abiertos_peru]
+
+  # ===========================================================================
   # No alcanzables en la comprobación
   # ===========================================================================
 
@@ -372,6 +686,21 @@ fuentes:
       MINEDU que sigue en pie es ESCALE y lo publicado en la Plataforma Nacional
       de Datos Abiertos.
     relacionado: [minedu_escale, datos_abiertos_peru]
+
+  - id: ministerio_publico
+    nombre: Ministerio Público — estadística fiscal
+    url: https://www.mpfn.gob.pe/
+    estado: verificar
+    tipo_acceso: manual
+    frecuencia: anual
+    desagregacion: [distrito fiscal, delito]
+    facultades: [Derecho y Ciencia Política, Ciencias Sociales]
+    notas: >-
+      Ni su dominio propio (403) ni su ficha de gob.pe (404) respondieron en la
+      comprobación. Publica denuncias y carga fiscal por distrito y delito, que
+      complementa la estadística del Poder Judicial, pero hoy no se puede
+      prometer que la ruta funcione. Si la encuentras, actualiza esta ficha.
+    relacionado: [poder_judicial, inpe]
 
 # ===========================================================================
 # Reglas de uso, para cualquier fuente

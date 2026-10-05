@@ -24,16 +24,24 @@ uv run python -c "from herramientas import registro_ia; registro_ia.marcar_etapa
 
 ## 2. Mira el catálogo antes de buscar por tu cuenta
 
-`herramientas/fuentes/catalogo.yaml` tiene 19 fuentes con su estado comprobado.
+`herramientas/fuentes/catalogo.yaml` tiene 33 fuentes con su estado comprobado.
 Léelo y filtra por la facultad del perfil activo.
 
-Tres cosas que el catálogo ya sabe y te ahorran tiempo:
+Cuatro cosas que el catálogo ya sabe y te ahorran tiempo:
 
-- **Solo tres fuentes tienen API usable**: Banco Mundial, la Plataforma Nacional
-  de Datos Abiertos y Cybertesis. Todo lo demás es descarga manual.
+- **Solo cuatro fuentes tienen acceso programático**: Banco Mundial, la
+  Plataforma Nacional de Datos Abiertos, Cybertesis y el repositorio de OSIPTEL
+  (OAI-PMH). Todo lo demás es descarga manual.
 - **La API del BCRP no atiende peticiones automáticas.** Devuelve una página
   anti-bot. No insistas: usa el buscador de series de su web.
 - **ESCALE y MEF no tienen API.** Son formularios web.
+- **No todo lo que se encuesta lo encuesta el INEI.** El INEI aloja encuestas de
+  otras entidades —la ENA es del MIDAGRI, ENSUSALUD de SUSALUD— y además los
+  reguladores tienen las suyas: ERESTEL de OSIPTEL para telecomunicaciones,
+  ERCUE de OSINERGMIN para energía, las encuestas de inclusión financiera de la
+  SBS, la Planilla Electrónica del MTPE, los estados financieros de la SMV.
+  Para su sector suelen ser mejores que la ENAHO. Míralas antes de concluir que
+  no hay datos.
 
 Si el catálogo dice `verificar` o `api_bloqueada`, créele. Se comprobó de verdad.
 
