@@ -214,10 +214,22 @@ def test_el_tablero_avisa_del_bib_vacio(proyecto):
     assert any("referencias.bib" in a["texto"] for a in datos["alertas"])
 
 
-def test_el_tablero_avisa_si_el_perfil_no_esta_verificado(proyecto):
+def test_el_tablero_dice_que_el_perfil_hereda_sin_bloquear(proyecto):
+    """Informa de dónde sale la estructura, sin condicionar nada."""
     escribir_perfil(proyecto, estado="hereda_general")
     datos = T.recolectar(proyecto)
-    assert any("confirme la estructura" in a["texto"] for a in datos["alertas"])
+    sobre_el_perfil = [a["texto"] for a in datos["alertas"] if "perfil" in a["texto"]]
+    assert sobre_el_perfil
+    texto = " ".join(sobre_el_perfil)
+    assert "estructura general" in texto
+    assert "asesor" not in texto.lower()
+
+
+def test_ninguna_alerta_del_tablero_condiciona_a_un_asesor(proyecto):
+    escribir_perfil(proyecto, estado="hereda_general")
+    datos = T.recolectar(proyecto)
+    for alerta in datos["alertas"]:
+        assert "confirme" not in alerta["texto"].lower()
 
 
 def test_el_tablero_cuenta_las_etapas_decididas(proyecto):

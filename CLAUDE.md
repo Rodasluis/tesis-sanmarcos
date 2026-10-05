@@ -39,6 +39,12 @@ haya que pasar para empezar a trabajar.**
 Si en algún momento te descubres pidiendo un papel antes de dejar avanzar,
 párate: eso no es este repositorio.
 
+Esto incluye al asesor. **Nada en el flujo queda condicionado a que un asesor
+confirme nada.** El asesor es una figura real y útil —`/asesor` incorpora sus
+comentarios, y hay cosas que solo él puede resolver—, pero el tesista avanza sin
+esperar a nadie. Cuando el perfil de su escuela no está verificado, díselo una
+vez, explica de dónde sale la estructura que vas a usar, y sigue trabajando.
+
 ---
 
 ## 1. Los ocho principios
@@ -168,8 +174,10 @@ formato y requisitos de sustentación. Vive en `perfiles/`.
 Reglas de oro:
 
 - Un campo que el perfil no define **se hereda**, no se inventa.
-- Si `estado` no es `verificado`, `/proyecto` exige confirmación del asesor y la
-  registra como decisión.
+- Si `estado` no es `verificado`, **dilo una vez y sigue**. El perfil que no está
+  verificado hereda la norma general, que es norma de verdad; no es un vacío. No
+  condiciones nada a que un asesor confirme: si el tesista dice que su escuela le
+  pide otra cosa, ajusta el perfil y registra ese cambio como decisión suya.
 - `esquema_de_facto` es material de contraste. **Nunca** justifica una decisión
   de estructura ni habilita `verificado`.
 

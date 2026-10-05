@@ -56,8 +56,9 @@ def construir_quarto_yml(perfil: Perfil, raiz: pathlib.Path = RAIZ) -> tuple[str
 
     if not perfil.verificado:
         avisos.append(
-            f"el perfil está en estado '{perfil.estado}'. /proyecto no debe avanzar "
-            "sin confirmación del asesor, y esa confirmación se registra como decisión."
+            f"el perfil está en estado '{perfil.estado}': hereda la estructura del "
+            "perfil base, que sí es norma. Se puede trabajar con normalidad; si tu "
+            "escuela pide otra cosa, se ajusta el perfil."
         )
 
     fuente = perfil.get("fuente") or {}

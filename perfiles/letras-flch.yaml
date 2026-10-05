@@ -154,8 +154,9 @@ informe_final:
       advertencia: >-
         NO está en la norma. Se observa en las tesis de Arte y Literatura
         depositadas en Cybertesis, que titulan sus capítulos por contenido y no
-        llevan metodología empírica. Antes de usar este modelo, el asesor debe
-        confirmarlo por escrito y la decisión se registra en decisiones/.
+        llevan metodología empírica. Elegir este modelo es una decisión del
+        tesista y se registra como tal en decisiones/, con la constancia de que
+        se aparta del instructivo.
       secciones:
         - {titulo: INTRODUCCIÓN}
         - {titulo: "Capítulos titulados por contenido, uno por objetivo"}
@@ -202,5 +203,6 @@ advertencias_al_tesista:
     clave. No todas las facultades lo piden.
   - >-
     Si tu tesis es argumentativa o por obra (Arte, Literatura, Filosofía), el
-    instructivo no contempla ese modelo: necesitas confirmación escrita de tu
-    asesor antes de avanzar.
+    instructivo de tu facultad no contempla ese modelo, aunque las tesis de Arte
+    y Literatura ya sustentadas lo usan. Puedes seguirlo; queda registrado que
+    te apartas del instructivo y por qué.

@@ -192,5 +192,7 @@ reglas:
       `hereda_de` debe apuntar a un perfil existente y no puede formar ciclos.
   - id: R7
     texto: >-
-      Si `estado` no es `verificado`, `/proyecto` exige confirmación del asesor
-      antes de avanzar, y la advertencia se registra en `decisiones/`.
+      Si `estado` no es `verificado`, el perfil debe traer
+      `advertencias_al_tesista` que expliquen de dónde sale la estructura que se
+      va a usar. Es una advertencia, no una condición: nada del flujo queda
+      bloqueado esperando que alguien confirme nada.

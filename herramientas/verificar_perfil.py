@@ -45,9 +45,11 @@ CAMPOS_NORMATIVOS = (
     "sustentacion",
 )
 
-#: Estados que obligan a pedir confirmación del asesor antes de /proyecto.
-ESTADOS_QUE_EXIGEN_ASESOR = {"hereda_general", "verificar", "solo_fuente_secundaria",
-                             "plantilla_no_normativa"}
+#: Estados en los que el perfil debe explicarle al tesista de dónde sale su
+#: estructura. Es una obligación del perfil, no una condición para el tesista:
+#: nada del flujo espera a que nadie confirme nada.
+ESTADOS_QUE_EXIGEN_ADVERTENCIA = {"hereda_general", "verificar",
+                                  "solo_fuente_secundaria", "plantilla_no_normativa"}
 
 
 def _tiene_respaldo(perfil, campo: str, valor: Any) -> bool:
@@ -160,20 +162,21 @@ def revisar(pid: str, inf: Informe, raiz: pathlib.Path = RAIZ) -> None:
                          "se quedaría sin estructura", archivo=ruta)
 
     # Advertencias al tesista cuando el perfil no está verificado
-    if estado in ESTADOS_QUE_EXIGEN_ASESOR:
+    if estado in ESTADOS_QUE_EXIGEN_ADVERTENCIA:
         advertencias = perfil.get("advertencias_al_tesista") or []
         if not advertencias:
             inf.aviso("P15", f"estado `{estado}` sin `advertencias_al_tesista`; "
-                             "el tesista no sabría que necesita confirmar con su "
-                             "asesor", archivo=ruta)
+                             "el tesista no sabría de dónde sale la estructura que "
+                             "va a usar", archivo=ruta)
         else:
-            inf.info("P16", f"estado `{estado}`: requiere confirmación del asesor "
-                            "antes de /proyecto", archivo=ruta)
+            inf.info("P16", f"estado `{estado}`: hereda la estructura de "
+                            f"`{perfil.get('hereda_de') or 'la norma general'}` y lo "
+                            "advierte. No bloquea nada", archivo=ruta)
 
     # El estilo de citas pendiente es normal, pero conviene verlo
     if perfil.get("estilo_citas") == PENDIENTE:
-        inf.info("P17", "sin estilo de citas fijado por norma: debe decidirlo el "
-                        "asesor y registrarse como decisión", archivo=ruta)
+        inf.info("P17", "sin estilo de citas fijado por norma: lo elige el tesista "
+                        "y queda registrado como decisión suya", archivo=ruta)
 
 
 def verificar(perfiles: list[str] | None = None, raiz: pathlib.Path = RAIZ) -> Informe:

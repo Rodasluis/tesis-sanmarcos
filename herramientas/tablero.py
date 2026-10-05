@@ -123,8 +123,8 @@ def recolectar(raiz: pathlib.Path = RAIZ) -> dict:
             alertas.append({
                 "estado": "atencion",
                 "texto": f"El perfil <strong>{html.escape(perfil.id)}</strong> está en estado "
-                         f"<code>{html.escape(perfil.estado)}</code>: necesita que tu asesor "
-                         "confirme la estructura antes de <code>/proyecto</code>."})
+                         f"<code>{html.escape(perfil.estado)}</code>: usa la estructura "
+                         "general de la universidad. Puedes trabajar con normalidad."})
         vig = perfil.get("vigencia_proyecto_meses")
         if isinstance(vig, int):
             alertas.append({

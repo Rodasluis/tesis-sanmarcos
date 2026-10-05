@@ -20,8 +20,9 @@
 ## Atención: valores que NO vienen de una norma
 
 La norma aplicable a este perfil no fija los siguientes puntos. Se
-aplicaron valores operativos para poder maquetar. **No son requisitos**
-y conviene confirmarlos con el asesor antes de la entrega:
+aplicaron valores operativos para poder maquetar. **No son requisitos.**
+Si tu escuela pide otra cosa, se cambia en el perfil y se vuelve a
+generar la plantilla:
 
 - papel: A4 (valor operativo)
 

@@ -58,9 +58,9 @@ facultad ni la norma general fijan uno; el Anexo 2A de la RR N.° 00744-R-20 dic
 que las referencias van "según los estilos de cita-referencia de acuerdo a las
 áreas del conocimiento".
 
-Cuando el asesor confirme un estilo:
+Cuando decidas el estilo:
 
 1. Descarga el `.csl` de `zotero.org/styles/<nombre>` a esta carpeta.
 2. Anótalo en la tabla de arriba y en `NOTICE.md` con su licencia.
 3. Apunta el perfil a él en su campo `csl:` y cambia `estilo_citas`.
-4. Registra la confirmación del asesor como decisión del tesista.
+4. Registra la elección como decisión del tesista.

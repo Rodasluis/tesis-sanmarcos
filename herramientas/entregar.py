@@ -363,9 +363,10 @@ def checklist_expediente(perfil, autores: list[Autor], datos: dict) -> str:
 
     if not perfil.verificado:
         lineas += ["## Atención", "",
-                   f"- [ ] El perfil `{perfil.id}` está en estado `{perfil.estado}`. "
-                   "Confirma con tu asesor que la estructura usada es la que tu "
-                   "escuela espera.", ""]
+                   f"- [ ] El perfil `{perfil.id}` está en estado `{perfil.estado}`: "
+                   "la estructura usada es la general de la universidad (Anexos 2A "
+                   "y 2B de la RR N.° 00744-R-20). Si tu escuela pide otra, "
+                   "ajústala antes de imprimir.", ""]
 
     lineas += ["## Voluntario", "",
                "- [ ] Declaración de uso de IA (no exigida por norma; ver el archivo "

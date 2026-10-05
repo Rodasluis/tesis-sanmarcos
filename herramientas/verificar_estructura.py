@@ -142,9 +142,9 @@ def verificar(raiz: pathlib.Path = RAIZ, perfil_id: str | None = None,
     inf.anotar(perfil=pid, estado_del_perfil=perfil.estado, enfoque=enfoque)
 
     if not perfil.verificado:
-        inf.info("E02", f"el perfil está en estado `{perfil.estado}`: la estructura "
-                        "que se exige aquí proviene de la norma general heredada. "
-                        "Confírmala con tu asesor")
+        inf.info("E02", f"el perfil está en estado `{perfil.estado}`: lo que se "
+                        "comprueba aquí es la estructura general de la universidad, "
+                        "heredada del perfil base. Es norma, no una plantilla")
 
     esperadas = secciones_esperadas(perfil, enfoque)
     if not esperadas:

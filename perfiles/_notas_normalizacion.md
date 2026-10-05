@@ -36,7 +36,7 @@ diferencia afecta al fondo, no se normaliza: se registra en
    Cybertesis titulan sus capítulos por contenido y no llevan metodología
    empírica. El instructivo **no contempla** ese modelo.
    *Decisión:* se incluyó en el perfil como `estado: solo_de_facto`, con
-   advertencia expresa de que requiere confirmación escrita del asesor. No se
+   advertencia expresa de que no está en la norma. No se
    presenta como si la norma lo respaldara.
 
 ---
