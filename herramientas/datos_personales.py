@@ -133,7 +133,7 @@ def revisar_contenido(rel: str, texto: str, max_indicios: int = 5) -> list[Indic
         if m:
             numero = m.group(1) or m.group(2) or ""
             salida.append(Indicio("advierte", "parece un número de DNI", rel, num,
-                                  numero[:3] + "·····"))
+                                  numero[:3] + "*****"))
             continue
 
         for m in RE_CORREO.finditer(linea):
@@ -141,13 +141,13 @@ def revisar_contenido(rel: str, texto: str, max_indicios: int = 5) -> list[Indic
             if CORREOS_INOCUOS.search(correo):
                 continue
             salida.append(Indicio("advierte", "hay una dirección de correo personal",
-                                  rel, num, correo.split("@")[0][:3] + "···@···"))
+                                  rel, num, correo.split("@")[0][:3] + "***@***"))
             break
 
         m = RE_TELEFONO.search(linea)
         if m:
             salida.append(Indicio("advierte", "parece un número de teléfono móvil",
-                                  rel, num, m.group(0)[:3] + "······"))
+                                  rel, num, m.group(0)[:3] + "******"))
     return salida
 
 
