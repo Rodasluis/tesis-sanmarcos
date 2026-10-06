@@ -1,0 +1,3821 @@
+{
+ "indicador": "SL.GDP.PCAP.EM.KD",
+ "meta": {
+  "page": 1,
+  "pages": 1,
+  "per_page": 1000,
+  "total": 238,
+  "sourceid": "2",
+  "lastupdated": "2026-07-13"
+ },
+ "observaciones": [
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2023",
+   "value": 59860.6086847392,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2022",
+   "value": 62861.7846363111,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2021",
+   "value": 62199.2099349718,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2020",
+   "value": 63088.8422580423,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2019",
+   "value": 64545.6690918665,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2018",
+   "value": 66888.049287424,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2017",
+   "value": 69702.6851895696,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2016",
+   "value": 68105.4026359412,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2015",
+   "value": 69721.4339259464,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2014",
+   "value": 68225.6445237006,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2013",
+   "value": 70098.6605034767,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2012",
+   "value": 68916.9082638847,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2011",
+   "value": 70153.5331640959,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2010",
+   "value": 67965.7783189913,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2023",
+   "value": 21876.5124597865,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2022",
+   "value": 21896.1346897363,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2021",
+   "value": 21923.1635801049,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2020",
+   "value": 22404.8868583745,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2019",
+   "value": 24312.5373260295,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2018",
+   "value": 25166.0167148725,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2017",
+   "value": 26123.0417704279,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2016",
+   "value": 26005.3207186847,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2015",
+   "value": 25276.3274525126,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2014",
+   "value": 24267.7298527673,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2013",
+   "value": 23534.9475257615,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2012",
+   "value": 22363.9288477534,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2011",
+   "value": 21722.5131592822,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2010",
+   "value": 21126.9107563079,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2023",
+   "value": 41147.6933819408,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2022",
+   "value": 40322.9212545869,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2021",
+   "value": 41904.8315182294,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2020",
+   "value": 41893.3237282763,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2019",
+   "value": 39945.5086419838,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2018",
+   "value": 40287.8207414582,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2017",
+   "value": 40207.0253818843,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2016",
+   "value": 39749.3215058047,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2015",
+   "value": 40241.3603240311,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2014",
+   "value": 41620.5007869547,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2013",
+   "value": 41958.2643779378,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2012",
+   "value": 41343.559149847,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2011",
+   "value": 41005.3449068097,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2010",
+   "value": 39602.8066779964,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2023",
+   "value": 64007.9045880781,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2022",
+   "value": 65141.384129718,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2021",
+   "value": 68065.6464782789,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2020",
+   "value": 64117.6021579912,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2019",
+   "value": 59510.5274620498,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2018",
+   "value": 60264.8352897173,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2017",
+   "value": 59242.2894825317,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2016",
+   "value": 60006.3501507094,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2015",
+   "value": 59753.5014934899,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2014",
+   "value": 59524.5143009569,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2013",
+   "value": 59308.8060158672,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2012",
+   "value": 58575.0733913698,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2011",
+   "value": 56359.7644296301,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2010",
+   "value": 55690.3797343864,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2023",
+   "value": 40229.6266119942,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2022",
+   "value": 41331.834908291,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2021",
+   "value": 39876.7885971864,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2020",
+   "value": 38004.1223580052,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2019",
+   "value": 38575.7202575428,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2018",
+   "value": 37412.4444096565,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2017",
+   "value": 36903.5625254914,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2016",
+   "value": 36943.6403776327,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2015",
+   "value": 36355.5637432912,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2014",
+   "value": 35996.4595285993,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2013",
+   "value": 35058.5651371068,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2012",
+   "value": 33807.7059868675,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2011",
+   "value": 33527.118877721,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2010",
+   "value": 32468.6223280651,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2023",
+   "value": 62763.389553521,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2022",
+   "value": 57859.8964693541,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2021",
+   "value": 57647.9358503058,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2020",
+   "value": 55697.9100124466,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2019",
+   "value": 51975.9928662886,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2018",
+   "value": 51883.1416306924,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2017",
+   "value": 52384.2487701236,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2016",
+   "value": 51342.8998742927,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2015",
+   "value": 47719.4785085939,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2014",
+   "value": 45827.5042604433,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2013",
+   "value": 45240.5809956916,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2012",
+   "value": 44870.7377932898,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2011",
+   "value": 46421.8017224157,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2010",
+   "value": 45197.4334489446,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2023",
+   "value": 52472.0258578576,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2022",
+   "value": 52845.4779231741,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2021",
+   "value": 52122.1489242308,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2020",
+   "value": 47694.874174832,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2019",
+   "value": 48767.7871166431,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2018",
+   "value": 47946.2853253124,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2017",
+   "value": 46447.9330254985,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2016",
+   "value": 46036.8088726596,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2015",
+   "value": 44304.0352599853,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2014",
+   "value": 43427.4430910586,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2013",
+   "value": 41670.3363834668,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2012",
+   "value": 39991.6333846568,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2011",
+   "value": 40190.7260628552,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2010",
+   "value": 40301.0416018812,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2023",
+   "value": 30688.7604326757,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2022",
+   "value": 30047.8783723953,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2021",
+   "value": 29089.9519944508,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2020",
+   "value": 29987.4179618235,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2019",
+   "value": 29791.5177746738,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2018",
+   "value": 30166.4745111348,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2017",
+   "value": 30027.8899742913,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2016",
+   "value": 29435.046009244,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2015",
+   "value": 30915.7821775165,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2014",
+   "value": 33040.1245131613,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2013",
+   "value": 32438.7733167125,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2012",
+   "value": 30867.3675639499,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2011",
+   "value": 30218.4714144992,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2010",
+   "value": 28257.101557202,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2023",
+   "value": 31351.9484343788,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2022",
+   "value": 30904.3229190951,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2021",
+   "value": 28780.5548674922,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2020",
+   "value": 29401.6801908606,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2019",
+   "value": 30181.042053978,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2018",
+   "value": 29064.2023433347,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2017",
+   "value": 28646.2855202951,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2016",
+   "value": 28684.2800094531,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2015",
+   "value": 28712.1944978653,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2014",
+   "value": 28327.9161478929,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2013",
+   "value": 28213.8411051664,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2012",
+   "value": 25831.5158764944,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2011",
+   "value": 27515.4181150278,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2010",
+   "value": 27733.3781069953,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2023",
+   "value": 17666.3142608133,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2022",
+   "value": 17308.1811804944,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2021",
+   "value": 16374.2883552297,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2020",
+   "value": 15600.1871760064,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2019",
+   "value": 15608.471636207,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2018",
+   "value": 14827.1977558437,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2017",
+   "value": 15128.780369451,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2016",
+   "value": 15268.9256531317,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2015",
+   "value": 14846.1792969156,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2014",
+   "value": 14850.2849423673,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2013",
+   "value": 14959.6551427375,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2012",
+   "value": 15769.259712682,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2011",
+   "value": 15376.4878689691,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2010",
+   "value": 14677.3330210834,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2023",
+   "value": 48506.5317617392,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2022",
+   "value": 48576.7972491116,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2021",
+   "value": 48605.8099837259,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2020",
+   "value": 49432.4171144825,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2019",
+   "value": 49950.1181473269,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2018",
+   "value": 51377.9719656986,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2017",
+   "value": 51419.0082643857,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2016",
+   "value": 51285.0581930396,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2015",
+   "value": 51302.9423635393,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2014",
+   "value": 51083.6659562272,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2013",
+   "value": 50273.1391699486,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2012",
+   "value": 50566.2667194536,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2011",
+   "value": 50469.7074843699,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2010",
+   "value": 49942.856400589,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2023",
+   "value": 16862.6448754194,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2022",
+   "value": 16583.6402044873,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2021",
+   "value": 16605.7441564348,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2020",
+   "value": 15526.2471184967,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2019",
+   "value": 15886.3030021584,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2018",
+   "value": 16573.6744360076,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2017",
+   "value": 17074.2452163591,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2016",
+   "value": 16754.1124056429,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2015",
+   "value": 16493.4721499815,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2014",
+   "value": 16044.3996100177,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2013",
+   "value": 15819.3572985725,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2012",
+   "value": 15447.9748291037,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2011",
+   "value": 15106.5932749606,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2010",
+   "value": 14777.2316584759,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2023",
+   "value": 78854.4977707017,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2022",
+   "value": 74857.4534128396,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2021",
+   "value": 74146.6291634076,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2020",
+   "value": 64448.6812522584,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2019",
+   "value": 70487.5782401029,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2018",
+   "value": 69935.0174182682,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2017",
+   "value": 70613.0679853492,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2016",
+   "value": 67423.3652415962,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2015",
+   "value": 66113.5597088409,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2014",
+   "value": 64125.1441234002,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2013",
+   "value": 62074.4565077053,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2012",
+   "value": 60350.2752319105,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2011",
+   "value": 58173.8748510956,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2010",
+   "value": 52570.7523446127,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2023",
+   "value": 29342.1898804798,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2022",
+   "value": 29028.3987807416,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2021",
+   "value": 29912.1650583707,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2020",
+   "value": 28551.8937094538,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2019",
+   "value": 27917.5665153655,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2018",
+   "value": 28055.0776487141,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2017",
+   "value": 27775.0556860944,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2016",
+   "value": 28234.4183620771,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2015",
+   "value": 27319.9620877851,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2014",
+   "value": 26462.5755593946,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2013",
+   "value": 26058.7535879,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2012",
+   "value": 24685.4059541852,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2011",
+   "value": 23571.2173297161,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2010",
+   "value": 22318.0644789266,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2023",
+   "value": 33351.5077342876,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2022",
+   "value": 32544.9737086554,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2021",
+   "value": 32550.0274775559,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2020",
+   "value": 32630.4362087096,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2019",
+   "value": 32044.6372517446,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2018",
+   "value": 32797.3567081529,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2017",
+   "value": 32656.8439999044,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2016",
+   "value": 31890.7258490753,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2015",
+   "value": 31857.2541644756,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2014",
+   "value": 31702.3282443018,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2013",
+   "value": 29692.3598409845,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2012",
+   "value": 27374.296883428,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2011",
+   "value": 29757.0560242524,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2010",
+   "value": 29210.9550228807,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2023",
+   "value": 25534.2725160679,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2022",
+   "value": 25572.5660078767,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2021",
+   "value": 25801.768687886,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2020",
+   "value": 24506.2702255048,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2019",
+   "value": 25056.0973682155,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2018",
+   "value": 25035.7747508201,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2017",
+   "value": 24599.7497125621,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2016",
+   "value": 24185.4775824593,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2015",
+   "value": 23971.0095057868,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2014",
+   "value": 23451.4386494451,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2013",
+   "value": 22827.2142679795,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2012",
+   "value": 22805.9527769672,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2011",
+   "value": 22837.0063965549,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2010",
+   "value": 22331.2672082715,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2023",
+   "value": 64620.7142291067,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2022",
+   "value": 65469.0453889693,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2021",
+   "value": 64064.6130116691,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2020",
+   "value": 63301.5594769644,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2019",
+   "value": 64950.734824142,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2018",
+   "value": 64120.9982585355,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2017",
+   "value": 63606.2293655663,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2016",
+   "value": 62339.5151271846,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2015",
+   "value": 61097.6883439251,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2014",
+   "value": 59740.7112898589,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2013",
+   "value": 59065.2646290363,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2012",
+   "value": 56452.4883512116,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2011",
+   "value": 54104.1760114459,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  },
+  {
+   "indicator": {
+    "id": "SL.GDP.PCAP.EM.KD",
+    "value": "GDP per person employed (constant 2021 PPP $)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2010",
+   "value": 53643.3106352851,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 0
+  }
+ ]
+}

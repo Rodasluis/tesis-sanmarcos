@@ -1,0 +1,62 @@
+# Marco teórico
+
+## Antecedentes
+
+Herrera-Añazco et al. [@Herrera_A_azco_2017] describen para el Perú la secuencia
+en la que se pierde el control de la hipertensión: personas que no saben que la
+tienen, personas que lo saben y no reciben tratamiento, y personas que lo reciben
+y no alcanzan la meta. Su aporte es dimensionar el problema; su límite, el de
+cualquier encuesta, es que no puede explicar las razones.
+
+Tsiantou et al. [@Tsiantou_2010] abordan esas razones con entrevistas a pacientes
+hipertensos y encuentran que la decisión de tomar o no el medicamento no es un
+olvido sino una evaluación: el paciente pesa lo que cree que le hace la pastilla
+contra lo que siente en el cuerpo. Es el antecedente metodológicamente más
+cercano a este estudio.
+
+Maguire et al. [@Maguire_2008] muestran que las creencias sobre el medicamento
+—su necesidad y su peligro— predicen la adherencia mejor que las variables
+sociodemográficas. De ahí se sigue que indagar esas creencias no es un detalle
+cualitativo: es mirar donde está la variación.
+
+## Base teórica
+
+Dos ideas organizan el análisis.
+
+**La enfermedad asintomática rompe la lógica del síntoma.** La mayor parte de la
+experiencia de enfermar está guiada por lo que el cuerpo avisa: duele, se toma
+algo, deja de doler. La hipertensión no avisa, de modo que la pastilla no tiene
+retroalimentación. Tomarla exige sustituir la evidencia del cuerpo por la
+confianza en una explicación, y eso traslada todo el peso a la calidad de esa
+explicación.
+
+**El paciente construye un modelo explicativo propio.** Cuando la información
+clínica no se entiende o no se da, el hueco no queda vacío: se llena con lo que
+la persona ya sabe, con lo que le funcionó a su familia y con lo que observa en
+su cuerpo. Ese modelo propio no es ignorancia, es una teoría en uso, y compite
+con la indicación médica en igualdad de condiciones.
+
+## Definición de términos
+
+**Adherencia al tratamiento.** Grado en que el comportamiento de una persona
+—tomar la medicación, seguir la dieta, acudir a los controles— coincide con las
+recomendaciones acordadas con el personal de salud. Se usa este término y no
+«cumplimiento» porque el segundo supone una indicación que se obedece y no un
+acuerdo.
+
+**Barrera percibida.** Obstáculo que el participante identifica y nombra como
+razón de su conducta. Lo que importa es que él lo reconozca como obstáculo, no
+que un observador externo lo clasifique como tal.
+
+**Modelo explicativo.** Conjunto de creencias con que una persona entiende la
+causa, el curso y el tratamiento de su enfermedad.
+
+**Saturación de códigos.** Punto del análisis en que entrevistas adicionales
+dejan de producir códigos nuevos. Squire et al. [@Squire_2024] discuten cuántas
+entrevistas suelen hacer falta y, sobre todo, que el número no se puede fijar de
+antemano: se observa.
+
+**Código y categoría.** El código es la unidad mínima de significado que se
+asigna a un fragmento; la categoría agrupa códigos que comparten un sentido. En
+este estudio ambos están en `resultados/libro_de_codigos.yaml` con su definición,
+su criterio de inclusión y su criterio de exclusión.

@@ -1,0 +1,124 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+
+R = pathlib.Path("resultados")
+contexto = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+descriptivos = pd.read_csv(R / "descriptivos.csv").set_index("variable")
+```
+
+# Introducción
+
+## Introducción
+
+En `{python} str(contexto['desde'])`, poco más de un tercio de los peruanos usaba
+internet. En `{python} str(contexto['hasta'])` lo hacían casi ocho de cada diez:
+la penetración pasó de `{python} f"{contexto['internet_peru_inicio']:.1f}"` % a
+`{python} f"{contexto['internet_peru_final']:.1f}"` % de la población. En el mismo
+periodo, el producto por persona ocupada en el Perú pasó de
+`{python} f"{contexto['productividad_peru_inicio']:,.0f}".replace(",", " ")` a
+`{python} f"{contexto['productividad_peru_final']:,.0f}".replace(",", " ")` dólares
+internacionales de 2021.
+
+Las dos series suben. De esa coincidencia se deduce con frecuencia que la
+conectividad eleva la productividad, y sobre esa deducción se construyen
+argumentos de política: subsidios a la banda ancha, metas de cobertura, planes de
+transformación digital. El problema es que dos series que crecen a la vez durante
+catorce años no demuestran nada por sí solas. Casi todo creció en América Latina
+en ese periodo.
+
+Esta tesis separa las dos cosas. Pregunta si la productividad de un país es mayor
+en los años en que su penetración de internet es mayor, **una vez descontado lo
+que le pasó a toda la región al mismo tiempo**. Es una pregunta modesta y
+contestable con datos que existen y son públicos, y su respuesta tiene
+consecuencias: si la asociación agregada desaparece al mirar dentro de cada país,
+el argumento que la invoca necesita otro respaldo.
+
+## Planteamiento del problema
+
+### Determinación del problema
+
+La inversión pública en conectividad compite con otros usos del presupuesto. Para
+sostener que vale la pena por su efecto en la productividad hace falta evidencia
+de que la relación existe donde se la invoca —a nivel agregado, en países de
+ingreso medio— y no solo al nivel de la empresa, que es donde se la ha medido
+mejor [@Brynjolfsson_2000].
+
+La literatura no es unánime. @Czernich_2011 encuentran un efecto positivo de la
+banda ancha sobre el crecimiento en países de la OCDE, mientras @Maurseth_2018
+reporta evidencia en contra con datos de panel entre países, y la discusión sobre
+la paradoja de la productividad lleva décadas abierta [@Yorukoglu_1998]. Lo que
+falta, para el caso latinoamericano, es una medición que distinga la variación
+entre países de la variación dentro de cada país.
+
+### Formulación del problema
+
+**Pregunta general.** ¿Existe una asociación entre la penetración de internet y
+la productividad laboral en los países de América Latina entre
+`{python} str(contexto['desde'])` y `{python} str(contexto['hasta'])`, una vez
+controlados los factores propios de cada país y los choques comunes a la región?
+
+**Preguntas específicas.**
+
+1. ¿Cuál es la magnitud de la asociación en una especificación agregada, sin
+   controles?
+2. ¿Qué ocurre con esa asociación al incorporar efectos fijos de país y de año?
+3. ¿El resultado depende de la inclusión del Perú, de los años de la pandemia o
+   de la forma funcional?
+
+## Objetivos
+
+**Objetivo general.** Estimar la asociación entre la penetración de internet y la
+productividad laboral en `{python} str(contexto['paises'])` países de América
+Latina entre `{python} str(contexto['desde'])` y
+`{python} str(contexto['hasta'])`, distinguiendo la variación entre países de la
+variación dentro de cada país.
+
+**Objetivos específicos.**
+
+1. Describir la evolución de la penetración de internet y de la productividad
+   laboral en la región y en el Perú.
+2. Estimar la asociación con efectos fijos de país y de año, con errores estándar
+   agrupados por país.
+3. Evaluar la robustez del resultado ante cambios de muestra y de especificación.
+
+## Importancia y alcance de la investigación
+
+La importancia es concreta. Un organismo que evalúa un programa de conectividad
+necesita saber si la evidencia agregada que suele citarse se sostiene en países
+como el Perú. Si no se sostiene, eso no significa que el programa no sirva:
+significa que su justificación tiene que apoyarse en otra cosa —acceso a
+servicios, educación, inclusión financiera— y no en un efecto sobre la
+productividad agregada que los datos no muestran.
+
+El alcance es el de un estudio descriptivo-asociativo con datos agregados por
+país y año. No identifica un efecto causal y no pretende hacerlo.
+
+## Limitaciones de la investigación
+
+Son cuatro y conviene decirlas antes de los resultados, no después.
+
+**La unidad de análisis es el país.** Un promedio nacional esconde todo lo que
+pasa dentro: una mejora de productividad concentrada en Lima y una penetración
+que crece en zonas rurales aparecen como el mismo punto en la serie. Lo que se
+encuentre aquí no se puede trasladar a empresas ni a hogares.
+
+**No hay identificación causal.** Los efectos fijos de país absorben lo que no
+cambia en el tiempo y los de año lo que afecta a toda la región, pero no
+resuelven la simultaneidad: un país más productivo puede permitirse más
+conectividad.
+
+**El indicador de internet es de acceso, no de uso productivo.** Mide el
+porcentaje de personas que usan internet, sin distinguir si es para trabajar, y
+sin decir nada de velocidad ni de calidad del servicio. Para el Perú existe una
+encuesta que sí lo distingue —la ERESTEL de OSIPTEL— pero no es comparable entre
+países, que es lo que esta pregunta necesita.
+
+**Catorce años son pocos para un panel de países.**
+`{python} str(contexto['observaciones'])` observaciones y
+`{python} str(contexto['paises'])` conglomerados son una muestra pequeña para
+inferencia agrupada, y los intervalos de confianza lo reflejan.

@@ -38,6 +38,13 @@ BLOQUE_CODIGO = re.compile(r"^(```|~~~)")
 RE_INLINE = re.compile(r"`(?:\{[a-z]+\}|r|python)\s[^`]*`")
 #: Inclusiones de Quarto.
 RE_INCLUDE = re.compile(r"\{\{<\s*include\s+([^>]+?)\s*>\}\}")
+#: Bloque de atributos de Pandoc: `{#fig-robustez width=90%}`. El 90 de ahí es
+#: el ancho con que se dibuja la figura, no un dato que deba estar en
+#: `resultados/`.
+RE_ATRIBUTOS = re.compile(r"\{[#.][^{}]*\}")
+#: Marcador de lista numerada, al principio de la línea o de una celda de tabla.
+#: El «1.» de «1. Primera hipótesis» enumera, no mide.
+RE_ENUMERACION = re.compile(r"(?:^|\|)\s*\d{1,2}[.)]\s", re.M)
 #: Un número con posible separador de miles y decimales, o porcentaje.
 RE_NUMERO = re.compile(r"(?<![\w.,-])(\d{1,3}(?:[ .,]\d{3})+(?:[.,]\d+)?|\d+(?:[.,]\d+)?)"
                        r"\s*(%|por ciento)?")
@@ -53,6 +60,15 @@ def _es_ruido(valor: str, contexto: str) -> bool:
                                       r"anexo|art[íi]culo|p{1,2}\.|nivel)\s*$",
                                       contexto[-40:], re.I):
         return True                      # numeración de apartados
+    # Convenciones estadísticas, no datos del análisis: el nivel de confianza de
+    # un intervalo y el umbral con que se compara un p-valor son decisiones del
+    # método, y exigir que estén en `resultados/` no protege de nada.
+    if re.search(r"(confianza|significancia|significativ\w*)\s+(al|del)\s*$",
+                 contexto[-32:], re.I):
+        return True
+    if re.search(r"\bp\s*[<>=≤≥]\s*$", contexto[-8:], re.I):
+        return True
+
     # identificador normativo: RR N.° 00744, Ley 29733, DS 016-2024-JUS
     return bool(re.search(r"(RR|RD|N\.?°|Ley|DS)\s*$", contexto[-12:], re.I))
 
@@ -168,6 +184,8 @@ def verificar(raiz: pathlib.Path = RAIZ, perfil_id: str | None = None) -> Inform
             limpia = re.sub(r"\[[^\]]*@[^\]]*\]", " ", limpia)   # citas
             limpia = re.sub(r"^#{1,6}\s.*$", " ", limpia)        # encabezados
             limpia = re.sub(r"https?://\S+", " ", limpia)
+            limpia = RE_ATRIBUTOS.sub(" ", limpia)               # {#fig-x width=90%}
+            limpia = RE_ENUMERACION.sub(" ", limpia)             # 1. 2. 3.
 
             for m in RE_NUMERO.finditer(limpia):
                 valor = m.group(1)

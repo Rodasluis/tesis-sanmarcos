@@ -1,0 +1,17 @@
+categoria,codigo,E-01,E-02,E-03,E-04,E-05,E-06,E-07,E-08,entrevistas
+Lo que el cuerpo no avisa,ausencia_de_sintomas,1,0,0,0,0,0,0,1,2
+Lo que el cuerpo no avisa,enfermedad_sin_fin,1,0,0,0,0,0,0,0,1
+El costo de seguir el tratamiento,costo_directo,0,1,0,0,0,0,0,0,1
+El costo de seguir el tratamiento,desabastecimiento,0,1,0,0,0,0,0,0,1
+El costo de seguir el tratamiento,dosis_estirada,0,1,0,0,0,0,0,0,1
+El costo de seguir el tratamiento,jornada_incompatible,0,0,0,1,0,0,0,0,1
+Lo que se entendió y lo que no,explicacion_insuficiente,0,0,1,0,0,0,1,0,2
+Lo que se entendió y lo que no,modelo_propio,0,0,1,0,0,0,0,0,1
+Lo que se entendió y lo que no,desconoce_consecuencias,0,0,0,0,0,0,1,1,2
+El trato y el acceso,acceso_al_servicio,0,0,0,0,0,0,1,0,1
+El trato y el acceso,consulta_breve,1,0,0,0,0,0,1,0,2
+El trato y el acceso,vinculo_que_retiene,0,0,0,0,0,1,0,0,1
+Lo que sostiene la adherencia,apoyo_familiar,0,0,0,0,0,1,0,0,1
+Lo que sostiene la adherencia,miedo_con_cara,0,0,0,0,0,0,0,1,1
+Lo que sostiene la adherencia,efectos_adversos,0,0,0,0,1,0,0,0,1
+Lo que sostiene la adherencia,dieta_compartida,0,0,0,0,0,0,0,1,1

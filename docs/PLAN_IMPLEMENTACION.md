@@ -142,6 +142,10 @@ asesor pueda ver el proceso, no impedir físicamente una escritura.
 ### Fase 6 — Ejemplos end-to-end, CI y documentación
 Los dos ejemplos, GitHub Actions (ruff + pytest + render de ambos ejemplos a .docx) y `docs/`.
 - **Riesgos:** el CI necesita Quarto y pandoc en el runner (existe acción oficial de Quarto). Las transcripciones sintéticas de Medicina deben estar marcadas como ficticias **en el nombre del archivo y dentro de cada archivo**, para que nunca puedan confundirse con datos reales.
+- **Hecho.** Los dos ejemplos, `herramientas/preparar_ejemplo.py` para montarlos como proyecto verificable, el CI con tres trabajos (ruff+pytest, ejemplos verificados y renderizados a .docx, los 21 perfiles) y `docs/integridad.md`, `docs/guia_asesores.md` y `docs/agregar_facultad.md`.
+- **Lo que salió de escribir los ejemplos**, que es para lo que servían: encontraron **seis fallos reales en las herramientas**, todos de los que sufriría cualquier tesis. Las referencias cruzadas de Quarto (`@fig-x`) se buscaban en `referencias.bib`; las comillas de un `{python} f"..."` convertían el párrafo en cita textual y le exigían página; `width=90%` y la numeración de una lista se leían como cifras sin respaldo; el proyecto no podía declarar su enfoque, así que a una tesis cualitativa se le reclamaban los capítulos del modelo cuantitativo; la carátula y la bibliografía se exigían como capítulos cuando las genera la plantilla; y `_normalizar` se comía la primera letra de todo título que empezara por C, I, V, X, L, D o M, porque las tomaba por numeral romano.
+- **Dos decisiones del ejemplo cuantitativo**: usa la API del Banco Mundial porque la del BCRP devuelve un muro anti-bot, y su `referencias.bib` se genera desde Crossref por DOI para que ninguna entrada venga de la memoria de un modelo.
+- **El resultado de los dos ejemplos es incómodo a propósito**: uno termina en un coeficiente nulo que contradice su hipótesis, el otro en una saturación que no se alcanzó. Un ejemplo donde todo sale bien no enseña nada del repositorio.
 
 ### Fase 7 — Resto de facultades
 Solo con fuente verificada o confirmación de un asesor de esa escuela. Posterior a todo lo demás.

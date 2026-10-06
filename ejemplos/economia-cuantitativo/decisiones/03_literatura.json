@@ -1,0 +1,30 @@
+{
+ "etapa": "literatura",
+ "numero": 3,
+ "momento": "2026-10-05T22:13:33",
+ "opciones_presentadas": [
+  "Centrar la revisión en la literatura a favor del efecto agregado",
+  "Organizar la revisión como una discusión entre hallazgos opuestos",
+  "Centrar la revisión en la paradoja de la productividad"
+ ],
+ "recomendada": "Organizar la revisión como una discusión entre hallazgos opuestos",
+ "eleccion": "Organizar la revisión como una discusión entre hallazgos opuestos",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Como discusión. Czernich y compañía encuentran efecto, Maurseth no, y mi capítulo II tiene que dejar claro que eso está abierto. Si solo cito a los que encuentran efecto y después mi resultado sale nulo, el jurado me va a preguntar por qué no cité al que coincide conmigo.",
+ "cambios_pedidos": [
+  "Incluir a Maurseth 2018, que es el antecedente más cercano",
+  "Comprobar cada DOI en Crossref antes de agregarlo a la bibliografía"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Cuál es el hueco que llena tu tesis?",
+   "respuesta": "[EJEMPLO FICTICIO] Que para América Latina no encontré una medición que separe la variación entre países de la variación dentro de cada país. Czernich lo hace para la OCDE."
+  },
+  {
+   "pregunta": "¿Por qué Czernich encuentra efecto y tú no?",
+   "respuesta": "[EJEMPLO FICTICIO] Ellos usan variables instrumentales y yo no, y su muestra es de países de la OCDE. Esa diferencia favorece a su diseño, no al mío."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "f225a4d84e57ecba410de408e40bd9e200f5509156786ce09d54e30bdfd4525a"
+}

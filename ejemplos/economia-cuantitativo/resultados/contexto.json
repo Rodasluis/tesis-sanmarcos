@@ -1,0 +1,13 @@
+{
+ "paises": 17,
+ "anios": 14,
+ "desde": 2010,
+ "hasta": 2023,
+ "observaciones": 238,
+ "balanceado": true,
+ "internet_peru_inicio": 34.8,
+ "internet_peru_final": 79.5,
+ "productividad_peru_inicio": 22318.0,
+ "productividad_peru_final": 29342.0,
+ "fuente": "Banco Mundial, World Development Indicators"
+}

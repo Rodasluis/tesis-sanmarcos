@@ -1,0 +1,74 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+
+R = pathlib.Path("resultados")
+contexto = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+est = json.loads((R / "estimaciones.json").read_text(encoding="utf8"))
+resumen_est = est["resumen"]
+clave = resumen_est["comparacion_clave"]
+especificaciones = est["especificaciones"]
+```
+
+# Resumen
+
+Entre `{python} str(contexto['desde'])` y `{python} str(contexto['hasta'])` el uso
+de internet creció en toda América Latina y la productividad laboral también. Esta
+tesis pregunta si una cosa acompaña a la otra **dentro** de cada país, o si lo que
+se observa es solo que las dos subieron a la vez. Se construyó un panel de
+`{python} str(contexto['paises'])` países y
+`{python} str(contexto['anios'])` años con datos del Banco Mundial
+(`{python} str(contexto['observaciones'])` observaciones país-año) y se estimó la
+asociación entre la penetración de internet y el logaritmo del producto por
+persona ocupada, con efectos fijos de país y de año y errores estándar agrupados
+por país.
+
+La correlación simple es positiva y significativa
+(`{python} f"{clave['pooled_coeficiente']:.4f}"`). Al incorporar efectos fijos de
+país y de año, el coeficiente cambia de signo y deja de ser distinto de cero
+(`{python} f"{clave['principal_coeficiente']:.4f}"`, p =
+`{python} f"{clave['principal_p']:.2f}"`). El resultado se mantiene en
+`{python} str(resumen_est['especificaciones_probadas'] - 1)` especificaciones
+alternativas, entre ellas excluir al Perú, excluir los años de la pandemia y
+estimar en primeras diferencias. La conclusión es que la asociación agregada que
+suele invocarse para justificar inversión en conectividad no se sostiene cuando
+se controla por la tendencia común a la región, lo que coincide con
+@Maurseth_2018 y contrasta con @Czernich_2011.
+
+Estos resultados describen una **asociación condicional** y no un efecto causal:
+los efectos fijos no resuelven que un país más productivo pueda permitirse más
+conectividad.
+
+**Palabras clave:** internet, productividad laboral, América Latina, datos de
+panel, efectos fijos
+
+# Abstract
+
+Between `{python} str(contexto['desde'])` and
+`{python} str(contexto['hasta'])` internet use grew across Latin America and so
+did labour productivity. This thesis asks whether the two move together *within*
+countries, or whether what we observe is merely that both rose at the same time. A
+panel of `{python} str(contexto['paises'])` countries and
+`{python} str(contexto['anios'])` years was built from World Bank data
+(`{python} str(contexto['observaciones'])` country-year observations) and the
+association between internet penetration and the logarithm of output per employed
+person was estimated with country and year fixed effects and standard errors
+clustered by country.
+
+The simple correlation is positive and significant
+(`{python} f"{clave['pooled_coeficiente']:.4f}"`). Once country and year fixed
+effects are included, the coefficient changes sign and is no longer different from
+zero (`{python} f"{clave['principal_coeficiente']:.4f}"`, p =
+`{python} f"{clave['principal_p']:.2f}"`). The finding holds across
+`{python} str(resumen_est['especificaciones_probadas'] - 1)` alternative
+specifications. The aggregate association usually invoked to justify connectivity
+investment does not survive controlling for the region's common trend, in line
+with @Maurseth_2018 and in contrast with @Czernich_2011. These results describe a
+**conditional association**, not a causal effect.
+
+**Keywords:** internet, labour productivity, Latin America, panel data, fixed
+effects

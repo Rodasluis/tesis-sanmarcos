@@ -1,0 +1,26 @@
+{
+ "etapa": "proyecto",
+ "numero": 4,
+ "momento": "2026-10-05T22:13:35",
+ "opciones_presentadas": [
+  "Modelo cualitativo del reglamento de la Facultad de Medicina",
+  "Modelo cualitativo del Anexo 2B de la UNMSM"
+ ],
+ "recomendada": "Modelo cualitativo del reglamento de la Facultad de Medicina",
+ "eleccion": "Modelo cualitativo del reglamento de la Facultad de Medicina",
+ "respuesta_textual": "[EJEMPLO FICTICIO] El de mi facultad. Medicina tiene reglamento propio y verificado, con resolución, y además junta resultados y discusión en un solo capítulo, que es como están escritas las tesis de mi escuela. Vancouver también lo pide el reglamento, no es mi preferencia.",
+ "cambios_pedidos": [],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Por qué resultados y discusión van juntos?",
+   "respuesta": "[EJEMPLO FICTICIO] Porque lo dice el modelo cualitativo del reglamento de la facultad. En cualitativa tiene sentido: la cita y su interpretación se leen mejor juntas."
+  },
+  {
+   "pregunta": "¿Qué exige tu facultad antes de ejecutar el proyecto?",
+   "respuesta": "[EJEMPLO FICTICIO] Comité de Investigación de la escuela, comité de ética y resolución decanal. Art. 23."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "99a1a71b4ab6246380f9749331936ba3f3f4e1413ca40c2e989b9bc386316ecc"
+}

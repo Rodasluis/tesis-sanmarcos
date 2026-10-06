@@ -1,0 +1,27 @@
+{
+ "etapa": "afinar-idea",
+ "numero": 2,
+ "momento": "2026-10-05T22:13:35",
+ "opciones_presentadas": [
+  "¿Cuáles son las barreras para la adherencia? (descriptiva)",
+  "¿Cómo describen los usuarios las barreras que encuentran? (fenomenológica)",
+  "¿Qué relación hay entre nivel educativo y adherencia? (asociativa)"
+ ],
+ "recomendada": "¿Cómo describen los usuarios las barreras que encuentran? (fenomenológica)",
+ "eleccion": "¿Cómo describen los usuarios las barreras que encuentran? (fenomenológica)",
+ "respuesta_textual": "[EJEMPLO FICTICIO] La segunda, con el «cómo describen». La primera suena igual pero da a entender que las barreras están ahí y yo las voy a encontrar como quien encuentra objetos; lo que yo tengo son las palabras de ocho personas. La tercera es una pregunta cuantitativa y no la puedo contestar con entrevistas.",
+ "cambios_pedidos": [],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Tu estudio tiene hipótesis?",
+   "respuesta": "[EJEMPLO FICTICIO] Supuestos, no hipótesis a contrastar. El Anexo 2B admite «supuestos hipotéticos» en el modelo cualitativo. El mío es que parte de lo que se registra como incumplimiento es una respuesta razonable a condiciones materiales."
+  },
+  {
+   "pregunta": "¿Hasta dónde llegan tus conclusiones?",
+   "respuesta": "[EJEMPLO FICTICIO] Hasta los usuarios de ese centro, y ni siquiera a todos. No puedo generalizar a Lima ni al Perú."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "f366cd2d3be72f846a52bc6b5b4ada26d1077fe7fe418d1caf8318bfe48e8293"
+}

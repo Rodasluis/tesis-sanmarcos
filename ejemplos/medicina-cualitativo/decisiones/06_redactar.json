@@ -1,0 +1,28 @@
+{
+ "etapa": "redactar",
+ "numero": 6,
+ "momento": "2026-10-05T22:13:35",
+ "opciones_presentadas": [
+  "Tercera persona",
+  "Impersonal"
+ ],
+ "recomendada": "Impersonal",
+ "eleccion": "Impersonal",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Impersonal. El perfil de Medicina admite tercera persona o impersonal, así que elijo impersonal, que es lo que usa Anales de la Facultad de Medicina, que es el formato que pide el reglamento para el resumen.",
+ "cambios_pedidos": [
+  "Que las citas de los participantes vayan textuales, sin arreglarles la gramática"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Por qué no corregir la gramática de una cita?",
+   "respuesta": "[EJEMPLO FICTICIO] Porque deja de ser una cita. Y porque el verificador compara la cita con la transcripción: si la arreglo, ya no coincide y salta el error. Eso me parece bien."
+  },
+  {
+   "pregunta": "¿Qué no dice tu capítulo de resultados?",
+   "respuesta": "[EJEMPLO FICTICIO] No dice cuántos pacientes del centro tienen cada barrera. Ocho entrevistas no miden frecuencia."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "2ff60cc03cc8f75eb67dff35b74d19a887d2ec2a5996286f1c0cd7e508388460"
+}

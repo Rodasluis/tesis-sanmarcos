@@ -1,0 +1,6 @@
+variable,etiqueta,n,media,desviacion,minimo,mediana,maximo
+productividad,PBI por persona ocupada (USD 2021 PPA),238,39841.04,16979.28,14677.33,36923.6,78854.5
+internet,Personas que usan internet (% de la población),238,54.14,20.56,10.0,54.5,94.46
+gasto_educacion,Gasto público en educación (% del PBI),220,4.65,1.33,1.88,4.47,8.44
+desempleo,Desempleo (% de la fuerza laboral),238,6.23,2.82,2.02,5.85,16.43
+pbi_per_capita,PBI per cápita (USD 2015 constantes),238,7934.9,4523.12,1704.38,6411.27,18403.68

@@ -1,0 +1,9 @@
+orden,entrevista,codigos_nuevos,acumulado,cuales
+1,E-01,3,3,ausencia_de_sintomas; enfermedad_sin_fin; consulta_breve
+2,E-02,3,6,costo_directo; desabastecimiento; dosis_estirada
+3,E-03,2,8,explicacion_insuficiente; modelo_propio
+4,E-04,1,9,jornada_incompatible
+5,E-05,1,10,efectos_adversos
+6,E-06,2,12,vinculo_que_retiene; apoyo_familiar
+7,E-07,2,14,desconoce_consecuencias; acceso_al_servicio
+8,E-08,2,16,miedo_con_cara; dieta_compartida

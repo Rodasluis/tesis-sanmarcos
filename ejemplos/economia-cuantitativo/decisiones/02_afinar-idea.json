@@ -1,0 +1,29 @@
+{
+ "etapa": "afinar-idea",
+ "numero": 2,
+ "momento": "2026-10-05T22:13:33",
+ "opciones_presentadas": [
+  "¿Cuánto crece la productividad cuando crece el internet? (efecto causal)",
+  "¿Existe asociación entre internet y productividad una vez controlados país y año?",
+  "¿Qué países aprovechan mejor su conectividad? (eficiencia relativa)"
+ ],
+ "recomendada": "¿Existe asociación entre internet y productividad una vez controlados país y año?",
+ "eleccion": "¿Existe asociación entre internet y productividad una vez controlados país y año?",
+ "respuesta_textual": "[EJEMPLO FICTICIO] La segunda. La primera la quería yo, pero me explicaste que sin un instrumento no puedo decir «efecto» y no tengo instrumento. Prefiero contestar bien una pregunta más chica que contestar mal la grande. La hipótesis la dejo en positivo, como dice la literatura, y si sale al revés lo pongo.",
+ "cambios_pedidos": [
+  "Dejar la hipótesis en la dirección que predice la literatura, no en la que yo espero"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "Si el coeficiente sale positivo, ¿puedes decir que el internet elevó la productividad?",
+   "respuesta": "[EJEMPLO FICTICIO] No. Puedo decir que están asociados descontando país y año. Un país más productivo también puede pagar más internet y yo no puedo separar eso."
+  },
+  {
+   "pregunta": "¿Para qué sirven los efectos fijos de año?",
+   "respuesta": "[EJEMPLO FICTICIO] Para quitar lo que le pasó a toda la región el mismo año. Si no, cualquier par de series que suben juntas sale correlacionado."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "9b427e4656a6b1be95fb6f6ccd562cb5331fabe619da2e591d3fd7bf222dfe73"
+}

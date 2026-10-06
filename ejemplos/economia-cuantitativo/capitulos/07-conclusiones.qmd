@@ -1,0 +1,76 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+R = pathlib.Path("resultados")
+contexto = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+est = json.loads((R / "estimaciones.json").read_text(encoding="utf8"))
+esp = est["especificaciones"]
+clave = est["resumen"]["comparacion_clave"]
+```
+
+# Conclusiones y recomendaciones
+
+## Conclusiones
+
+Una por objetivo específico, y ninguna más.
+
+**Sobre la evolución de las series.** Entre `{python} str(contexto['desde'])` y
+`{python} str(contexto['hasta'])` la penetración de internet creció en los
+`{python} str(contexto['paises'])` países de la muestra. En el Perú pasó de
+`{python} f"{contexto['internet_peru_inicio']:.1f}"` % a
+`{python} f"{contexto['internet_peru_final']:.1f}"` % de la población, con una
+trayectoria muy similar al promedio regional. La productividad laboral también
+creció en la mayoría de los países del panel.
+
+**Sobre la asociación.** La asociación entre penetración de internet y
+productividad laboral es positiva y significativa en la correlación simple
+(`{python} f"{clave['pooled_coeficiente']:.5f}"`), y deja de ser distinta de cero
+al incorporar efectos fijos de país y de año
+(`{python} f"{clave['principal_coeficiente']:.5f}"`, p =
+`{python} f"{clave['principal_p']:.2f}"`). La hipótesis general de esta tesis, que
+predecía una asociación positiva robusta a esos controles, **no se sostiene** con
+estos datos.
+
+**Sobre la robustez.** El resultado no depende del Perú, ni de los años de la
+pandemia, ni de la forma funcional: en las cuatro especificaciones alternativas el
+coeficiente sigue siendo indistinguible de cero y de magnitud despreciable.
+
+**Una conclusión sobre el alcance**, que no corresponde a un objetivo pero sin la
+cual las anteriores se leen mal: este estudio **no demuestra que la conectividad
+no importe**. El intervalo de confianza de la especificación principal va de
+`{python} f"{esp['principal']['ic_bajo']:.5f}"` a
+`{python} f"{esp['principal']['ic_alto']:.5f}"` e incluye efectos positivos
+pequeños. Lo que el estudio descarta es un efecto del tamaño que la correlación
+agregada sugería.
+
+## Recomendaciones
+
+**Para quien evalúa programas de conectividad** —el MTC, OSIPTEL, el MEF al
+priorizar inversión—: la evidencia agregada entre países no respalda justificar un
+programa de conectividad por su efecto esperado sobre la productividad nacional.
+Eso no lo invalida: lo obliga a justificarse por lo que sí se puede medir, como
+acceso a servicios públicos, continuidad educativa o inclusión financiera. Y
+obliga a diseñar la evaluación con datos de empresas u hogares, no de agregados
+nacionales.
+
+**Para quien quiera continuar esta línea.** Tres caminos concretos, en orden de
+viabilidad para una tesis de pregrado:
+
+1. Repetir el ejercicio con una medida de **uso** y no de acceso. Para el Perú, la
+   ERESTEL de OSIPTEL tiene velocidad, operador, gasto y motivos de no
+   contratación. No permite comparar países, pero permite comparar hogares y
+   regiones dentro del Perú, que es donde la heterogeneidad está.
+2. Bajar de nivel. Las Enterprise Surveys del Banco Mundial cubren al Perú con
+   datos de empresas, que es donde @Brynjolfsson_2000 encuentran el efecto.
+3. Probar especificaciones con rezagos. Si el efecto llega con demora
+   [@Yorukoglu_1998], un modelo contemporáneo como este no podía verlo. Esta
+   tesis no lo estimó y por eso no puede afirmar nada al respecto.
+
+**Para el debate académico.** La divergencia entre @Czernich_2011 y
+@Maurseth_2018 no se resuelve con una tesis más que estime la correlación: se
+resuelve con estrategias de identificación creíbles. Reportar las
+especificaciones sin instrumento es útil para saber qué no sabemos, no para
+cerrar la discusión.

@@ -1,0 +1,74 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+
+R = pathlib.Path("resultados")
+ctx = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+saturacion = pd.read_csv(R / "saturacion.csv")
+```
+
+::: {.callout-important}
+## Este ejemplo usa datos ficticios
+
+Las transcripciones y la codificación de este ejemplo **son ficticias**: se
+escribieron para probar el flujo del repositorio. No hay participantes y las
+conclusiones no describen a ningún paciente real. Ver
+`datos/crudos/LEEME_ESTOS_DATOS_SON_FICTICIOS.md`.
+:::
+
+# Resumen
+
+**Objetivo.** Comprender las barreras que los usuarios de un centro de salud de
+Lima perciben para adherirse al tratamiento antihipertensivo.
+
+**Métodos.** Estudio cualitativo con diseño fenomenológico. Se realizaron
+`{python} str(ctx['participantes'])` entrevistas semiestructuradas a usuarios con
+diagnóstico de hipertensión arterial. El análisis siguió codificación temática
+con libro de códigos auditable; cada cita de los resultados se verificó contra su
+transcripción.
+
+**Resultados.** Se identificaron `{python} str(ctx['codigos'])` códigos
+agrupados en `{python} str(ctx['categorias'])` categorías: la ausencia de
+síntomas como razón del abandono, el costo del tratamiento frente al presupuesto
+del hogar, los huecos entre lo que se explicó y lo que se entendió, el acceso y
+el trato en el servicio, y los apoyos que sostienen la adherencia. La última
+entrevista todavía aportó códigos nuevos, de modo que **no se alcanzó la
+saturación**.
+
+**Conclusiones.** Las barreras descritas son materiales y comunicativas antes que
+actitudinales: el costo, el desabastecimiento y la jornada laboral aparecen junto
+a explicaciones del diagnóstico que no se entendieron. Que la saturación no se
+haya alcanzado limita la transferibilidad de estos hallazgos y señala que el
+muestreo debía continuar.
+
+**Palabras clave:** hipertensión arterial, adherencia al tratamiento,
+investigación cualitativa, atención primaria, Perú
+
+# Abstract
+
+**Objective.** To understand the barriers that users of a primary care centre in
+Lima perceive to adhering to antihypertensive treatment.
+
+**Methods.** Qualitative study with a phenomenological design.
+`{python} str(ctx['participantes'])` semi-structured interviews were conducted
+with users diagnosed with arterial hypertension. Analysis followed thematic
+coding with an auditable codebook; every quotation in the results was verified
+against its transcript.
+
+**Results.** `{python} str(ctx['codigos'])` codes were identified, grouped into
+`{python} str(ctx['categorias'])` categories: absence of symptoms as a reason for
+discontinuation, the cost of treatment against the household budget, gaps between
+what was explained and what was understood, access and treatment at the service,
+and the supports that sustain adherence. The last interview still contributed new
+codes, so **saturation was not reached**.
+
+**Conclusions.** The barriers described are material and communicative rather
+than attitudinal. The failure to reach saturation limits the transferability of
+these findings and indicates that sampling should have continued.
+
+**Keywords:** arterial hypertension, treatment adherence, qualitative research,
+primary health care, Peru

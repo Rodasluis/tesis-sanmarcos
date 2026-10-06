@@ -1,0 +1,178 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+from IPython.display import Markdown
+
+R = pathlib.Path("resultados")
+ctx = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+matriz = pd.read_csv(R / "matriz_codigos.csv")
+saturacion = pd.read_csv(R / "saturacion.csv")
+
+
+def en_cuantas(codigo: str) -> str:
+    return str(int(matriz.loc[matriz["codigo"] == codigo, "entrevistas"].iloc[0]))
+```
+
+# Resultados y discusión
+
+Se identificaron `{python} str(ctx['codigos'])` códigos agrupados en
+`{python} str(ctx['categorias'])` categorías. Se presentan en el orden en que
+organizan la experiencia descrita por los participantes, no por frecuencia: una
+categoría que apareció en una sola entrevista puede nombrar algo que las demás
+dan por supuesto.
+
+```{python}
+#| echo: false
+#| label: tbl-categorias
+#| tbl-cap: "Categorías y códigos, con el número de entrevistas en que aparecieron"
+vista = matriz[["categoria", "codigo", "entrevistas"]].copy()
+vista.columns = ["Categoría", "Código", "Entrevistas"]
+Markdown(vista.to_markdown(index=False))
+```
+
+## Lo que el cuerpo no avisa
+
+La hipertensión no duele, y esa ausencia organiza buena parte de lo que los
+participantes cuentan. El olvido que describen no es un fallo de memoria: es lo
+que ocurre cuando una conducta no tiene consecuencia perceptible.
+
+> «no me duele nada, entonces se me olvida» (E-01)
+
+Aparece en `{python} en_cuantas('ausencia_de_sintomas')` entrevistas, y en las
+dos con la misma estructura: el participante no dice que la pastilla no sirva,
+dice que nada le recuerda que tiene que tomarla. Es coherente con lo que
+describen Tsiantou et al. [@Tsiantou_2010]: la decisión se evalúa contra lo que
+el cuerpo informa, y cuando el cuerpo no informa nada, el cálculo se queda sin
+uno de sus términos.
+
+A eso se suma la duración. El diagnóstico no llega como un episodio sino como un
+estado permanente, y así se nombra:
+
+> «de un día para otro me volví enfermo» (E-01)
+
+## El costo de seguir el tratamiento
+
+Es la categoría con más códigos, y la que menos tiene que ver con las creencias
+del paciente. Cuatro obstáculos distintos, todos materiales.
+
+El primero es el precio, que no se compara con cero sino con los otros gastos del
+hogar:
+
+> «hay meses que se me va en pastillas lo que gano en dos días de trabajo» (E-02)
+
+El segundo es el desabastecimiento, y su efecto no es solo la falta de ese mes:
+enseña que ir no sirve.
+
+> «cuando he ido tres veces y no hay, ya dejo de ir» (E-02)
+
+El tercero es lo que el participante hace cuando las dos cosas anteriores se
+juntan. Es una decisión clínica tomada por necesidad económica, y no se consulta
+porque se anticipa el reproche:
+
+> «parto la pastilla en dos para que me dure el doble» (E-02)
+
+El cuarto es el tiempo. El horario del servicio y el de la jornada laboral no
+coinciden, y la elección que queda es explícita:
+
+> «entre perder el día y no tomar la pastilla, pierdo la pastilla» (E-04)
+
+Ninguna de estas cuatro barreras se resuelve informando mejor al paciente. Es la
+distinción que más importa de este estudio, porque es la que separa dos tipos de
+intervención con costos muy distintos.
+
+## Lo que se entendió y lo que no
+
+La información clínica llegó, pero no siempre se entendió, y el hueco no quedó
+vacío. Dos participantes describen no haber comprendido y no haber preguntado, y
+las razones que dan son la prisa y la vergüenza:
+
+> «me dijo palabras que no entendí y yo no le pregunté» (E-03)
+
+Lo que ocupa el lugar de la explicación es un modelo propio, con su propia lógica
+interna. En un caso, la atribución a los nervios lleva a una conducta
+consistente con esa teoría y contraria a la indicación:
+
+> «cuando la tomo no tomo la pastilla para no mezclar» (E-03)
+
+Eso respalda lo que encuentran Maguire et al. [@Maguire_2008]: lo que predice la
+conducta son las creencias sobre el medicamento, no el nivel educativo. El
+participante no está desinformado en el sentido de carecer de una explicación;
+tiene una, y es la que usa.
+
+Hay además un vacío concreto y repetido: nadie dijo qué pasa si se abandona.
+
+> «nadie me ha explicado nunca qué me va a pasar si no la tomo» (E-07)
+
+## El trato y el acceso
+
+Conseguir la atención es un trabajo en sí mismo:
+
+> «vengo a las cuatro de la mañana a hacer cola por un cupo» (E-07)
+
+Y cuando se consigue, la consulta es breve y discontinua. Lo que los
+participantes señalan no es la incompetencia del profesional sino la falta de
+continuidad, que obliga a empezar de nuevo cada vez:
+
+> «nunca es el mismo doctor, cada vez es otro» (E-01)
+
+El contraste más interesante lo da la única entrevista que describe lo opuesto.
+Ser reconocido funciona como razón para volver, y el participante lo formula en
+términos de importar a alguien:
+
+> «siento que a alguien le importa si vengo o no vengo» (E-06)
+
+## Lo que sostiene la adherencia
+
+Los apoyos que los participantes identifican son concretos y, en su mayoría,
+ajenos al sistema de salud.
+
+Uno es la familia, que resuelve el problema de la organización:
+
+> «mi hija me pone las pastillas en una cajita con los días» (E-06)
+
+Otro es haber visto una complicación de cerca. Lo que la información clínica no
+logró, lo logró un caso conocido:
+
+> «desde que la vi así no he fallado un solo día» (E-08)
+
+En sentido contrario operan los efectos adversos, que llevaron a una suspensión
+que duró meses porque el participante no sabía que el medicamento se podía
+cambiar:
+
+> «estaba mejor antes de la pastilla que con la pastilla» (E-05)
+
+Y la comida de la casa, que es común y no se reorganiza por una persona:
+
+> «yo no voy a cocinar aparte sin sal mientras los demás comen normal» (E-08)
+
+## Sobre la saturación, que no se alcanzó
+
+```{python}
+#| echo: false
+#| label: tbl-saturacion-resultados
+#| tbl-cap: "Códigos nuevos por entrevista, en el orden en que se realizaron"
+vista = saturacion[["orden", "entrevista", "codigos_nuevos", "acumulado", "cuales"]]
+vista.columns = ["Orden", "Entrevista", "Nuevos", "Acumulado", "Códigos nuevos"]
+Markdown(vista.to_markdown(index=False))
+```
+
+La entrevista `{python} str(ctx['ultima_entrevista_con_codigo_nuevo'])`, que fue
+la última, todavía aportó códigos nuevos. En términos de Squire et al.
+[@Squire_2024], el estudio se detuvo antes de la saturación de códigos.
+
+Decirlo importa por tres razones. La primera es que es verdad. La segunda es que
+condiciona la lectura de todo lo anterior: es razonable esperar que existan
+barreras que estas `{python} str(ctx['participantes'])` entrevistas no recogieron,
+y nada permite suponer que sean menores que las que sí aparecieron. La tercera es
+que las categorías con un solo código y una sola entrevista
+—`vinculo_que_retiene`, `apoyo_familiar`— son justamente las que más necesitaban
+más entrevistas, porque una ocurrencia no permite distinguir un rasgo del
+fenómeno de una particularidad de esa persona.
+
+Lo que este estudio puede sostener es que las barreras descritas **existen**. Lo
+que no puede sostener es que sean **las** barreras, ni que sean las más
+frecuentes.

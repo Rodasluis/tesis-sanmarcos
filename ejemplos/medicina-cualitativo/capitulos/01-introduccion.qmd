@@ -1,0 +1,86 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+R = pathlib.Path("resultados")
+ctx = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+```
+
+# Introducción
+
+## Situación problemática
+
+La hipertensión arterial se controla con medicamentos que funcionan y cuestan
+poco, y aun así una proporción grande de las personas diagnosticadas no alcanza
+el control de su presión. En el Perú, el estudio de Herrera-Añazco et al.
+[@Herrera_A_azco_2017] documenta esa brecha entre diagnóstico, tratamiento y
+control con datos de alcance nacional.
+
+Lo que una encuesta no puede decir es **por qué**. Cuando se pregunta en un
+formulario si el paciente tomó su medicación, la respuesta es sí o no; lo que
+queda fuera es la cadena de razones por la que ese no fue un no. Esa cadena
+—dinero, horarios, lo que el paciente entendió de su diagnóstico, lo que le pasó
+cuando fue a recoger su receta— es lo que este estudio busca.
+
+El término clínico para esa brecha es «falta de adherencia», y la palabra ya
+contiene un juicio: adherirse es lo que hace el paciente que coopera. Este
+estudio parte de la sospecha contraria: que buena parte de lo que se registra
+como incumplimiento es la respuesta razonable de alguien a condiciones que no
+eligió.
+
+## Formulación del problema
+
+**Pregunta de investigación.** ¿Cómo describen los usuarios de un centro de salud
+de Lima las barreras que encuentran para seguir su tratamiento antihipertensivo?
+
+**Preguntas específicas.**
+
+1. ¿Qué significados atribuyen a una enfermedad que no produce síntomas?
+2. ¿Qué obstáculos materiales identifican en su vida cotidiana?
+3. ¿Qué entendieron de la información que recibieron en la consulta?
+4. ¿Qué elementos reconocen como apoyo para continuar?
+
+## Justificación de la investigación
+
+Un programa de control de hipertensión que atribuye el incumplimiento a la
+desinformación del paciente diseña charlas educativas. Si lo que impide tomar la
+pastilla es que no hay en la farmacia o que venir cuesta un día de trabajo, la
+charla no va a cambiar nada, y la evaluación del programa concluirá que los
+pacientes no colaboran.
+
+Distinguir unas barreras de otras tiene, entonces, consecuencias prácticas
+inmediatas sobre lo que un establecimiento decide hacer. Un estudio cualitativo
+es el que puede hacer esa distinción, porque deja que las razones aparezcan en
+las palabras de quien las vive en lugar de proponerlas de antemano en un
+cuestionario.
+
+## Objetivos
+
+**Objetivo general.** Comprender las barreras que los usuarios de un centro de
+salud de Lima perciben para adherirse al tratamiento antihipertensivo.
+
+**Objetivos específicos.**
+
+1. Describir los significados que los participantes atribuyen a vivir con una
+   enfermedad asintomática y de tratamiento indefinido.
+2. Identificar las barreras materiales que reconocen en su vida cotidiana.
+3. Caracterizar la relación entre la información recibida y las explicaciones
+   propias que construyeron sobre su enfermedad.
+4. Identificar los elementos que los participantes señalan como apoyo para
+   continuar el tratamiento.
+
+## Limitaciones del estudio
+
+Dos, y la primera es la que más pesa.
+
+**No se alcanzó la saturación.** Con `{python} str(ctx['participantes'])`
+entrevistas, la última todavía aportó códigos nuevos. Eso significa que el
+muestreo debía continuar y que es razonable esperar que existan barreras que este
+estudio no recogió. Se discute en el capítulo de resultados y se declara aquí
+porque condiciona todo lo que sigue.
+
+**Un solo escenario.** Los participantes provienen de un único establecimiento.
+El desabastecimiento, los horarios y la continuidad del médico tratante son
+rasgos de ese servicio, y otro centro puede funcionar de otra manera.

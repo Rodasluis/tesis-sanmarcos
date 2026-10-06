@@ -1,0 +1,102 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+R = pathlib.Path("resultados")
+est = json.loads((R / "estimaciones.json").read_text(encoding="utf8"))
+clave = est["resumen"]["comparacion_clave"]
+esp = est["especificaciones"]
+```
+
+# Discusión
+
+## Qué se encontró
+
+El resultado central es un contraste, no un coeficiente. La asociación entre
+penetración de internet y productividad laboral es fuerte y positiva cuando se
+comparan países entre sí, y desaparece cuando se compara a cada país consigo
+mismo descontando el año. Pasa de `{python} f"{clave['pooled_coeficiente']:.5f}"`
+a `{python} f"{clave['principal_coeficiente']:.5f}"`, cambia de signo y pierde
+significancia.
+
+De dónde viene la caída es informativo, y conviene descomponerla en lugar de
+atribuirla al control que a uno le interese.
+`{python} f"{(esp['pooled']['coeficiente'] - esp['ef_pais']['coeficiente']) / (esp['pooled']['coeficiente'] - esp['principal']['coeficiente']) * 100:.0f}"` %
+de la caída ocurre al añadir efectos fijos de **país**, y el
+`{python} f"{(esp['ef_pais']['coeficiente'] - esp['principal']['coeficiente']) / (esp['pooled']['coeficiente'] - esp['principal']['coeficiente']) * 100:.0f}"` %
+restante al añadir los de **año**.
+
+Eso quiere decir dos cosas distintas. Lo que más inflaba la correlación eran las
+diferencias permanentes entre países: comparar Chile con Nicaragua mide
+instituciones, geografía e historia, no conectividad. Y lo que lleva el
+coeficiente hasta cero y le quita significancia son los efectos de año, es decir
+la tendencia común: entre 2010 y 2023 el uso de internet y la productividad
+subieron a la vez en casi toda la región, sin que se pueda atribuir lo uno a lo
+otro.
+
+## Cómo encaja con la literatura
+
+El resultado coincide con @Maurseth_2018, que tampoco encuentra efecto del uso de
+internet sobre el crecimiento con datos de panel entre países y especificaciones
+que absorben la tendencia común. La coincidencia no es menor: es el antecedente
+metodológicamente más cercano a esta tesis.
+
+Contrasta con @Czernich_2011, que sí encuentran efecto positivo. Hay al menos
+tres diferencias que pueden explicar la divergencia, y conviene ser honesto sobre
+cuál favorece a quién.
+
+**La estrategia de identificación.** @Czernich_2011 usan variables
+instrumentales, con la infraestructura previa de telefonía y televisión por cable
+como fuente de variación exógena. Esta tesis no instrumenta nada. Esa diferencia
+favorece a su diseño: una asociación condicional nula no refuta un efecto causal
+estimado con un instrumento creíble.
+
+**La muestra.** Ellos trabajan con países de la OCDE, donde la banda ancha llegó
+antes y los complementos organizativos —capital humano, instituciones— son más
+homogéneos. Si el retorno de la conectividad depende de esos complementos, como
+sugieren @Brynjolfsson_2000, es esperable que en América Latina sea menor.
+
+**La variable.** Ellos miden penetración de banda ancha; aquí se mide porcentaje
+de personas que usan internet. @Endres_2024 muestra que los resultados cambian
+según se mida banda ancha fija o móvil, lo que advierte contra tratar cualquier
+indicador de conectividad como equivalente.
+
+La paradoja de la productividad ofrece una cuarta explicación posible. Si el
+efecto llega con rezago, por aprendizaje y por obsolescencia del capital previo
+[@Yorukoglu_1998], un modelo contemporáneo como el de esta tesis no lo vería.
+Esto es una conjetura, no un hallazgo: esta tesis no estimó especificaciones con
+rezagos y no puede sostener que el efecto exista con retardo.
+
+## Qué debilita esta conclusión
+
+**Lo que mide la variable explicativa.** El porcentaje de personas que usan
+internet no dice nada de para qué lo usan. Un país donde la conectividad crece
+sobre todo en consumo doméstico y otro donde crece en procesos productivos
+aparecen iguales en esta serie. Si el efecto productivo depende del uso y no del
+acceso, este diseño no podía encontrarlo. Para el Perú existe una fuente que sí
+lo distingue —la ERESTEL de OSIPTEL, con velocidad, operador y motivos de uso—
+pero no es comparable entre países.
+
+**La agregación.** Con el país como unidad, un promedio nacional esconde
+heterogeneidad enorme. Es posible que exista un efecto en empresas o sectores
+concretos que se diluye al promediar, que es justamente lo que @Brynjolfsson_2000
+documentan al nivel de la empresa.
+
+**El poder estadístico.** Con `{python} str(esp['principal']['paises'])`
+conglomerados, la inferencia agrupada es conservadora. El intervalo de confianza
+de la especificación principal va de
+`{python} f"{esp['principal']['ic_bajo']:.5f}"` a
+`{python} f"{esp['principal']['ic_alto']:.5f}"`: incluye el cero, pero también
+incluye efectos positivos pequeños. **Este estudio no descarta un efecto
+pequeño**; descarta uno del tamaño que la correlación simple sugería.
+
+Esa distinción es la que más importa y la más fácil de perder al resumir. "No
+encontramos efecto" y "demostramos que no hay efecto" no son la misma frase, y
+solo la primera es defendible aquí.
+
+**La causalidad, en los dos sentidos.** Los efectos fijos no resuelven que un
+país más productivo pueda permitirse más conectividad. Si ambas cosas se
+determinan mutuamente, ni el signo ni la magnitud estimados tienen una
+interpretación causal.

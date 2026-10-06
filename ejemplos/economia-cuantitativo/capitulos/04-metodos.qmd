@@ -1,0 +1,111 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+
+R = pathlib.Path("resultados")
+contexto = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+flujo = pd.read_csv(R / "flujo_de_muestra.csv")
+faltantes = pd.read_csv(R / "faltantes_por_variable.csv")
+est = json.loads((R / "estimaciones.json").read_text(encoding="utf8"))
+especificaciones = est["especificaciones"]
+
+
+def n_de(spec):
+    return str(especificaciones[spec]["n"])
+```
+
+# Materiales y métodos
+
+## Área de estudio
+
+`{python} str(contexto['paises'])` países de América Latina continental y del
+Caribe hispanohablante: Argentina, Bolivia, Brasil, Chile, Colombia, Costa Rica,
+Ecuador, El Salvador, Guatemala, Honduras, México, Nicaragua, Panamá, Paraguay,
+Perú, República Dominicana y Uruguay. El criterio de inclusión fue la
+disponibilidad de las dos variables centrales en todo el periodo; no se excluyó
+ningún país de la región por otro motivo.
+
+## Diseño de investigación
+
+Estudio observacional de panel, con enfoque cuantitativo y alcance
+descriptivo-asociativo. No hay intervención ni asignación: se observan países que
+difieren entre sí por razones que el diseño no controla.
+
+## Población y muestra
+
+La población son los países de América Latina en el periodo
+`{python} str(contexto['desde'])`–`{python} str(contexto['hasta'])`. No hay
+muestreo: se trabaja con el universo de países de la región para los que el
+Banco Mundial publica las dos variables centrales, de modo que no hay error de
+muestreo que estimar y no corresponde ponderador alguno.
+
+```{python}
+#| echo: false
+#| label: tbl-flujo
+#| tbl-cap: "Flujo de la muestra"
+from IPython.display import Markdown
+Markdown(flujo.rename(columns={"paso": "Paso", "n": "n"}).to_markdown(index=False))
+```
+
+No se perdió ninguna observación por falta de la variable dependiente o de la
+explicativa: el panel es balanceado en ambas. Sí hay faltantes en una variable de
+control, el gasto público en educación, que se reportan en la tabla siguiente.
+
+```{python}
+#| echo: false
+#| label: tbl-faltantes
+#| tbl-cap: "Faltantes por variable"
+Markdown(faltantes.rename(columns={
+    "variable": "Variable", "faltantes": "Faltantes",
+    "porcentaje": "% del panel"}).to_markdown(index=False))
+```
+
+**Los faltantes no se imputaron.** La especificación principal no usa controles,
+así que corre con las `{python} n_de('principal')` observaciones completas; la
+especificación con controles corre con `{python} n_de('con_controles')` y lo
+declara. Eliminar filas en la limpieza por un faltante en un control habría
+cambiado la muestra de la estimación principal sin que se notara.
+
+## Procedimientos, técnicas e instrumentos de recolección de información
+
+Los datos son secundarios y de acceso abierto. Se descargaron de la API v2 del
+Banco Mundial [@bancomundial2026wdi] con el script `codigo/01_descarga.py`, que
+guarda la respuesta cruda en `datos/crudos/` sin modificarla y anota en
+`datos/crudos/_procedencia.md` la fecha, la URL y los indicadores exactos.
+
+Esa anotación no es un formalismo: el Banco Mundial revisa sus series hacia atrás
+sin avisar, de modo que una descarga posterior puede no coincidir con esta. La
+fecha de descarga es parte del dato.
+
+No se recolectó información de personas, por lo que no hubo consentimiento
+informado ni tratamiento de datos personales.
+
+## Análisis estadístico
+
+La especificación principal es
+
+$$\ln(Y_{it}) = \beta\,\text{internet}_{it} + \alpha_i + \gamma_t + \varepsilon_{it}$$
+
+donde $Y_{it}$ es el producto por ocupado del país $i$ en el año $t$,
+$\alpha_i$ son efectos fijos de país, $\gamma_t$ de año, y $\beta$ es el
+parámetro de interés.
+
+Los errores estándar se agrupan por país. Las observaciones de un mismo país en
+años distintos no son independientes, y con errores estándar ingenuos los
+intervalos saldrían artificialmente estrechos. Con
+`{python} str(contexto['paises'])` conglomerados la inferencia agrupada es
+conservadora pero no abundante, y eso también es una limitación.
+
+Se estimaron `{python} str(est['resumen']['especificaciones_probadas'])`
+especificaciones: la correlación simple, efectos fijos de país, la principal, una
+con controles, una sin el Perú, una hasta 2019 y una en primeras diferencias.
+**Todas están reportadas en el capítulo de resultados**, incluidas las que
+debilitan la hipótesis. El código está en `codigo/04_estimacion.py` y cada
+especificación lleva escrito, en el propio código, por qué está.
+
+Todo el análisis se rehace desde cero corriendo los scripts de `codigo/` en
+orden numérico.

@@ -1,0 +1,77 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+R = pathlib.Path("resultados")
+ctx = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+```
+
+# Conclusiones y recomendaciones
+
+## Conclusiones
+
+Una por objetivo específico.
+
+**Sobre los significados de una enfermedad asintomática.** Los participantes
+describen el abandono del tratamiento como consecuencia de la ausencia de
+síntomas, no como desacuerdo con la indicación. La falta de retroalimentación
+corporal deja la toma del medicamento sin refuerzo, y el diagnóstico se vive
+además como un cambio permanente de condición.
+
+**Sobre las barreras materiales.** Se identificaron cuatro: el costo del
+medicamento frente a otros gastos del hogar, el desabastecimiento en la farmacia
+del establecimiento, la modificación de la dosis por cuenta propia para hacerla
+durar, y la incompatibilidad entre el horario del servicio y la jornada laboral.
+Ninguna de las cuatro depende de lo que el paciente sepa.
+
+**Sobre la información recibida.** La explicación clínica no siempre se entendió
+y la aclaración no se pidió, por prisa y por vergüenza. En su lugar operan
+modelos explicativos propios, coherentes internamente y con consecuencias
+prácticas sobre la toma del medicamento. Ningún participante refirió haber
+recibido información sobre las consecuencias de abandonar el tratamiento.
+
+**Sobre los apoyos.** Los participantes reconocen tres: la organización de la
+medicación por un familiar, haber visto una complicación en una persona cercana,
+y ser reconocido por nombre por el personal del establecimiento. Los dos primeros
+son ajenos al servicio de salud.
+
+**Sobre el alcance de estas conclusiones.** El estudio no alcanzó la saturación de
+códigos: la última de las `{python} str(ctx['participantes'])` entrevistas
+todavía aportó códigos nuevos. Las barreras descritas existen; no se puede
+sostener que sean todas las que hay ni las más frecuentes.
+
+## Recomendaciones
+
+**Para el establecimiento.** Tres cosas que se desprenden directamente de lo que
+dijeron los participantes:
+
+1. Informar la disponibilidad del medicamento antes de que el usuario haga el
+   viaje. El efecto descrito del desabastecimiento no fue la falta de ese mes,
+   sino dejar de ir.
+2. Preguntar explícitamente por la modificación de dosis por motivo económico.
+   El participante que parte sus pastillas no lo menciona porque anticipa el
+   reproche, de modo que el dato no aparece si no se pregunta.
+3. Incluir en la consulta qué ocurre si se abandona el tratamiento. Ningún
+   participante refirió haberlo recibido, y el único caso de adherencia sostenida
+   por conocer el riesgo lo aprendió de una vecina.
+
+**Para quien diseñe una intervención educativa.** La mayoría de las barreras
+encontradas en este estudio son materiales. Una intervención que solo informe
+dejará sin tocar el costo, el desabastecimiento y el horario, y su evaluación
+probablemente concluya que los pacientes no colaboran.
+
+**Para quien continúe esta línea.** Lo primero es seguir entrevistando: este
+estudio se detuvo antes de la saturación y ese es el trabajo pendiente más
+inmediato. Después, dos direcciones: entrevistar también al personal de salud,
+cuya versión de la consulta breve y de la discontinuidad falta por completo aquí,
+y contrastar lo cualitativo con los registros de dispensación del
+establecimiento, que permitirían ver si los periodos de desabastecimiento
+coinciden con las interrupciones que los usuarios describen.
+
+::: {.callout-important}
+Las conclusiones de este ejemplo **no describen a ningún paciente real**. Las
+transcripciones y la codificación son ficticias y existen para probar el flujo
+del repositorio.
+:::

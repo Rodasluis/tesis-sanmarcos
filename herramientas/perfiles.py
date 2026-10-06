@@ -245,3 +245,22 @@ def perfil_activo(raiz: pathlib.Path | None = None) -> str | None:
     if marca.exists():
         return marca.read_text(encoding="utf8").strip() or None
     return None
+
+
+def enfoque_activo(raiz: pathlib.Path | None = None) -> str | None:
+    """Lee el enfoque de la tesis de `.enfoque`, si existe.
+
+    El enfoque —cuantitativo o cualitativo— **no lo decide el perfil**: casi
+    todos admiten los dos, y elegir uno es una decisión del tesista que se toma
+    en `/afinar-idea`. Pero las herramientas tienen que saberlo, porque los
+    Anexos 2A y 2B traen un modelo de informe distinto para cada uno.
+
+    Sin esta marca, `verificar_estructura` tomaba el primer enfoque admitido por
+    el perfil, que es siempre `cuantitativo`, y a una tesis cualitativa le
+    reclamaba los capítulos del modelo equivocado.
+    """
+    raiz = raiz or RAIZ
+    marca = raiz / ".enfoque"
+    if marca.exists():
+        return marca.read_text(encoding="utf8").strip() or None
+    return None

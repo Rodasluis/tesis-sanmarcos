@@ -265,6 +265,12 @@ Ningún agente aprueba nada. No existe un visto bueno suyo.
   El PDF es opcional y nunca es el entregable.
 - **Perfil activo**: `_quarto.yml` se genera desde el perfil con
   `herramientas/activar_perfil.py`. No lo edites a mano: se sobrescribe.
+- **Enfoque activo**: el archivo `.enfoque` dice `cuantitativo` o `cualitativo`.
+  **No lo decide el perfil**: casi todos admiten los dos, y elegir uno es una
+  decisión del tesista que se toma en `/afinar-idea`. Escríbelo ahí cuando esa
+  decisión quede registrada. Sin ese archivo, `verificar_estructura` toma el
+  primer enfoque que admite el perfil —siempre `cuantitativo`— y a una tesis
+  cualitativa le reclama los capítulos del modelo equivocado.
 - **Citas**: `referencias.bib` lo exporta Better BibTeX desde Zotero. No lo
   edites a mano.
 - **Commits**: uno por borrador, mensaje `[claude] <etapa>: <resumen>`.
@@ -305,7 +311,45 @@ enseña nada.
 
 ---
 
-## 7. Cuando no sepas algo
+## 7. Los dos ejemplos
+
+`ejemplos/` tiene dos tesis de demostración que recorren el flujo entero. Sirven
+de molde y, sobre todo, de prueba: el CI las verifica y las renderiza en cada
+cambio, así que un ejemplo roto avisa de que algo se rompió.
+
+| | `economia-cuantitativo` | `medicina-cualitativo` |
+|---|---|---|
+| Perfil | `economia-fce` (estado `verificar`) | `medicina-fm` (verificado) |
+| Datos | **reales**: API del Banco Mundial | **ficticios**: 8 transcripciones |
+| Citas | APA 7 | Vancouver |
+| Lo que muestra | un resultado nulo reportado sin maquillaje | una saturación que no se alcanzó, declarada |
+
+Las dos cosas que hay que tener claras al tocarlos:
+
+- **Las transcripciones del cualitativo son ficticias y están marcadas tres
+  veces**: en el nombre (`FICTICIA_`), en la primera línea de cada archivo y en
+  un LEEME de la carpeta. No es una excepción al principio 1: es material de
+  prueba del repositorio, y nada de ahí respalda una afirmación sobre el mundo.
+  Ofrecerle a un tesista «transcripciones de ejemplo para ir avanzando» sí sería
+  una violación, y de las graves.
+- **Las decisiones de los dos ejemplos están marcadas `FICTICIO`**, en el autor
+  y en cada respuesta textual. Nadie las tomó.
+
+Los ejemplos guardan solo lo suyo. Para verificarlos o renderizarlos se montan
+como proyecto completo, con los perfiles y las plantillas del repositorio:
+
+```
+uv run python -m herramientas.preparar_ejemplo --todos
+uv run python -m herramientas.verificar_todo --raiz .ejemplos-montados/<nombre>
+```
+
+Para renderizar, Quarto tiene que usar el Python del proyecto
+(`QUARTO_PYTHON=.venv/bin/python`) y hacen falta `uv sync --extra analisis`:
+el motor Jupyter y `tabulate` están ahí.
+
+---
+
+## 8. Cuando no sepas algo
 
 Dilo. Es preferible un `[VERIFICAR]` en el borrador que una afirmación elegante
 que el jurado desarme en la sustentación. El tesista va a defender este texto

@@ -1,0 +1,155 @@
+Lo que el cuerpo no avisa:
+  definicion: Interpretaciones del participante sobre una enfermedad que no produce síntomas,
+    y cómo eso afecta a tomar el medicamento.
+  codigos:
+    ausencia_de_sintomas:
+      definicion: El participante explica el olvido o el abandono por no sentir nada.
+      incluye: menciones a no sentir dolor o malestar como razón para no tomar la pastilla
+      excluye: efectos adversos del medicamento, que van en `efectos_adversos`
+      entrevistas:
+      - E-01
+      - E-08
+      cita: no me duele nada, entonces se me olvida
+      de: E-01
+    enfermedad_sin_fin:
+      definicion: La perspectiva de un tratamiento de por vida como ruptura con la identidad
+        de persona sana.
+      incluye: expresiones sobre la duración indefinida del tratamiento y el paso a ser enfermo
+      excluye: quejas sobre la frecuencia de las citas
+      entrevistas:
+      - E-01
+      cita: de un día para otro me volví enfermo
+      de: E-01
+El costo de seguir el tratamiento:
+  definicion: 'Barreras materiales: dinero, disponibilidad del medicamento y tiempo de trabajo
+    perdido.'
+  codigos:
+    costo_directo:
+      definicion: El precio del medicamento compite con otros gastos del hogar.
+      incluye: comparaciones del gasto en pastillas con ingresos u otros gastos
+      excluye: el costo de transporte o del día de trabajo perdido
+      entrevistas:
+      - E-02
+      cita: hay meses que se me va en pastillas lo que gano en dos días de trabajo
+      de: E-02
+    desabastecimiento:
+      definicion: El medicamento no está disponible en la farmacia del establecimiento.
+      incluye: menciones a que no hay stock y a sus consecuencias
+      excluye: no conseguir cita, que va en `acceso_al_servicio`
+      entrevistas:
+      - E-02
+      cita: cuando he ido tres veces y no hay, ya dejo de ir
+      de: E-02
+    dosis_estirada:
+      definicion: Modificación de la dosis por cuenta propia para hacer durar el medicamento.
+      incluye: partir, espaciar o reservar pastillas por motivo económico
+      excluye: suspensión por efectos adversos
+      entrevistas:
+      - E-02
+      cita: parto la pastilla en dos para que me dure el doble
+      de: E-02
+    jornada_incompatible:
+      definicion: El horario de trabajo choca con el horario de la toma o con el del establecimiento.
+      incluye: menciones al horario laboral, al día de trabajo perdido y al horario de atención
+      excluye: la espera para conseguir cupo
+      entrevistas:
+      - E-04
+      cita: entre perder el día y no tomar la pastilla, pierdo la pastilla
+      de: E-04
+Lo que se entendió y lo que no:
+  definicion: Qué comprendió el participante de su diagnóstico, y qué explicaciones propias
+    llenaron los huecos.
+  codigos:
+    explicacion_insuficiente:
+      definicion: La información recibida no se entendió y no se pidió aclaración.
+      incluye: lenguaje técnico no comprendido, vergüenza o prisa que impiden preguntar
+      excluye: la duración de la consulta en sí, que va en `consulta_breve`
+      entrevistas:
+      - E-03
+      - E-07
+      cita: me dijo palabras que no entendí y yo no le pregunté
+      de: E-03
+    modelo_propio:
+      definicion: Explicación alternativa de la enfermedad construida por el participante.
+      incluye: atribuciones a los nervios, a emociones o a causas puntuales; uso de remedios
+        caseros en sustitución
+      excluye: creencias que acompañan al tratamiento sin sustituirlo
+      entrevistas:
+      - E-03
+      cita: cuando la tomo no tomo la pastilla para no mezclar
+      de: E-03
+    desconoce_consecuencias:
+      definicion: El participante no sabe qué riesgo corre si abandona el tratamiento.
+      incluye: menciones explícitas a no haber recibido esa información
+      excluye: saberlo y aun así no adherir
+      entrevistas:
+      - E-07
+      - E-08
+      cita: nadie me ha explicado nunca qué me va a pasar si no la tomo
+      de: E-07
+El trato y el acceso:
+  definicion: La experiencia de conseguir y recibir atención, y el efecto del vínculo con
+    el personal.
+  codigos:
+    acceso_al_servicio:
+      definicion: Dificultad para obtener una cita o un cupo.
+      incluye: colas, madrugadas, cupos agotados, regresar sin atención
+      excluye: el horario de atención frente a la jornada laboral
+      entrevistas:
+      - E-07
+      cita: vengo a las cuatro de la mañana a hacer cola por un cupo
+      de: E-07
+    consulta_breve:
+      definicion: La duración y la discontinuidad de la consulta limitan lo que se puede conversar.
+      incluye: menciones a la brevedad, a la prisa del personal y al cambio de médico entre
+        visitas
+      excluye: no entender la explicación recibida
+      entrevistas:
+      - E-01
+      - E-07
+      cita: nunca es el mismo doctor, cada vez es otro
+      de: E-01
+    vinculo_que_retiene:
+      definicion: Ser reconocido por el personal como motivo para volver.
+      incluye: menciones al trato personal, a ser llamado por su nombre, a sentir que a alguien
+        le importa
+      excluye: el apoyo de la familia
+      entrevistas:
+      - E-06
+      cita: siento que a alguien le importa si vengo o no vengo
+      de: E-06
+Lo que sostiene la adherencia:
+  definicion: Elementos que los participantes identifican como razón para seguir el tratamiento.
+  codigos:
+    apoyo_familiar:
+      definicion: Un familiar organiza o recuerda la toma.
+      incluye: preparación de la medicación por otra persona, recordatorios
+      excluye: el vínculo con el personal de salud
+      entrevistas:
+      - E-06
+      cita: mi hija me pone las pastillas en una cajita con los días
+      de: E-06
+    miedo_con_cara:
+      definicion: Haber visto una complicación en una persona cercana como motor de la adherencia.
+      incluye: referencias a un caso conocido y a su efecto en la conducta
+      excluye: advertencias recibidas del personal de salud
+      entrevistas:
+      - E-08
+      cita: desde que la vi así no he fallado un solo día
+      de: E-08
+    efectos_adversos:
+      definicion: Suspensión del medicamento por molestias atribuidas a él.
+      incluye: síntomas atribuidos al fármaco y la decisión de suspenderlo
+      excluye: suspensión por costo o por olvido
+      entrevistas:
+      - E-05
+      cita: estaba mejor antes de la pastilla que con la pastilla
+      de: E-05
+    dieta_compartida:
+      definicion: La alimentación familiar común dificulta la dieta indicada.
+      incluye: menciones a cocinar igual para todos
+      excluye: el costo de los alimentos
+      entrevistas:
+      - E-08
+      cita: yo no voy a cocinar aparte sin sal mientras los demás comen normal
+      de: E-08

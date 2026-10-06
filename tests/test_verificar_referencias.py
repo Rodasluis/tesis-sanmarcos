@@ -198,3 +198,68 @@ def test_doi_que_no_resuelve_es_aviso_no_error(proyecto, monkeypatch):
                         lambda **kw: ClienteFalso(ok=False, motivo="no encontrado"))
     inf = V.verificar(proyecto, sin_red=False)
     assert any(h.codigo == "R08" and h.nivel == "aviso" for h in inf.hallazgos)
+
+
+# --- falsos positivos que aparecieron al escribir los ejemplos -------------
+
+CRUCES = ["fig-dispersion", "tbl-estimaciones", "eq-modelo", "sec-metodos",
+          "lst-codigo", "thm-uno"]
+
+
+def test_una_referencia_cruzada_de_quarto_no_es_una_cita():
+    """`@fig-x` enlaza a una figura del documento, no al .bib.
+
+    Buscarla en `referencias.bib` hacía fallar a cualquier tesis que numerara
+    sus figuras, que son todas.
+    """
+    for clave in CRUCES:
+        assert V.es_referencia_cruzada(clave), clave
+    assert not V.es_referencia_cruzada("Maurseth_2018")
+    assert not V.es_referencia_cruzada("figueroa2020")
+
+
+def test_no_reclama_una_clave_para_una_referencia_cruzada(proyecto):
+    escribir_perfil(proyecto)
+    escribir_bib(proyecto, BIB_MINIMO)
+    escribir_capitulo(
+        proyecto, "05-resultados",
+        "# Resultados\n\n"
+        "La @fig-dispersion muestra la relación, y la @tbl-uno la estima.\n\n"
+        "![Pie.](../resultados/f.png){#fig-dispersion}\n")
+    inf = V.verificar(proyecto, sin_red=True)
+    assert not any(h.codigo == "R02" for h in inf.errores), \
+        [h.como_linea() for h in inf.errores]
+
+
+def test_las_comillas_del_codigo_no_convierten_una_cita_en_textual(proyecto):
+    """Un `{python} f"{x:.2f}"` lleva comillas dentro y no entrecomilla nada.
+
+    Sin descontarlo, a cada párrafo con una cifra insertada se le exigía número
+    de página, que es justo lo que el repositorio pide hacer con las cifras.
+    """
+    escribir_perfil(proyecto)
+    escribir_bib(proyecto, BIB_MINIMO)
+    escribir_capitulo(
+        proyecto, "05-resultados",
+        "# Resultados\n\n"
+        "El coeficiente es `{python} f\"{est['coef']:.4f}\"` y eso coincide con "
+        "lo que reporta @perez2020crecimiento para el mismo periodo, con una "
+        "muestra bastante más amplia que la nuestra.\n")
+    inf = V.verificar(proyecto, sin_red=True)
+    assert not any(h.codigo == "R03" for h in inf.errores), \
+        [h.como_linea() for h in inf.errores]
+
+
+def test_una_cita_textual_de_verdad_sigue_necesitando_pagina(proyecto):
+    """El filtro anterior no puede tapar lo que sí importa."""
+    escribir_perfil(proyecto)
+    escribir_bib(proyecto, BIB_MINIMO)
+    escribir_capitulo(
+        proyecto, "02-literatura",
+        "# Revisión de literatura\n\n"
+        "Como señala @perez2020crecimiento: «el crecimiento regional del Perú "
+        "no se explica por la inversión pública sino por el precio de los "
+        "minerales».\n")
+    inf = V.verificar(proyecto, sin_red=True)
+    assert any(h.codigo == "R03" for h in inf.errores), \
+        "una cita entrecomillada sin página tiene que seguir siendo un error"

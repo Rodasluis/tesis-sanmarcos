@@ -1,0 +1,6 @@
+,productividad,internet,gasto_educacion,desempleo,pbi_per_capita
+productividad,1.0,0.607,-0.008,0.417,0.953
+internet,0.607,1.0,0.116,0.489,0.606
+gasto_educacion,-0.008,0.116,1.0,0.303,0.024
+desempleo,0.417,0.489,0.303,1.0,0.422
+pbi_per_capita,0.953,0.606,0.024,0.422,1.0

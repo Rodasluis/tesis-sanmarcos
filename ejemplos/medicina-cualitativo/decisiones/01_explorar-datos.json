@@ -1,0 +1,30 @@
+{
+ "etapa": "explorar-datos",
+ "numero": 1,
+ "momento": "2026-10-05T22:13:35",
+ "opciones_presentadas": [
+  "Datos propios: entrevistas semiestructuradas",
+  "Análisis secundario de la ENDES",
+  "Revisión de historias clínicas del establecimiento"
+ ],
+ "recomendada": "Datos propios: entrevistas semiestructuradas",
+ "eleccion": "Datos propios: entrevistas semiestructuradas",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Entrevistas propias. La ENDES no pregunta por qué alguien dejó la pastilla, y las historias clínicas registran si recogió la receta, no qué le pasó. Asumo el costo de levantar los datos yo.",
+ "cambios_pedidos": [
+  "Anonimizar antes de transcribir, no después",
+  "Que las transcripciones no se suban al repositorio"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Qué pasa con las transcripciones al terminar la tesis?",
+   "respuesta": "[EJEMPLO FICTICIO] Se quedan en datos/crudos/, que no se versiona, y anonimizadas. Al repositorio no sube nada con nombres."
+  },
+  {
+   "pregunta": "¿Qué necesitas antes de la primera entrevista?",
+   "respuesta": "[EJEMPLO FICTICIO] El consentimiento informado por escrito y la aprobación del comité de ética, que en Medicina es obligatoria por el art. 23."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "3bd63010135e5046b8b84505cdc54ed53d9ae8158a0fc9942cdf0d62bbfb5015"
+}

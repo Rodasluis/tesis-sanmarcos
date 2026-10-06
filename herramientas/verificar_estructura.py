@@ -29,7 +29,13 @@ import unicodedata
 from dataclasses import dataclass
 
 from herramientas.informe import Informe, iter_qmd
-from herramientas.perfiles import ErrorDePerfil, Perfil, cargar_de, perfil_activo
+from herramientas.perfiles import (
+    ErrorDePerfil,
+    Perfil,
+    cargar_de,
+    enfoque_activo,
+    perfil_activo,
+)
 from herramientas.red import parecido
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
@@ -40,10 +46,18 @@ RE_ENCABEZADO = re.compile(r"^(#{1,6})\s+(.*?)\s*(?:\{[^}]*\})?\s*$")
 #: A partir de aquí se considera que dos denominaciones son la misma sección.
 UMBRAL_COINCIDENCIA = 0.80
 
-#: Ruido a quitar antes de comparar títulos.
+#: Ruido a quitar antes de comparar títulos: «Capítulo III.», «IV)», «2 -».
+#:
+#: El numeral tiene que ir **seguido de un separador o de un espacio**. Sin esa
+#: exigencia, `[ivxlcdm]` se comía la primera letra de cualquier título que
+#: empezara por esas letras: «Carátula» quedaba en «aratula», «Introducción» en
+#: «ntroduccion» y «Discusión» en «iscusion». No se notaba al comparar dos
+#: títulos entre sí, porque los dos perdían la misma letra, pero sí al
+#: comparar contra cualquier cosa escrita a mano.
 RE_ORDINAL = re.compile(
-    r"^\s*(cap[ií]tulo|cap\.?|parte)?\s*"
-    r"([ivxlcdm]{1,6}|\d{1,2})?\s*[\.\:\-–)]*\s*", re.I)
+    r"^\s*(?:(?:cap[ií]tulo|cap\.?|parte)\s*)?"
+    r"(?:(?:[ivxlcdm]{1,6}|\d{1,2})\s*[.:\-–)]+\s*"
+    r"|(?:[ivxlcdm]{1,6}|\d{1,2})\s+)?", re.I)
 
 
 @dataclass
@@ -84,6 +98,21 @@ def leer_encabezados(raiz: pathlib.Path) -> list[Encabezado]:
     return salida
 
 
+#: Secciones que no escribe el autor en un capítulo: las produce la plantilla
+#: .docx, `entregar.py` o Quarto a partir de `referencias.bib`. Reclamarlas como
+#: encabezado ausente manda al tesista a escribir a mano algo que se genera.
+GENERADAS_POR_EL_RENDER = (
+    "caratula", "portada", "dedicatoria", "agradecimiento", "indice",
+    "acta de sustentacion", "referencias", "bibliografia", "anexos",
+    "lista de tablas", "lista de figuras",
+)
+
+
+def _la_genera_el_render(titulo: str) -> bool:
+    normal = _normalizar(titulo)
+    return any(clave in normal for clave in GENERADAS_POR_EL_RENDER)
+
+
 def secciones_esperadas(perfil: Perfil, enfoque: str) -> list[dict]:
     """Secciones de primer nivel del modelo de informe final del perfil."""
     modelos = (perfil.get("informe_final") or {}).get("modelos") or {}
@@ -104,9 +133,15 @@ def secciones_esperadas(perfil: Perfil, enfoque: str) -> list[dict]:
                 "numero": s.get("numero"),
                 "opcional": bool(s.get("opcional") or s.get("obligatorio") is False),
                 "nota": s.get("nota") or s.get("contenido"),
+                # `parte:` en el esquema de perfiles designa una pieza del
+                # documento —carátula, dedicatoria, índice— y `titulo:` un
+                # capítulo que escribe el autor. Las piezas no se buscan como
+                # encabezado de un .qmd porque nadie las escribe ahí.
+                "generada": "titulo" not in s or _la_genera_el_render(str(titulo)),
             })
         elif isinstance(s, str):
-            esperadas.append({"titulo": s, "numero": None, "opcional": False, "nota": None})
+            esperadas.append({"titulo": s, "numero": None, "opcional": False,
+                              "nota": None, "generada": _la_genera_el_render(s)})
     return esperadas
 
 
@@ -138,8 +173,19 @@ def verificar(raiz: pathlib.Path = RAIZ, perfil_id: str | None = None,
         return inf
 
     enfoques = perfil.get("enfoques_admitidos") or ["cuantitativo"]
-    enfoque = enfoque or (enfoques[0] if enfoques else "cuantitativo")
+    declarado = enfoque_activo(raiz)
+    enfoque = enfoque or declarado or (enfoques[0] if enfoques else "cuantitativo")
     inf.anotar(perfil=pid, estado_del_perfil=perfil.estado, enfoque=enfoque)
+
+    if declarado and declarado not in enfoques:
+        inf.aviso("E13", f"`.enfoque` dice `{declarado}` y el perfil solo admite "
+                         f"{', '.join(enfoques)}. Se comprueba contra `{declarado}` "
+                         f"igualmente, pero revisa cuál de los dos está mal")
+    elif not declarado and len(enfoques) > 1:
+        inf.aviso("E14", f"el proyecto no declara su enfoque, así que se asume "
+                         f"`{enfoque}`. Si la tesis es {enfoques[1]}, se le están "
+                         f"reclamando los capítulos del modelo equivocado. Escribe el "
+                         f"enfoque elegido en el archivo `.enfoque`")
 
     if not perfil.verificado:
         inf.info("E02", f"el perfil está en estado `{perfil.estado}`: lo que se "
@@ -175,7 +221,11 @@ def verificar(raiz: pathlib.Path = RAIZ, perfil_id: str | None = None,
             usados.add(mejor_i)
             posiciones.append((sec, mejor_i))
             enc = de_primer_nivel[mejor_i]
-            if _normalizar(enc.texto) != _normalizar(sec["titulo"]):
+            # A una pieza generada no se le exige la denominación literal del
+            # perfil: ahí el perfil describe la parte («Resumen (español/inglés)»)
+            # y no el encabezado que se escribe en el documento («Resumen»).
+            if (_normalizar(enc.texto) != _normalizar(sec["titulo"])
+                    and not sec.get("generada")):
                 inf.aviso("E05", f"«{enc.texto}» se corresponde con la sección "
                                  f"«{sec['titulo']}» del perfil, pero no usa su "
                                  "denominación exacta",
@@ -193,6 +243,12 @@ def verificar(raiz: pathlib.Path = RAIZ, perfil_id: str | None = None,
             continue
         if sec["opcional"]:
             inf.info("E06", f"la sección opcional «{sec['titulo']}» no está presente",
+                     seccion=sec["titulo"])
+            continue
+        if sec.get("generada"):
+            inf.info("E12", f"«{sec['titulo']}» no está en los capítulos, y es "
+                            "correcto: la produce la plantilla .docx, `/entregar` o "
+                            "Quarto desde `referencias.bib`",
                      seccion=sec["titulo"])
             continue
         objetivo = _normalizar(sec["titulo"])

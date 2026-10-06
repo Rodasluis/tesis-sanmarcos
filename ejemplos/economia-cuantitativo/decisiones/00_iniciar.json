@@ -1,0 +1,29 @@
+{
+ "etapa": "iniciar",
+ "numero": 0,
+ "momento": "2026-10-05T22:13:33",
+ "opciones_presentadas": [
+  "Brecha digital y productividad en el Perú, con datos de la ENAHO",
+  "Internet y productividad laboral en América Latina, con datos del Banco Mundial",
+  "Efecto del programa de banda ancha rural, con datos del MTC"
+ ],
+ "recomendada": "Internet y productividad laboral en América Latina, con datos del Banco Mundial",
+ "eleccion": "Internet y productividad laboral en América Latina, con datos del Banco Mundial",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Me quedo con la segunda. La primera me interesa más pero procesar varios años de ENAHO con los módulos cruzados me va a tomar meses y trabajo todo el día. La tercera depende de que el MTC me entregue datos por transparencia y no quiero quedarme esperando. La del Banco Mundial la puedo bajar hoy.",
+ "cambios_pedidos": [
+  "Que el periodo llegue hasta el último año disponible, no hasta 2019"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Qué estás midiendo exactamente cuando dices productividad?",
+   "respuesta": "[EJEMPLO FICTICIO] El PBI dividido entre la gente que trabaja. No es productividad total de factores, eso descuenta el capital y yo no lo estoy descontando."
+  },
+  {
+   "pregunta": "¿Por qué comparar países y no regiones del Perú?",
+   "respuesta": "[EJEMPLO FICTICIO] Porque la serie comparable entre países existe y está lista. Para regiones tendría que armarla yo."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "f24eeddfda5f964a148a90e76965420c3856bbd4f322a67c4cc8fe9f85b5c482"
+}

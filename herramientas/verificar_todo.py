@@ -310,11 +310,18 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--rapido", action="store_true",
                     help="omite la comprobación de similitud, que es la más lenta")
     ap.add_argument("--biblioteca", type=pathlib.Path)
+    ap.add_argument("--raiz", type=pathlib.Path, default=RAIZ,
+                    help="raíz del proyecto a verificar; por defecto, este repositorio")
     ap.add_argument("--detalle", action="store_true")
     ap.add_argument("--sin-informe", action="store_true")
     args = ap.parse_args(argv)
 
-    r = verificar(sin_red=not args.con_red, rapido=args.rapido,
+    if not (args.raiz / "perfiles").is_dir():
+        print(f"{args.raiz} no parece la raíz de un proyecto: no tiene perfiles/.",
+              file=sys.stderr)
+        return 2
+
+    r = verificar(raiz=args.raiz, sin_red=not args.con_red, rapido=args.rapido,
                   biblioteca=args.biblioteca)
     print(a_consola(r, detalle=args.detalle))
 

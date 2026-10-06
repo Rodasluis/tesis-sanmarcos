@@ -1,0 +1,27 @@
+{
+ "etapa": "iniciar",
+ "numero": 0,
+ "momento": "2026-10-05T22:13:35",
+ "opciones_presentadas": [
+  "Prevalencia de hipertensión no controlada en un centro de salud (cuantitativo)",
+  "Barreras percibidas para la adherencia al tratamiento antihipertensivo (cualitativo)",
+  "Ensayo de una intervención educativa sobre adherencia"
+ ],
+ "recomendada": "Barreras percibidas para la adherencia al tratamiento antihipertensivo (cualitativo)",
+ "eleccion": "Barreras percibidas para la adherencia al tratamiento antihipertensivo (cualitativo)",
+ "respuesta_textual": "[EJEMPLO FICTICIO] La cualitativa. La prevalencia ya está medida a nivel nacional y yo no voy a mejorar eso con un centro de salud. Lo que no sé es por qué mis pacientes dejan el tratamiento, y eso solo lo averiguo preguntándoles. El ensayo necesita un comité, aleatorización y un año largo; no me da el tiempo.",
+ "cambios_pedidos": [],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Qué puede responder un estudio cualitativo que no responda una encuesta?",
+   "respuesta": "[EJEMPLO FICTICIO] Las razones. La encuesta me dice cuántos no adhieren; la entrevista me dice qué los frena, y eso no lo puedo poner yo de antemano en un cuestionario."
+  },
+  {
+   "pregunta": "¿Por qué fenomenológico y no teoría fundamentada?",
+   "respuesta": "[EJEMPLO FICTICIO] Porque quiero describir la experiencia como ellos la cuentan, no construir una teoría general. Para teoría fundamentada necesitaría muestreo teórico y muchas más entrevistas."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "64e1df911623f302288862b7ee0227a13de2e774d964b8057bb3f829f829e94d"
+}

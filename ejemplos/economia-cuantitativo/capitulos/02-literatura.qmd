@@ -1,0 +1,72 @@
+# Revisión de literatura
+
+## Marco teórico
+
+El mecanismo por el que la conectividad elevaría la productividad no es uno sino
+varios: reduce costos de búsqueda y de coordinación, permite reorganizar procesos
+y amplía el mercado al que una empresa puede vender. @Brynjolfsson_2000 muestran
+que el retorno de la inversión en tecnología de la información aparece sobre todo
+cuando va acompañada de cambios organizativos, y que medir solo el gasto en
+equipos subestima el efecto porque ignora los complementos.
+
+Esa es, precisamente, la razón por la que el efecto puede existir en la empresa y
+no verse en el agregado. Si la ganancia depende de complementos
+—capital humano, organización, instituciones— que varían mucho entre países y
+cambian despacio, un indicador de acceso a internet no la capta.
+
+## Antecedentes del estudio
+
+La discusión arranca con la paradoja de la productividad: la inversión masiva en
+tecnología de la información de los años ochenta y noventa no apareció en las
+cuentas nacionales. @Yorukoglu_1998 explica esa demora por el aprendizaje y por
+la obsolescencia del capital viejo, lo que implica que los efectos deberían verse
+con rezago y no de forma contemporánea.
+
+El trabajo más citado a favor del efecto agregado es @Czernich_2011. Con un panel
+de países de la OCDE y una estrategia de variables instrumentales basada en la
+infraestructura previa de telefonía y televisión por cable, estiman que un
+aumento de diez puntos porcentuales en la penetración de banda ancha eleva el
+crecimiento anual del PBI per cápita en torno a un punto porcentual.
+
+@Maurseth_2018 llega a la conclusión opuesta. Con datos de panel entre países y
+especificaciones que absorben la tendencia común, no encuentra efecto del uso de
+internet sobre el crecimiento, y argumenta que los resultados positivos de la
+literatura previa son sensibles a la especificación y al periodo.
+
+La revisión reciente de @Endres_2024 separa banda ancha fija de móvil y encuentra
+que los resultados dependen de cuál se mida y del nivel de ingreso de los países
+de la muestra, lo que es coherente con que la discusión siga abierta.
+
+## Bases teóricas
+
+Dos implicaciones de lo anterior guían el diseño de esta tesis.
+
+La primera es que **la variación entre países y la variación dentro de un país no
+miden lo mismo**. Comparar Chile con Nicaragua recoge diferencias de
+instituciones, geografía e historia que nada tienen que ver con el internet.
+Comparar a Chile consigo mismo en dos años distintos recoge algo más cercano a lo
+que se quiere medir. Esa es la razón de los efectos fijos de país.
+
+La segunda es que **el periodo entero tiene una tendencia común**. Entre
+2010 y 2023 la penetración de internet creció en todos los países de la región, y
+la productividad también en la mayoría. Cualquier par de series crecientes está
+correlacionado. Los efectos fijos de año existen para quitar eso de en medio.
+
+## Definición de términos
+
+**Productividad laboral.** Producto interno bruto por persona ocupada, en dólares
+internacionales constantes de 2021 ajustados por paridad de poder de compra
+(indicador `SL.GDP.PCAP.EM.KD` de @bancomundial2026wdi). No es productividad
+total de los factores: no descuenta el capital.
+
+**Penetración de internet.** Porcentaje de la población que usó internet en los
+últimos tres meses, según la definición de la Unión Internacional de
+Telecomunicaciones recogida en el indicador `IT.NET.USER.ZS`. Es una medida de
+acceso declarado, no de intensidad ni de calidad de uso.
+
+**Efectos fijos.** Variables indicadoras por país y por año que absorben,
+respectivamente, todo lo que distingue a un país de otro y no cambia en el
+tiempo, y todo lo que afecta a todos los países en el mismo año.
+
+**Asociación condicional.** La relación que queda entre dos variables después de
+descontar el efecto de las demás incluidas en el modelo. No implica causalidad.

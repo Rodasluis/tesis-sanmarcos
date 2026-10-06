@@ -1,0 +1,29 @@
+{
+ "etapa": "literatura",
+ "numero": 3,
+ "momento": "2026-10-05T22:13:35",
+ "opciones_presentadas": [
+  "Solo antecedentes nacionales",
+  "Antecedentes nacionales más estudios cualitativos internacionales",
+  "Solo literatura metodológica sobre análisis cualitativo"
+ ],
+ "recomendada": "Antecedentes nacionales más estudios cualitativos internacionales",
+ "eleccion": "Antecedentes nacionales más estudios cualitativos internacionales",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Las dos cosas. Herrera-Añazco me da el tamaño del problema en el Perú y Tsiantou me da un estudio cualitativo con el que puedo comparar mis categorías. Y agrego a Squire porque voy a tener que discutir la saturación y necesito respaldo para decir que no se alcanzó.",
+ "cambios_pedidos": [
+  "Comprobar cada DOI en Crossref antes de citarlo"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Por qué citas un estudio griego en una tesis peruana?",
+   "respuesta": "[EJEMPLO FICTICIO] Porque es el que más se parece a lo que estoy haciendo en método, y eso me permite comparar categorías. El contexto es distinto y eso lo digo en la discusión."
+  },
+  {
+   "pregunta": "¿Qué hueco llena tu tesis?",
+   "respuesta": "[EJEMPLO FICTICIO] Para el Perú encontré la magnitud medida pero no las razones en palabras de los pacientes de un primer nivel."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "e2329916781e6b9eeb356bb9ab48089766186aa1366d3890c48ccb0dfe3a07cb"
+}

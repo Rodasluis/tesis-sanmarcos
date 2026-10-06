@@ -282,11 +282,58 @@ explicar cómo llegaste a cada decisión.
 
 ---
 
-## Para asesores
+## Dos ejemplos completos
 
-`docs/guia_asesores.md` explica cómo revisar el registro de uso de IA, el
-historial de decisiones y los informes de verificación, y cómo confirmar un
-perfil que no está verificado.
+En `ejemplos/` hay dos tesis de demostración que recorren el flujo entero. Si
+quiere ver cómo queda esto antes de empezar con lo suyo, mírelas.
+
+**[`economia-cuantitativo`](ejemplos/economia-cuantitativo/)** — perfil
+`economia-fce`, APA 7. Datos **reales** de la API del Banco Mundial: 17 países,
+14 años. Pregunta si la penetración de internet se asocia con la productividad
+laboral en América Latina.
+
+Lo interesante es cómo termina: la correlación simple es fuerte y positiva, y
+con efectos fijos de país y de año **desaparece**. El ejemplo reporta las siete
+especificaciones que se probaron, incluidas las dos que salieron significativas
+y las cinco que no, y explica por qué un resultado nulo no demuestra que no haya
+efecto. Se eligió a propósito el caso difícil.
+
+**[`medicina-cualitativo`](ejemplos/medicina-cualitativo/)** — perfil
+`medicina-fm`, Vancouver. Ocho entrevistas **ficticias** sobre barreras para la
+adherencia al tratamiento antihipertensivo, libro de códigos con criterios de
+inclusión y exclusión, y cada cita de participante comprobada contra su
+transcripción.
+
+Aquí lo incómodo es la saturación: la última entrevista todavía aportó códigos
+nuevos, así que **no se alcanzó**, y el ejemplo lo declara en el resumen, en el
+método, en los resultados y en las conclusiones en lugar de afirmarla.
+
+Las transcripciones de ese ejemplo son ficticias y están marcadas en el nombre
+del archivo, dentro de cada archivo y en un LEEME de la carpeta. No hay
+participantes.
+
+Para verlos funcionando:
+
+```
+uv run python -m herramientas.preparar_ejemplo --todos
+uv run python -m herramientas.verificar_todo --raiz .ejemplos-montados/economia-cuantitativo
+```
+
+---
+
+## Más documentación
+
+- **[`docs/integridad.md`](docs/integridad.md)** — qué se puede y qué no, con el
+  artículo de la norma que lo dice. Si tiene dudas sobre el porcentaje de
+  similitud o sobre la declaración de uso de IA, empiece aquí.
+- **[`docs/guia_asesores.md`](docs/guia_asesores.md)** — para su asesor: cómo
+  revisar el registro de uso de IA, el historial de decisiones y los informes de
+  verificación, en diez minutos y sin instalar nada.
+- **[`docs/agregar_facultad.md`](docs/agregar_facultad.md)** — si su escuela pide
+  algo distinto de lo que dice su perfil, o si consiguió el documento normativo
+  que faltaba.
+- **[`normativa/requisitos.md`](normativa/requisitos.md)** — los requisitos con
+  documento, artículo y página. Lo que no está ahí, no lo sabemos.
 
 ## Licencia
 

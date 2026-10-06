@@ -1,0 +1,79 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+
+R = pathlib.Path("resultados")
+contexto = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+descriptivos = pd.read_csv(R / "descriptivos.csv")
+```
+
+# Hipótesis y variables
+
+## Hipótesis
+
+**Hipótesis general.** La penetración de internet se asocia positivamente con la
+productividad laboral en los países de América Latina, incluso después de
+controlar por las características fijas de cada país y por los choques comunes a
+la región.
+
+Esta es la hipótesis que se somete a prueba, no la que se defiende. Está escrita
+en la dirección que predice la literatura a favor del efecto agregado
+[@Czernich_2011] para que el resultado pueda contradecirla. El capítulo de
+resultados muestra que, con estos datos, la contradice.
+
+**Hipótesis específicas.**
+
+1. La asociación es positiva y estadísticamente distinta de cero en una
+   especificación sin controles.
+2. La asociación se mantiene positiva y significativa al incorporar efectos fijos
+   de país y de año.
+3. El signo y la significancia no dependen de la inclusión del Perú, de los años
+   de la pandemia ni de la forma funcional.
+
+## Variables
+
+| Papel | Variable | Indicador | Unidad |
+|---|---|---|---|
+| Dependiente | Productividad laboral | `SL.GDP.PCAP.EM.KD` | log de USD 2021 PPA por ocupado |
+| Explicativa | Penetración de internet | `IT.NET.USER.ZS` | % de la población |
+| Control | Desempleo | `SL.UEM.TOTL.ZS` | % de la fuerza laboral |
+| Control | Gasto público en educación | `SE.XPD.TOTL.GD.ZS` | % del PBI |
+| Contraste | PBI per cápita | `NY.GDP.PCAP.KD` | log de USD 2015 constantes |
+
+La dependiente entra en logaritmos por dos razones. La primera es
+interpretativa: el coeficiente de una variable en niveles sobre una dependiente
+en logaritmos se lee como el cambio porcentual asociado a un punto más de
+penetración. La segunda es de escala: entre el país menos y el más productivo de
+la muestra hay una diferencia de más de un orden de magnitud, y en niveles los
+países ricos dominarían el ajuste.
+
+## Operacionalización de las variables
+
+```{python}
+#| echo: false
+#| label: tbl-operacionalizacion
+#| tbl-cap: "Operacionalización de las variables del modelo"
+from IPython.display import Markdown
+
+tabla = descriptivos[["etiqueta", "n", "media", "desviacion", "minimo", "maximo"]]
+tabla = tabla.rename(columns={
+    "etiqueta": "Variable", "n": "n", "media": "Media",
+    "desviacion": "D. E.", "minimo": "Mínimo", "maximo": "Máximo"})
+Markdown(tabla.to_markdown(index=False))
+```
+
+Cada variable se mide con el indicador del Banco Mundial que figura en la tabla
+anterior, tomado directamente de la API y sin transformaciones salvo el
+logaritmo. Los nombres de columna en `datos/procesados/panel.csv` son
+`productividad`, `internet`, `desempleo`, `gasto_educacion` y `pbi_per_capita`,
+y el código que los construye está en `codigo/02_limpieza.py`.
+
+La unidad de observación es el país-año. El panel tiene
+`{python} str(contexto['observaciones'])` observaciones de
+`{python} str(contexto['paises'])` países en
+`{python} str(contexto['anios'])` años, y está balanceado en la variable
+dependiente y la explicativa.

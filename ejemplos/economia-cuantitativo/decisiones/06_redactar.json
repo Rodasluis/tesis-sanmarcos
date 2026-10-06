@@ -1,0 +1,30 @@
+{
+ "etapa": "redactar",
+ "numero": 6,
+ "momento": "2026-10-05T22:13:33",
+ "opciones_presentadas": [
+  "Primera persona del plural («estimamos», «encontramos»)",
+  "Impersonal («se estima», «se encuentra»)",
+  "Primera persona del singular («estimo», «encuentro»)"
+ ],
+ "recomendada": "Impersonal («se estima», «se encuentra»)",
+ "eleccion": "Impersonal («se estima», «se encuentra»)",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Impersonal. El perfil de Economía no fija la persona gramatical —sale como pendiente de normativa— así que lo decido yo: impersonal, que es como están escritas las tesis que vi en Cybertesis de mi escuela. Soy autor único, así que el plural me suena raro.",
+ "cambios_pedidos": [
+  "Que ninguna cifra se escriba a mano: todas insertadas desde resultados/",
+  "Que el capítulo de resultados no interprete nada"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿Por qué el capítulo de resultados no puede interpretar?",
+   "respuesta": "[EJEMPLO FICTICIO] Porque interpretar es el trabajo de la discusión. Si mezclo, el jurado no puede distinguir qué encontré de qué creo que significa."
+  },
+  {
+   "pregunta": "¿Qué NO dice tu capítulo de resultados?",
+   "respuesta": "[EJEMPLO FICTICIO] No dice que el internet no sirva, y no dice nada sobre empresas ni personas. Son promedios de países."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "3816894863eb8242ffa351c8a4c7ec21a51bfa3b874f2b0be4e61ad3dba92cac"
+}

@@ -1,0 +1,3821 @@
+{
+ "indicador": "NY.GDP.PCAP.KD",
+ "meta": {
+  "page": 1,
+  "pages": 1,
+  "per_page": 1000,
+  "total": 238,
+  "sourceid": "2",
+  "lastupdated": "2026-07-13"
+ },
+ "observaciones": [
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2023",
+   "value": 12993.0928872416,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2022",
+   "value": 13276.8232110189,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2021",
+   "value": 12549.2811699342,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2020",
+   "value": 11393.0505957877,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2019",
+   "value": 12706.3978108968,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2018",
+   "value": 13058.3285449954,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2017",
+   "value": 13520.1129846159,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2016",
+   "value": 13265.8860639123,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2015",
+   "value": 13679.6264980954,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2014",
+   "value": 13456.1319159151,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2013",
+   "value": 13946.0950832252,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2012",
+   "value": 13754.4254235596,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2011",
+   "value": 14040.6189124444,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "AR",
+    "value": "Argentina"
+   },
+   "countryiso3code": "ARG",
+   "date": "2010",
+   "value": 13387.1553748458,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2023",
+   "value": 3122.77049466223,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2022",
+   "value": 3088.24126173436,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2021",
+   "value": 3011.55110825301,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2020",
+   "value": 2765.09271788602,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2019",
+   "value": 3207.38695231128,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2018",
+   "value": 3204.53670838005,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2017",
+   "value": 3160.16421247588,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2016",
+   "value": 3077.57057582774,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2015",
+   "value": 2996.01289811344,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2014",
+   "value": 2900.90241571477,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2013",
+   "value": 2793.51457124054,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2012",
+   "value": 2657.2388497837,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2011",
+   "value": 2568.52051674406,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BO",
+    "value": "Bolivia"
+   },
+   "countryiso3code": "BOL",
+   "date": "2010",
+   "value": 2481.4070083834,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2023",
+   "value": 9288.02701470069,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2022",
+   "value": 9032.08481566299,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2021",
+   "value": 8799.22945810901,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2020",
+   "value": 8435.01143254978,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2019",
+   "value": 8771.44051292177,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2018",
+   "value": 8722.33630317935,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2017",
+   "value": 8628.25308908043,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2016",
+   "value": 8577.84376650911,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2015",
+   "value": 8936.19661712113,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2014",
+   "value": 9338.34278278114,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2013",
+   "value": 9366.73932434359,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2012",
+   "value": 9167.49923929815,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2011",
+   "value": 9067.99316348047,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "BR",
+    "value": "Brazil"
+   },
+   "countryiso3code": "BRA",
+   "date": "2010",
+   "value": 8792.63436120342,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2023",
+   "value": 14294.7106635595,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2022",
+   "value": 14275.4094646211,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2021",
+   "value": 14056.251601955,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2020",
+   "value": 12680.7761524378,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2019",
+   "value": 13631.9284885172,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2018",
+   "value": 13763.0068844795,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2017",
+   "value": 13473.3458532934,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2016",
+   "value": 13505.097711133,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2015",
+   "value": 13433.9202987032,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2014",
+   "value": 13285.9540361192,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2013",
+   "value": 13182.7329619856,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2012",
+   "value": 12882.834417927,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2011",
+   "value": 12252.8441074615,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CL",
+    "value": "Chile"
+   },
+   "countryiso3code": "CHL",
+   "date": "2010",
+   "value": 11649.2897090856,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2023",
+   "value": 6837.37392084534,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2022",
+   "value": 6856.72590505374,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2021",
+   "value": 6457.16921807086,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2020",
+   "value": 5891.95523215403,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2019",
+   "value": 6439.96359812647,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2018",
+   "value": 6353.5464285392,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2017",
+   "value": 6309.67745292518,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2016",
+   "value": 6316.07067782542,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2015",
+   "value": 6248.51490534512,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2014",
+   "value": 6121.83982019825,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2013",
+   "value": 5910.80592301166,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2012",
+   "value": 5675.75617978305,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2011",
+   "value": 5517.1011086899,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CO",
+    "value": "Colombia"
+   },
+   "countryiso3code": "COL",
+   "date": "2010",
+   "value": 5214.24547620131,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2023",
+   "value": 14531.5005137466,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2022",
+   "value": 13931.8461614764,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2021",
+   "value": 13267.2549508035,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2020",
+   "value": 12322.2359458534,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2019",
+   "value": 12944.013449341,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2018",
+   "value": 12708.8042828359,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2017",
+   "value": 12468.5654849336,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2016",
+   "value": 12084.4351419988,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2015",
+   "value": 11714.7106121672,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2014",
+   "value": 11422.6735972442,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2013",
+   "value": 11151.1437937744,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2012",
+   "value": 11001.5193084396,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2011",
+   "value": 10612.4694960426,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "CR",
+    "value": "Costa Rica"
+   },
+   "countryiso3code": "CRI",
+   "date": "2010",
+   "value": 10285.0856777667,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2023",
+   "value": 8809.96335385949,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2022",
+   "value": 8698.13592094395,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2021",
+   "value": 8344.90510312395,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2020",
+   "value": 7395.8734262396,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2019",
+   "value": 8117.04639185786,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2018",
+   "value": 7818.70593240469,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2017",
+   "value": 7379.39978067137,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2016",
+   "value": 7177.75376475488,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2015",
+   "value": 6800.95309395474,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2014",
+   "value": 6430.27811051339,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2013",
+   "value": 6075.03399972737,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2012",
+   "value": 5860.29893321013,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2011",
+   "value": 5773.57403459156,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "DO",
+    "value": "Dominican Republic"
+   },
+   "countryiso3code": "DOM",
+   "date": "2010",
+   "value": 5666.45633430206,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2023",
+   "value": 6165.40977555695,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2022",
+   "value": 6107.49495006543,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2021",
+   "value": 5815.09477390949,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2020",
+   "value": 5355.68934196443,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2019",
+   "value": 5971.38938386723,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2018",
+   "value": 6063.0956178776,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2017",
+   "value": 6104.27253521751,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2016",
+   "value": 5849.13587933672,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2015",
+   "value": 5976.1596805651,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2014",
+   "value": 6055.04172761485,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2013",
+   "value": 5893.32172683036,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2012",
+   "value": 5579.85624282158,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2011",
+   "value": 5359.45724615639,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "EC",
+    "value": "Ecuador"
+   },
+   "countryiso3code": "ECU",
+   "date": "2010",
+   "value": 5022.20374387205,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2023",
+   "value": 4469.05514652918,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2022",
+   "value": 4383.90326160481,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2021",
+   "value": 4268.62864461492,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2020",
+   "value": 4005.83916360689,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2019",
+   "value": 4139.12206338632,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2018",
+   "value": 4040.21214374742,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2017",
+   "value": 3972.74059262672,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2016",
+   "value": 3924.7789643024,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2015",
+   "value": 3893.50533299068,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2014",
+   "value": 3809.61584332802,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2013",
+   "value": 3717.30457960279,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2012",
+   "value": 3655.57490299412,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2011",
+   "value": 3621.37582644774,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "GT",
+    "value": "Guatemala"
+   },
+   "countryiso3code": "GTM",
+   "date": "2010",
+   "value": 3546.62750929879,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2023",
+   "value": 2527.27366333188,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2022",
+   "value": 2482.22384904714,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2021",
+   "value": 2423.76634916911,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2020",
+   "value": 2189.43168668222,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2019",
+   "value": 2447.61649282181,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2018",
+   "value": 2430.13503657762,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2017",
+   "value": 2383.37398439714,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2016",
+   "value": 2315.72983058198,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2015",
+   "value": 2271.20265980349,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2014",
+   "value": 2229.24772232218,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2013",
+   "value": 2205.40126728067,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2012",
+   "value": 2188.39378817891,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2011",
+   "value": 2144.56265540491,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "HN",
+    "value": "Honduras"
+   },
+   "countryiso3code": "HND",
+   "date": "2010",
+   "value": 2108.47314459603,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2023",
+   "value": 10234.6840265651,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2022",
+   "value": 10013.2479227064,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2021",
+   "value": 9728.05680024504,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2020",
+   "value": 9234.64362226594,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2019",
+   "value": 10159.4448367696,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2018",
+   "value": 10296.8690940459,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2017",
+   "value": 10193.7727188313,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2016",
+   "value": 10100.5021195819,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2015",
+   "value": 10021.2386113616,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2014",
+   "value": 9862.4812534745,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2013",
+   "value": 9738.71059661101,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2012",
+   "value": 9782.51776251839,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2011",
+   "value": 9575.93437734618,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "MX",
+    "value": "Mexico"
+   },
+   "countryiso3code": "MEX",
+   "date": "2010",
+   "value": 9389.06722076504,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2023",
+   "value": 2241.1228811163,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2022",
+   "value": 2175.73845893874,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2021",
+   "value": 2128.30880041334,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2020",
+   "value": 1950.19181218473,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2019",
+   "value": 2019.91518620044,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2018",
+   "value": 2107.3396261623,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2017",
+   "value": 2209.63273423213,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2016",
+   "value": 2140.14405941606,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2015",
+   "value": 2074.45620634731,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2014",
+   "value": 2006.64869646533,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2013",
+   "value": 1941.45628552626,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2012",
+   "value": 1876.1759720149,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2011",
+   "value": 1786.62863418308,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "NI",
+    "value": "Nicaragua"
+   },
+   "countryiso3code": "NIC",
+   "date": "2010",
+   "value": 1704.37875049059,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2023",
+   "value": 16877.1543425646,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2022",
+   "value": 15956.0671087873,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2021",
+   "value": 14552.9345271768,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2020",
+   "value": 12647.0914227279,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2019",
+   "value": 15602.5315209709,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2018",
+   "value": 15375.6500855703,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2017",
+   "value": 15045.5456426827,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2016",
+   "value": 14474.1243636349,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2015",
+   "value": 14082.6548502728,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2014",
+   "value": 13611.5490809559,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2013",
+   "value": 13236.8306754449,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2012",
+   "value": 12668.2945474105,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2011",
+   "value": 11761.4988547604,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PA",
+    "value": "Panama"
+   },
+   "countryiso3code": "PAN",
+   "date": "2010",
+   "value": 10698.0717633911,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2023",
+   "value": 6575.18295502228,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2022",
+   "value": 6671.28902042137,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2021",
+   "value": 6550.96747543872,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2020",
+   "value": 5831.83024758521,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2019",
+   "value": 6626.26083494969,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2018",
+   "value": 6593.14437459526,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2017",
+   "value": 6457.41940254721,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2016",
+   "value": 6392.25474941014,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2015",
+   "value": 6231.71150338894,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2014",
+   "value": 6103.91864749969,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2013",
+   "value": 6021.46142765232,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2012",
+   "value": 5740.04346272472,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2011",
+   "value": 5453.45718713631,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PE",
+    "value": "Peru"
+   },
+   "countryiso3code": "PER",
+   "date": "2010",
+   "value": 5167.39259325937,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2023",
+   "value": 6452.28566840034,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2022",
+   "value": 6204.20811531911,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2021",
+   "value": 6276.7748423663,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2020",
+   "value": 6109.19608100615,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2019",
+   "value": 6243.53620897773,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2018",
+   "value": 6354.2392005297,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2017",
+   "value": 6243.13363139058,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2016",
+   "value": 6041.95879367268,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2015",
+   "value": 5879.33792308671,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2014",
+   "value": 5794.4764468976,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2013",
+   "value": 5583.12274473463,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2012",
+   "value": 5230.26244858764,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2011",
+   "value": 5342.19015717376,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "PY",
+    "value": "Paraguay"
+   },
+   "countryiso3code": "PRY",
+   "date": "2010",
+   "value": 5191.05014254402,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2023",
+   "value": 4481.19664108356,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2022",
+   "value": 4355.96037108555,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2021",
+   "value": 4247.54750394978,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2020",
+   "value": 3808.53195436409,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2019",
+   "value": 4143.11437097867,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2018",
+   "value": 4046.16291720583,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2017",
+   "value": 3954.84014277572,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2016",
+   "value": 3875.84691357954,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2015",
+   "value": 3790.34089108162,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2014",
+   "value": 3713.94992016222,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2013",
+   "value": 3665.90044167854,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2012",
+   "value": 3600.31912505518,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2011",
+   "value": 3515.19664634846,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "SV",
+    "value": "El Salvador"
+   },
+   "countryiso3code": "SLV",
+   "date": "2010",
+   "value": 3398.49346060363,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2023",
+   "value": 18403.6753125157,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2022",
+   "value": 18249.2912168828,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2021",
+   "value": 17416.0052308469,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2020",
+   "value": 16443.363490131,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2019",
+   "value": 17758.4384273402,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2018",
+   "value": 17608.94412947,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2017",
+   "value": 17611.6036800874,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2016",
+   "value": 17357.2349992841,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2015",
+   "value": 17125.9016800298,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2014",
+   "value": 17122.0364563225,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2013",
+   "value": 16639.4054750651,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2012",
+   "value": 15949.3176985435,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2011",
+   "value": 15443.9961926395,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  },
+  {
+   "indicator": {
+    "id": "NY.GDP.PCAP.KD",
+    "value": "GDP per capita (constant 2015 US$)"
+   },
+   "country": {
+    "id": "UY",
+    "value": "Uruguay"
+   },
+   "countryiso3code": "URY",
+   "date": "2010",
+   "value": 14722.3780081191,
+   "unit": "",
+   "obs_status": "",
+   "decimal": 1
+  }
+ ]
+}

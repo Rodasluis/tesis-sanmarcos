@@ -1,0 +1,122 @@
+```{python}
+#| echo: false
+#| output: false
+import json
+import pathlib
+
+import pandas as pd
+from IPython.display import Markdown
+
+R = pathlib.Path("resultados")
+ctx = json.loads((R / "contexto.json").read_text(encoding="utf8"))
+saturacion = pd.read_csv(R / "saturacion.csv")
+matriz = pd.read_csv(R / "matriz_codigos.csv")
+```
+
+# Método
+
+## Tipo de investigación
+
+Estudio cualitativo con diseño **fenomenológico**. Se eligió este diseño porque
+la pregunta es por la experiencia tal como la vive y la nombra el participante, y
+no por la frecuencia de un hecho ni por la construcción de una teoría. No se
+buscó llegar a un modelo explicativo general, que sería el objetivo de una teoría
+fundamentada.
+
+## Escenario de estudio
+
+Un centro de salud del primer nivel de atención de Lima, con consultorio de
+medicina general y farmacia propia.
+
+## Participantes
+
+`{python} str(ctx['participantes'])` personas con diagnóstico de hipertensión
+arterial de al menos un año y tratamiento farmacológico indicado.
+
+**Criterios de inclusión.** Diagnóstico registrado en la historia clínica, un año
+o más desde el diagnóstico, indicación de tratamiento farmacológico vigente,
+capacidad de sostener una entrevista en español.
+
+**Criterios de exclusión.** Deterioro cognitivo registrado, hospitalización en el
+mes previo.
+
+**Muestreo.** Por conveniencia, con variación buscada en sexo, situación laboral y
+tiempo desde el diagnóstico. El muestreo se detuvo por agotamiento del plazo de
+trabajo de campo, **no porque se hubiera alcanzado la saturación**. Esto se
+discute más adelante y es la limitación principal del estudio.
+
+## Técnicas e instrumentos de recolección de datos
+
+Entrevista semiestructurada, con una guía de seis preguntas abiertas y
+repreguntas según lo que surgiera. La guía es el anexo 1.
+
+Las entrevistas se realizaron en un consultorio del propio centro, duraron entre
+26 y 41 minutos y se grabaron en audio con autorización explícita.
+
+## Plan de recolección de datos
+
+1. Identificación de usuarios que cumplían los criterios en la consulta.
+2. Invitación y lectura del consentimiento informado.
+3. Entrevista, grabación y notas de campo.
+4. Transcripción literal, incluidas pausas y titubeos.
+5. **Anonimización antes de salir del archivo original**: nombres, edades
+   exactas y referencias geográficas sustituidos. Cada participante quedó
+   identificado con un código (E-01 a E-08).
+
+## Método de análisis de información
+
+Codificación temática en cuatro pasos:
+
+1. Lectura completa de cada transcripción sin codificar.
+2. Codificación abierta, asignando códigos a fragmentos.
+3. Agrupación de códigos en categorías por sentido compartido.
+4. Revisión de cada categoría contra las transcripciones completas.
+
+El resultado es un **libro de códigos** en `resultados/libro_de_codigos.yaml`,
+con `{python} str(ctx['codigos'])` códigos en
+`{python} str(ctx['categorias'])` categorías. De cada código consta su
+definición, qué incluye, qué excluye, en qué entrevistas apareció y una cita que
+lo ilustra. Los criterios de exclusión son la parte que hace auditable el
+análisis: dicen qué **no** entra en un código y, por tanto, por qué un fragmento
+se codificó así y no de otra forma.
+
+**Cada cita de este informe se comprobó contra su transcripción.** No es una
+afirmación de buena fe: el script `codigo/01_libro_de_codigos.py` falla si una
+cita del libro no aparece literalmente en la transcripción que declara, y
+`herramientas/verificar_cifras.py` repite la comprobación sobre los capítulos
+renderizados. Una cita «limpiada» para que lea mejor deja de coincidir y salta.
+
+### Saturación
+
+```{python}
+#| echo: false
+#| label: tbl-saturacion
+#| tbl-cap: "Códigos nuevos aportados por cada entrevista"
+vista = saturacion[["orden", "entrevista", "codigos_nuevos", "acumulado"]]
+vista.columns = ["Orden", "Entrevista", "Códigos nuevos", "Acumulado"]
+Markdown(vista.to_markdown(index=False))
+```
+
+La última entrevista todavía aportó códigos nuevos. **La saturación no se
+alcanzó**, y por eso no se afirma que se haya alcanzado.
+
+## Consideraciones éticas
+
+El reglamento de la Facultad de Medicina (art. 23, RR N.° 00170-D-FM-2024) exige
+la aprobación del Comité de Investigación de la escuela y de un Comité de Ética
+en Investigación antes de ejecutar el proyecto, además de la resolución decanal
+de aprobación.
+
+El consentimiento informado fue **obligatorio** y consta por escrito; es el anexo
+2. Se informó del objetivo, del carácter voluntario, del derecho a interrumpir la
+entrevista sin consecuencias en su atención, y del uso de la grabación.
+
+Las transcripciones se anonimizaron antes de cualquier análisis y **no se
+versionan ni se publican**. El tratamiento de los datos personales se ajusta a la
+Ley N.° 29733 y a su reglamento (DS N.° 016-2024-JUS).
+
+::: {.callout-note}
+En este ejemplo no hubo participantes ni comité: las transcripciones son
+ficticias. Lo que esta sección muestra es qué tendría que decir una tesis real y
+de dónde sale cada requisito.
+:::

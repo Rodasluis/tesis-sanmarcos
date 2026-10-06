@@ -98,6 +98,18 @@ estrategia**.
 
 Registra con etapa `afinar-idea`. **Sus palabras textuales.**
 
+Y deja escrito el enfoque, porque de aquí en adelante lo necesitan las
+herramientas:
+
+```
+uv run python -c "import pathlib; pathlib.Path('.enfoque').write_text('cualitativo', encoding='utf8')"
+```
+
+`cuantitativo` o `cualitativo`, según lo que haya decidido. No es un detalle
+administrativo: los Anexos 2A y 2B traen un modelo de informe final distinto para
+cada enfoque, y sin esa marca `verificar_estructura` asume el cuantitativo y le
+reclama a una tesis cualitativa los capítulos del modelo equivocado.
+
 ## Qué NO hacer aquí
 
 - No propongas una pregunta cuyos datos no hayas visto.

@@ -1,0 +1,111 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Un push nuevo cancela la corrida anterior de la misma rama: lo que importa es
+# el último estado, no la cola.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-y-pruebas:
+    name: ruff y pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sincronizar dependencias
+        run: uv sync --extra dev --extra analisis
+
+      - name: ruff
+        run: uv run ruff check .
+
+      - name: pytest
+        run: uv run python -m pytest -q
+
+  ejemplos:
+    name: verificar y renderizar los ejemplos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Instalar Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Sincronizar dependencias
+        run: uv sync --extra dev --extra analisis
+
+      - name: Montar los ejemplos
+        run: uv run python -m herramientas.preparar_ejemplo --todos
+
+      - name: Verificar los ejemplos
+        # Sin red a propósito: los datos de los ejemplos están versionados, así
+        # que esta comprobación no puede fallar porque una API se caiga. La
+        # comprobación de citas contra Crossref es otra cosa y va aparte.
+        run: |
+          for ejemplo in economia-cuantitativo medicina-cualitativo; do
+            echo "::group::$ejemplo"
+            uv run python -m herramientas.verificar_todo \
+              --raiz ".ejemplos-montados/$ejemplo" --detalle
+            echo "::endgroup::"
+          done
+
+      - name: Renderizar los ejemplos a .docx
+        env:
+          # Quarto ejecuta los bloques de código con el Python que encuentre, y
+          # el del sistema no tiene las dependencias del proyecto.
+          QUARTO_PYTHON: ${{ github.workspace }}/.venv/bin/python
+        run: |
+          for ejemplo in economia-cuantitativo medicina-cualitativo; do
+            echo "::group::render $ejemplo"
+            quarto render ".ejemplos-montados/$ejemplo"
+            echo "::endgroup::"
+          done
+
+      - name: Comprobar que los .docx existen y no están vacíos
+        run: uv run python -m herramientas.preparar_ejemplo --comprobar-render
+
+      - name: Guardar los .docx
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ejemplos-docx
+          path: .ejemplos-montados/*/entregables/_render/**/*.docx
+          if-no-files-found: error
+
+  perfiles:
+    name: los 21 perfiles validan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - run: uv sync --extra dev
+
+      - name: verificar_perfil
+        run: uv run python -m herramientas.verificar_perfil
+
+      - name: Ningún dato personal en los ejemplos
+        # Los ejemplos son lo único del repositorio que versiona datos. Si
+        # alguien agrega ahí una transcripción real, esto lo detiene.
+        run: |
+          uv run python -m herramientas.datos_personales ejemplos/*/datos/crudos/* ejemplos/*/datos/procesados/*

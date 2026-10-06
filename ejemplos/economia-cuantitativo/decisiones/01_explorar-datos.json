@@ -1,0 +1,30 @@
+{
+ "etapa": "explorar-datos",
+ "numero": 1,
+ "momento": "2026-10-05T22:13:33",
+ "opciones_presentadas": [
+  "Solo indicadores del Banco Mundial (WDI)",
+  "Banco Mundial más ERESTEL de OSIPTEL para el Perú",
+  "Banco Mundial más Enterprise Surveys"
+ ],
+ "recomendada": "Solo indicadores del Banco Mundial (WDI)",
+ "eleccion": "Solo indicadores del Banco Mundial (WDI)",
+ "respuesta_textual": "[EJEMPLO FICTICIO] Solo Banco Mundial. ERESTEL me la mostraste y es mejor que la ENAHO para telecomunicaciones, pero es solo del Perú y mi pregunta es comparativa; si la meto, cambio de pregunta. La dejo anotada como recomendación para quien siga esto.",
+ "cambios_pedidos": [
+  "Agregar desempleo y gasto en educación como controles",
+  "Anotar la fecha de descarga porque el Banco Mundial revisa series hacia atrás"
+ ],
+ "preguntas_comprension": [
+  {
+   "pregunta": "¿De dónde salen estos datos y quién los recolectó?",
+   "respuesta": "[EJEMPLO FICTICIO] El Banco Mundial los compila, pero no los levanta: vienen de los institutos de estadística de cada país y, para internet, de la Unión Internacional de Telecomunicaciones."
+  },
+  {
+   "pregunta": "¿Qué no puedes responder con estos datos?",
+   "respuesta": "[EJEMPLO FICTICIO] Nada sobre empresas ni sobre personas, y nada sobre para qué usan internet. Solo sé qué porcentaje lo usa."
+  }
+ ],
+ "aprobado": true,
+ "autor": "Tesista de ejemplo (FICTICIO)",
+ "hash": "9dc9b5bf259492439d70fda1acabfe4dbaf9598b25d434ac2a37f8a1e600d838"
+}

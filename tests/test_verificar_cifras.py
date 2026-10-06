@@ -112,3 +112,57 @@ def test_sin_capitulos_no_falla(proyecto):
     escribir_perfil(proyecto)
     inf = V.verificar(proyecto)
     assert not inf.hay_errores
+
+
+# --- falsos positivos que aparecieron al escribir los ejemplos -------------
+
+def test_el_ancho_de_una_figura_no_es_una_cifra(proyecto):
+    """`{#fig-x width=90%}` es cómo se dibuja la figura, no un dato."""
+    escribir_perfil(proyecto)
+    (proyecto / "resultados").mkdir(exist_ok=True)
+    (proyecto / "resultados" / "r.csv").write_text("v\n1\n", encoding="utf8")
+    escribir_capitulo(proyecto, "05-resultados",
+                      "# Resultados\n\n"
+                      "![Pie de figura.](../resultados/f.png){#fig-uno width=90%}\n")
+    inf = V.verificar(proyecto)
+    assert not inf.hay_errores, [h.como_linea() for h in inf.errores]
+
+
+def test_la_numeracion_de_una_lista_no_es_una_cifra(proyecto):
+    """El «1.» de «1. Primera hipótesis» enumera, no mide."""
+    escribir_perfil(proyecto)
+    (proyecto / "resultados").mkdir(exist_ok=True)
+    (proyecto / "resultados" / "r.csv").write_text("v\n99\n", encoding="utf8")
+    escribir_capitulo(proyecto, "05-resultados",
+                      "# Resultados\n\n"
+                      "1. Primera hipótesis sostenida.\n"
+                      "2. Segunda hipótesis no sostenida.\n\n"
+                      "| Hipótesis | Resultado |\n|---|---|\n"
+                      "| 1. La primera | se sostiene |\n")
+    inf = V.verificar(proyecto)
+    assert not inf.hay_errores, [h.como_linea() for h in inf.errores]
+
+
+def test_el_nivel_de_confianza_no_es_un_dato_del_analisis(proyecto):
+    """El 95 de «intervalo al 95 %» es una convención, no un resultado."""
+    escribir_perfil(proyecto)
+    (proyecto / "resultados").mkdir(exist_ok=True)
+    (proyecto / "resultados" / "r.csv").write_text("v\n0.34\n", encoding="utf8")
+    escribir_capitulo(proyecto, "05-resultados",
+                      "# Resultados\n\n"
+                      "El intervalo de confianza al 95 % incluye el cero, "
+                      "con p < 0.001 en la primera especificación.\n")
+    inf = V.verificar(proyecto)
+    assert not inf.hay_errores, [h.como_linea() for h in inf.errores]
+
+
+def test_una_cifra_inventada_sigue_siendo_un_error(proyecto):
+    """Los filtros anteriores no pueden abrir la puerta a lo que sí importa."""
+    escribir_perfil(proyecto)
+    (proyecto / "resultados").mkdir(exist_ok=True)
+    (proyecto / "resultados" / "r.csv").write_text("v\n0.34\n", encoding="utf8")
+    escribir_capitulo(proyecto, "05-resultados",
+                      "# Resultados\n\nEl efecto estimado fue de 7.219 puntos.\n")
+    inf = V.verificar(proyecto)
+    assert inf.hay_errores
+    assert any("7.219" in h.mensaje for h in inf.errores)

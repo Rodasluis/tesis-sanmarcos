@@ -48,3 +48,27 @@ entregables/datos_de_entrega.yaml
 # Hooks: el intérprete depende de la máquina, lo escribe instalar_hooks
 .claude/settings.local.json
 registro/.etapa
+
+/.quarto/
+**/*.quarto_ipynb
+
+# ---------------------------------------------------------------------------
+# Los ejemplos son la excepcion, y tiene que ser explicita
+# ---------------------------------------------------------------------------
+# Las reglas de arriba protegen la tesis del tesista: sus datos crudos y su
+# perfil activo son estado local y no se versionan. Los ejemplos de `ejemplos/`
+# necesitan lo contrario, porque sin sus datos no se pueden verificar ni
+# reproducir. Lo que llevan dentro no es de nadie:
+#
+#   - economia-cuantitativo: series publicas del Banco Mundial (CC BY 4.0).
+#   - medicina-cualitativo: transcripciones FICTICIAS, sin participantes.
+#
+# Hay pruebas que comprueban que no entre nada con datos personales.
+!ejemplos/*/datos/
+!ejemplos/*/datos/crudos/
+!ejemplos/*/datos/crudos/**
+!ejemplos/*/.perfil-activo
+
+# Ejemplos montados como proyecto: se regeneran con preparar_ejemplo.
+.ejemplos-montados/
+build/

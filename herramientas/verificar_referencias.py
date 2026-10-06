@@ -45,6 +45,16 @@ RE_CLAVE_EN_CITA = re.compile(r"-?@(" + CLAVE + r")")
 RE_CITA_SUELTA = re.compile(r"(?<![\w`\[])@(" + CLAVE + r")")
 RE_PAGINA = re.compile(r"\b(p{1,2}\.?|págs?\.?|pág\.|párr\.|cap\.)\s*\d", re.I)
 
+#: Prefijos de referencia cruzada de Quarto. `@fig-dispersion` no es una cita:
+#: es un enlace a una figura del propio documento. Buscarlos en el .bib hacía
+#: fallar a cualquier tesis que numerara sus figuras o sus tablas.
+#: https://quarto.org/docs/authoring/cross-references.html
+CRUCES_QUARTO = ("fig-", "tbl-", "eq-", "sec-", "lst-", "thm-", "lem-", "cor-",
+                 "prp-", "cnj-", "def-", "exm-", "exr-", "sol-", "rem-")
+
+#: Expresiones que Quarto evalúa al renderizar.
+RE_INLINE = re.compile(r"`(?:\{[a-z]+\}|r|python)\s[^`]*`")
+
 #: Comillas que en español marcan cita textual.
 RE_ENTRECOMILLADO = re.compile(r"[«\"“]([^«»\"“”]{25,})[»\"”]")
 
@@ -104,6 +114,11 @@ def _parrafos(lineas: list[tuple[int, str]]) -> list[tuple[int, str, bool]]:
     return parrafos
 
 
+def es_referencia_cruzada(clave: str) -> bool:
+    """¿La clave es una referencia cruzada de Quarto y no una cita?"""
+    return clave.startswith(CRUCES_QUARTO)
+
+
 def extraer_citas(ruta: pathlib.Path) -> list[Cita]:
     """Encuentra todas las citas de un .qmd, con su contexto."""
     texto = ruta.read_text(encoding="utf8", errors="replace")
@@ -123,6 +138,8 @@ def extraer_citas(ruta: pathlib.Path) -> list[Cita]:
             pagina = bool(RE_PAGINA.search(interior))
             for mk in RE_CLAVE_EN_CITA.finditer(interior):
                 clave = mk.group(1).rstrip(".,;:")
+                if es_referencia_cruzada(clave):
+                    continue
                 desplazamiento = parrafo.count("\n", 0, m.start())
                 citas.append(Cita(clave, ruta, inicio + desplazamiento,
                                   m.group(0), parrafo, pagina, bloque))
@@ -131,7 +148,7 @@ def extraer_citas(ruta: pathlib.Path) -> list[Cita]:
         sin_corchetes = RE_CITA_CORCHETES.sub(" ", parrafo)
         for m in RE_CITA_SUELTA.finditer(sin_corchetes):
             clave = m.group(1).rstrip(".,;:")
-            if any(clave == c for c, _ in vistas):
+            if es_referencia_cruzada(clave) or any(clave == c for c, _ in vistas):
                 continue
             desplazamiento = sin_corchetes.count("\n", 0, m.start())
             citas.append(Cita(clave, ruta, inicio + desplazamiento,
@@ -140,7 +157,13 @@ def extraer_citas(ruta: pathlib.Path) -> list[Cita]:
 
 
 def _texto_entrecomillado(parrafo: str) -> str | None:
-    m = RE_ENTRECOMILLADO.search(parrafo)
+    """El pasaje entrecomillado del párrafo, si hay uno.
+
+    Las expresiones de Quarto se quitan primero. Un `` `{python} f"{x:.2f}"` ``
+    lleva comillas dentro, y sin descontarlo cualquier párrafo con una cifra
+    insertada parecía contener una cita textual y se le exigía página.
+    """
+    m = RE_ENTRECOMILLADO.search(RE_INLINE.sub(" ", parrafo))
     return m.group(1).strip() if m else None
 
 
