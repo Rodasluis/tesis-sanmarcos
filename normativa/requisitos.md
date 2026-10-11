@@ -26,7 +26,7 @@ Fecha de extracción: 2026-09-16.
 | 7 | Ley N.° 29733, de Protección de Datos Personales | Ley 29733 | 2011 | `Ley_29733_proteccion_datos_personales.pdf` (El Peruano, **escaneo**) y `Ley_29733_texto_vigente_2025_SMV.pdf` (texto) | Mixto | Verificado |
 | 7b | Reglamento de la Ley 29733 | DS N.° 016-2024-JUS | 30/11/2024 | `DS_016-2024-JUS_reglamento_ley_29733.pdf` | Sí | Verificado |
 | 8 | Reglamento del RENATI (texto integrado) | RCD 033-2016-SUNEDU/CD, mod. RCD 174-2019-SUNEDU/CD | — | `RENATI_reglamento_texto_integrado_COPIA-TERCEROS.pdf` | Sí | **Copia alojada por un tercero** (ver §8) |
-| 9 | Directiva para el depósito de documentos de grados y títulos en Cybertesis | RR N.° 06893-R-18 | 2018 | `RR_06893-R-18_directiva_deposito_cybertesis.pdf` | **No (escaneo)** | Descargado, **sin leer aún** |
+| 9 | Directiva para el depósito de documentos de grados y títulos en Cybertesis | RR N.° 06893-R-18 | 2018 | `RR_06893-R-18_directiva_deposito_cybertesis.pdf` | **No (escaneo)** | **Leído en la Fase 7** por rasterización de páginas; requisitos en R-25 |
 | 10 | Protocolo para el depósito en Cybertesis | — | — | `Protocolo_deposito_cybertesis_UNMSM.pdf` | Sí | Verificado |
 
 Documentos adicionales descargados que no estaban en la lista de la sección 2 del encargo pero resultaron pertinentes:
@@ -248,7 +248,27 @@ El Código de Ética remite expresamente a la Ley 29733 en su base legal (pág. 
 ## 7. Repositorio: RENATI y Cybertesis
 
 ### R-25 · Depósito en el repositorio institucional
-Exigido por la directiva 00744 §7.2 (R-16) y por el Protocolo de depósito en Cybertesis. La directiva RR 06893-R-18 está descargada pero es un **escaneo sin capa de texto** y aún no ha sido leída, de modo que sus requisitos concretos (metadatos, formatos, plazos, licencia) están **pendientes**: `[PENDIENTE-NORMATIVA] P-04`.
+Exigido por la directiva 00744 §7.2 (R-16) y por el Protocolo de depósito en Cybertesis.
+
+**Leída en la Fase 7.** La directiva RR N.° 06893-R-18 (07/11/2018, 8 folios) es un escaneo sin capa de texto; se leyó rasterizando sus páginas a imagen. Lo que exige:
+
+| | Qué dice |
+|---|---|
+| **Formato** | Un único **PDF**, "no estar protegido por ningún medio", sin claves. "Los textos y tablas deben ser editables, **no como imágenes**" |
+| **Qué contiene el archivo** | Acta de sustentación o equivalente firmada y sellada, autorización del depósito, informe de evaluación de originalidad y una hoja con metadata complementaria |
+| **Metadata de la carátula** | Universidad, facultad, escuela profesional o unidad de posgrado, título, tipo de trabajo, "para optar el grado/título", autor(es), asesor(es), "Lima - (año)" |
+| **Metadata complementaria**, en una hoja después de la carátula | ORCID del autor (**opcional**), **ORCID del asesor (obligatorio)**, grupo de investigación, institución que financia, ubicación geográfica con localidades y/o coordenadas, año o rango de años que abarcó la investigación |
+| **Licencia** | **Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional**, en el formato de autorización del Anexo 1 |
+| **Autorización** | Anexo 1, firmado, con nombre, DNI, domicilio y fecha. Declara ser titular de los derechos y que el contenido está libre de contraseñas |
+| **Postergación** | A solicitud justificada, hasta **2 años** (DS N.° 006-2015-PCM art. 13), tras los cuales se publica de inmediato. Anexo 2 |
+| **Quién deposita** | La Dirección de la EP o de la UPG envía a la Dirección de Bibliotecas y Publicaciones. El acta firmada se remite después de la sustentación |
+
+Dos cosas que importan para este repositorio:
+
+1. **Refuerza la prohibición de poner texto o tablas como imagen**, ocho años antes de que la Directiva de originalidad la tipificara como falta (R-04). Ya no es una sola norma la que lo prohíbe.
+2. **El ORCID del asesor es obligatorio** y no figuraba en la lista de información complementaria del Anexo 2A. `/entregar` debe pedirlo.
+
+Su umbral de similitud del 10 % está superado por la directiva de originalidad de 2026: ver `conflictos.md`, C-06.
 
 ## 8. Pendientes y salvedades
 
@@ -257,7 +277,7 @@ Exigido por la directiva 00744 §7.2 (R-16) y por el Protocolo de depósito en C
 | **P-01** | **Declaración de uso de IA por el tesista.** Ninguna de las normas leídas exige declarar el uso de IA generativa en una tesis, ni fija un formato. La RR 008449-2025-R es una guía **pedagógica para docentes** (planificación de clases, evaluación, ejemplos de prompts); no regula la redacción de tesis por estudiantes ni establece obligación de declarar. | `[PENDIENTE-NORMATIVA]`. El anexo de declaración de uso de IA que genera el repositorio es una **medida voluntaria de transparencia**, apoyada en el principio de transparencia del Código de Ética (R-21), **no** un requisito normativo. Debe presentarse así al tesista. |
 | **P-02** | **Guía de IA generativa para estudiantes de la UNMSM.** Buscada; no encontrada. | `[PENDIENTE-NORMATIVA]`, conforme a lo previsto en el encargo. |
 | **P-03** | **Versión vigente del Código Nacional de Integridad Científica.** Hay dos PDF con distinta extensión (10 y 17 páginas) y dos resoluciones (RP 028-2024 y RP 035-2024-CONCYTEC-P, esta última modificatoria). | Verificar cuál es el texto vigente antes de citar artículos. |
-| **P-04** | **Directiva de depósito en Cybertesis (RR 06893-R-18) y su modificatoria RR 00584-R-19.** La primera está descargada como escaneo sin capa de texto; la segunda no se ha localizado. | Pendiente de lectura por imagen y de búsqueda. |
+| **P-04** | **Directiva de depósito en Cybertesis (RR 06893-R-18).** | **Cerrado en la Fase 7**: leída por rasterización, requisitos en R-25. Queda abierta solo su modificatoria **RR 00584-R-19**, que no se ha localizado. |
 | **P-05** | **Obligaciones concretas del DS 016-2024-JUS** aplicables a una tesis con datos personales. | Pendiente para la Fase 3. |
 | **P-06** | **Reglamento del RENATI.** El texto integrado se obtuvo de una copia alojada por la Universidad Nacional de San Agustín, porque el enlace oficial de SUNEDU redirige a gob.pe, que bloquea la descarga automatizada desde este equipo. | No se citará artículo del RENATI hasta contrastarlo con el PDF oficial. |
 | **P-07** | **Edición de APA que exige la Escuela de Economía.** Su guía dice "normas APPA" sin precisar edición ni año. | `[PENDIENTE-NORMATIVA]`; el perfil usará APA 7 como valor operativo, marcado. |

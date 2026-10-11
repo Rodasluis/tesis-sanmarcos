@@ -68,3 +68,43 @@ El encargo advierte que el dictamen de la UPG de Letras tiene errores de numerac
 ## C-05 · Sin conflictos detectados entre normas generales
 
 Hasta donde alcanza la lectura de la Fase 0, no hay contradicción entre la directiva de originalidad (2026), la directiva general de tesis (2020), el Reglamento General de Grados y Títulos (2017) y el Código de Ética (2023). La directiva de originalidad de 2026 deja sin efecto cualquier norma que se le oponga (Disposición Complementaria Final Segunda, pág. 18 PDF), lo que resuelve de antemano los conflictos con directivas de similitud anteriores.
+
+---
+
+## C-06 · Umbral de similitud: 10 % en dos normas, 0-20 % en la vigente
+
+**Estado:** resuelto en derecho, vivo en la práctica.
+
+Tres normas dan dos cifras distintas:
+
+| Norma | Año | Umbral | Qué dice |
+|---|---|---|---|
+| Directiva de depósito en Cybertesis, RR N.° 06893-R-18 | 2018 | **10 %** | "Este informe no debe reportar un porcentaje de similitud mayor del 10%. Documentos con porcentajes de similitud mayores del 10% no serán aceptados y el tesista no podrá ser declarado expedito hasta cumplir con la exigencia (Art. 66 Reglamento General de Posgrado)" |
+| Directiva de grados y títulos de la FCA, RR N.° 007615-2023-R | 2023 | **10 %** | "La EP someterá el TI a un programa informático de detección de similitudes, debiendo reportar un máximo de hasta el 10% de similitud con textos de otros autores" |
+| Directiva de originalidad, RR N.° 000947-2026-R | 2026 | **0 % a 20 %** | el rango vigente, medido en PIDS |
+
+**Resolución en derecho.** La directiva de originalidad de 2026 deja sin efecto
+cualquier norma que se le oponga (Disposición Complementaria Final Segunda), de
+modo que el umbral vigente es 0 % a 20 %. Además, la propia directiva de
+Cybertesis de 2018 delega el procedimiento: "Los informes de evaluación de
+originalidad de los documentos se realizarán según las pautas dadas en la
+directiva para el «Procedimiento para la evaluación de la originalidad de los
+documentos de investigación conducentes a grados o títulos de la UNMSM»". Es
+decir, remite a la directiva de originalidad, que hoy es la de 2026.
+
+Hay un segundo argumento para el 10 % de 2018: cita el **Reglamento General de
+Posgrado**, que no rige el pregrado.
+
+**Por qué sigue vivo.** Quien corre la comprobación es la escuela profesional, no
+el repositorio ni el tesista. Una escuela que aplique su propia directiva de 2023
+va a pedir 10 %, y discutir la jerarquía normativa con una secretaría mientras
+corre un plazo de quince días no suele salir bien.
+
+**Qué hace el repositorio:**
+
+- El umbral que se comunica como vigente es **0 % a 20 %**, con su norma.
+- Donde una facultad tiene umbral propio más estricto, el perfil lo declara en
+  `similitud.umbral_maximo_pct` y se le dice al tesista que trabaje contra el
+  más estricto. Hoy solo `administrativas-fca`.
+- Nada de esto cambia que `similitud_interna.py` **no mide** el porcentaje de
+  PIDS ni lo anticipa.

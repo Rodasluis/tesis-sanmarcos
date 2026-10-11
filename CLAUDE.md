@@ -147,12 +147,18 @@ Los cuatro hechos normativos que más condicionan el trabajo:
    y 2B de la RR N.° 00744-R-20. El perfil `unmsm-general` la implementa y todos
    los demás perfiles heredan de él.
 2. **Cada facultad puede especializarla** (§6.3 de esa misma directiva). Cuatro
-   facultades lo han hecho y tienen perfil propio; quince heredan el base.
+   facultades lo han hecho con norma verificada y catorce heredan el base.
+   Ciencias Administrativas es el caso que más se aparta: su Anexo 10 tiene
+   cinco capítulos y mete la discusión dentro del de resultados.
 3. **La entrega es en dos archivos .docx** con nomenclatura exacta y carpetas
    `TEXTO/` y `DOCUMENTO/` (Directiva de originalidad, art. 13).
 4. **El umbral de similitud es 0 % a 20 %**, medido en la plataforma PIDS de la
    universidad. `similitud_interna.py` **no** mide eso y no debe presentarse como
-   si lo hiciera.
+   si lo hiciera. Dos normas anteriores dicen 10 % —la directiva de depósito en
+   Cybertesis de 2018 y la directiva de Ciencias Administrativas de 2023— y la de
+   2026 las deja sin efecto; pero quien corre la comprobación es la escuela, así
+   que donde un perfil declare un umbral propio más estricto, se trabaja contra
+   ese. Ver `normativa/conflictos.md`, C-06.
 
 Conflictos conocidos: `normativa/conflictos.md`. El primero, C-01, afecta al
 propio modelo de trabajo de este repositorio y debe mostrarse al tesista en
@@ -166,10 +172,11 @@ El perfil activo determina estructura, denominaciones, orden, estilo de citas,
 formato y requisitos de sustentación. Vive en `perfiles/`.
 
 - `unmsm-general.yaml` — base normativo. Todos heredan de él.
-- `medicina-fm`, `letras-flch`, `derecho-fdcp` — norma propia verificada.
+- `medicina-fm`, `letras-flch`, `derecho-fdcp`, `administrativas-fca` — norma
+  propia verificada.
 - `economia-fce` — `estado: verificar`; su guía no acredita rango normativo.
 - `educacion-fe` — `solo_fuente_secundaria`.
-- Los otros quince — `hereda_general`.
+- Los otros catorce — `hereda_general`.
 
 Reglas de oro:
 

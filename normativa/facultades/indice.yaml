@@ -1,378 +1,465 @@
-#  Índice de estructuras de tesis por facultad — UNMSM
-#  Entregable de la Fase 0b. Relevamiento del 2026-09-16.
-#
-#  Estados posibles de `documento_estructura.estado`:
-#    verificado             el PDF oficial está en normativa/facultades/ y fue leído
-#    verificar              hay indicio del documento, falta obtener o confirmar vigencia
-#    solo_fuente_secundaria solo aparece citado por terceros
-#    no_encontrado          no se halló documento de estructura propio de la facultad
-#
-#  IMPORTANTE: `no_encontrado` NO significa que la escuela carezca de norma
-#  aplicable. Significa que no publica una propia. En ese caso rige la norma
-#  general de la universidad descrita abajo en `norma_general`.
-
 relevamiento:
   fecha: 2026-09-16
   metodo:
-    - rastreo de los sitios web de las 20 facultades
-    - consultas al buscador restringidas a unmsm.edu.pe
-    - cosecha de 100 tesis de pregrado (5 por facultad) desde Cybertesis
-      mediante su API DSpace 7.6.2 en https://cybertesis.unmsm.edu.pe/backend/api
+  - rastreo de los sitios web de las 20 facultades
+  - consultas al buscador restringidas a unmsm.edu.pe
+  - cosecha de 100 tesis de pregrado (5 por facultad) desde Cybertesis mediante su API DSpace 7.6.2 en
+    https://cybertesis.unmsm.edu.pe/backend/api
   cobertura: 20 de 20 facultades
-
-# Hallazgo central del relevamiento: existe una estructura normativa general
-# de pregrado para toda la UNMSM. No es una plantilla de cortesía: es un anexo
-# de la directiva aprobada por resolución rectoral.
 norma_general:
-  documento: >-
-    Directiva general para realizar, presentar y sustentar el trabajo de
-    investigación para la obtención del grado académico de bachiller, la tesis
-    o el trabajo de suficiencia profesional para la obtención del título
-    profesional en la UNMSM
+  documento: Directiva general para realizar, presentar y sustentar el trabajo de investigación para la
+    obtención del grado académico de bachiller, la tesis o el trabajo de suficiencia profesional para
+    la obtención del título profesional en la UNMSM
   norma: RR N.° 00744-R-20
   fecha: 2020-02-18
   url: https://viceacademico.unmsm.edu.pe/wp-content/uploads/2020/02/ANEXO-RR-00744-R-200001.pdf
   archivo_local: ../RR_00744-2020-R_ANEXO_directiva_general_tesis.pdf
   estado: verificado
-  capa_de_texto: false          # es un escaneo; se leyó rasterizando las páginas
+  capa_de_texto: false
   anexos_pertinentes:
-    - id: "2A"
-      titulo: Estructura general de la tesis para título
-      pagina: 13
-      fija:
-        - preliminares en números romanos minúsculos
-        - "carátula: escudo, facultad, EP, título, mención del título profesional,
-           autor, asesor, fecha (mes y año)"
-        - resumen y abstract de 200 palabras
-        - 5 palabras clave y keywords
-        - acta de sustentación
-        - dedicatoria y agradecimiento opcionales
-        - "información complementaria: DNI, correo del asesor, grupo de
-           investigación, fuente de financiamiento, disciplina OCDE, título en
-           inglés o quechua"
-        - "estilo de citas: «según los estilos de cita-referencia de acuerdo a
-           las áreas del conocimiento» (no fija uno solo)"
-    - id: "2B"
-      titulo: Estructura del cuerpo de la tesis
-      pagina: 14
-      modelos:
-        modelo_1_cuantitativa:
-          - I. Introducción
-          - II. Revisión de literatura
-          - III. Hipótesis y variables
-          - IV. Materiales y métodos
-          - V. Resultados
-          - VI. Discusión
-          - VII. Conclusiones y recomendaciones
-        modelo_2_cualitativa:
-          - I. Introducción
-          - II. Revisión de literatura
-          - III. Hipótesis y variables      # «HipóT o supuestos hipotéticos»
-          - IV. Materiales y métodos
-          - V. Resultados
-          - VI. Discusión
-          - VII. Conclusiones y recomendaciones
+  - id: 2A
+    titulo: Estructura general de la tesis para título
+    pagina: 13
+    fija:
+    - preliminares en números romanos minúsculos
+    - 'carátula: escudo, facultad, EP, título, mención del título profesional, autor, asesor, fecha (mes
+      y año)'
+    - resumen y abstract de 200 palabras
+    - 5 palabras clave y keywords
+    - acta de sustentación
+    - dedicatoria y agradecimiento opcionales
+    - 'información complementaria: DNI, correo del asesor, grupo de investigación, fuente de financiamiento,
+      disciplina OCDE, título en inglés o quechua'
+    - 'estilo de citas: «según los estilos de cita-referencia de acuerdo a las áreas del conocimiento»
+      (no fija uno solo)'
+  - id: 2B
+    titulo: Estructura del cuerpo de la tesis
+    pagina: 14
+    modelos:
+      modelo_1_cuantitativa:
+      - I. Introducción
+      - II. Revisión de literatura
+      - III. Hipótesis y variables
+      - IV. Materiales y métodos
+      - V. Resultados
+      - VI. Discusión
+      - VII. Conclusiones y recomendaciones
+      modelo_2_cualitativa:
+      - I. Introducción
+      - II. Revisión de literatura
+      - III. Hipótesis y variables
+      - IV. Materiales y métodos
+      - V. Resultados
+      - VI. Discusión
+      - VII. Conclusiones y recomendaciones
   habilitacion_de_perfiles:
-    referencia: "§ 6.3, pág. 6"
-    texto: >-
-      La facultad aprueba la normativa específica [...] También debe establecer
-      la estructura del cuerpo de los documentos correspondientes al TI, TT y
-      TSP, para los fines de elaboración, evaluación y sustentación.
-    lectura: >-
-      Cada facultad puede especializar la estructura, pero la norma general
-      sigue siendo el piso. Un perfil sin documento de facultad no queda huérfano:
-      hereda el Anexo 2B.
-
+    referencia: § 6.3, pág. 6
+    texto: La facultad aprueba la normativa específica [...] También debe establecer la estructura del
+      cuerpo de los documentos correspondientes al TI, TT y TSP, para los fines de elaboración, evaluación
+      y sustentación.
+    lectura: 'Cada facultad puede especializar la estructura, pero la norma general sigue siendo el piso.
+      Un perfil sin documento de facultad no queda huérfano: hereda el Anexo 2B.'
 facultades:
-
-  - nombre: Facultad de Medicina
-    slug: medicina
-    escuelas: [Enfermería, Medicina Humana, Nutrición, Obstetricia, Tecnología Médica]
-    documento_estructura:
-      nombre: Reglamento para la elaboración de tesis de pregrado de las cinco escuelas profesionales
-      norma: RD N.° 002373-2023-D-FM
-      fecha: 2023-06-19
-      nivel: pregrado
-      url: https://medicina.unmsm.edu.pe/wp-content/uploads/2022/07/RD-002373-2023-REGLAMENTO-ELABORACION-DE-TESIS-ACTUAL-NIVEL-FACULTAD-.pdf
-      archivo_local: medicina/RD_002373-2023-D-FM_reglamento_tesis.pdf
-      estado: verificado
-    rasgos_confirmados:
-      estilo_citas: vancouver
-      sustentacion: {exposicion_min: "15-20", preguntas_min: "hasta 20", jurado: 4, asesor_con_voz_sin_voto: true}
-      calificacion: {escala: vigesimal, minima_aprobatoria: 11}
-      anexos_obligatorios_proyecto: [cronograma, presupuesto]
-    esquema_de_facto: medicina/esquema_de_facto.md
-    nota: >-
-      El propio nombre del archivo publicado por la facultad dice
-      «ACTUAL NIVEL FACULTAD», lo que refuerza que es el vigente.
-
-  - nombre: Facultad de Letras y Ciencias Humanas
-    slug: letras-y-ciencias-humanas
-    escuelas: [Arte, Bibliotecología y Ciencias de la Información, Comunicación Social,
-               Conservación y Restauración, Danza, Filosofía, Lingüística, Literatura]
-    documento_estructura:
-      nombre: Instructivo para el trabajo de investigación y la tesis
-      norma: RD N.° 000057-2021-D-FLCH
-      fecha: 2021-01-22
-      nivel: pregrado
-      url: https://letras.unmsm.edu.pe/wp-content/uploads/2021/04/2021_R.D-000057-D-FLCH-2021-Instructivo-Trabajo-de-investigacio%CC%81n_Tesis_RD_final.pdf
-      archivo_local: letras-y-ciencias-humanas/RD_000057-2021-D-FLCH_instructivo_TI_tesis.pdf
-      estado: verificado
-    documentos_complementarios:
-      - {nombre: Directiva sobre procedimiento de sustentación de tesis de pregrado,
-         norma: RR N.° 009747-2022-R,
-         archivo_local: letras-y-ciencias-humanas/RR_009747-2022-R_sustentacion_tesis_pregrado_FLCH.pdf,
-         estado: verificado}
-      - {nombre: Instructivo sobre procedimientos para grados y títulos,
-         norma: RR N.° 008954-2021-R,
-         archivo_local: letras-y-ciencias-humanas/RR_008954-2021-R_instructivo_grados_titulos_FLCH.pdf,
-         estado: verificado}
-    rasgos_confirmados:
-      estilo_citas: apa7           # «estilo APA (7.ª ed.)», §9
-      fuente: [Arial, Times New Roman]
+- nombre: Facultad de Medicina
+  slug: medicina
+  escuelas:
+  - Enfermería
+  - Medicina Humana
+  - Nutrición
+  - Obstetricia
+  - Tecnología Médica
+  documento_estructura:
+    nombre: Reglamento para la elaboración de tesis de pregrado de las cinco escuelas profesionales
+    norma: RD N.° 002373-2023-D-FM
+    fecha: 2023-06-19
+    nivel: pregrado
+    url: https://medicina.unmsm.edu.pe/wp-content/uploads/2022/07/RD-002373-2023-REGLAMENTO-ELABORACION-DE-TESIS-ACTUAL-NIVEL-FACULTAD-.pdf
+    archivo_local: medicina/RD_002373-2023-D-FM_reglamento_tesis.pdf
+    estado: verificado
+  rasgos_confirmados:
+    estilo_citas: vancouver
+    sustentacion:
+      exposicion_min: 15-20
+      preguntas_min: hasta 20
+      jurado: 4
+      asesor_con_voz_sin_voto: true
+    calificacion:
+      escala: vigesimal
+      minima_aprobatoria: 11
+    anexos_obligatorios_proyecto:
+    - cronograma
+    - presupuesto
+  esquema_de_facto: medicina/esquema_de_facto.md
+  nota: El propio nombre del archivo publicado por la facultad dice «ACTUAL NIVEL FACULTAD», lo que refuerza
+    que es el vigente.
+- nombre: Facultad de Letras y Ciencias Humanas
+  slug: letras-y-ciencias-humanas
+  escuelas:
+  - Arte
+  - Bibliotecología y Ciencias de la Información
+  - Comunicación Social
+  - Conservación y Restauración
+  - Danza
+  - Filosofía
+  - Lingüística
+  - Literatura
+  documento_estructura:
+    nombre: Instructivo para el trabajo de investigación y la tesis
+    norma: RD N.° 000057-2021-D-FLCH
+    fecha: 2021-01-22
+    nivel: pregrado
+    url: https://letras.unmsm.edu.pe/wp-content/uploads/2021/04/2021_R.D-000057-D-FLCH-2021-Instructivo-Trabajo-de-investigacio%CC%81n_Tesis_RD_final.pdf
+    archivo_local: letras-y-ciencias-humanas/RD_000057-2021-D-FLCH_instructivo_TI_tesis.pdf
+    estado: verificado
+  documentos_complementarios:
+  - nombre: Directiva sobre procedimiento de sustentación de tesis de pregrado
+    norma: RR N.° 009747-2022-R
+    archivo_local: letras-y-ciencias-humanas/RR_009747-2022-R_sustentacion_tesis_pregrado_FLCH.pdf
+    estado: verificado
+  - nombre: Instructivo sobre procedimientos para grados y títulos
+    norma: RR N.° 008954-2021-R
+    archivo_local: letras-y-ciencias-humanas/RR_008954-2021-R_instructivo_grados_titulos_FLCH.pdf
+    estado: verificado
+  rasgos_confirmados:
+    estilo_citas: apa7
+    fuente:
+    - Arial
+    - Times New Roman
+    tamano: 12
+    interlineado: 1.5
+    referencias_interlineado: simple
+    resumen:
+      palabras_clave: true
+      linea_investigacion: true
+      abstract: true
+    modelos:
+    - cuantitativa
+    - cualitativa
+  esquema_de_facto: letras-y-ciencias-humanas/esquema_de_facto.md
+  nota: 'Reemplaza como fuente al dictamen de posgrado de la UPG de Letras que mencionaba la especificación:
+    este es de PREGRADO y por tanto es el pertinente. Tiene erratas de numeración (salta 2.2; rotula «V.
+    CONCLUSIONES» tras el capítulo V) que se normalizan en perfiles/_notas_normalizacion.md.'
+- nombre: Facultad de Ciencias Económicas
+  slug: ciencias-economicas
+  escuelas:
+  - Economía
+  - Economía Internacional
+  - Economía Pública
+  documento_estructura:
+    nombre: Estructura del diseño y/o proyecto de investigación para optar el título profesional de economista
+    norma: null
+    fecha: null
+    nivel: pregrado
+    url: null
+    archivo_local: PAUTAS_PARA_SUSTENTACION_DE_TESIS_economia-fce.docx
+    estado: verificar
+  rasgos_confirmados:
+    alcance: solo el proyecto o diseño; no define el informe final
+    orden_particular: hipótesis antes de objetivos
+    items_excluibles_con_justificacion: true
+    estilo_citas: apa (edición no precisada en el documento)
+  esquema_de_facto: ciencias-economicas/esquema_de_facto.md
+  nota: 'No acredita rango normativo: sin número de resolución, fecha ni firma. Ver normativa/conflictos.md,
+    C-03. Para el informe final rige el Anexo 2B.'
+- nombre: Facultad de Derecho y Ciencia Política
+  slug: derecho-y-ciencia-politica
+  escuelas:
+  - Ciencia Política
+  - Derecho
+  documento_estructura:
+    nombre: Reglamento General de Grados y Títulos de la FDCP
+    norma: RR N.° 007301-2022-R
+    fecha: 2022
+    nivel: pregrado
+    url: https://derecho2.unmsm.edu.pe/ddocus/Reglamento%20de%20Grados%20y%20T%C3%ADtulos%20de%20la%20FDCP%20%20%20firmado%20%20-signed%20%20Final%20%20%20%201%20.pdf
+    archivo_local: derecho-y-ciencia-politica/Reglamento_Grados_y_Titulos_FDCP.pdf
+    estado: verificado
+    cadena_de_aprobacion:
+    - RD N.° 001935-2021-D-FDCP del 13/12/2021, que aprobó el reglamento
+    - modificada por RD N.° 000016-2022-D-FDCP del 10/01/2022
+    - ratificada por RR N.° 007301-2022-R, anexo de 36 folios
+    archivo_resolucion: derecho-y-ciencia-politica/RR_007301-2022-R.pdf
+    verificacion_documental:
+      portal: https://spsgd.unmsm.edu.pe/verifica/inicio.do
+      codigo: HVUXGIO
+  rasgos_confirmados:
+    alcance: procedimental
+    remite_a: Anexos 1, 2, 3A y 3B de la RR 00744-R-20
+    formato:
+      papel: A4
+      interlineado: simple
+      fuente: Arial
       tamano: 12
-      interlineado: 1.5
-      referencias_interlineado: simple
-      resumen: {palabras_clave: true, linea_investigacion: true, abstract: true}
-      modelos: [cuantitativa, cualitativa]
-    esquema_de_facto: letras-y-ciencias-humanas/esquema_de_facto.md
-    nota: >-
-      Reemplaza como fuente al dictamen de posgrado de la UPG de Letras que
-      mencionaba la especificación: este es de PREGRADO y por tanto es el
-      pertinente. Tiene erratas de numeración (salta 2.2; rotula «V.
-      CONCLUSIONES» tras el capítulo V) que se normalizan en
-      perfiles/_notas_normalizacion.md.
-
-  - nombre: Facultad de Ciencias Económicas
-    slug: ciencias-economicas
-    escuelas: [Economía, Economía Internacional, Economía Pública]
-    documento_estructura:
-      nombre: Estructura del diseño y/o proyecto de investigación para optar el título profesional de economista
-      norma: null                 # el documento no consigna resolución
-      fecha: null
-      nivel: pregrado
-      url: null                   # entregado en mano, no publicado en la web de la facultad
-      archivo_local: PAUTAS_PARA_SUSTENTACION_DE_TESIS_economia-fce.docx
-      estado: verificar
-    rasgos_confirmados:
-      alcance: solo el proyecto o diseño; no define el informe final
-      orden_particular: hipótesis antes de objetivos
-      items_excluibles_con_justificacion: true
-      estilo_citas: "apa (edición no precisada en el documento)"
-    esquema_de_facto: ciencias-economicas/esquema_de_facto.md
-    nota: >-
-      No acredita rango normativo: sin número de resolución, fecha ni firma.
-      Ver normativa/conflictos.md, C-03. Para el informe final rige el Anexo 2B.
-
-  - nombre: Facultad de Derecho y Ciencia Política
-    slug: derecho-y-ciencia-politica
-    escuelas: [Ciencia Política, Derecho]
-    documento_estructura:
-      nombre: Reglamento General de Grados y Títulos de la FDCP
-      norma: RR N.° 007301-2022-R
-      fecha: 2022
-      nivel: pregrado
-      url: https://derecho2.unmsm.edu.pe/ddocus/Reglamento%20de%20Grados%20y%20T%C3%ADtulos%20de%20la%20FDCP%20%20%20firmado%20%20-signed%20%20Final%20%20%20%201%20.pdf
-      archivo_local: derecho-y-ciencia-politica/Reglamento_Grados_y_Titulos_FDCP.pdf
-      estado: verificado
-      cadena_de_aprobacion:
-        - RD N.° 001935-2021-D-FDCP del 13/12/2021, que aprobó el reglamento
-        - modificada por RD N.° 000016-2022-D-FDCP del 10/01/2022
-        - ratificada por RR N.° 007301-2022-R, anexo de 36 folios
-      archivo_resolucion: derecho-y-ciencia-politica/RR_007301-2022-R.pdf
-      verificacion_documental:
-        portal: https://spsgd.unmsm.edu.pe/verifica/inicio.do
-        codigo: HVUXGIO
-    rasgos_confirmados:
-      alcance: procedimental
-      remite_a: "Anexos 1, 2, 3A y 3B de la RR 00744-R-20"
-      formato: {papel: A4, interlineado: simple, fuente: Arial, tamano: 12}
-    esquema_de_facto: derecho-y-ciencia-politica/esquema_de_facto.md
-    nota: >-
-      No define estructura capitular propia: remite expresamente a los anexos
-      de la directiva general. Es la confirmación más clara de que el Anexo 2B
-      funciona como piso normativo.
-
-  # --- Facultades sin documento de estructura propio localizado ---------------
-  # Para todas ellas rige `norma_general` (Anexo 2B de la RR 00744-R-20).
-  # El esquema de facto solo sirve de contraste; nunca se marca verificado.
-
-  - nombre: Facultad de Farmacia y Bioquímica
-    slug: farmacia-y-bioquimica
-    escuelas: [Ciencia de los Alimentos, Farmacia y Bioquímica, Toxicología]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: farmacia-y-bioquimica/esquema_de_facto.md
-    nota: La práctica observada sigue de cerca el Anexo 2B, modelo cuantitativo.
-
-  - nombre: Facultad de Odontología
-    slug: odontologia
-    escuelas: [Odontología]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: odontologia/esquema_de_facto.md
-    nota: >-
-      La facultad publica un Reglamento del Comité de Ética Institucional (2025),
-      pertinente para el perfil aunque no fije estructura de tesis.
-
-  - nombre: Facultad de Medicina Veterinaria
-    slug: medicina-veterinaria
-    escuelas: [Medicina Veterinaria]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: medicina-veterinaria/esquema_de_facto.md
-    nota: >-
-      Práctica observada de tipo IMRyD con «Revisión bibliográfica» y
-      «Bibliografía citada». Solo 2 de 5 tesis tenían índice legible.
-
-  - nombre: Facultad de Psicología
-    slug: psicologia
-    escuelas: [Psicología, Psicología Organizacional y de la Gestión Humana]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: psicologia/esquema_de_facto.md
-
-  - nombre: Facultad de Ciencias Biológicas
-    slug: ciencias-biologicas
-    escuelas: [Ciencias Biológicas, Genética y Biotecnología, Microbiología y Parasitología]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ciencias-biologicas/esquema_de_facto.md
-    nota: >-
-      Los índices cosechados son muy heterogéneos entre escuelas; el esquema de
-      facto es poco concluyente y no debe usarse para crear un perfil.
-
-  - nombre: Facultad de Química e Ingeniería Química
-    slug: quimica-e-ing-quimica
-    escuelas: [Ingeniería Agroindustrial, Ingeniería Química, Química]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: quimica-e-ing-quimica/esquema_de_facto.md
-
-  - nombre: Facultad de Ciencias Físicas
-    slug: ciencias-fisicas
-    escuelas: [Física, Ingeniería Mecánica de Fluidos]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ciencias-fisicas/esquema_de_facto.md
-
-  - nombre: Facultad de Ciencias Matemáticas
-    slug: ciencias-matematicas
-    escuelas: [Computación Científica, Estadística, Investigación Operativa, Matemática]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ciencias-matematicas/esquema_de_facto.md
-
-  - nombre: Facultad de Ingeniería Geológica, Minera, Metalúrgica y Geográfica
-    slug: figmmg
-    escuelas: [Ingeniería Ambiental, Ingeniería Civil, Ingeniería de Minas,
-               Ingeniería Geográfica, Ingeniería Geológica, Ingeniería Metalúrgica]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: figmmg/esquema_de_facto.md
-    nota: >-
-      Existe una plantilla Quarto de terceros para Ingeniería Geográfica
-      (ambarja/template-tesis-unmsm-geografica, CC0). Es un repositorio de
-      plantilla, NO fuente normativa: no habilita `estado: verificado`.
-
-  - nombre: Facultad de Ingeniería Industrial
-    slug: ing-industrial
-    escuelas: [Ingeniería de Seguridad y Salud en el Trabajo, Ingeniería Industrial,
-               Ingeniería Textil y Confecciones]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ing-industrial/esquema_de_facto.md
-    nota: >-
-      Es la facultad cuya práctica calza mejor con el Anexo 2B modelo 1:
-      Introducción, Revisión de literatura, Hipótesis y variables, Materiales y
-      métodos, Resultados. Buen candidato a perfil una vez confirmado por un asesor.
-
-  - nombre: Facultad de Ingeniería Electrónica y Eléctrica
-    slug: ing-electronica-y-electrica
-    escuelas: [Ingeniería Biomédica, Ingeniería de Telecomunicaciones,
-               Ingeniería Eléctrica, Ingeniería Electrónica]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ing-electronica-y-electrica/esquema_de_facto.md
-
-  - nombre: Facultad de Ingeniería de Sistemas e Informática
-    slug: ing-sistemas-e-informatica
-    escuelas: [Ingeniería de Sistemas, Ingeniería de Software]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ing-sistemas-e-informatica/esquema_de_facto.md
-    nota: >-
-      Práctica propia y reconocible: «Estado del arte» en lugar de revisión de
-      literatura, y capítulos de «Aporte teórico» y «Aporte práctico».
-
-  - nombre: Facultad de Ciencias Sociales
-    slug: ciencias-sociales
-    escuelas: [Antropología, Arqueología, Geografía, Historia, Sociología, Trabajo Social]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ciencias-sociales/esquema_de_facto.md
-    nota: >-
-      Aparecen «Estado de la cuestión» y «Criterios éticos» como secciones
-      propias, rasgo de la familia cualitativa en humanidades.
-
-  - nombre: Facultad de Educación
-    slug: educacion
-    escuelas: [Educación, Educación Física]
-    documento_estructura:
-      nombre: R.D. 1069-D-FE-2017 (esquema de tesis)
-      estado: solo_fuente_secundaria
-      nivel: pregrado
-      url: null
-    esquema_de_facto: educacion/esquema_de_facto.md
-    nota: >-
-      La especificación del encargo la citaba desde una fuente secundaria. El
-      relevamiento no logró localizar el documento oficial ni confirmar su
-      vigencia. No se creará perfil de Educación sobre esa base.
-
-  - nombre: Facultad de Ciencias Contables
-    slug: ciencias-contables
-    escuelas: [Auditoría Empresarial y del Sector Público, Contabilidad, Gestión Tributaria]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ciencias-contables/esquema_de_facto.md
-    nota: >-
-      La facultad publica la carátula oficial de tesis y una guía para elegir
-      tema, pero no un esquema capitular. Varias de sus tesis recientes son
-      trabajos de suficiencia profesional, con estructura distinta.
-
-  - nombre: Facultad de Ciencias Administrativas
-    slug: ciencias-administrativas
-    escuelas: [Administración, Administración de Negocios Internacionales, Administración de Turismo]
-    documento_estructura: {estado: no_encontrado, nivel: pregrado}
-    esquema_de_facto: ciencias-administrativas/esquema_de_facto.md
-    nota: >-
-      Junto con Ingeniería Industrial, la práctica más consistente con el
-      Anexo 2B modelo 1.
-
-# Documentos de alcance general recogidos durante el relevamiento y que no
-# pertenecen a una sola facultad.
+  esquema_de_facto: derecho-y-ciencia-politica/esquema_de_facto.md
+  nota: 'No define estructura capitular propia: remite expresamente a los anexos de la directiva general.
+    Es la confirmación más clara de que el Anexo 2B funciona como piso normativo.'
+- nombre: Facultad de Farmacia y Bioquímica
+  slug: farmacia-y-bioquimica
+  escuelas:
+  - Ciencia de los Alimentos
+  - Farmacia y Bioquímica
+  - Toxicología
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: farmacia-y-bioquimica/esquema_de_facto.md
+  nota: La práctica observada sigue de cerca el Anexo 2B, modelo cuantitativo.
+- nombre: Facultad de Odontología
+  slug: odontologia
+  escuelas:
+  - Odontología
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: odontologia/esquema_de_facto.md
+  nota: La facultad publica un Reglamento del Comité de Ética Institucional (2025), pertinente para el
+    perfil aunque no fije estructura de tesis.
+- nombre: Facultad de Medicina Veterinaria
+  slug: medicina-veterinaria
+  escuelas:
+  - Medicina Veterinaria
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: medicina-veterinaria/esquema_de_facto.md
+  nota: Práctica observada de tipo IMRyD con «Revisión bibliográfica» y «Bibliografía citada». Solo 2
+    de 5 tesis tenían índice legible.
+- nombre: Facultad de Psicología
+  slug: psicologia
+  escuelas:
+  - Psicología
+  - Psicología Organizacional y de la Gestión Humana
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: psicologia/esquema_de_facto.md
+- nombre: Facultad de Ciencias Biológicas
+  slug: ciencias-biologicas
+  escuelas:
+  - Ciencias Biológicas
+  - Genética y Biotecnología
+  - Microbiología y Parasitología
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ciencias-biologicas/esquema_de_facto.md
+  nota: Los índices cosechados son muy heterogéneos entre escuelas; el esquema de facto es poco concluyente
+    y no debe usarse para crear un perfil.
+- nombre: Facultad de Química e Ingeniería Química
+  slug: quimica-e-ing-quimica
+  escuelas:
+  - Ingeniería Agroindustrial
+  - Ingeniería Química
+  - Química
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: quimica-e-ing-quimica/esquema_de_facto.md
+- nombre: Facultad de Ciencias Físicas
+  slug: ciencias-fisicas
+  escuelas:
+  - Física
+  - Ingeniería Mecánica de Fluidos
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ciencias-fisicas/esquema_de_facto.md
+- nombre: Facultad de Ciencias Matemáticas
+  slug: ciencias-matematicas
+  escuelas:
+  - Computación Científica
+  - Estadística
+  - Investigación Operativa
+  - Matemática
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ciencias-matematicas/esquema_de_facto.md
+- nombre: Facultad de Ingeniería Geológica, Minera, Metalúrgica y Geográfica
+  slug: figmmg
+  escuelas:
+  - Ingeniería Ambiental
+  - Ingeniería Civil
+  - Ingeniería de Minas
+  - Ingeniería Geográfica
+  - Ingeniería Geológica
+  - Ingeniería Metalúrgica
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: figmmg/esquema_de_facto.md
+  nota: 'Existe una plantilla Quarto de terceros para Ingeniería Geográfica (ambarja/template-tesis-unmsm-geografica,
+    CC0). Es un repositorio de plantilla, NO fuente normativa: no habilita `estado: verificado`.'
+- nombre: Facultad de Ingeniería Industrial
+  slug: ing-industrial
+  escuelas:
+  - Ingeniería de Seguridad y Salud en el Trabajo
+  - Ingeniería Industrial
+  - Ingeniería Textil y Confecciones
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ing-industrial/esquema_de_facto.md
+  nota: 'Es la facultad cuya práctica calza mejor con el Anexo 2B modelo 1: Introducción, Revisión de
+    literatura, Hipótesis y variables, Materiales y métodos, Resultados. Buen candidato a perfil una vez
+    confirmado por un asesor.'
+- nombre: Facultad de Ingeniería Electrónica y Eléctrica
+  slug: ing-electronica-y-electrica
+  escuelas:
+  - Ingeniería Biomédica
+  - Ingeniería de Telecomunicaciones
+  - Ingeniería Eléctrica
+  - Ingeniería Electrónica
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ing-electronica-y-electrica/esquema_de_facto.md
+- nombre: Facultad de Ingeniería de Sistemas e Informática
+  slug: ing-sistemas-e-informatica
+  escuelas:
+  - Ingeniería de Sistemas
+  - Ingeniería de Software
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ing-sistemas-e-informatica/esquema_de_facto.md
+  nota: 'Práctica propia y reconocible: «Estado del arte» en lugar de revisión de literatura, y capítulos
+    de «Aporte teórico» y «Aporte práctico».'
+- nombre: Facultad de Ciencias Sociales
+  slug: ciencias-sociales
+  escuelas:
+  - Antropología
+  - Arqueología
+  - Geografía
+  - Historia
+  - Sociología
+  - Trabajo Social
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ciencias-sociales/esquema_de_facto.md
+  nota: Aparecen «Estado de la cuestión» y «Criterios éticos» como secciones propias, rasgo de la familia
+    cualitativa en humanidades.
+- nombre: Facultad de Educación
+  slug: educacion
+  escuelas:
+  - Educación
+  - Educación Física
+  documento_estructura:
+    nombre: R.D. 1069-D-FE-2017 (esquema de tesis)
+    estado: solo_fuente_secundaria
+    nivel: pregrado
+    url: null
+  esquema_de_facto: educacion/esquema_de_facto.md
+  nota: La especificación del encargo la citaba desde una fuente secundaria. El relevamiento no logró
+    localizar el documento oficial ni confirmar su vigencia. No se creará perfil de Educación sobre esa
+    base.
+- nombre: Facultad de Ciencias Contables
+  slug: ciencias-contables
+  escuelas:
+  - Auditoría Empresarial y del Sector Público
+  - Contabilidad
+  - Gestión Tributaria
+  documento_estructura:
+    estado: no_encontrado
+    nivel: pregrado
+  esquema_de_facto: ciencias-contables/esquema_de_facto.md
+  nota: La facultad publica la carátula oficial de tesis y una guía para elegir tema, pero no un esquema
+    capitular. Varias de sus tesis recientes son trabajos de suficiencia profesional, con estructura distinta.
+- nombre: Facultad de Ciencias Administrativas
+  slug: ciencias-administrativas
+  escuelas:
+  - Administración
+  - Administración de Negocios Internacionales
+  - Administración de Turismo
+  documento_estructura:
+    nombre: Directiva para la obtención del Grado Académico de Bachiller y el Título Profesional en la
+      Facultad de Ciencias Administrativas
+    norma: RR N.° 007615-2023-R/UNMSM
+    fecha: 2023-03-01
+    nivel: pregrado
+    url: https://drive.google.com/file/d/1UbnWQM6spyipSao2pP7zhkwonrUYj8jN/view
+    publicado_en: https://administracion.unmsm.edu.pe/normativa/
+    archivo_local: ciencias-administrativas/RR_007615-2023-R_directiva_grados_titulos_FCA.pdf
+    estado: verificado
+    hallado_en: Fase 7
+  esquema_de_facto: ciencias-administrativas/esquema_de_facto.md
+  nota: 'La Fase 0b no lo encontró porque buscaba rutas de «grados y títulos» en el sitio de la facultad.
+    El documento está en su página /normativa/, en una carpeta de Google Drive, y lo aprueba una Resolución
+    RECTORAL, no una decanal. Su práctica observada ya coincidía: «Planteamiento del estudio» aparecía
+    en 2 de 5 tesis y es el nombre del capítulo I.'
+  rasgos_confirmados:
+    informe_final: 'Anexo 10 «Estructura de tesis»: cinco capítulos, con la discusión dentro del capítulo
+      V'
+    proyecto: 'Anexo 3 «Formato de proyecto de tesis cuantitativa/mixta»: cuatro capítulos'
+    anexos_obligatorios:
+    - matriz de consistencia
+    - matriz de operacionalización de variables
+    - instrumento de recopilación de datos
+    - validación de instrumentos
+    similitud_umbral_pct: 10
+    sustentacion:
+      jurado: 3
+      asesor_en_el_jurado: false
+      rubrica: 10 criterios de 2 puntos, 20 en total
+      plazo_informe_jurado_dias: 15
+    estilo_citas: no lo fija la directiva; se hereda
+    formato: no lo fija la directiva; se hereda
+    deposito: 2 ejemplares físicos y 1 copia virtual a Cybertesis
 documentos_generales_adicionales:
-  - nombre: Guía para la elaboración de proyectos de investigación formativa
-    origen: Vicerrectorado Académico de Pregrado
-    archivo_local: ../Guia_elaboracion_proyectos_investigacion_formativa_UNMSM.pdf
-    estado: verificado
-    pertinencia: orientación metodológica; no fija estructura de tesis
-
-  - nombre: Modificatoria del Reglamento General de Grados y Títulos
-    norma: RR N.° 004503-2021-R
-    fecha: 2021-05-19
-    archivo_local: ../RR_004503-2021-R_modifica_reglamento_grados_titulos.pdf
-    estado: verificado
-    pertinencia: >-
-      Modifica el Reglamento aprobado por RR N.° 01827-R-17. Completa la cadena
-      normativa que rige la calificación y los requisitos de grado.
-
-  - nombre: Segunda modificatoria del Reglamento General de Grados y Títulos
-    norma: RR N.° 003078-2022-R
-    fecha: 2022-03
-    archivo_local: ../RR_003078-2022-R_reglamento_grados_titulos_vigente.pdf
-    estado: verificado
-    pertinencia: >-
-      Modifica la segunda disposición transitoria (bachillerato automático),
-      extendiéndola a los años académicos 2020 a 2023. No altera la estructura
-      de la tesis.
-
-  - nombre: Directiva general de sustentación de tesis en modalidad no presencial
-    norma: RR N.° 01242-2020-R
-    fecha: 2020-04-16
-    archivo_local: ../RR_01242-2020-R_sustentacion_modalidad_no_presencial.pdf
-    estado: verificado
-    pertinencia: aplica cuando la sustentación es virtual
-
-# Cadena vigente del Reglamento General de Grados y Títulos, confirmada al leer
-# los considerandos de la RR 003078-2022-R:
-#   RR 01827-R-17 (11/04/2017)  ->  base
-#   RR 004503-2021-R (19/05/2021)  ->  modifica art. 10 y agrega disposición transitoria
-#   RR 003078-2022-R (2022)  ->  modifica la segunda disposición transitoria
-#   RR 00744-R-20 también modificó su art. 14 (escala de calificación)
+- nombre: Guía para la elaboración de proyectos de investigación formativa
+  origen: Vicerrectorado Académico de Pregrado
+  archivo_local: ../Guia_elaboracion_proyectos_investigacion_formativa_UNMSM.pdf
+  estado: verificado
+  pertinencia: orientación metodológica; no fija estructura de tesis
+- nombre: Modificatoria del Reglamento General de Grados y Títulos
+  norma: RR N.° 004503-2021-R
+  fecha: 2021-05-19
+  archivo_local: ../RR_004503-2021-R_modifica_reglamento_grados_titulos.pdf
+  estado: verificado
+  pertinencia: Modifica el Reglamento aprobado por RR N.° 01827-R-17. Completa la cadena normativa que
+    rige la calificación y los requisitos de grado.
+- nombre: Segunda modificatoria del Reglamento General de Grados y Títulos
+  norma: RR N.° 003078-2022-R
+  fecha: 2022-03
+  archivo_local: ../RR_003078-2022-R_reglamento_grados_titulos_vigente.pdf
+  estado: verificado
+  pertinencia: Modifica la segunda disposición transitoria (bachillerato automático), extendiéndola a
+    los años académicos 2020 a 2023. No altera la estructura de la tesis.
+- nombre: Directiva general de sustentación de tesis en modalidad no presencial
+  norma: RR N.° 01242-2020-R
+  fecha: 2020-04-16
+  archivo_local: ../RR_01242-2020-R_sustentacion_modalidad_no_presencial.pdf
+  estado: verificado
+  pertinencia: aplica cuando la sustentación es virtual
+relevamiento_fase_7:
+  fecha: 2026-10-11
+  objetivo: localizar norma propia para las 15 facultades que heredan la general
+  resultado: 1 encontrada (Ciencias Administrativas), 14 siguen heredando
+  que_se_probo:
+  - búsqueda web restringida a unmsm.edu.pe por facultad y por el patrón «resolución rectoral que aprueba
+    reglamento de grados y títulos»
+  - sondeo HTTP de /normativa/ y /normatividad/ en los 20 dominios de facultad
+  - sondeo HTTP de /documentos, /transparencia, /grados-y-titulos y /reglamentos
+  paginas_que_respondieron:
+    normativa:
+    - administracion.unmsm.edu.pe
+    - veterinaria.unmsm.edu.pe
+    transparencia:
+    - figmmg
+    - quimica
+    - fisica
+    - biologia
+    - farmacia
+    - odontologia
+  hallazgos_negativos:
+  - veterinaria.unmsm.edu.pe/documentos publica el Reglamento General de Grados y Títulos de la UNMSM
+    (RR N.° 01827-R-17), que es el general y no uno propio
+  - industrial.unmsm.edu.pe publica un modelo de tesis con código de documento (FII17-R-M003 v03, 2024)
+    pero su servidor rechazó la conexión; sin leerlo no se puede saber si acredita rango normativo
+  - los portales de transparencia de las seis facultades son índices de categorías, sin normativa de tesis
+    en la portada
+  leccion: 'Lo que distingue a las facultades con norma propia encontrada no es que la tengan: es dónde
+    la publican. Las cuatro verificadas aparecen porque alguien enlazó el PDF desde una página indexable.
+    Buscar por «resolución rectoral que aprueba» rinde más que buscar por facultad, porque las directivas
+    de facultad se ratifican por RR.'

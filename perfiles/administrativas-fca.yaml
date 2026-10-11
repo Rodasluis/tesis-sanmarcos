@@ -1,9 +1,15 @@
 # Facultad de Ciencias Administrativas
-# Perfil por herencia: sin documento propio de facultad localizado.
-# Este perfil NO tiene documento propio de facultad. Hereda la estructura
-# del perfil base `unmsm-general`, que sí es normativa: los Anexos 2A y 2B de la
-# RR N.° 00744-R-20. Lo observado en Cybertesis se adjunta solo como contraste y
-# nunca habilita `estado: verificado`.
+# Perfil con norma propia VERIFICADA, localizada en la Fase 7.
+#
+# La Fase 0b no la había encontrado porque buscaba en el sitio de la facultad por
+# rutas de «grados y títulos»; el documento está en su página /normativa/, en una
+# carpeta de Drive, y lo aprueba una Resolución Rectoral y no una decanal.
+#
+# Lo que la facultad SÍ define: la estructura de la tesis (Anexo 10), la del
+# proyecto (Anexo 3), sus anexos obligatorios, el jurado, la rúbrica de
+# sustentación y un umbral de similitud propio.
+# Lo que NO define y por tanto se hereda: estilo de citas, formato, preliminares
+# —su propio Anexo 3 remite a la RR 00744-20 para eso— y el modelo cualitativo.
 
 id: administrativas-fca
 facultad: Facultad de Ciencias Administrativas
@@ -13,88 +19,268 @@ escuelas:
 - Administración de Turismo
 nivel: pregrado
 hereda_de: unmsm-general
-estado: hereda_general
+estado: verificado
+
 fuente:
-  documento: (sin documento propio de facultad localizado en el relevamiento de la Fase 0b)
-  norma: null
-  fecha: null
-  url: null
-  archivo_local: null
-  estado: hereda_general
-  norma_aplicable: Directiva general RR N.° 00744-R-20, Anexos 2A y 2B, por remisión del perfil base `unmsm-general`
-  busqueda_realizada:
-  - rastreo del sitio web de la facultad, incluidas rutas de grados y títulos, trámites y normatividad
-  - consultas al buscador restringidas al dominio de la facultad y a unmsm.edu.pe
+  documento: >-
+    Directiva para la obtención del Grado Académico de Bachiller y el Título
+    Profesional en la Facultad de Ciencias Administrativas - UNMSM
+  norma: RR N.° 007615-2023-R/UNMSM
+  fecha: 2023-03-01
+  pagina: "Anexo 10 (estructura de tesis) y Anexo 3 (estructura del proyecto)"
+  url: https://drive.google.com/file/d/1UbnWQM6spyipSao2pP7zhkwonrUYj8jN/view
+  archivo_local: normativa/facultades/ciencias-administrativas/RR_007615-2023-R_directiva_grados_titulos_FCA.pdf
+  estado: verificado
+  cadena_de_aprobacion:
+  - "Aprobada por el Consejo de la Facultad de Ciencias Administrativas en sesión ordinaria virtual del 30/11/2022, por unanimidad"
+  - "Elevada por Oficio N.º 000290-2022-EPANI-FCA/UNMSM de la Escuela Profesional de Administración de Negocios Internacionales, en coordinación con las EP de Administración y de Administración de Turismo"
+  - "Ratificada por Resolución Rectoral N.° 007615-2023-R/UNMSM"
+  nota: >-
+    PDF de 29 folios con capa de texto y firmas digitales. Su base legal cita
+    expresamente la RR N.° 00744-R-20, de modo que la herencia del perfil base
+    no es una suposición del repositorio: la declara la propia directiva.
+  publicado_en: https://administracion.unmsm.edu.pe/normativa/
+
 enfoques_admitidos:
 - cuantitativo
 - cualitativo
+
+# La directiva NO fija estilo de citas. Se comprobó con búsqueda de palabra
+# completa: no aparecen «APA», «Vancouver», «ISO 690» ni «IEEE» en sus 29 folios.
 estilo_citas: '[PENDIENTE-NORMATIVA]'
-estilo_citas_fuente: Ni la facultad ni la norma general fijan un estilo. El Anexo 2A dice «según los estilos
-  de cita-referencia de acuerdo a las áreas del conocimiento». Debe decidirlo el asesor y registrarse
-  como decisión del tesista en /iniciar.
+estilo_citas_fuente:
+  lectura: >-
+    La directiva de la facultad no menciona ningún estilo de cita. Rige lo que
+    dice el Anexo 2A de la norma general: «según los estilos de cita-referencia
+    de acuerdo a las áreas del conocimiento». Lo decide el tesista y se registra.
 csl: null
+
 persona_gramatical:
 - '[PENDIENTE-NORMATIVA]'
+
+# Tampoco fija márgenes, tipografía ni interlineado: se hereda.
 formato:
   hereda: unmsm-general
 resumen:
   hereda: unmsm-general
 hipotesis:
   hereda: unmsm-general
+
+preliminares:
+  hereda: unmsm-general
+  nota: >-
+    Los Anexos 3 y 10 de la directiva encabezan con «IDENTIFICACIÓN Y
+    PRELIMINARES (revisar RR 00744-20)»: la facultad remite explícitamente a la
+    norma general en lugar de definir sus propios preliminares.
+
 proyecto:
-  definido_por_norma: false
-  hereda: unmsm-general
-  nota: La facultad no publica esquema de proyecto. Se usará el orden del informe final del Anexo 2B reducido
-    a propuesta, y el asesor debe aprobarlo antes de /analizar.
+  definido_por_norma: true
+  fuente: "RR N.° 007615-2023-R, Anexo 3 «Formato de proyecto de tesis cuantitativa/mixta»"
+  elaboracion: "Desarrollo en equipo o individual"
+  secciones:
+  - "IDENTIFICACIÓN Y PRELIMINARES (remite a la RR 00744-20)"
+  - numero: I
+    titulo: "Planteamiento del problema"
+    subsecciones:
+    - 1.1 Descripción de la situación problemática
+    - 1.2 Formulación del problema
+    - 1.3 Objetivos de la investigación
+    - "1.4 Justificación de la investigación: 1.4.1 Importancia; 1.4.2 Viabilidad"
+    - 1.5 Limitaciones del estudio
+  - numero: II
+    titulo: "Marco teórico"
+    subsecciones: [2.1 Antecedentes de la investigación, 2.2 Bases teóricas,
+                   2.3 Definición de términos básicos]
+  - numero: III
+    titulo: "Hipótesis y variables"
+    subsecciones: ["3.1 Formulación de hipótesis principal y derivada",
+                   3.2 Variables y definición operacional]
+  - numero: IV
+    titulo: "Metodología"
+    subsecciones: [4.1 Diseño metodológico, 4.2 Diseño muestral,
+                   4.3 Técnicas de recolección de datos,
+                   4.4 Técnicas estadísticas para el procesamiento de la información,
+                   4.5 Aspectos éticos]
+  - "CRONOGRAMA"
+  - "REFERENCIAS"
+  anexos_obligatorios:
+  - matriz_de_consistencia
+  - matriz_de_operacionalizacion_de_variables
+  - instrumento_de_recopilacion_de_datos
+  - validacion_de_instrumentos
+  nota: >-
+    El Anexo 3 se titula «cuantitativa/mixta». La directiva no publica un formato
+    de proyecto cualitativo; para ese enfoque rige la norma general.
+
 informe_final:
-  origen: herencia
-  hereda: unmsm-general
-  enfoque_sugerido: cuantitativo
-  nota: El enfoque sugerido proviene de lo observado en tesis recientes, no de una norma. El tesista
-    elige y su decisión se registra.
+  origen: plantilla_norma
+  fuente: "RR N.° 007615-2023-R, Anexo 10 «Estructura de tesis»"
+  modelos:
+    cuantitativo:
+      nombre: "Anexo 10 — Estructura de tesis (FCA)"
+      nota: >-
+        Difiere del Anexo 2B de la norma general: son cinco capítulos y la
+        discusión de resultados va DENTRO del capítulo V, no en uno propio.
+        Es una especialización admitida por el §6.3 de la directiva general.
+      secciones:
+      - {parte: "Título"}
+      - {parte: "Dedicatoria"}
+      - {parte: "Índice"}
+      - {parte: "Resumen"}
+      - {parte: "Abstract"}
+      - {titulo: "Introducción"}
+      - numero: I
+        titulo: "Planteamiento del estudio"
+        subsecciones:
+        - 1.1 Descripción de la realidad problemática
+        - 1.2 Formulación del problema
+        - 1.3 Objetivos
+        - "1.4 Justificación: 1.4.1 Importancia de la investigación; 1.4.2 Viabilidad de la investigación"
+        - 1.5 Limitaciones del estudio
+      - numero: II
+        titulo: "Marco teórico"
+        subsecciones: [2.1 Antecedentes de la investigación, 2.2 Bases teóricas,
+                       2.3 Definición de términos básicos]
+      - numero: III
+        titulo: "Hipótesis y variables"
+        subsecciones: ["3.1 Formulación de hipótesis principal y derivada",
+                       3.2 Variables y definición operacional]
+      - numero: IV
+        titulo: "Metodología de la investigación"
+        subsecciones: [4.1 Diseño metodológico, 4.2 Diseño muestral,
+                       4.3 Técnicas de recolección de datos,
+                       4.4 Técnicas estadísticas para el procesamiento de la información,
+                       4.5 Aspectos éticos]
+      - numero: V
+        titulo: "Análisis e interpretación de los resultados"
+        subsecciones: ["5.1 Presentación, análisis e interpretación de los datos",
+                       5.2 Prueba de hipótesis, 5.3 Discusión de los resultados]
+      - {titulo: "Conclusiones"}
+      - {titulo: "Recomendaciones"}
+      - {titulo: "Referencias"}
+      - {titulo: "Anexos"}
+  anexos_obligatorios:
+  - matriz_de_consistencia
+  - matriz_de_operacionalizacion_de_variables
+  - instrumento_de_recopilacion_de_datos
+  - validacion_de_instrumentos
+
+similitud:
+  umbral_maximo_pct: 10
+  fuente: >-
+    RR N.° 007615-2023-R, numeral 7.1: «La EP someterá el TI a un programa
+    informático de detección de similitudes, debiendo reportar un máximo de
+    hasta el 10% de similitud con textos de otros autores». Si supera el 10 %,
+    el egresado subsana en un plazo no mayor a quince (15) días calendario; en
+    caso contrario el proyecto se cancela y el trámite se reinicia.
+  conflicto: >-
+    La Directiva de originalidad vigente (RR N.° 000947-2026-R) fija el rango
+    0 % a 20 % medido en PIDS, y deja sin efecto las normas anteriores que se le
+    opongan. En derecho, entonces, rige el 20 %. Pero quien corre la
+    comprobación es la Escuela Profesional con su propia directiva, así que lo
+    prudente es trabajar contra el 10 %. Ver normativa/conflictos.md, C-06.
+
 etica:
   comite_requerido: '[PENDIENTE-NORMATIVA]'
   consentimiento: condicional
   comite: Comité de Ética en Investigación de la UNMSM (RR N.° 008534-2025-R)
+  nota: >-
+    La directiva de la FCA incluye «Aspectos éticos» como sección obligatoria del
+    proyecto y de la tesis (4.5 en ambos), pero no exige dictamen de un comité.
+
 autoria:
   hereda: unmsm-general
+  elaboracion: "Los Anexos 3 y 10 dicen «Desarrollo en equipo o individual»"
+
 vigencia_proyecto_meses: '[PENDIENTE-NORMATIVA]'
+
 sustentacion:
-  hereda: unmsm-general
+  jurado: 3
+  jurado_detalle: >-
+    Tres docentes de la Facultad de Ciencias Administrativas designados por la
+    Escuela Profesional mediante Resolución Directoral. El asesor del trabajo
+    NO puede ser miembro del jurado.
+  plazo_informe_jurado_dias: 15
+  escala: vigesimal
+  nota_minima: 11
+  escala_fuente: >-
+    RR N.° 007615-2023-R, numeral 6 d): «La escala de calificación del TI, T y
+    TSP, es vigesimal de cero (0) a veinte (20), conforme al artículo 14° del
+    Reglamento General de Grados y Títulos de la UNMSM»
+  exposicion_min: '[PENDIENTE-NORMATIVA]'
+  preguntas_min: '[PENDIENTE-NORMATIVA]'
+  acta: "La nota se registra en el acta y el resultado se informa en sesión abierta en el mismo acto"
+  rubrica_fuente: "RR N.° 007615-2023-R, Anexo 2 «Rúbrica de evaluación - sustentación del TI, T y TSP»"
+  rubrica_escala:
+    Excelente: 2
+    Bueno: 1.5
+    Regular: 1
+    Malo: 0.5
+  rubrica:
+    Presentación: 2
+    Estructura de la exposición: 2
+    Recursos audiovisuales: 2
+    Adecuación al tiempo: 2
+    Conocimiento del tema: 2
+    Relevancia de la información: 2
+    Conclusiones: 2
+    Defensa y argumentación: 2
+    Uso del lenguaje: 2
+    Expresión corporal: 2
+  rubrica_nota: >-
+    Diez criterios de 2 puntos cada uno, 20 en total. Seis de los diez —
+    presentación, estructura de la exposición, recursos audiovisuales,
+    adecuación al tiempo, uso del lenguaje y expresión corporal — califican
+    CÓMO se expone, no el contenido de la tesis. Eso cambia dónde conviene
+    poner el tiempo de preparación en /sustentacion.
+
+deposito:
+  ejemplares_fisicos: 2
+  copia_virtual: true
+  fuente: >-
+    RR N.° 007615-2023-R, numeral 7.3 f): «El graduado deberá alcanzar dos (02)
+    ejemplares del TI y una copia en formato virtual para ser depositados en el
+    Repositorio institucional de tesis y trabajos de Titulación de la UNMSM
+    (CYBERTESIS)»
+
+modalidades_de_titulacion:
+  nota: >-
+    La FCA admite varias modalidades además de la tesis, cada una con su formato
+    en los anexos de la directiva. Este repositorio solo acompaña la TESIS; las
+    demás se listan para que el tesista sepa que existen.
+  tesis: "Anexo 10 — es la que acompaña este repositorio"
+  otras:
+  - "Trabajo de investigación (bachiller): perfil de proyecto privado o público, investigación de mercados, plan estratégico, plan de negocios, monografía temática"
+  - "Trabajo de suficiencia profesional: informe de desempeño laboral (Anexo 11) o desarrollo de emprendimiento empresarial"
+
 esquema_de_facto: normativa/facultades/ciencias-administrativas/esquema_de_facto.md
 observacion_de_facto:
   advertencia: NO NORMATIVO. Solo material de contraste.
+  nota_fase_7: >-
+    El relevamiento de la Fase 0b había observado «Planteamiento del estudio» en
+    2 de 5 tesis, que es exactamente el nombre del capítulo I del Anexo 10. La
+    práctica coincidía con la norma; lo que faltaba era la norma.
   tesis_analizadas: 5
   con_indice_legible: 5
-  anios:
-  - '2026'
-  secciones_observadas:
-  - seccion: Marco teórico
-    apariciones: 5 de 5
-  - seccion: Hipótesis y variables
-    apariciones: 4 de 5
-  - seccion: Introducción
-    apariciones: 3 de 5
-  - seccion: Planteamiento del problema
-    apariciones: 3 de 5
-  - seccion: Abstract
-    apariciones: 3 de 5
-  - seccion: Resumen
-    apariciones: 3 de 5
-  - seccion: Metodología
-    apariciones: 3 de 5
-  - seccion: Planteamiento del estudio
-    apariciones: 2 de 5
-  - seccion: Recomendaciones
-    apariciones: 1 de 5
-  - seccion: Referencias
-    apariciones: 1 de 5
+
 advertencias_al_tesista:
-- 'Tu escuela no publica un esquema propio de tesis. Te rige la estructura general de la universidad,
-  que sí es norma: los Anexos 2A y 2B de la RR N.° 00744-R-20.'
-- 'Si tu escuela te pide una estructura distinta de esta, dilo y la ajustamos:
-  el perfil se adapta a ti, no al revés.'
-- El estilo de citas no está fijado por ninguna norma aplicable a tu escuela. Decidirlo temprano evita
-  rehacer citas después.
-nota_del_relevamiento: Junto con Ingeniería Industrial, la práctica más consistente con el Anexo 2B modelo
-  1.
+- >-
+  Tu facultad tiene directiva propia y verificada (RR N.° 007615-2023-R). La
+  estructura de tu tesis es la de su Anexo 10, que NO es la misma que la general:
+  son cinco capítulos y la discusión de resultados va dentro del capítulo V.
+- >-
+  Tu directiva exige un máximo de 10 % de similitud. La directiva de originalidad
+  de la universidad, que es posterior, fija 0-20 % y deja sin efecto lo que se le
+  oponga, así que en derecho te rige el 20 %. Pero quien corre la comprobación es
+  tu Escuela Profesional con su propia directiva: trabaja contra el 10 %.
+- >-
+  Los cuatro anexos son obligatorios: matriz de consistencia, matriz de
+  operacionalización de variables, instrumento de recopilación de datos y
+  validación de instrumentos. No son opcionales.
+- >-
+  Tu directiva no fija estilo de citas ni formato. Eso lo decides tú y se
+  registra; conviene hacerlo temprano para no rehacer citas después.
+- >-
+  En la rúbrica de sustentación, 12 de los 20 puntos dependen de cómo expones
+  —presentación, estructura, recursos audiovisuales, tiempo, lenguaje y
+  expresión corporal—. Ensayar la exposición no es un extra.

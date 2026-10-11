@@ -66,6 +66,7 @@ autores:                   # hasta tres (RR 00744-R-20, §7.2 a)
 asesor:
   nombres_y_apellidos: ""
   correo: ""               # institucional
+  orcid: ""                # OBLIGATORIO: RR 06893-R-18, metadata complementaria
 
 facultad: ""
 escuela: ""
@@ -74,6 +75,13 @@ grupo_de_investigacion: ""
 fuente_de_financiamiento: ""
 disciplina_ocde: ""
 titulo_en_ingles: ""
+
+# Metadata complementaria del depósito en Cybertesis (RR N.° 06893-R-18).
+# Va en una hoja después de la carátula.
+orcid_autor: ""            # opcional: la directiva dice que no todos lo tienen
+ubicacion_geografica: ""   # localidades y/o coordenadas donde se hizo el estudio
+anios_de_la_investigacion: ""   # año o rango, p. ej. "2024-2025"
+domicilio_para_el_deposito: ""  # lo pide el Anexo 1 de la autorización
 """
 
 
@@ -312,6 +320,142 @@ def declaracion_jurada_pids(autores: list[Autor], datos: dict) -> str:
     return "\n".join(lineas)
 
 
+def autorizacion_cybertesis(autores: list[Autor], datos: dict) -> str:
+    """Anexo 1 de la RR N.° 06893-R-18: autorización para depositar en Cybertesis.
+
+    Es obligatoria ("El documento debidamente firmado por el autor y que da la
+    autorización para el depósito y publicación de la tesis en CYBERTESIS es
+    obligatorio") y fija la licencia: Creative Commons
+    Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional.
+
+    El texto de abajo sigue el del anexo. Lo que el tesista firma es una cesión
+    de uso a título gratuito y a nivel mundial, así que conviene que lo lea antes
+    de firmarlo y no después.
+    """
+    lineas = [
+        "# Autorización para el depósito y publicación en CYBERTESIS",
+        "",
+        "> Anexo 1 de la Directiva para el depósito de documentos de Grados y",
+        "> Títulos en CYBERTESIS, aprobada por RR N.° 06893-R-18 del 07/11/2018.",
+        "",
+        f"**Documento:** Tesis titulada «{datos.get('titulo', '')}»",
+        f"**Para optar:** {datos.get('titulo_profesional', '__________')}",
+        f"**Facultad:** {datos.get('facultad', '__________')}",
+        f"**Escuela Profesional:** {datos.get('escuela', '__________')}",
+        "",
+        "## Declaración",
+        "",
+        "Por medio del presente documento, afirmo y garantizo ser el legítimo, único",
+        "y exclusivo titular de todos los derechos de propiedad intelectual sobre los",
+        "documentos arriba mencionados, las obras, los contenidos, los productos y/o",
+        "las creaciones en general (en adelante, los «Contenidos») que serán incluidos",
+        "en el repositorio institucional CYBERTESIS de la Universidad Nacional Mayor",
+        "de San Marcos (en adelante, la «Universidad»).",
+        "",
+        "También, doy seguridad de que los contenidos entregados se encuentran libres",
+        "de toda contraseña, restricción o medida tecnológica de protección, con la",
+        "finalidad de permitir que se puedan leer, descargar, reproducir, distribuir,",
+        "imprimir, buscar y enlazar los textos completos, sin limitación alguna.",
+        "",
+        "Autorizo a la Universidad Nacional Mayor de San Marcos a publicar los",
+        "Contenidos en los Repositorios Institucionales de la Universidad y, en",
+        "consecuencia, en el Repositorio Nacional Digital de Ciencia, Tecnología e",
+        "Innovación de Acceso Abierto, sobre la base de lo establecido en la Ley",
+        "N.° 30035, sus normas reglamentarias, modificatorias, sustitutorias y",
+        "conexas, y de acuerdo con las políticas de acceso abierto que la Universidad",
+        "aplique en relación con sus Repositorios Institucionales. Autorizo",
+        "expresamente toda consulta y uso de los Contenidos, por parte de cualquier",
+        "persona, por el tiempo de duración de los derechos patrimoniales de autor y",
+        "derechos conexos, a título gratuito y a nivel mundial.",
+        "",
+        "Autorizo que los Contenidos sean puestos a disposición del público a través",
+        "de la siguiente licencia:",
+        "",
+        "**Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0",
+        "Internacional** — <https://creativecommons.org/licenses/by-nc-sa/4.0/>",
+        "",
+        "En señal de conformidad, suscribo el presente documento.",
+        "",
+    ]
+    for a in autores:
+        lineas += [
+            "Firma: ______________________________________",
+            f"Nombre: {a.nombres} {a.apellidos}",
+            f"DNI: {a.dni or '__________'}",
+            f"Domicilio: {datos.get('domicilio_para_el_deposito') or '__________'}",
+            "",
+            "Fecha: ______ / ______ / ________",
+            "",
+            "---",
+            "",
+        ]
+    lineas += [
+        "## Si necesitas postergar la publicación",
+        "",
+        "La directiva admite, a solicitud justificada, postergar la publicación del",
+        "documento **hasta un máximo de 2 años** (DS N.° 006-2015-PCM, art. 13), tras",
+        "los cuales se publica de inmediato. La solicitud, con su justificación, se",
+        "adjunta a esta autorización. Es el Anexo 2 de la misma directiva.",
+    ]
+    return "\n".join(lineas)
+
+
+def metadata_complementaria(autores: list[Autor], datos: dict) -> str:
+    """La hoja que va después de la carátula, según la RR N.° 06893-R-18.
+
+    Sin esta hoja no se deposita: "No se realizará el depósito del documento
+    cuando no cumplan con lo establecido en la presente norma".
+    """
+    asesor = datos.get("asesor") or {}
+    orcid_asesor = asesor.get("orcid") or ""
+
+    filas = [
+        ("Código ORCID del autor", datos.get("orcid_autor") or "",
+         "opcional según la directiva"),
+        ("Código ORCID del asesor", orcid_asesor, "**obligatorio**"),
+        ("Grupo de investigación", datos.get("grupo_de_investigacion") or "", ""),
+        ("Institución que financia la investigación",
+         datos.get("fuente_de_financiamiento") or "",
+         "parcial o totalmente; si no hubo, decláralo"),
+        ("Ubicación geográfica donde se desarrolló",
+         datos.get("ubicacion_geografica") or "",
+         "localidades y/o coordenadas geográficas"),
+        ("Año o rango de años que abarcó",
+         datos.get("anios_de_la_investigacion") or "", ""),
+    ]
+
+    lineas = [
+        "# Metadata complementaria del documento",
+        "",
+        "> Hoja exigida por la Directiva para el depósito de documentos de Grados y",
+        "> Títulos en CYBERTESIS (RR N.° 06893-R-18). Va **después de la carátula**.",
+        "",
+        "| Campo | Valor | Nota |",
+        "|---|---|---|",
+    ]
+    for campo, valor, nota in filas:
+        lineas.append(f"| {campo} | {valor or '**FALTA**'} | {nota} |")
+
+    faltan = [c for c, v, _ in filas if not v]
+    if faltan:
+        lineas += [
+            "",
+            "## Lo que falta completar",
+            "",
+            "En `entregables/datos_de_entrega.yaml`:",
+            "",
+        ]
+        lineas += [f"- {c}" for c in faltan]
+        if not orcid_asesor:
+            lineas += [
+                "",
+                "El **ORCID del asesor es obligatorio** y es el que más veces falta.",
+                "Se saca de <https://orcid.org>; si tu asesor no lo tiene, lo crea en",
+                "cinco minutos. Sin él, Biblioteca no deposita el documento.",
+            ]
+    return "\n".join(lineas)
+
+
 def checklist_expediente(perfil, autores: list[Autor], datos: dict) -> str:
     lineas = [
         "# Checklist del expediente",
@@ -476,8 +620,20 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
         declaracion_uso_de_ia(raiz, autores, datos), encoding="utf8")
     (dir_documento / "checklist_expediente.md").write_text(
         checklist_expediente(perfil, autores, datos), encoding="utf8")
+    (dir_documento / "autorizacion_cybertesis.md").write_text(
+        autorizacion_cybertesis(autores, datos), encoding="utf8")
+    (dir_documento / "metadata_complementaria.md").write_text(
+        metadata_complementaria(autores, datos), encoding="utf8")
     inf.info("T20", f"documentos del expediente escritos en "
                     f"{dir_documento.relative_to(raiz)}")
+
+    # El ORCID del asesor es obligatorio para el depósito (RR N.° 06893-R-18) y
+    # no figura en la información complementaria del Anexo 2A, así que es el que
+    # más veces falta: sin él, Biblioteca no deposita el documento.
+    if not (datos.get("asesor") or {}).get("orcid"):
+        inf.aviso("T21", "falta el ORCID del asesor, que la directiva de depósito "
+                         "en Cybertesis (RR N.° 06893-R-18) exige como obligatorio. "
+                         "Complétalo en `entregables/datos_de_entrega.yaml`")
 
     if solo_comprobar or inf.hay_errores:
         return inf
