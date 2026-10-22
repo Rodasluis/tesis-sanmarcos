@@ -15,7 +15,7 @@ nivel: pregrado
 hereda_de: unmsm-general
 estado: hereda_general
 fuente:
-  documento: (sin documento propio de facultad localizado en el relevamiento de la Fase 0b)
+  documento: (sin documento con rango normativo localizado; ver documentos_complementarios)
   norma: null
   fecha: null
   url: null
@@ -25,6 +25,33 @@ fuente:
   busqueda_realizada:
   - rastreo del sitio web de la facultad, incluidas rutas de grados y títulos, trámites y normatividad
   - consultas al buscador restringidas al dominio de la facultad y a unmsm.edu.pe
+documentos_complementarios:
+- nombre: Modelo de tesis de pregrado de la Facultad de Ingeniería Industrial
+  codigo: FII17-R-M003, versión 03
+  fecha: 2024-11-21
+  url: https://industrial.unmsm.edu.pe/wp-content/uploads/2024/11/FII17-R-M003-VS-03-MODELO-DE-TESIS-DE-PREGRADO.pdf
+  archivo_local: normativa/facultades/ing-industrial/FII17-R-M003_v03_modelo_tesis_pregrado.pdf
+  estado: sin_rango_normativo
+  por_que_no_verifica: >-
+    Es un documento controlado del sistema de calidad de la facultad —tiene
+    código y versión— pero no cita ninguna resolución que lo apruebe. Por la
+    regla del repositorio, eso no habilita `verificado`.
+  que_confirma: >-
+    Su esquema es el del Anexo 2B, modelo cuantitativo, capítulo por capítulo
+    (Introducción, Revisión de literatura, Hipótesis y variables, Materiales y
+    métodos, Resultados…). Es decir: confirma que heredar la norma general es lo
+    correcto para esta facultad, en lugar de ser una suposición del repositorio.
+  que_agrega: >-
+    Un campo de carátula que el Anexo 2A no pide, «LÍNEA DE INVESTIGACIÓN», y
+    el acta de sustentación entre los preliminares. Marca dedicatoria y
+    agradecimientos como opcionales.
+
+caratula:
+  campos_adicionales:
+  - campo: linea_de_investigacion
+    rotulo: LÍNEA DE INVESTIGACIÓN
+    fuente: Modelo FII17-R-M003 v03 de la Facultad de Ingeniería Industrial
+
 enfoques_admitidos:
 - cuantitativo
 - cualitativo

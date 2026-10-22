@@ -178,6 +178,43 @@ def comprobar_render(nombre: str, destino_base: pathlib.Path) -> list[str]:
     return problemas
 
 
+def comprobar_entregables(nombre: str, destino_base: pathlib.Path) -> list[str]:
+    """¿Salieron los cuatro entregables, y llevan el escudo en la carátula?
+
+    Son cuatro porque son dos documentos —proyecto de tesis y tesis— en dos
+    formatos: .docx para la evaluación de originalidad (art. 13) y PDF para el
+    depósito en Cybertesis (RR N.° 06893-R-18).
+
+    Lo del escudo se comprueba aparte porque es el fallo que no avisa: el .docx
+    se abre, dice que tiene una imagen, y la primera página sale en blanco.
+    """
+    import docx
+
+    raiz = destino_base / nombre / "entregables"
+    problemas: list[str] = []
+
+    esperados = {
+        "proyecto .docx": list(raiz.glob("PROYECTO/*.docx")),
+        "proyecto PDF": list(raiz.glob("PROYECTO/*.pdf")),
+        "tesis .docx": list(raiz.glob("TEXTO/*.docx")),
+        "tesis PDF": list(raiz.glob("TEXTO/*.pdf")),
+    }
+    for etiqueta, hallados in esperados.items():
+        if not hallados:
+            problemas.append(f"{nombre}: no se generó el {etiqueta}")
+
+    for patron in ("PROYECTO/*.docx", "TEXTO/*Desarrollo*.docx"):
+        for archivo in raiz.glob(patron):
+            doc = docx.Document(str(archivo))
+            if not doc.paragraphs:
+                problemas.append(f"{nombre}: {archivo.name} salió vacío")
+            elif "<w:drawing" not in doc.paragraphs[0]._p.xml:
+                problemas.append(
+                    f"{nombre}: {archivo.name} no lleva el escudo en la "
+                    f"primera página")
+    return problemas
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("nombre", nargs="?", help="ejemplo a montar")
@@ -185,6 +222,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--listar", action="store_true")
     ap.add_argument("--comprobar-render", action="store_true",
                     help="no monta nada: revisa los .docx ya renderizados")
+    ap.add_argument("--comprobar-entregables", action="store_true",
+                    help="revisa que estén los cuatro entregables y el escudo")
     ap.add_argument("--destino", type=pathlib.Path, default=DESTINO_POR_DEFECTO)
     args = ap.parse_args(argv)
 
@@ -192,6 +231,18 @@ def main(argv: list[str] | None = None) -> int:
     if args.listar:
         for nombre in disponibles:
             print(f"  {nombre}  (perfil {perfil_activo(EJEMPLOS / nombre)})")
+        return 0
+
+    if args.comprobar_entregables:
+        objetivos = [args.nombre] if args.nombre else disponibles
+        problemas = [p for n in objetivos
+                     for p in comprobar_entregables(n, args.destino)]
+        for p in problemas:
+            print(f"ERROR {p}", file=sys.stderr)
+        if problemas:
+            return 1
+        for nombre in objetivos:
+            print(f"  {nombre}: proyecto y tesis, en .docx y PDF, con escudo")
         return 0
 
     if args.comprobar_render:

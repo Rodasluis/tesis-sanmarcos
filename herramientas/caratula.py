@@ -114,6 +114,18 @@ def _parrafo(doc, texto: str, *, negrita: bool = False, tamano: int | None = Non
     return p
 
 
+def _campos_adicionales(perfil) -> list[dict]:
+    """Campos de carátula que añade la facultad sobre los del Anexo 2A.
+
+    Ingeniería Industrial, por ejemplo, pide «LÍNEA DE INVESTIGACIÓN» en su
+    modelo de tesis, y la norma general no la pide.
+    """
+    conf = (perfil.get("caratula") if perfil is not None else None) or {}
+    campos = conf.get("campos_adicionales") or []
+    return [c for c in campos
+            if isinstance(c, dict) and c.get("campo") and c.get("rotulo")]
+
+
 def _rotulo_asesor(asesor: dict) -> str:
     """ASESOR o ASESORA, según lo que el propio tesista haya declarado."""
     explicito = (asesor.get("rotulo") or "").strip()
@@ -194,7 +206,13 @@ def construir(doc, datos: dict, perfil, tipo: str = "tesis",
     asesor = datos.get("asesor") or {}
     _parrafo(doc, _rotulo_asesor(asesor), negrita=True, tamano=12,
              espacio_antes=36)
-    _parrafo(doc, _nombre_de_asesor(asesor), tamano=12, espacio_despues=60)
+    ultimo = _parrafo(doc, _nombre_de_asesor(asesor), tamano=12)
+
+    for campo in _campos_adicionales(perfil):
+        _parrafo(doc, campo["rotulo"], negrita=True, tamano=12, espacio_antes=24)
+        ultimo = _parrafo(doc, str(datos.get(campo["campo"]) or ""), tamano=12)
+
+    ultimo.paragraph_format.space_after = Pt(54)
 
     _parrafo(doc, "Lima, Perú", tamano=12)
     _parrafo(doc, str(datos.get("anio") or ""), tamano=12)
@@ -236,8 +254,10 @@ def texto_plano(datos: dict, perfil, tipo: str = "tesis") -> str:
                                                 a.get("apellidos", ""))
                for a in autores]
     asesor = datos.get("asesor") or {}
-    lineas += ["", _rotulo_asesor(asesor), _nombre_de_asesor(asesor), "",
-               "Lima, Perú", str(datos.get("anio") or "")]
+    lineas += ["", _rotulo_asesor(asesor), _nombre_de_asesor(asesor)]
+    for campo in _campos_adicionales(perfil):
+        lineas += ["", campo["rotulo"], str(datos.get(campo["campo"]) or "")]
+    lineas += ["", "Lima, Perú", str(datos.get("anio") or "")]
     return "\n".join(lineas)
 
 

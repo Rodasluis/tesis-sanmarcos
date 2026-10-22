@@ -80,8 +80,18 @@ Tres normas dan dos cifras distintas:
 | Norma | Año | Umbral | Qué dice |
 |---|---|---|---|
 | Directiva de depósito en Cybertesis, RR N.° 06893-R-18 | 2018 | **10 %** | "Este informe no debe reportar un porcentaje de similitud mayor del 10%. Documentos con porcentajes de similitud mayores del 10% no serán aceptados y el tesista no podrá ser declarado expedito hasta cumplir con la exigencia (Art. 66 Reglamento General de Posgrado)" |
+| Directiva de sustentación de tesis de pregrado de la FLCH, RR N.° 009747-2022-R, §15.1, que se remite a la **RR N.° 04305-R-18** | 2022 | **10 %** | "La Universidad considera como original, una tesis u otro documento que sustenta un grado o un título, si este presenta un máximo de 10% de similitud con textos de otros autores, según el reporte automatizado de similitudes del programa informático adoptado por la Universidad" |
 | Directiva de grados y títulos de la FCA, RR N.° 007615-2023-R | 2023 | **10 %** | "La EP someterá el TI a un programa informático de detección de similitudes, debiendo reportar un máximo de hasta el 10% de similitud con textos de otros autores" |
 | Directiva de originalidad, RR N.° 000947-2026-R | 2026 | **0 % a 20 %** | el rango vigente, medido en PIDS |
+
+**El 10 % no era una rareza de cada facultad: era la norma general.** La
+directiva de Letras no inventa esa cifra, la copia de la **RR N.° 04305-R-18**,
+que es la norma de originalidad que rigió a toda la universidad hasta que la de
+2026 la reemplazó. Eso explica por qué el 10 % aparece en documentos de
+facultades distintas y de años distintos: todos citan la misma fuente.
+
+Y explica también por qué va a seguir apareciendo. Las directivas de facultad se
+escribieron con la norma de 2018 delante y no se reescriben solas.
 
 **Resolución en derecho.** La directiva de originalidad de 2026 deja sin efecto
 cualquier norma que se le oponga (Disposición Complementaria Final Segunda), de
@@ -105,6 +115,10 @@ corre un plazo de quince días no suele salir bien.
 - El umbral que se comunica como vigente es **0 % a 20 %**, con su norma.
 - Donde una facultad tiene umbral propio más estricto, el perfil lo declara en
   `similitud.umbral_maximo_pct` y se le dice al tesista que trabaje contra el
-  más estricto. Hoy solo `administrativas-fca`.
+  más estricto. Hoy `administrativas-fca` y `letras-flch`.
+- A un tesista que encuentre el 10 % en un documento de su escuela hay que
+  decirle de dónde viene: es la norma de 2018, no un capricho de su facultad, y
+  la de 2026 la dejó sin efecto. Saberlo le permite preguntar en su escuela con
+  un argumento, en lugar de discutir con una secretaría.
 - Nada de esto cambia que `similitud_interna.py` **no mide** el porcentaje de
   PIDS ni lo anticipa.

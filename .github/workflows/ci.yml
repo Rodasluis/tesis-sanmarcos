@@ -47,6 +47,13 @@ jobs:
       - name: Instalar Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Instalar LibreOffice
+        # Convierte los .docx a PDF. El PDF es lo que exige la directiva de
+        # depósito en Cybertesis (RR N.° 06893-R-18); el .docx, el art. 13.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libreoffice-writer
+
       - name: Sincronizar dependencias
         run: uv sync --extra dev --extra analisis
 
@@ -80,12 +87,29 @@ jobs:
       - name: Comprobar que los .docx existen y no están vacíos
         run: uv run python -m herramientas.preparar_ejemplo --comprobar-render
 
-      - name: Guardar los .docx
+      - name: Generar los entregables del ejemplo cuantitativo
+        # Es la prueba de punta a punta que importa: proyecto de tesis y tesis,
+        # cada uno en .docx y PDF, con la carátula y el escudo de la UNMSM.
+        env:
+          QUARTO_PYTHON: ${{ github.workspace }}/.venv/bin/python
+        run: |
+          raiz=".ejemplos-montados/economia-cuantitativo"
+          uv run python -m herramientas.entregar_proyecto --raiz "$raiz" --detalle
+          uv run python -m herramientas.entregar --raiz "$raiz" --detalle
+
+      - name: Comprobar la carátula y el escudo
+        run: |
+          uv run python -m herramientas.preparar_ejemplo             --comprobar-entregables economia-cuantitativo
+
+      - name: Guardar los entregables
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ejemplos-docx
-          path: .ejemplos-montados/*/entregables/_render/**/*.docx
+          name: ejemplos-entregables
+          path: |
+            .ejemplos-montados/*/entregables/_render/**/*.docx
+            .ejemplos-montados/*/entregables/PROYECTO/*
+            .ejemplos-montados/*/entregables/TEXTO/*
           if-no-files-found: error
 
   perfiles:

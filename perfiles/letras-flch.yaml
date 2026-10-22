@@ -172,6 +172,25 @@ etica:
 autoria: {hereda: unmsm-general}
 vigencia_proyecto_meses: null
 
+similitud:
+  umbral_maximo_pct: 10
+  fuente: >-
+    RR N.° 009747-2022-R, §15.1: «La Universidad considera como original, una
+    tesis u otro documento que sustenta un grado o un título, si este presenta
+    un máximo de 10% de similitud con textos de otros autores, según el reporte
+    automatizado de similitudes del programa informático adoptado por la
+    Universidad». Si supera el 10 %, la autoridad académica lo observa y lo
+    devuelve al autor (§15.2).
+  base: >-
+    La directiva de la FLCH se remite a la RR N.° 04305-R-18, que era la norma
+    general de originalidad de la universidad antes de 2026. El 10 % no es una
+    exigencia propia de Letras.
+  conflicto: >-
+    La Directiva de originalidad vigente (RR N.° 000947-2026-R) fija 0 % a 20 %
+    y deja sin efecto lo que se le oponga, así que en derecho rige el 20 %. Pero
+    quien corre la comprobación es la Escuela Profesional con su directiva, así
+    que lo prudente es trabajar contra el 10 %. Ver normativa/conflictos.md, C-06.
+
 sustentacion:
   jurado: "[PENDIENTE-NORMATIVA]"
   informantes: 2

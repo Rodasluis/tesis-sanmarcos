@@ -269,3 +269,33 @@ def test_un_proyecto_de_prueba_tiene_lo_necesario_para_la_caratula(proyecto):
     from herramientas.perfiles import cargar_de
     p = cargar_de(proyecto, "prueba")
     assert caratula.faltantes(DATOS, p) == []
+
+
+# --- campos que añade la facultad ----------------------------------------
+
+def test_una_facultad_puede_pedir_campos_propios_en_la_caratula():
+    """Ingeniería Industrial pide «LÍNEA DE INVESTIGACIÓN» y el Anexo 2A no."""
+    industrial = cargar("industrial-fii")
+    datos = {**DATOS, "linea_de_investigacion": "Gestión de operaciones"}
+
+    texto = caratula.texto_plano(datos, industrial, "tesis")
+    assert "LÍNEA DE INVESTIGACIÓN" in texto
+    assert "Gestión de operaciones" in texto
+
+    # Y no aparece donde la facultad no la pide.
+    assert "LÍNEA DE INVESTIGACIÓN" not in caratula.texto_plano(
+        datos, cargar("unmsm-general"), "tesis")
+
+
+def test_el_campo_propio_tambien_llega_al_docx(tmp_path):
+    ruta = tmp_path / "t.docx"
+    doc = docx.Document()
+    doc.add_paragraph("Cuerpo")
+    doc.save(str(ruta))
+
+    datos = {**DATOS, "linea_de_investigacion": "Gestión de operaciones"}
+    caratula.anteponer(ruta, datos, cargar("industrial-fii"), "tesis", raiz=RAIZ)
+
+    textos = [p.text for p in docx.Document(str(ruta)).paragraphs]
+    assert "LÍNEA DE INVESTIGACIÓN" in textos
+    assert "Gestión de operaciones" in textos

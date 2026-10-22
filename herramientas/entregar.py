@@ -76,6 +76,7 @@ grupo_de_investigacion: ""
 fuente_de_financiamiento: ""
 disciplina_ocde: ""
 titulo_en_ingles: ""
+linea_de_investigacion: ""   # algunas facultades la piden en la carátula
 
 # Metadata complementaria del depósito en Cybertesis (RR N.° 06893-R-18).
 # Va en una hoja después de la carátula.

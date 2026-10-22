@@ -288,3 +288,40 @@ def test_los_ejemplos_montados_verifican_sin_errores(tmp_path, nombre):
                          f"{[c.nombre for c in r.vacios]}"
     assert r.puede(verificar_todo.UMBRAL_ENTREGA), \
         f"{nombre}: global {r.global_}, peor {r.peor_componente}"
+
+
+# --- los cuatro entregables -----------------------------------------------
+
+def test_el_ejemplo_cuantitativo_trae_su_proyecto_de_tesis():
+    """`proyecto/` y `capitulos/` son dos documentos distintos."""
+    base = ejemplo("economia-cuantitativo")
+    assert list((base / "proyecto").glob("*.qmd")), "sin proyecto de tesis"
+    assert list((base / "capitulos").glob("*.qmd")), "sin capítulos de la tesis"
+
+
+def test_el_ejemplo_trae_sus_datos_de_entrega():
+    """Sin ellos no se puede generar ni probar la carátula."""
+    ruta = (ejemplo("economia-cuantitativo") / "entregables"
+            / "datos_de_entrega.yaml")
+    assert ruta.exists()
+    datos = yaml.safe_load(ruta.read_text(encoding="utf8"))
+    for campo in ("titulo", "anio", "autores", "asesor", "facultad", "escuela",
+                  "titulo_profesional"):
+        assert datos.get(campo), f"falta `{campo}` para la carátula"
+    assert "FICTICIO" in ruta.read_text(encoding="utf8").upper(), (
+        "los datos del ejemplo tienen que decir que el tesista es ficticio")
+
+
+def test_el_montaje_lleva_el_escudo_al_ejemplo(tmp_path):
+    destino = preparar_ejemplo.preparar("economia-cuantitativo", tmp_path)
+    assert (destino / "plantillas" / "marca" / "escudo_unmsm.png").exists()
+    assert list((destino / "proyecto").glob("*.qmd"))
+
+
+def test_comprobar_entregables_detecta_que_faltan(tmp_path):
+    preparar_ejemplo.preparar("economia-cuantitativo", tmp_path)
+    problemas = preparar_ejemplo.comprobar_entregables(
+        "economia-cuantitativo", tmp_path)
+    assert problemas, "recién montado no hay entregables: tiene que avisarlo"
+    assert any("proyecto .docx" in p for p in problemas)
+    assert any("PDF" in p for p in problemas)
