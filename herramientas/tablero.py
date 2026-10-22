@@ -345,7 +345,7 @@ def construir_html(datos: dict) -> str:
 
   <footer>
     Este tablero resume lo que las herramientas encontraron. No certifica nada:
-    la revisión del asesor y del jurado sigue siendo necesaria. El porcentaje de
+    quien aprueba una tesis es el jurado, en la sustentación. El porcentaje de
     similitud oficial lo calcula la plataforma PIDS de la universidad, no este
     repositorio.
   </footer>

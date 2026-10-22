@@ -43,8 +43,9 @@ hipotesis:
 proyecto:
   definido_por_norma: false
   hereda: unmsm-general
-  nota: La facultad no publica esquema de proyecto. Se usará el orden del informe final del Anexo 2B reducido
-    a propuesta, y el asesor debe aprobarlo antes de /analizar.
+  nota: La facultad no publica esquema de proyecto. Se usará el orden del informe final del Anexo 2B
+    reducido a propuesta. Si tu escuela pide otro orden, dilo y se ajusta; no hay que esperar a que
+    nadie lo apruebe para seguir trabajando.
 informe_final:
   origen: herencia
   hereda: unmsm-general

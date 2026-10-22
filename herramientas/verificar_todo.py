@@ -297,7 +297,7 @@ def escribir_resumen(r: Resultado) -> pathlib.Path:
         },
         "descargo": ("Los puntajes son un semáforo, no una medida de calidad. "
                      "Un componente sin material no vale 100: no revisó nada. "
-                     "La revisión del asesor y del jurado sigue siendo necesaria."),
+                     "Quien aprueba una tesis es el jurado, en la sustentación."),
     }
     destino.write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf8")
     return destino

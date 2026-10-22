@@ -145,8 +145,8 @@ class Informe:
     @staticmethod
     def descargo() -> str:
         return ("Sin errores no significa aprobado: significa que estas "
-                "comprobaciones no encontraron nada. La revisión del asesor y del "
-                "jurado sigue siendo necesaria.")
+                "comprobaciones no encontraron nada. Quien aprueba una tesis es "
+                "el jurado, en la sustentación.")
 
     def a_markdown(self, destino: pathlib.Path | None = None) -> pathlib.Path:
         destino = destino or (self.raiz / "registro" / f"{self.herramienta}.md")

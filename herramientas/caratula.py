@@ -75,6 +75,20 @@ TIPOS = {
 }
 
 
+def buscar_escudo(raiz: pathlib.Path = RAIZ) -> pathlib.Path | None:
+    """El escudo del proyecto; si no lo tiene, el del repositorio instalado.
+
+    Un proyecto puede ser una copia a la que le falta `plantillas/marca/`. En
+    ese caso usar el escudo que vienen con las herramientas es mejor que
+    entregar una carátula sin escudo, y no cambia nada: es el mismo archivo.
+    """
+    for base in (raiz, RAIZ):
+        candidato = base / ESCUDO
+        if candidato.exists():
+            return candidato
+    return None
+
+
 def nombre_con_apellidos_en_versales(nombres: str, apellidos: str) -> str:
     """«Kathia Tereza» + «Basurto Salazar» → «Kathia Tereza BASURTO SALAZAR»."""
     nombres = " ".join(nombres.split())
@@ -138,16 +152,17 @@ def construir(doc, datos: dict, perfil, tipo: str = "tesis",
                          f"Los válidos son: {', '.join(TIPOS)}")
     conf = TIPOS[tipo]
 
-    escudo = raiz / ESCUDO
-    if escudo.exists():
+    escudo = buscar_escudo(raiz)
+    if escudo is not None:
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.paragraph_format.space_after = Pt(10)
         p.add_run().add_picture(str(escudo), height=Cm(ALTO_ESCUDO_CM))
     else:
         avisos.append(
-            f"no está {ESCUDO}, así que la carátula sale SIN el escudo de la "
-            f"UNMSM. Regenéralo con `uv run python -m herramientas.marca`")
+            f"no se encontró {ESCUDO} ni en el proyecto ni en el repositorio, "
+            f"así que la carátula sale SIN el escudo de la UNMSM. Regenéralo "
+            f"con `uv run python -m herramientas.marca`")
 
     _parrafo(doc, "Universidad Nacional Mayor de San Marcos",
              negrita=True, tamano=14)
