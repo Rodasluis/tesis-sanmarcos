@@ -1,0 +1,33 @@
+# Datos de entrega del EJEMPLO. El tesista es FICTICIO, como las decisiones.
+# En una tesis real estos datos son los tuyos y este archivo no se versiona.
+
+titulo: "Penetración de internet y productividad laboral en América Latina, 2010-2023"
+anio: 2026
+
+autores:
+  - apellidos: "Rodas Díaz"
+    nombres: "Luis Alberto"
+    dni: "12345678"
+    objetivos: []
+
+asesor:
+  nombres: "Ana María"
+  apellidos: "Quispe Vargas"
+  grado: "Dra."
+  genero: "f"
+  nombres_y_apellidos: "Ana María Quispe Vargas"
+  correo: "aquispe@unmsm.edu.pe"
+  orcid: "0000-0002-1825-0097"
+
+facultad: "Facultad de Ciencias Económicas"
+escuela: "Escuela Profesional de Economía"
+titulo_profesional: "Economista"
+grupo_de_investigacion: "Grupo de Economía Digital"
+fuente_de_financiamiento: "Sin financiamiento externo"
+disciplina_ocde: "5.02 Economía y Negocios"
+titulo_en_ingles: "Internet penetration and labour productivity in Latin America, 2010-2023"
+
+orcid_autor: "0000-0001-2345-6789"
+ubicacion_geografica: "Lima, Perú (-12.0464, -77.0428)"
+anios_de_la_investigacion: "2024-2026"
+domicilio_para_el_deposito: "Av. Universitaria 1234, Lima"

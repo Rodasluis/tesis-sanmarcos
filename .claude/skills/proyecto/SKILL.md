@@ -61,7 +61,31 @@ Reglas al redactar:
 - Persona gramatical y estilo de citas: los del perfil.
 - Describe la muestra con los números que tienes, no con los que te gustaría.
 
-Los capítulos van a `capitulos/` con nombres que salen del perfil, no fijos.
+Las secciones del proyecto van a **`proyecto/`**, no a `capitulos/`. Son dos
+documentos distintos: `proyecto/` es lo que la escuela registra y aprueba, y
+`capitulos/` es la tesis. Nombres con número de orden por delante
+(`01-planteamiento.qmd`), para que el orden no dependa del nombre.
+
+## 3 bis. Genera el documento
+
+El proyecto no se queda en Markdown: se entrega.
+
+```
+uv run python -m herramientas.entregar_proyecto
+```
+
+Produce, en `entregables/PROYECTO/`, el **.docx y el PDF** del proyecto, con la
+carátula oficial —escudo de la UNMSM, facultad, escuela, título, «PROYECTO DE
+TESIS», autor, asesor y año— tomada de las carátulas de las tesis publicadas en
+Cybertesis.
+
+El .docx es lo que se entrega y lo que la escuela devuelve con observaciones; el
+PDF es lo que se imprime o se adjunta sin que se descoloque nada. Son el mismo
+documento.
+
+Los datos de la carátula salen de `entregables/datos_de_entrega.yaml`. Si falta
+alguno, la herramienta **avisa y genera igual**: el proyecto sale incompleto y se
+completa, no se bloquea.
 
 ## 4. Anexos
 

@@ -9,7 +9,7 @@ Fecha: 2026-09-16.
 
 ## C-01 · Apoyo de terceros que excede la asesoría (tensión con el diseño del repositorio)
 
-**Estado:** abierto. Requiere una decisión explícita del tesista y, idealmente, del asesor.
+**Estado:** abierto. Lo resuelve el tesista con una decisión explícita, que queda registrada. Conversarlo con el asesor ayuda y es recomendable, pero el trabajo no se detiene a esperarlo.
 
 **Normas en juego**
 

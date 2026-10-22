@@ -1,0 +1,72 @@
+# Marco teórico
+
+El mecanismo por el que la conectividad elevaría la productividad no es uno sino
+varios: reduce costos de búsqueda y de coordinación, permite reorganizar
+procesos y amplía el mercado al que una empresa puede vender. @Brynjolfsson_2000
+muestran que el retorno de la inversión en tecnología de la información aparece
+sobre todo cuando va acompañada de cambios organizativos.
+
+De ahí se sigue por qué el efecto puede existir en la empresa y no verse en el
+agregado: si la ganancia depende de complementos —capital humano, organización,
+instituciones— que varían mucho entre países y cambian despacio, un indicador de
+acceso a internet no la capta.
+
+Dos ideas organizan el diseño:
+
+**La variación entre países y la variación dentro de un país no miden lo
+mismo.** Comparar Chile con Nicaragua recoge diferencias de instituciones,
+geografía e historia. Comparar a Chile consigo mismo en dos años distintos
+recoge algo más cercano a lo que se quiere medir.
+
+**El periodo entero tiene una tendencia común.** Entre 2010 y 2023 la
+penetración creció en todos los países y la productividad en la mayoría.
+Cualquier par de series crecientes está correlacionado.
+
+**Términos.** *Productividad laboral*: producto interno bruto por persona
+ocupada, en dólares internacionales constantes de 2021. *Penetración de
+internet*: porcentaje de la población que usó internet en los últimos tres
+meses. *Asociación condicional*: la relación que queda entre dos variables tras
+descontar las demás del modelo; no implica causalidad.
+
+# Metodología
+
+## Consideraciones metodológicas
+
+**Diseño.** Estudio observacional de panel, cuantitativo, de alcance
+descriptivo-asociativo. No hay intervención ni asignación.
+
+**Población.** Los países de América Latina en el periodo 2010-2023. No hay
+muestreo: se trabaja con el universo de países de la región para los que el
+Banco Mundial publica las dos variables centrales, de modo que no hay error de
+muestreo que estimar.
+
+**Recopilación.** Descarga por la API v2 del Banco Mundial
+[@bancomundial2026wdi], con registro de fecha, URL e indicadores exactos. Los
+datos crudos no se modifican; toda transformación se hace en código versionado.
+
+**Variables.** Dependiente: logaritmo del PBI por persona ocupada
+(`SL.GDP.PCAP.EM.KD`). Explicativa: personas que usan internet, % de la
+población (`IT.NET.USER.ZS`). Controles: desempleo (`SL.UEM.TOTL.ZS`) y gasto
+público en educación (`SE.XPD.TOTL.GD.ZS`).
+
+**Análisis.** La especificación principal es
+
+$$\ln(Y_{it}) = \beta\,\text{internet}_{it} + \alpha_i + \gamma_t + \varepsilon_{it}$$
+
+con efectos fijos de país ($\alpha_i$) y de año ($\gamma_t$), y errores estándar
+agrupados por país, porque las observaciones de un mismo país en años distintos
+no son independientes.
+
+Se estimarán siete especificaciones —correlación simple, efectos de país, la
+principal, con controles, sin el Perú, hasta 2019 y en primeras diferencias— y
+**se reportarán todas**, incluidas las que debiliten la hipótesis.
+
+**Aspectos éticos.** No se recolecta información de personas y no hay datos
+personales. Las fuentes son secundarias, públicas y se citan con su licencia.
+
+## Limitaciones previstas
+
+La unidad de análisis es el país, de modo que los promedios nacionales esconden
+heterogeneidad interna. El diseño no identifica un efecto causal: los efectos
+fijos no resuelven que un país más productivo pueda permitirse más conectividad.
+Y el indicador mide acceso, no uso productivo.

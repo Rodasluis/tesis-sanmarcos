@@ -17,13 +17,22 @@ La Directiva de originalidad (RR N.° 000947-2026-R), art. 13 apartado A, pide
 ```
 entregables/
   TEXTO/
-    Apellidos Nombres - Desarrollo Título - Año.docx
-    Apellidos Nombres - Protocolo y Complemento Título - Año.docx
+    Apellidos Nombres - Desarrollo Título - Año.docx      (+ .pdf)
+    Apellidos Nombres - Protocolo y Complemento … .docx   (+ .pdf)
   DOCUMENTO/
     checklist_expediente.md
     declaracion_jurada_pids.md
     declaracion_uso_de_ia.md
+    autorizacion_cybertesis.md
+    metadata_complementaria.md
 ```
+
+**Los dos formatos hacen falta, y por normas distintas.** El .docx es lo que
+exige el art. 13 para la evaluación de originalidad. El **PDF** es lo que exige
+la directiva de depósito en Cybertesis (RR N.° 06893-R-18): «el documento estará
+contenido íntegramente en un archivo PDF, el cual debe ser editable, sin claves».
+El PDF se obtiene convirtiendo el .docx, no maquetándolo aparte, para que sean el
+mismo documento.
 
 Tres cosas que se olvidan y devuelven el expediente:
 
@@ -65,9 +74,11 @@ declaraciones y el checklist.
 Ábrelos. El render puede salir sin error y quedar mal, y esto es lo último que
 pasa antes de que lo lea un jurado. Comprueba:
 
-- La carátula tiene todo lo que pide el perfil: escudo, facultad, escuela, la
-  fórmula "Tesis para optar al título profesional de…", el nombre del bachiller y
-  el del asesor, mes y año.
+- La carátula: la pone la herramienta, con el escudo de la UNMSM y el orden de
+  las tesis publicadas en Cybertesis. Comprueba que los **datos** sean los tuyos
+  —facultad, escuela, título profesional, nombre del asesor— porque salen de
+  `entregables/datos_de_entrega.yaml` y eso lo llenas tú.
+- El PDF existe junto a cada .docx y se ve igual que él.
 - La numeración cambia de romanos a árabigos **en la introducción**, no antes ni
   después.
 - El resumen y el abstract no pasan de 200 palabras, y hay 5 palabras clave y 5

@@ -1,0 +1,63 @@
+# Introducción
+
+Entre 2010 y 2023 la penetración de internet creció en todos los países de
+América Latina y la productividad laboral también. De esa coincidencia suele
+deducirse que la conectividad eleva la productividad, y sobre esa deducción se
+construyen argumentos de política: subsidios a la banda ancha, metas de
+cobertura, planes de transformación digital.
+
+Este proyecto propone separar las dos cosas. La pregunta es si la productividad
+de un país es mayor en los años en que su penetración de internet es mayor,
+**una vez descontado lo que le pasó a toda la región al mismo tiempo**.
+
+Los antecedentes están divididos. @Czernich_2011 encuentran un efecto positivo
+de la banda ancha sobre el crecimiento en países de la OCDE, con una estrategia
+de variables instrumentales. @Maurseth_2018 reporta evidencia en contra con
+datos de panel entre países. La discusión sobre la paradoja de la productividad
+lleva décadas abierta [@Yorukoglu_1998], y la revisión reciente de @Endres_2024
+muestra que los resultados dependen de qué indicador de conectividad se mida.
+
+La importancia es concreta: si la asociación agregada no se sostiene al mirar
+dentro de cada país, el argumento que la invoca necesita otro respaldo.
+
+# Definición y planteamiento del problema
+
+## Identificación del problema
+
+La inversión pública en conectividad compite con otros usos del presupuesto.
+Sostener que vale la pena por su efecto en la productividad exige evidencia de
+que la relación existe donde se la invoca —a nivel agregado, en países de
+ingreso medio— y no solo al nivel de la empresa, que es donde se la ha medido
+mejor [@Brynjolfsson_2000].
+
+## Delimitación del problema
+
+El estudio se limita a 17 países de América Latina continental y del Caribe
+hispanohablante, entre 2010 y 2023, con datos agregados por país y año
+publicados por el Banco Mundial [@bancomundial2026wdi]. No cubre empresas,
+hogares ni regiones subnacionales.
+
+## Formulación del problema
+
+**Pregunta general.** ¿Existe una asociación entre la penetración de internet y
+la productividad laboral en los países de América Latina entre 2010 y 2023, una
+vez controlados los factores propios de cada país y los choques comunes a la
+región?
+
+**Preguntas específicas.**
+
+1. ¿Cuál es la magnitud de la asociación en una especificación agregada, sin
+   controles?
+2. ¿Qué ocurre con esa asociación al incorporar efectos fijos de país y de año?
+3. ¿El resultado depende de la inclusión del Perú, de los años de la pandemia o
+   de la forma funcional?
+
+## Justificación del estudio
+
+Un organismo que evalúa un programa de conectividad necesita saber si la
+evidencia agregada que suele citarse se sostiene en países como el Perú. Si no
+se sostiene, el programa no queda invalidado: queda obligado a justificarse por
+lo que sí se puede medir.
+
+La viabilidad está resuelta: los datos son públicos, se descargan por API sin
+registro y el periodo completo está disponible para los 17 países.

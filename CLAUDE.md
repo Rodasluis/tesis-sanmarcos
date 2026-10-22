@@ -202,12 +202,12 @@ Cada etapa es un comando y cierra con un punto de decisión en sesión.
 | 1 | `/explorar-datos` | Cataloga fuentes, ingiere datos, anonimiza, genera diccionario y descriptivos | Qué fuentes usar |
 | 2 | `/afinar-idea` | Propone 3 a 5 preguntas con factibilidad evaluada | Pregunta, hipótesis y estrategia |
 | 3 | `/literatura` | Busca y sintetiza; solo agrega a Zotero con aprobación | Qué lecturas son centrales |
-| 4 | `/proyecto` | Redacta el proyecto con las secciones y denominaciones del perfil | Aprobación y exclusiones justificadas |
+| 4 | `/proyecto` | Redacta el proyecto en `proyecto/` y lo genera en .docx y PDF con carátula | Aprobación y exclusiones justificadas |
 | 5 | `/analizar` | Limpieza, estimaciones y robustez; o codificación y saturación | Especificación o libro de códigos |
 | 6 | `/redactar <cap>` | Redacta cada capítulo desde decisiones, `resultados/` y `referencias.bib` | Revisión y edición |
 | 7 | `/jurado` | Simula el jurado del perfil con observaciones accionables | Qué observaciones atender |
 | 8 | `/verificar` | Corre todas las herramientas y el puntaje global | Correcciones finales |
-| 9 | `/entregar` | Genera los dos .docx, declaraciones y formularios | Conformidad y firma |
+| 9 | `/entregar` | Genera los dos .docx **y sus PDF**, con carátula, declaraciones y formularios | Conformidad y firma |
 | 10 | `/sustentacion` | Diapositivas, guion, banco de preguntas y simulación | Ensayo y ajustes |
 
 Auxiliares: `/autopiloto`, `/estado`, `/asesor`, `/checkpoint`.
@@ -269,7 +269,19 @@ Ningún agente aprueba nada. No existe un visto bueno suyo.
 - **Python**: siempre `uv run`. En Windows, `python` suele ser el stub de
   Microsoft Store y falla en silencio.
 - **Render**: Quarto a `.docx`, con la plantilla de referencia del perfil activo.
-  El PDF es opcional y nunca es el entregable.
+  **El PDF también se genera, y no es opcional**: se obtiene convirtiendo el
+  .docx con LibreOffice, nunca maquetándolo aparte. Son dos trámites sobre el
+  mismo documento —`.docx` para la evaluación de originalidad (art. 13) y PDF
+  para el depósito en Cybertesis (RR N.° 06893-R-18)—, así que tienen que ser
+  el mismo documento. Si no hay LibreOffice, el .docx se genera igual y el PDF
+  queda pendiente con instrucciones: nunca bloquea.
+- **Carátula**: la ponen `entregar.py` y `entregar_proyecto.py` con
+  `herramientas/caratula.py`, que lleva el escudo de la UNMSM. Su diseño se
+  tomó de tesis reales publicadas en Cybertesis, no de una plantilla inventada.
+  El escudo se recorta del logo oficial con `herramientas/marca.py`.
+- **Dos documentos, dos carpetas**: `proyecto/` es el proyecto de tesis, que la
+  escuela registra y aprueba; `capitulos/` es la tesis. Cada uno genera su
+  .docx y su PDF, con su propia carátula.
 - **Perfil activo**: `_quarto.yml` se genera desde el perfil con
   `herramientas/activar_perfil.py`. No lo edites a mano: se sobrescribe.
 - **Enfoque activo**: el archivo `.enfoque` dice `cuantitativo` o `cualitativo`.

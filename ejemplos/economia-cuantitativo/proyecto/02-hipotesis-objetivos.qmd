@@ -1,0 +1,34 @@
+# Hipótesis
+
+**Hipótesis general.** La penetración de internet se asocia positivamente con la
+productividad laboral en los países de América Latina, incluso después de
+controlar por las características fijas de cada país y por los choques comunes a
+la región.
+
+La hipótesis está escrita en la dirección que predice la literatura a favor del
+efecto agregado [@Czernich_2011], no en la que el tesista espera. Se formula así
+para que el resultado pueda contradecirla.
+
+**Hipótesis específicas.**
+
+1. La asociación es positiva y estadísticamente distinta de cero en una
+   especificación sin controles.
+2. La asociación se mantiene positiva y significativa al incorporar efectos
+   fijos de país y de año.
+3. El signo y la significancia no dependen de la inclusión del Perú, de los años
+   de la pandemia ni de la forma funcional.
+
+# Objetivos
+
+**Objetivo general.** Estimar la asociación entre la penetración de internet y la
+productividad laboral en 17 países de América Latina entre 2010 y 2023,
+distinguiendo la variación entre países de la variación dentro de cada país.
+
+**Objetivos específicos.**
+
+1. Describir la evolución de la penetración de internet y de la productividad
+   laboral en la región y en el Perú.
+2. Estimar la asociación con efectos fijos de país y de año, con errores
+   estándar agrupados por país.
+3. Evaluar la robustez del resultado ante cambios de muestra y de
+   especificación.

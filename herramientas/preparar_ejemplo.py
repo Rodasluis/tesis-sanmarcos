@@ -38,9 +38,9 @@ DESTINO_POR_DEFECTO = RAIZ / ".ejemplos-montados"
 #: Lo que se copia del ejemplo. Lo que no está aquí no viaja: `datos/crudos/`
 #: se incluye porque sin él el análisis no se puede rehacer, pero ningún ejemplo
 #: lleva datos personales y hay una prueba que lo comprueba.
-DEL_EJEMPLO = ("capitulos", "codigo", "datos", "decisiones", "resultados",
-               "entregables", "referencias.bib", ".perfil-activo", ".enfoque",
-               "README.md")
+DEL_EJEMPLO = ("capitulos", "proyecto", "codigo", "datos", "decisiones",
+               "resultados", "entregables", "referencias.bib", ".perfil-activo",
+               ".enfoque", "README.md")
 
 
 def ejemplos_disponibles() -> list[str]:
@@ -117,7 +117,7 @@ def preparar(nombre: str, destino_base: pathlib.Path = DESTINO_POR_DEFECTO,
         shutil.copy2(esquema, destino / "perfiles" / "_esquema.yaml")
 
     # 3. La plantilla del perfil y los CSL.
-    for sub in (pid, "csl"):
+    for sub in (pid, "csl", "marca"):
         fuente = RAIZ / "plantillas" / sub
         if fuente.is_dir():
             shutil.copytree(fuente, destino / "plantillas" / sub, dirs_exist_ok=True)

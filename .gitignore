@@ -72,3 +72,8 @@ registro/.etapa
 # Ejemplos montados como proyecto: se regeneran con preparar_ejemplo.
 .ejemplos-montados/
 build/
+
+# Los datos de entrega del EJEMPLO sí se versionan: el tesista es ficticio y
+# sin ellos no se puede demostrar ni probar la generación de los entregables.
+!ejemplos/*/entregables/
+!ejemplos/*/entregables/datos_de_entrega.yaml

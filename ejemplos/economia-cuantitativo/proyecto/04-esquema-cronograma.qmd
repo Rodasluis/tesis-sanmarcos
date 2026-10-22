@@ -1,0 +1,55 @@
+# Esquema del proyecto de investigación
+
+Esquema capitular tentativo de la tesis, en el orden del Anexo 2B de la
+RR N.° 00744-R-20, modelo cuantitativo:
+
+| Capítulo | Contenido previsto |
+|---|---|
+| I. Introducción | Problema, objetivos, importancia y limitaciones |
+| II. Revisión de literatura | Marco teórico, antecedentes, bases teóricas y términos |
+| III. Hipótesis y variables | Hipótesis, variables y operacionalización |
+| IV. Materiales y métodos | Área de estudio, diseño, población, instrumentos y análisis |
+| V. Resultados | Evolución de las series, estimaciones y robustez |
+| VI. Discusión | Contraste con la literatura y límites de la conclusión |
+| VII. Conclusiones y recomendaciones | Una conclusión por objetivo y recomendaciones |
+
+# Cronograma
+
+| Actividad | Mes 1 | Mes 2 | Mes 3 | Mes 4 | Mes 5 | Mes 6 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Revisión de literatura | X | X | | | | |
+| Descarga y construcción del panel | X | | | | | |
+| Descriptivos y diagnóstico de datos | | X | | | | |
+| Estimación y robustez | | | X | X | | |
+| Redacción de capítulos | | | | X | X | |
+| Revisión y corrección | | | | | X | X |
+| Presentación para sustentación | | | | | | X |
+
+# Presupuesto
+
+| Rubro | Monto estimado (S/) |
+|---|---:|
+| Acceso a internet y electricidad | 600 |
+| Bibliografía no abierta | 0 |
+| Impresión y empastado | 350 |
+| Trámites de titulación | 500 |
+| **Total** | **1 450** |
+
+Los datos son de acceso abierto y gratuito, de modo que el proyecto no requiere
+financiamiento para su recolección.
+
+# Bibliografía
+
+Las referencias citadas en este proyecto se listan a continuación, en el estilo
+que fije el perfil de la escuela.
+
+::: {#refs}
+:::
+
+# Anexos
+
+**Anexo 1. Matriz de consistencia.** Relaciona problema, objetivos, hipótesis,
+variables y metodología. Se adjunta en hoja aparte.
+
+**Anexo 2. Matriz de operacionalización de variables.** Indicador del Banco
+Mundial, definición, unidad de medida y nombre de la variable en el panel.

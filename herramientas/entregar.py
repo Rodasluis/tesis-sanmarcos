@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import os
 import pathlib
 import re
 import shutil
@@ -39,7 +40,7 @@ from dataclasses import dataclass, field
 
 import yaml
 
-from herramientas import docx_numeracion, registro_ia
+from herramientas import caratula, docx_numeracion, pdf, registro_ia
 from herramientas.informe import Informe
 from herramientas.perfiles import ErrorDePerfil, cargar_de, perfil_activo
 
@@ -181,8 +182,15 @@ def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
 
     imagenes_en_tabla = 0
     for tabla in doc.tables:
-        if "<w:drawing" in tabla._tbl.xml or "<w:pict" in tabla._tbl.xml:
-            imagenes_en_tabla += 1
+        if "<w:drawing" not in tabla._tbl.xml and "<w:pict" not in tabla._tbl.xml:
+            continue
+        # Pandoc emite cada figura con su leyenda dentro de una tabla de una
+        # sola celda. Eso es una figura, no una tabla de datos rasterizada, y
+        # el art. 13 A.6 habla de lo segundo. Contarlas como infracción
+        # bloqueaba la entrega de cualquier tesis que tuviera un gráfico.
+        if len(tabla.rows) == 1 and len(tabla.columns) == 1:
+            continue
+        imagenes_en_tabla += 1
     if imagenes_en_tabla:
         inf.error("T11", f"{imagenes_en_tabla} tabla(s) contienen imágenes. El art. 13 "
                          "A.6 exige que las tablas estén como texto",
@@ -531,24 +539,135 @@ def _render(entradas: list[pathlib.Path], destino: pathlib.Path,
     quarto = _quarto()
     if quarto is None:
         return False, "no se encontró quarto en el PATH"
-    combinado = destino.with_suffix(".qmd")
-    partes = []
-    for ruta in entradas:
-        partes.append(ruta.read_text(encoding="utf8", errors="replace"))
-    combinado.write_text("\n\n".join(partes), encoding="utf8")
-    cmd = [quarto, "render", str(combinado), "--to", "docx",
+    # El .qmd combinado se arma EN LA RAÍZ del proyecto, que es desde donde el
+    # repositorio ejecuta el código (`execute-dir: project`). Así no hace falta
+    # `--execute-dir`, que en Windows mata el kernel de Jupyter cuando apunta a
+    # un directorio distinto del del archivo.
+    #
+    # El precio es que las rutas relativas de los capítulos —sus figuras, que
+    # apuntan a `../resultados/…` desde `capitulos/`— dejan de ser válidas. Se
+    # reubican una por una. Si no se hiciera, pandoc no encontraría la imagen,
+    # la sustituiría por su texto alternativo y NO fallaría: saldría una tesis
+    # sin figuras y sin aviso.
+    combinado = raiz / f"_entrega_{abs(hash(destino.name)) % 10**8}.qmd"
+    partes = [_reubicar_rutas(r.read_text(encoding="utf8", errors="replace"),
+                              r.parent, raiz)
+              for r in entradas]
+    # El archivo combinado no hereda el `_quarto.yml` del proyecto, porque no
+    # está en su lista de `render:`. Sin declarar el idioma, las leyendas salen
+    # en inglés —«Figure 1», «Table 2»— en una tesis escrita en español.
+    cabecera = ["---", "lang: es", f'bibliography: "{_bib(raiz)}"' if _bib(raiz) else "",
+                "---", ""]
+    texto = "\n".join(ln for ln in cabecera if ln) + "\n\n" + "\n\n".join(partes)
+    combinado.write_text(texto, encoding="utf8")
+
+    salida = raiz / destino.name
+    cmd = [quarto, "render", combinado.name, "--to", "docx",
            "--reference-doc", str(referencia.resolve()),
            "--output", destino.name]
     try:
-        r = subprocess.run(cmd, capture_output=True, text=True, cwd=str(destino.parent),
-                           timeout=600)
+        r = _correr_quarto(cmd, raiz)
     except Exception as e:  # noqa: BLE001
         return False, f"falló el render: {e}"
     finally:
-        combinado.unlink(missing_ok=True)
-    if r.returncode != 0:
-        return False, (r.stderr or r.stdout or "").strip()[-400:]
-    return destino.exists(), ""
+        _limpiar_residuos(combinado)
+
+    if r.returncode != 0 or not salida.exists():
+        return False, _motivo_util(r.stderr, r.stdout) or "quarto no escribió el .docx"
+
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    salida.replace(destino)
+
+    perdidas = [ln.split("Could not fetch resource", 1)[1].split(":")[0].strip()
+                for ln in (r.stderr or "").splitlines()
+                if "Could not fetch resource" in ln]
+    if perdidas:
+        return True, "FIGURAS: " + "; ".join(perdidas[:6])
+    return True, ""
+
+
+#: Rutas de recurso en Markdown: `![pie](ruta)`, `[texto](ruta)` y los
+#: `{{< include ruta >}}` de Quarto.
+RE_RUTA_MD = re.compile(r"(!?\[[^\]]*\]\()([^)\s]+)")
+RE_INCLUDE_QMD = re.compile(r"(\{\{<\s*include\s+)([^>\s]+)")
+
+
+def _reubicar_rutas(texto: str, desde: pathlib.Path, hacia: pathlib.Path) -> str:
+    """Reescribe las rutas relativas de un .qmd que cambia de carpeta.
+
+    Solo toca lo que es relativo y apunta a un archivo que existe: una URL, una
+    ruta absoluta o un enlace a algo inexistente se dejan como están, porque
+    cambiarlos sería adivinar.
+    """
+    if desde.resolve() == hacia.resolve():
+        return texto
+
+    def nueva(ruta: str) -> str:
+        if re.match(r"^[a-z]+:", ruta, re.I) or ruta.startswith(("/", "#")):
+            return ruta
+        destino = (desde / ruta).resolve()
+        if not destino.exists():
+            return ruta
+        try:
+            return os.path.relpath(destino, hacia.resolve()).replace("\\", "/")
+        except ValueError:          # unidades distintas en Windows
+            return ruta
+
+    texto = RE_RUTA_MD.sub(lambda m: m.group(1) + nueva(m.group(2)), texto)
+    return RE_INCLUDE_QMD.sub(lambda m: m.group(1) + nueva(m.group(2)), texto)
+
+
+def _bib(raiz: pathlib.Path) -> str:
+    """`referencias.bib`, si existe. Sin él, las citas saldrían sin resolver."""
+    return "referencias.bib" if (raiz / "referencias.bib").exists() else ""
+
+
+def _limpiar_residuos(combinado: pathlib.Path) -> None:
+    """Borra el .qmd temporal y lo que Quarto deja a su lado."""
+    combinado.unlink(missing_ok=True)
+    combinado.with_suffix(".quarto_ipynb").unlink(missing_ok=True)
+    adjuntos = combinado.with_name(combinado.stem + "_files")
+    if adjuntos.is_dir():
+        shutil.rmtree(adjuntos, ignore_errors=True)
+
+
+def _correr_quarto(cmd: list[str], raiz: pathlib.Path):
+    """Corre Quarto y, si el kernel muere, limpia su caché y reintenta una vez.
+
+    «Kernel died before replying to kernel_info» no dice nada del documento:
+    es estado viejo en `.quarto/` o en `_freeze/` de un render anterior que se
+    interrumpió. Pasa, y dejar al tesista con ese mensaje es abandonarlo.
+    """
+    r = subprocess.run(cmd, capture_output=True, text=True, cwd=str(raiz),
+                       timeout=900)
+    if r.returncode == 0:
+        return r
+    salida = (r.stderr or "") + (r.stdout or "")
+    if "Kernel died" not in salida and "kernel_info" not in salida:
+        return r
+
+    for cache in (".quarto", "_freeze"):
+        shutil.rmtree(raiz / cache, ignore_errors=True)
+    return subprocess.run(cmd, capture_output=True, text=True, cwd=str(raiz),
+                          timeout=900)
+
+
+def _motivo_util(stderr: str | None, stdout: str | None) -> str:
+    """El mensaje que explica el fallo, no el rastro de pila de Quarto.
+
+    Quarto escribe su stack de JavaScript al final de la salida, así que
+    quedarse con los últimos caracteres devolvía siempre lo mismo y nunca la
+    causa.
+    """
+    texto = ((stderr or "") + "\n" + (stdout or "")).strip()
+    if not texto:
+        return ""
+    lineas = [ln for ln in texto.splitlines()
+              if ln.strip() and not ln.lstrip().startswith("at ")]
+    for i, ln in enumerate(lineas):
+        if "ERROR" in ln.upper():
+            return " | ".join(lineas[i:i + 6])[:500]
+    return " | ".join(lineas[-6:])[:500]
 
 
 def _clasificar_capitulos(raiz: pathlib.Path) -> tuple[list[pathlib.Path], list[pathlib.Path]]:
@@ -652,6 +771,7 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
     if "superior" in str(numeracion.get("posicion", "")).lower():
         posicion = "superior_derecha"
 
+    generados: list[pathlib.Path] = []
     for etiqueta, entradas in (("desarrollo", desarrollo), ("complemento", complemento)):
         if not entradas:
             continue
@@ -660,7 +780,32 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
         if not ok:
             inf.error("T15", f"no se pudo generar el archivo de {etiqueta}: {motivo}")
             continue
+        if motivo.startswith("FIGURAS:"):
+            # Pandoc sustituye la imagen que no encuentra por su texto
+            # alternativo y sigue. El .docx sale, pero sin figuras.
+            inf.error("T19", f"el archivo de {etiqueta} se generó SIN estas figuras, "
+                             f"porque no se encontraron: "
+                             f"{motivo.removeprefix('FIGURAS:').strip()}. Revisa las "
+                             f"rutas en los capítulos")
         revisar_docx(destino, inf)
+
+        # La carátula va en el archivo de Desarrollo, que es el que abre la
+        # tesis. Se inserta sobre el .docx YA RENDERIZADO: la plantilla de
+        # referencia solo aporta estilos, y copiarla traería su contenido de
+        # muestra.
+        if etiqueta == "desarrollo":
+            try:
+                for aviso in caratula.anteponer(destino, datos, perfil, "tesis", raiz):
+                    inf.aviso("T27", aviso, archivo=destino)
+                inf.info("T22", "carátula con el escudo de la UNMSM insertada",
+                         archivo=destino)
+            except Exception as e:  # noqa: BLE001
+                inf.aviso("T23", f"no se pudo insertar la carátula: {e}. El resto "
+                                 f"del documento está bien; la carátula se puede "
+                                 f"pegar a mano", archivo=destino)
+            for falta in caratula.faltantes(datos, perfil):
+                inf.aviso("T24", f"la carátula va incompleta: falta {falta}")
+
         if etiqueta == "complemento":
             try:
                 docx_numeracion.aplicar(destino, posicion=posicion)
@@ -669,9 +814,28 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
                                 "así que va entero en numeración romana", archivo=destino)
             except Exception as e:  # noqa: BLE001
                 inf.aviso("T17", f"no se pudo aplicar la numeración: {e}", archivo=destino)
+        generados.append(destino)
         inf.info("T18", f"generado {destino.relative_to(raiz)}")
 
+    _convertir_a_pdf(generados, inf, raiz)
     return inf
+
+
+def _convertir_a_pdf(docxs: list[pathlib.Path], inf: Informe,
+                     raiz: pathlib.Path) -> None:
+    """El PDF del depósito en Cybertesis, desde el mismo .docx de la entrega.
+
+    Nunca bloquea: el .docx es el entregable que exige el art. 13 y se genera
+    igual. El PDF es lo que pide la directiva de depósito (RR N.° 06893-R-18).
+    """
+    if not docxs:
+        return
+    hechos, problemas = pdf.convertir_varios(docxs)
+    for ruta in hechos:
+        inf.info("T25", f"PDF generado: {ruta.relative_to(raiz)}")
+    for p in problemas:
+        inf.aviso("T26", f"no se generó el PDF. El .docx, que es el entregable "
+                         f"del art. 13, está completo. {p}")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -679,11 +843,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--comprobar", action="store_true",
                     help="valida los datos y genera el expediente, sin renderizar")
     ap.add_argument("--perfil")
+    ap.add_argument("--raiz", type=pathlib.Path, default=RAIZ,
+                    help="raíz del proyecto; por defecto, este repositorio")
     ap.add_argument("--sin-informe", action="store_true")
     ap.add_argument("--detalle", action="store_true")
     args = ap.parse_args(argv)
 
-    inf = preparar(solo_comprobar=args.comprobar, perfil_id=args.perfil)
+    inf = preparar(raiz=args.raiz, solo_comprobar=args.comprobar,
+                   perfil_id=args.perfil)
     print(inf.volcar(en_disco=not args.sin_informe, mostrar_info=args.detalle))
     return inf.codigo_salida()
 
