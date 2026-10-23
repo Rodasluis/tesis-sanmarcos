@@ -270,6 +270,38 @@ Dos cosas que importan para este repositorio:
 
 Su umbral de similitud del 10 % está superado por la directiva de originalidad de 2026: ver `conflictos.md`, C-06.
 
+### R-26 · Los anexos vigentes del depósito son los de 2019, no los de 2018
+
+La RR N.° 06893-R-18 aprobó la directiva. La **RR N.° 00584-R-19, del 05/02/2019,
+modificó su anexo**. Los formatos que hay que usar son los de la versión
+modificada, que reproduce el «Protocolo para el depósito en CYBERTESIS durante el
+estado de emergencia sanitaria COVID-19» (`Protocolo_deposito_cybertesis_UNMSM.pdf`,
+en `normativa/`).
+
+La diferencia importa, y no es cosmética:
+
+| Anexo | Qué pide la versión vigente |
+|---|---|
+| **3.1** Autorización de depósito | Añade un bloque de datos que la de 2018 no tenía: **correo institucional, teléfono, tipo de documento, nombre del grado o título, asesores y facultad**. Licencia **CC BY-NC-SA 4.0** |
+| **3.2** Postergación (opcional) | **6, 12, 18 o 24 meses**, con cuatro motivos tipificados: patente, envío a revista indexada, convenio de confidencialidad, u otro justificado |
+| **4** Información complementaria | **Tres campos obligatorios**: ORCID del asesor, **DNI del autor** y **DNI del asesor**. Más ORCID del autor, grupo de investigación, financiamiento, ubicación geográfica con coordenadas y año o rango de años |
+| **2** Informe de evaluación de originalidad | Lo firma el evaluador y el Director de EP/UPG, no el tesista. Consigna el software usado, **su configuración** (excluye entrecomillados, bibliografía, cadenas menores a 40 palabras) y el porcentaje |
+
+**Ninguno de los tres campos obligatorios del Anexo 4 figura en la información
+complementaria del Anexo 2A** de la directiva general de tesis, que es de donde
+salía la lista que usaba este repositorio. El DNI del asesor, en particular, no
+aparece en ninguna otra parte del expediente.
+
+**Procedimiento, y quién hace qué.** El envío lo hace la Dirección de la Escuela
+Profesional o de la Unidad de Posgrado desde su correo institucional, no el
+tesista, a `recepciontesis.dsbbc@unmsm.edu.pe`. Todos los archivos van en PDF
+**salvo la información complementaria, que va en Word**. Si el conjunto pasa de
+25 MB se envía un enlace a una carpeta de Drive. La confirmación de Biblioteca
+sirve de constancia de entrega y depósito.
+
+**Motor:** `entregar.py` genera los anexos 3.1, 3.2 y 4, este último también en
+.docx, y avisa si falta alguno de los tres campos obligatorios.
+
 ## 8. Pendientes y salvedades
 
 | ID | Asunto | Estado |
@@ -277,10 +309,10 @@ Su umbral de similitud del 10 % está superado por la directiva de originalidad 
 | **P-01** | **Declaración de uso de IA por el tesista.** Ninguna de las normas leídas exige declarar el uso de IA generativa en una tesis, ni fija un formato. La RR 008449-2025-R es una guía **pedagógica para docentes** (planificación de clases, evaluación, ejemplos de prompts); no regula la redacción de tesis por estudiantes ni establece obligación de declarar. | `[PENDIENTE-NORMATIVA]`. El anexo de declaración de uso de IA que genera el repositorio es una **medida voluntaria de transparencia**, apoyada en el principio de transparencia del Código de Ética (R-21), **no** un requisito normativo. Debe presentarse así al tesista. |
 | **P-02** | **Guía de IA generativa para estudiantes de la UNMSM.** Buscada; no encontrada. | `[PENDIENTE-NORMATIVA]`, conforme a lo previsto en el encargo. |
 | **P-03** | **Versión vigente del Código Nacional de Integridad Científica.** Hay dos PDF con distinta extensión (10 y 17 páginas) y dos resoluciones (RP 028-2024 y RP 035-2024-CONCYTEC-P, esta última modificatoria). | Verificar cuál es el texto vigente antes de citar artículos. |
-| **P-04** | **Directiva de depósito en Cybertesis (RR 06893-R-18).** | **Cerrado**: leída por rasterización, requisitos en R-25. Su modificatoria **RR 00584-R-19 existe** —lo confirma una presentación del repositorio de CONCYTEC que cita «RR N° 06893-R-18 y la modificatoria RR N° 00584-R-19»— pero su texto no se ha localizado ni en el sitio de la UNMSM ni en gob.pe. No se cita nada de ella. |
-| **P-08** | **Reglamento de tesis de la Facultad de Educación.** Buscado otra vez en la revisión final, por nombre y por número de resolución, restringiendo al dominio de la universidad. No aparece. | El perfil `educacion-fe` sigue en `solo_fuente_secundaria`. |
-| **P-09** | **Resolución que aprueba la guía de la Escuela de Economía.** Buscada de nuevo; no aparece. | El perfil `economia-fce` sigue en `verificar`. Ver `conflictos.md`, C-03. |
-| **P-10** | **RR N.° 04305-R-18**, norma general de originalidad anterior a la de 2026, de donde sale el 10 % que repiten las directivas de facultad. Se conoce por la cita de la FLCH; el documento no se ha descargado. | No bloquea: la norma vigente es la de 2026 y está leída. Se anota porque explica el origen del 10 %. Ver `conflictos.md`, C-06. |
+| **P-04** | **Directiva de depósito en Cybertesis (RR 06893-R-18) y su modificatoria RR 00584-R-19.** | **Cerrado.** La modificatoria es del **05/02/2019** y **modifica el anexo** de la directiva, no su cuerpo. Su contenido vigente está en el «Protocolo para el depósito en CYBERTESIS» (`Protocolo_deposito_cybertesis_UNMSM.pdf`), que reproduce los anexos al día. Ver R-25. |
+| **P-08** | **Reglamento de tesis de la Facultad de Educación (R.D. 1069-D-FE-2017).** Buscado tres veces: en el sitio de la facultad, en el buscador restringido al dominio y por número de resolución. Solo aparece reproducido en sitios de terceros. | **Cerrado el 23/10/2026 por decisión del tesista**: la facultad se rige por el marco general y el perfil pasa a `hereda_general`. La pista queda anotada en el perfil por si aparece el original. |
+| **P-09** | **Resolución que aprueba la guía de la Escuela de Economía.** Buscada varias veces; no aparece. | **Cerrado el 23/10/2026 por decisión del tesista**: la facultad se rige por el marco general y el perfil pasa a `hereda_general`. La guía queda como documento complementario. Ver `conflictos.md`, C-03. |
+| **P-10** | **RR N.° 04305-R-18**, «Procedimiento para la evaluación de la originalidad de los documentos de investigación conducentes a grados o títulos de la UNMSM». Es la norma general de originalidad anterior a la de 2026 y la fuente del 10 % que repiten las directivas de facultad. Confirmada por dos documentos que la citan en su base legal; el texto no se ha descargado. | No bloquea: la norma vigente es la de 2026 y está leída. Ver `conflictos.md`, C-06. |
 | **P-05** | **Obligaciones concretas del DS 016-2024-JUS** aplicables a una tesis con datos personales. | Pendiente para la Fase 3. |
 | **P-06** | **Reglamento del RENATI.** El texto integrado se obtuvo de una copia alojada por la Universidad Nacional de San Agustín, porque el enlace oficial de SUNEDU redirige a gob.pe, que bloquea la descarga automatizada desde este equipo. | No se citará artículo del RENATI hasta contrastarlo con el PDF oficial. |
 | **P-07** | **Edición de APA que exige la Escuela de Economía.** Su guía dice "normas APPA" sin precisar edición ni año. | `[PENDIENTE-NORMATIVA]`; el perfil usará APA 7 como valor operativo, marcado. |

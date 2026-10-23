@@ -152,15 +152,16 @@ facultades:
     nivel: pregrado
     url: null
     archivo_local: PAUTAS_PARA_SUSTENTACION_DE_TESIS_economia-fce.docx
-    estado: verificar
+    estado: hereda_general
   rasgos_confirmados:
     alcance: solo el proyecto o diseño; no define el informe final
     orden_particular: hipótesis antes de objetivos
     items_excluibles_con_justificacion: true
     estilo_citas: apa (edición no precisada en el documento)
   esquema_de_facto: ciencias-economicas/esquema_de_facto.md
-  nota: 'No acredita rango normativo: sin número de resolución, fecha ni firma. Ver normativa/conflictos.md,
-    C-03. Para el informe final rige el Anexo 2B.'
+  nota: 'DECISIÓN DEL TESISTA (23/10/2026): la facultad se rige por el marco normativo general. La guía
+    no acredita rango normativo —sin resolución, fecha ni firma— y solo regula el proyecto. Queda en el
+    perfil como documento complementario.'
 - nombre: Facultad de Derecho y Ciencia Política
   slug: derecho-y-ciencia-politica
   escuelas:
@@ -347,13 +348,13 @@ facultades:
   - Educación Física
   documento_estructura:
     nombre: R.D. 1069-D-FE-2017 (esquema de tesis)
-    estado: solo_fuente_secundaria
+    estado: hereda_general
     nivel: pregrado
     url: null
   esquema_de_facto: educacion/esquema_de_facto.md
-  nota: La especificación del encargo la citaba desde una fuente secundaria. El relevamiento no logró
-    localizar el documento oficial ni confirmar su vigencia. No se creará perfil de Educación sobre esa
-    base.
+  nota: 'DECISIÓN DEL TESISTA (23/10/2026): la facultad se rige por el marco normativo general. La R.D.
+    1069-D-FE-2017 se buscó tres veces y solo aparece en sitios de terceros, que no sirven de respaldo.
+    Si aparece el original, el perfil se puede verificar.'
 - nombre: Facultad de Ciencias Contables
   slug: ciencias-contables
   escuelas:
@@ -463,3 +464,11 @@ relevamiento_fase_7:
     la publican. Las cuatro verificadas aparecen porque alguien enlazó el PDF desde una página indexable.
     Buscar por «resolución rectoral que aprueba» rinde más que buscar por facultad, porque las directivas
     de facultad se ratifican por RR.'
+  decision_posterior:
+    fecha: 2026-10-23
+    que: Economía y Educación pasan a `hereda_general`. Con eso quedan 4 facultades con norma propia verificada
+      y 16 que heredan la general.
+    por_que: 'Los estados intermedios —`verificar` y `solo_fuente_secundaria`— obligaban a advertir en
+      cada etapa sobre documentos que no acreditan rango normativo y que, en el caso de Economía, ni siquiera
+      cambian la estructura de la tesis. Heredar la norma general no es un vacío: los Anexos 2A y 2B son
+      norma.'

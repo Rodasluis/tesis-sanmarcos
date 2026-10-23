@@ -35,7 +35,7 @@ Aun así, el modelo de trabajo de `tesis-sanmarcos` —Claude ejecuta el 100 % d
 
 ---
 
-## C-02 · Denominación del documento de la Escuela de Economía
+## C-02 · Denominación del documento de la Escuela de Economía — CERRADO
 
 **Estado:** resuelto por normalización, registrado.
 
@@ -45,13 +45,24 @@ El archivo `PAUTAS PARA SUSTENTACION DE TESIS.docx` regula, por su contenido, la
 
 ---
 
-## C-03 · El documento de Economía no acredita rango normativo
+## C-03 · El documento de Economía no acredita rango normativo — CERRADO
 
 **Estado:** abierto.
 
 El documento no contiene número de resolución, fecha, firma ni código de verificación, y él mismo se declara "GUIA BREVE […] en concordancia con el Reglamento General de Grados y Títulos". Por su parte, la directiva general RR 00744-R-20 §6.3 exige que la **facultad apruebe** la normativa específica y establezca la estructura del cuerpo de los documentos, "previa conformidad del Vicerrectorado Académico de Pregrado".
 
-**Consecuencia:** el perfil `economia-fce` no puede llevar `estado: verificado`. Se le asigna `estado: documento_en_mano` y `verificar_perfil.py` impedirá elevarlo a `verificado` mientras no exista en `normativa/facultades/economia/` la resolución que lo aprueba.
+**Consecuencia:** el perfil `economia-fce` no puede llevar `estado: verificado`.
+
+**Cerrado el 23/10/2026, por decisión del tesista:** la facultad se rige por el
+marco normativo general de la universidad. La resolución que aprueba la guía se
+buscó varias veces y no apareció; mantener el perfil en un estado intermedio
+obligaba a advertir en cada etapa sobre un documento que, además, solo regula el
+proyecto y no cambia la estructura de la tesis.
+
+La guía **no se borra**: queda en el perfil como `documentos_complementarios`,
+porque describe lo que la escuela pide para el proyecto y eso sigue siendo útil.
+Lo que cambia es que ya no se presenta como norma. Si aparece la resolución, el
+perfil se puede verificar.
 
 ---
 

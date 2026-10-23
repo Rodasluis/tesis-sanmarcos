@@ -91,11 +91,38 @@ def test_derecho_hereda_la_estructura_del_perfil_base():
     assert (d.get("formato") or {}).get("fuente") == ["Arial"]
 
 
-def test_economia_no_puede_estar_verificado():
-    """Su guía no acredita rango normativo: C-03 de conflictos.md."""
-    e = P.cargar("economia-fce")
-    assert e.estado == "verificar"
-    assert not e.verificado
+def test_solo_esta_verificado_lo_que_tiene_documento_en_disco():
+    """La regla que importa, comprobada sobre los 21 perfiles.
+
+    Antes esto se probaba nombrando a `economia-fce`, que entonces estaba en
+    `verificar`. Pero lo que hay que proteger no es el estado de una facultad
+    concreta —puede cambiar, y cambió— sino la regla: nadie lleva
+    `verificado` sin el documento que lo respalde.
+    """
+    for pid in P.listar():
+        perfil = P.cargar(pid)
+        if not perfil.verificado:
+            continue
+        fuente = perfil.get("fuente") or {}
+        archivo = fuente.get("archivo_local")
+        assert archivo, f"{pid}: dice `verificado` y no declara documento"
+        assert (RAIZ / archivo).exists(), (
+            f"{pid}: dice `verificado` y falta {archivo}")
+        assert fuente.get("norma"), (
+            f"{pid}: dice `verificado` y no declara número de resolución")
+
+
+def test_economia_y_educacion_heredan_el_marco_general():
+    """Decisión del tesista del 23/10/2026.
+
+    Ninguno de los dos documentos acreditó rango normativo y mantenerlos en un
+    estado intermedio obligaba a advertir en cada etapa sobre algo que no
+    cambia la estructura de la tesis.
+    """
+    for pid in ("economia-fce", "educacion-fe"):
+        perfil = P.cargar(pid)
+        assert perfil.estado == "hereda_general", pid
+        assert not perfil.verificado, pid
 
 
 def test_la_herencia_no_pisa_lo_propio():

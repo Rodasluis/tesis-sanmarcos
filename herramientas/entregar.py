@@ -38,6 +38,7 @@ import subprocess
 import sys
 from dataclasses import dataclass, field
 
+import docx
 import yaml
 
 from herramientas import caratula, docx_numeracion, pdf, registro_ia
@@ -67,7 +68,8 @@ autores:                   # hasta tres (RR 00744-R-20, §7.2 a)
 asesor:
   nombres_y_apellidos: ""
   correo: ""               # institucional
-  orcid: ""                # OBLIGATORIO: RR 06893-R-18, metadata complementaria
+  orcid: ""                # OBLIGATORIO para el deposito (Anexo 4)
+  dni: ""                  # OBLIGATORIO para el deposito (Anexo 4)
 
 facultad: ""
 escuela: ""
@@ -83,7 +85,10 @@ linea_de_investigacion: ""   # algunas facultades la piden en la carátula
 orcid_autor: ""            # opcional: la directiva dice que no todos lo tienen
 ubicacion_geografica: ""   # localidades y/o coordenadas donde se hizo el estudio
 anios_de_la_investigacion: ""   # año o rango, p. ej. "2024-2025"
-domicilio_para_el_deposito: ""  # lo pide el Anexo 1 de la autorización
+domicilio_para_el_deposito: ""  # lo pide el Anexo 3.1 de la autorización
+correo_institucional: ""   # tu correo @unmsm.edu.pe, lo pide el Anexo 3.1
+telefono: ""               # lo pide el Anexo 3.1
+tipo_de_documento: "Tesis" # Tesis, Trabajo de investigación…
 """
 
 
@@ -329,28 +334,59 @@ def declaracion_jurada_pids(autores: list[Autor], datos: dict) -> str:
     return "\n".join(lineas)
 
 
+def _dato(valor, etiqueta_vacia: str = "__________") -> str:
+    texto = str(valor or "").strip()
+    return texto or etiqueta_vacia
+
+
 def autorizacion_cybertesis(autores: list[Autor], datos: dict) -> str:
-    """Anexo 1 de la RR N.° 06893-R-18: autorización para depositar en Cybertesis.
+    """Anexo 3.1: autorización para el depósito de la obra en CYBERTESIS.
 
-    Es obligatoria ("El documento debidamente firmado por el autor y que da la
-    autorización para el depósito y publicación de la tesis en CYBERTESIS es
-    obligatorio") y fija la licencia: Creative Commons
-    Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional.
+    La directiva original es la RR N.° 06893-R-18, pero **su anexo fue
+    modificado por la RR N.° 00584-R-19** del 05/02/2019. La versión vigente es
+    la que reproduce el «Protocolo para el depósito en CYBERTESIS durante el
+    estado de emergencia sanitaria COVID-19», que es el documento que la
+    universidad publica con los formatos al día.
 
-    El texto de abajo sigue el del anexo. Lo que el tesista firma es una cesión
-    de uso a título gratuito y a nivel mundial, así que conviene que lo lea antes
-    de firmarlo y no después.
+    La diferencia no es cosmética: la versión de 2019 pide un bloque de datos
+    del autor y del documento que la de 2018 no tenía —correo institucional,
+    teléfono, tipo de documento, grado o título al que se opta, asesores—.
+
+    Lo que el tesista firma es una cesión de uso a título gratuito y a nivel
+    mundial, así que conviene que lo lea antes de firmarlo y no después.
     """
+    asesor = datos.get("asesor") or {}
     lineas = [
-        "# Autorización para el depósito y publicación en CYBERTESIS",
+        "# Anexo 3.1 — Autorización para el depósito de obra en CYBERTESIS UNMSM",
         "",
-        "> Anexo 1 de la Directiva para el depósito de documentos de Grados y",
-        "> Títulos en CYBERTESIS, aprobada por RR N.° 06893-R-18 del 07/11/2018.",
+        "> Formato vigente según la RR N.° 00584-R-19, que modificó el anexo de la",
+        "> «Directiva para el depósito de documentos de Grados y Títulos en",
+        "> CYBERTESIS» (RR N.° 06893-R-18).",
         "",
-        f"**Documento:** Tesis titulada «{datos.get('titulo', '')}»",
-        f"**Para optar:** {datos.get('titulo_profesional', '__________')}",
-        f"**Facultad:** {datos.get('facultad', '__________')}",
-        f"**Escuela Profesional:** {datos.get('escuela', '__________')}",
+        "## Datos del autor (tesista)",
+        "",
+    ]
+    for a in autores:
+        lineas += [
+            f"- **Nombre y apellidos:** {a.nombres} {a.apellidos}",
+            f"- **DNI:** {_dato(a.dni)}  ·  Pasaporte o carné de extranjería "
+            f"(solo extranjeros): __________",
+            f"- **Email UNMSM:** {_dato(datos.get('correo_institucional'))}",
+            f"- **Teléfono:** {_dato(datos.get('telefono'))}",
+            "",
+        ]
+
+    lineas += [
+        "## Datos del documento para grado o título",
+        "",
+        f"- **Tipo de documento:** {_dato(datos.get('tipo_de_documento'), 'Tesis')}",
+        f"- **Nombre del grado o título:** "
+        f"{_dato(datos.get('titulo_profesional'))}",
+        f"- **Título del documento:** {_dato(datos.get('titulo'))}",
+        f"- **Asesor(es):** "
+        f"{_dato(asesor.get('nombres_y_apellidos') or _nombre_llano(asesor))}",
+        f"- **Facultad, unidad académica:** {_dato(datos.get('facultad'))}"
+        f"{' — ' + str(datos.get('escuela')) if datos.get('escuela') else ''}",
         "",
         "## Declaración",
         "",
@@ -377,6 +413,15 @@ def autorizacion_cybertesis(autores: list[Autor], datos: dict) -> str:
         "persona, por el tiempo de duración de los derechos patrimoniales de autor y",
         "derechos conexos, a título gratuito y a nivel mundial.",
         "",
+        "En consecuencia, la Universidad tendrá la posibilidad de divulgar y difundir",
+        "los Contenidos, de manera total o parcial, sin limitación alguna y sin",
+        "derecho a pago de contraprestación, remuneración ni regalía alguna a favor",
+        "mío; en los medios, canales y plataformas que la Universidad y/o el Estado de",
+        "la República del Perú determinen, a nivel mundial, sin restricción geográfica",
+        "alguna y de manera indefinida, pudiendo crear y/o extraer los metadatos sobre",
+        "los Contenidos, e incluir los Contenidos en los índices y buscadores que",
+        "estimen necesarios para promover su difusión.",
+        "",
         "Autorizo que los Contenidos sean puestos a disposición del público a través",
         "de la siguiente licencia:",
         "",
@@ -390,8 +435,8 @@ def autorizacion_cybertesis(autores: list[Autor], datos: dict) -> str:
         lineas += [
             "Firma: ______________________________________",
             f"Nombre: {a.nombres} {a.apellidos}",
-            f"DNI: {a.dni or '__________'}",
-            f"Domicilio: {datos.get('domicilio_para_el_deposito') or '__________'}",
+            f"DNI: {_dato(a.dni)}  ·  Pasaporte o carné de extranjería: __________",
+            f"Domicilio: {_dato(datos.get('domicilio_para_el_deposito'))}",
             "",
             "Fecha: ______ / ______ / ________",
             "",
@@ -401,68 +446,199 @@ def autorizacion_cybertesis(autores: list[Autor], datos: dict) -> str:
     lineas += [
         "## Si necesitas postergar la publicación",
         "",
-        "La directiva admite, a solicitud justificada, postergar la publicación del",
-        "documento **hasta un máximo de 2 años** (DS N.° 006-2015-PCM, art. 13), tras",
-        "los cuales se publica de inmediato. La solicitud, con su justificación, se",
-        "adjunta a esta autorización. Es el Anexo 2 de la misma directiva.",
+        "Se puede, por **6, 12, 18 o 24 meses**, con una solicitud justificada. El",
+        "formato está en `solicitud_postergacion.md`, que esta misma herramienta",
+        "genera. Es el Anexo 3.2.",
+    ]
+    return "\n".join(lineas)
+
+
+def _nombre_llano(asesor: dict) -> str:
+    nombres = str(asesor.get("nombres", "")).strip()
+    apellidos = str(asesor.get("apellidos", "")).strip()
+    return f"{nombres} {apellidos}".strip()
+
+
+def solicitud_postergacion(autores: list[Autor], datos: dict) -> str:
+    """Anexo 3.2: postergar la publicación en CYBERTESIS.
+
+    Es **opcional**, y existe por si el trabajo se va a patentar, se envió a una
+    revista indexada o está bajo un convenio de confidencialidad. Se genera
+    siempre porque es el tipo de cosa que nadie sabe que existe hasta que la
+    necesita y ya es tarde.
+    """
+    a = autores[0] if autores else None
+    lineas = [
+        "# Anexo 3.2 — Solicitud de postergación de la publicación (OPCIONAL)",
+        "",
+        "> Formato del «Protocolo para el depósito en CYBERTESIS», anexo 3.2,",
+        "> conforme a la RR N.° 06893-R-18 y su modificatoria RR N.° 00584-R-19.",
+        "",
+        "**Esto es opcional.** Solo tiene sentido si tu trabajo se va a patentar, lo",
+        "enviaste a una revista indexada o está bajo un convenio de confidencialidad.",
+        "Si no es tu caso, no lo presentes: la tesis se publica y ya está.",
+        "",
+        "---",
+        "",
+        "Señor Director",
+        "Dirección General de Biblioteca y Publicaciones",
+        "",
+    ]
+    nombre = f"{a.nombres} {a.apellidos}" if a else "__________"
+    dni = _dato(a.dni) if a else "__________"
+    lineas += [
+        f"Yo, **{nombre}**, identificado(a) con DNI **{dni}**, de la "
+        f"{_dato(datos.get('facultad'))}, en calidad de autor de la "
+        f"{_dato(datos.get('tipo_de_documento'), 'tesis')} con título",
+        "",
+        f"«{_dato(datos.get('titulo'))}»",
+        "",
+        f"para obtener el título de {_dato(datos.get('titulo_profesional'))}, me "
+        f"dirijo a usted para solicitar la postergación de la publicación del "
+        f"documento mencionado en el repositorio institucional CYBERTESIS, por el "
+        f"tiempo exacto de:",
+        "",
+        "- [ ] seis meses",
+        "- [ ] doce meses",
+        "- [ ] 18 meses",
+        "- [ ] 24 meses",
+        "",
+        "justificado por:",
+        "",
+        "- [ ] trabajo propuesto para patente.",
+        "- [ ] trabajo presentado para publicación en revista indexada.",
+        "- [ ] trabajo en convenio de confidencialidad temporal.",
+        "- [ ] Otro motivo: ______________________________________________",
+        "",
+        "Adjunto los documentos que sustentan el motivo antes señalado.",
+        "",
+        "Sin otro particular, saludo a usted atentamente.",
+        "",
+        "Firma: ______________________________________",
+        f"Nombre y apellido: {nombre}",
+        f"DNI: {dni}  ·  Pasaporte o carné de extranjería: __________",
+        f"Correo de contacto: {_dato(datos.get('correo_institucional'))}",
     ]
     return "\n".join(lineas)
 
 
 def metadata_complementaria(autores: list[Autor], datos: dict) -> str:
-    """La hoja que va después de la carátula, según la RR N.° 06893-R-18.
+    """Anexo 4: la información complementaria del depósito.
 
-    Sin esta hoja no se deposita: "No se realizará el depósito del documento
-    cuando no cumplan con lo establecido en la presente norma".
+    Versión vigente, la que fijó la RR N.° 00584-R-19 al modificar el anexo de
+    la directiva de depósito. Tiene **tres campos marcados como obligatorios** y
+    ninguno de los tres está en la información complementaria del Anexo 2A de la
+    directiva general de tesis, que es de donde salía nuestra lista:
+
+    - el ORCID del asesor,
+    - el DNI del autor,
+    - el DNI del asesor.
+
+    El protocolo además pide este archivo **en Word**, no en PDF como el resto.
     """
     asesor = datos.get("asesor") or {}
-    orcid_asesor = asesor.get("orcid") or ""
+    autor = autores[0] if autores else None
 
     filas = [
-        ("Código ORCID del autor", datos.get("orcid_autor") or "",
-         "opcional según la directiva"),
-        ("Código ORCID del asesor", orcid_asesor, "**obligatorio**"),
-        ("Grupo de investigación", datos.get("grupo_de_investigacion") or "", ""),
-        ("Institución que financia la investigación",
-         datos.get("fuente_de_financiamiento") or "",
-         "parcial o totalmente; si no hubo, decláralo"),
-        ("Ubicación geográfica donde se desarrolló",
-         datos.get("ubicacion_geografica") or "",
-         "localidades y/o coordenadas geográficas"),
-        ("Año o rango de años que abarcó",
-         datos.get("anios_de_la_investigacion") or "", ""),
+        ("Código ORCID del asesor(es)", asesor.get("orcid") or "", True),
+        ("DNI del autor", (autor.dni if autor else "") or "", True),
+        ("DNI del asesor", asesor.get("dni") or "", True),
+        ("Código ORCID del autor", datos.get("orcid_autor") or "", False),
+        ("Grupo de investigación", datos.get("grupo_de_investigacion") or "", False),
+        ("Financiamiento", datos.get("fuente_de_financiamiento") or "", False),
+        ("Ubicación geográfica donde se desarrolló la investigación "
+         "(localidades y/o coordenadas)", datos.get("ubicacion_geografica") or "",
+         False),
+        ("Año o rango de años que la investigación abarcó",
+         datos.get("anios_de_la_investigacion") or "", False),
     ]
 
     lineas = [
-        "# Metadata complementaria del documento",
+        "# Anexo 4 — Información complementaria",
         "",
-        "> Hoja exigida por la Directiva para el depósito de documentos de Grados y",
-        "> Títulos en CYBERTESIS (RR N.° 06893-R-18). Va **después de la carátula**.",
+        "> Formato vigente según la RR N.° 00584-R-19, que modificó el anexo de la",
+        "> directiva de depósito en CYBERTESIS (RR N.° 06893-R-18).",
         "",
-        "| Campo | Valor | Nota |",
+        "**Este archivo se entrega en Word**, a diferencia del resto del expediente,",
+        "que va en PDF. Lo dice el numeral 5 del protocolo de depósito.",
+        "",
+        "| Campo | Valor | |",
         "|---|---|---|",
     ]
-    for campo, valor, nota in filas:
-        lineas.append(f"| {campo} | {valor or '**FALTA**'} | {nota} |")
+    for campo, valor, obligatorio in filas:
+        marca = "**obligatorio**" if obligatorio else ""
+        lineas.append(f"| {campo} | {valor or '**FALTA**'} | {marca} |")
 
-    faltan = [c for c, v, _ in filas if not v]
-    if faltan:
+    faltan_obligatorios = [c for c, v, o in filas if o and not v]
+    faltan_otros = [c for c, v, o in filas if not o and not v]
+
+    if faltan_obligatorios:
         lineas += [
             "",
-            "## Lo que falta completar",
+            "## Falta lo obligatorio",
             "",
-            "En `entregables/datos_de_entrega.yaml`:",
+            "Sin estos tres campos, Biblioteca no deposita el documento:",
             "",
         ]
-        lineas += [f"- {c}" for c in faltan]
-        if not orcid_asesor:
-            lineas += [
-                "",
-                "El **ORCID del asesor es obligatorio** y es el que más veces falta.",
-                "Se saca de <https://orcid.org>; si tu asesor no lo tiene, lo crea en",
-                "cinco minutos. Sin él, Biblioteca no deposita el documento.",
-            ]
+        lineas += [f"- {c}" for c in faltan_obligatorios]
+        lineas += [
+            "",
+            "Los tres se completan en `entregables/datos_de_entrega.yaml`. El ORCID",
+            "se saca de <https://orcid.org>; si tu asesor no lo tiene, lo crea en",
+            "cinco minutos. **El DNI del asesor es el que más veces falta**, porque",
+            "no aparece en ninguna otra parte del expediente.",
+        ]
+    if faltan_otros:
+        lineas += ["", "## Falta completar", ""]
+        lineas += [f"- {c}" for c in faltan_otros]
     return "\n".join(lineas)
+
+
+def _metadata_en_word(destino: pathlib.Path, autores: list[Autor], datos: dict,
+                      inf: Informe) -> None:
+    """La información complementaria, además, en .docx.
+
+    El protocolo de depósito es explícito: los archivos del expediente van en
+    PDF «y el archivo de información complementaria en Word» (numeral 5). Es el
+    único que se entrega en ese formato, así que es también el que más veces se
+    manda mal.
+    """
+    try:
+        doc = docx.Document()
+        doc.add_heading("Información complementaria", level=1)
+        doc.add_paragraph(
+            "Anexo 4 de la directiva de depósito en CYBERTESIS, en su versión "
+            "vigente (RR N.° 00584-R-19).")
+
+        asesor = datos.get("asesor") or {}
+        autor = autores[0] if autores else None
+        filas = [
+            ("Código ORCID del asesor(es)", asesor.get("orcid"), True),
+            ("DNI del autor", autor.dni if autor else None, True),
+            ("DNI del asesor", asesor.get("dni"), True),
+            ("Código ORCID del autor", datos.get("orcid_autor"), False),
+            ("Grupo de investigación", datos.get("grupo_de_investigacion"), False),
+            ("Financiamiento", datos.get("fuente_de_financiamiento"), False),
+            ("Ubicación geográfica donde se desarrolló la investigación "
+             "(localidades y/o coordenadas geográficas)",
+             datos.get("ubicacion_geografica"), False),
+            ("Año o rango de años que la investigación abarcó",
+             datos.get("anios_de_la_investigacion"), False),
+        ]
+        tabla = doc.add_table(rows=0, cols=2)
+        tabla.style = "Table Grid"
+        for campo, valor, obligatorio in filas:
+            fila = tabla.add_row().cells
+            fila[0].text = campo + (" [Es un dato obligatorio]" if obligatorio else "")
+            fila[1].text = str(valor or "")
+
+        ruta = destino / "informacion_complementaria.docx"
+        doc.save(str(ruta))
+        inf.info("T29", "información complementaria también en .docx, que es el "
+                        "formato en que la pide el protocolo de depósito")
+    except Exception as e:  # noqa: BLE001
+        inf.aviso("T30", f"no se pudo escribir la información complementaria en "
+                         f".docx: {e}. La versión en Markdown sí está")
 
 
 def checklist_expediente(perfil, autores: list[Autor], datos: dict) -> str:
@@ -815,16 +991,28 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
         autorizacion_cybertesis(autores, datos), encoding="utf8")
     (dir_documento / "metadata_complementaria.md").write_text(
         metadata_complementaria(autores, datos), encoding="utf8")
+    (dir_documento / "solicitud_postergacion.md").write_text(
+        solicitud_postergacion(autores, datos), encoding="utf8")
+    _metadata_en_word(dir_documento, autores, datos, inf)
     inf.info("T20", f"documentos del expediente escritos en "
                     f"{dir_documento.relative_to(raiz)}")
 
     # El ORCID del asesor es obligatorio para el depósito (RR N.° 06893-R-18) y
     # no figura en la información complementaria del Anexo 2A, así que es el que
     # más veces falta: sin él, Biblioteca no deposita el documento.
-    if not (datos.get("asesor") or {}).get("orcid"):
-        inf.aviso("T21", "falta el ORCID del asesor, que la directiva de depósito "
-                         "en Cybertesis (RR N.° 06893-R-18) exige como obligatorio. "
-                         "Complétalo en `entregables/datos_de_entrega.yaml`")
+    asesor = datos.get("asesor") or {}
+    obligatorios = {
+        "el ORCID del asesor": asesor.get("orcid"),
+        "el DNI del asesor": asesor.get("dni"),
+        "el DNI del autor": autores[0].dni if autores else None,
+    }
+    faltan = [nombre for nombre, valor in obligatorios.items() if not valor]
+    if faltan:
+        inf.aviso("T21", f"para el depósito en Cybertesis falta {', '.join(faltan)}. "
+                         f"El Anexo 4 vigente —el que fijó la RR N.° 00584-R-19— los "
+                         f"marca los tres como obligatorios, y ninguno aparece en la "
+                         f"información complementaria del Anexo 2A. Complétalos en "
+                         f"`entregables/datos_de_entrega.yaml`")
 
     if solo_comprobar or inf.hay_errores:
         return inf

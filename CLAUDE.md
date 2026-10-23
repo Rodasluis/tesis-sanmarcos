@@ -147,7 +147,7 @@ Los cuatro hechos normativos que más condicionan el trabajo:
    y 2B de la RR N.° 00744-R-20. El perfil `unmsm-general` la implementa y todos
    los demás perfiles heredan de él.
 2. **Cada facultad puede especializarla** (§6.3 de esa misma directiva). Cuatro
-   facultades lo han hecho con norma verificada y catorce heredan el base.
+   facultades lo han hecho con norma verificada y dieciséis heredan el base.
    Ciencias Administrativas es el caso que más se aparta: su Anexo 10 tiene
    cinco capítulos y mete la discusión dentro del de resultados.
 3. **La entrega es en dos archivos .docx** con nomenclatura exacta y carpetas
@@ -174,9 +174,12 @@ formato y requisitos de sustentación. Vive en `perfiles/`.
 - `unmsm-general.yaml` — base normativo. Todos heredan de él.
 - `medicina-fm`, `letras-flch`, `derecho-fdcp`, `administrativas-fca` — norma
   propia verificada.
-- `economia-fce` — `estado: verificar`; su guía no acredita rango normativo.
-- `educacion-fe` — `solo_fuente_secundaria`.
-- Los otros catorce — `hereda_general`.
+- **Los otros dieciséis** — `hereda_general`. Entre ellos `economia-fce` y
+  `educacion-fe`, que antes tenían estados intermedios: por decisión del
+  tesista (23/10/2026) se rigen por el marco normativo general, porque sus
+  documentos nunca acreditaron rango normativo y mantenerlos a medias obligaba
+  a advertir en cada etapa sobre algo que no cambia la estructura de la tesis.
+  Sus documentos siguen en el perfil como `documentos_complementarios`.
 
 Reglas de oro:
 

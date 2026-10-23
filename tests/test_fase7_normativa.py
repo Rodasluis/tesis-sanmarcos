@@ -10,6 +10,7 @@ Las dos cosas que la Fase 7 agregó al repositorio y que se pueden comprobar:
 from __future__ import annotations
 
 import pathlib
+import re
 
 import pytest
 
@@ -137,8 +138,29 @@ def test_la_autorizacion_pide_lo_que_pide_el_anexo_1():
 
 
 def test_la_autorizacion_avisa_de_la_postergacion_posible():
+    """La versión vigente del anexo da los plazos exactos, no «hasta 2 años»."""
     texto = entregar.autorizacion_cybertesis([AUTOR], _datos())
-    assert "2 años" in texto
+    assert "6, 12, 18 o 24 meses" in texto
+    assert "solicitud_postergacion" in texto
+
+
+def test_la_solicitud_de_postergacion_trae_sus_cuatro_motivos():
+    """Anexo 3.2. Es opcional y casi nadie sabe que existe hasta que la necesita."""
+    texto = entregar.solicitud_postergacion([AUTOR], _datos())
+    assert "OPCIONAL" in texto
+    for plazo in ("seis meses", "doce meses", "18 meses", "24 meses"):
+        assert plazo in texto
+    for motivo in ("patente", "revista indexada", "confidencialidad"):
+        assert motivo in texto
+
+
+def test_la_autorizacion_pide_los_datos_que_agrego_la_modificatoria():
+    """La RR 00584-R-19 añadió un bloque que la versión de 2018 no tenía."""
+    texto = entregar.autorizacion_cybertesis([AUTOR], _datos())
+    for campo in ("Email UNMSM", "Teléfono", "Tipo de documento",
+                  "Nombre del grado o título", "Asesor(es)"):
+        assert campo in texto, f"falta «{campo}» del Anexo 3.1 vigente"
+    assert "00584-R-19" in texto
 
 
 def test_la_metadata_complementaria_marca_lo_que_falta():
@@ -148,9 +170,29 @@ def test_la_metadata_complementaria_marca_lo_que_falta():
     assert "obligatorio" in texto
 
 
+def test_la_metadata_exige_los_tres_datos_obligatorios():
+    """ORCID del asesor, DNI del autor y DNI del asesor.
+
+    Ninguno de los tres figura en la información complementaria del Anexo 2A,
+    que es de donde salía nuestra lista. El del asesor no aparece en ninguna
+    otra parte del expediente.
+    """
+    texto = entregar.metadata_complementaria([AUTOR], _datos())
+    assert "Falta lo obligatorio" in texto
+    assert "DNI del asesor" in texto
+    assert "Código ORCID del asesor" in texto
+
+
+def test_la_metadata_se_entrega_en_word():
+    """Es el único archivo del expediente que no va en PDF (numeral 5)."""
+    texto = entregar.metadata_complementaria([AUTOR], _datos())
+    assert "en Word" in texto
+
+
 def test_la_metadata_completa_no_reclama_nada():
     datos = _datos(
-        asesor={"nombres_y_apellidos": "Ana Quispe", "orcid": "0000-0002-1825-0097"},
+        asesor={"nombres_y_apellidos": "Ana Quispe", "orcid": "0000-0002-1825-0097",
+                "dni": "87654321"},
         orcid_autor="0000-0001-2345-6789",
         grupo_de_investigacion="Grupo de Prueba",
         fuente_de_financiamiento="Sin financiamiento externo",
@@ -180,3 +222,42 @@ def test_los_generadores_no_revientan_sin_datos(generador):
     """El tesista los corre antes de tener todo completo, que es el caso normal."""
     texto = generador([AUTOR], {})
     assert texto.strip()
+
+
+# --- la modificatoria del depósito ----------------------------------------
+
+def test_el_protocolo_de_deposito_esta_en_el_repositorio_y_se_cito():
+    """Estaba en disco desde la Fase 0, con capa de texto, y nadie lo leyó.
+
+    Contiene la base legal que confirma la RR 00584-R-19 y la RR 04305-R-18, y
+    reproduce los anexos vigentes. Se buscó en la web algo que ya estaba aquí.
+    """
+    import pypdf
+    ruta = RAIZ / "normativa" / "Protocolo_deposito_cybertesis_UNMSM.pdf"
+    assert ruta.exists()
+    crudo = "\n".join((p.extract_text() or "")
+                      for p in pypdf.PdfReader(ruta).pages)
+    # El extractor mete espacios dentro de los números de resolución.
+    texto = re.sub(r"\s+", "", crudo)
+    assert "00584-R-19" in texto
+    assert "04305-R-18" in texto
+
+    requisitos = (RAIZ / "normativa" / "requisitos.md").read_text(encoding="utf8")
+    assert "R-26" in requisitos
+    assert "00584-R-19" in requisitos
+
+
+def test_requisitos_registra_los_tres_campos_obligatorios_del_anexo_4():
+    texto = (RAIZ / "normativa" / "requisitos.md").read_text(encoding="utf8")
+    assert "DNI del asesor" in texto
+    assert "recepciontesis.dsbbc@unmsm.edu.pe" in texto
+
+
+def test_los_entregables_incluyen_los_anexos_del_deposito(tmp_path):
+    """Los tres anexos que firma o completa el tesista."""
+    from herramientas import entregar as E
+    autores = [E.Autor(apellidos="Rodas", nombres="Luis", dni="12345678")]
+    datos = _datos()
+    assert "3.1" in E.autorizacion_cybertesis(autores, datos)
+    assert "3.2" in E.solicitud_postergacion(autores, datos)
+    assert "Anexo 4" in E.metadata_complementaria(autores, datos)

@@ -82,9 +82,24 @@ def test_quarto_yml_avisa_cuando_el_perfil_no_fija_estilo():
 
 
 def test_quarto_yml_avisa_si_el_perfil_no_esta_verificado():
+    """El aviso aparece para cualquier perfil no verificado, no para uno concreto."""
     perfil = P.cargar("economia-fce")
+    assert not perfil.verificado, "si se verificara, elige otro para esta prueba"
     _, avisos = A.construir_quarto_yml(perfil)
-    assert any("verificar" in a for a in avisos)
+    assert any(perfil.estado in a for a in avisos), avisos
+
+
+def test_un_csl_que_no_existe_se_avisa_y_no_se_escribe(tmp_path):
+    """Un `csl:` roto no falla al activar el perfil: falla al renderizar.
+
+    Dos perfiles apuntaban a `apa-es.csl`, que nunca existió. El aviso tiene que
+    salir aquí, no media hora después en un mensaje de pandoc.
+    """
+    perfil = P.cargar("letras-flch")
+    perfil.datos["csl"] = "plantillas/csl/no_existe.csl"
+    texto, avisos = A.construir_quarto_yml(perfil, raiz=tmp_path)
+    assert any("no existe" in a for a in avisos), avisos
+    assert "no_existe.csl" not in texto
 
 
 def test_letras_usa_apa_y_no_el_inexistente_apa_es():

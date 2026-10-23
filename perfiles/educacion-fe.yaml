@@ -1,9 +1,17 @@
 # Facultad de Educación
-# Perfil por herencia: sin documento propio de facultad localizado.
-# Este perfil NO tiene documento propio de facultad. Hereda la estructura
-# del perfil base `unmsm-general`, que sí es normativa: los Anexos 2A y 2B de la
-# RR N.° 00744-R-20. Lo observado en Cybertesis se adjunta solo como contraste y
-# nunca habilita `estado: verificado`.
+#
+# DECISIÓN DEL TESISTA (2026-10-23): esta facultad se rige por el marco
+# normativo general de la universidad.
+#
+# La R.D. 1069-D-FE-2017 se buscó tres veces —en el sitio de la facultad, en el
+# buscador restringido al dominio de la universidad y por número de resolución—
+# y nunca apareció el original. Solo está reproducida en sitios de terceros, que
+# no sirven de respaldo. Mantener el perfil en `solo_fuente_secundaria`
+# obligaba a advertir sobre un documento que no tenemos y que, aunque
+# apareciera, no se podría citar.
+#
+# Rige la estructura general: los Anexos 2A y 2B de la RR N.° 00744-R-20, que
+# son norma de verdad. Si aparece la R.D., se verifica el perfil y se avisa.
 
 id: educacion-fe
 facultad: Facultad de Educación
@@ -12,14 +20,19 @@ escuelas:
 - Educación Física
 nivel: pregrado
 hereda_de: unmsm-general
-estado: solo_fuente_secundaria
+estado: hereda_general
 fuente:
-  documento: R.D. 1069-D-FE-2017, esquema de tesis de la Facultad de Educación
+  documento: (sin documento propio localizado; rige la directiva general)
   norma: null
   fecha: null
   url: null
   archivo_local: null
-  estado: solo_fuente_secundaria
+  estado: hereda_general
+  pista_no_confirmada: >-
+    Se menciona una R.D. 1069-D-FE-2017 con un esquema de tesis propio, pero el
+    original nunca se localizó: solo aparece reproducida en sitios de terceros,
+    que no sirven de respaldo. Si alguien consigue el documento oficial, este
+    perfil se puede verificar.
   norma_aplicable: Directiva general RR N.° 00744-R-20, Anexos 2A y 2B, por remisión del perfil base `unmsm-general`
   busqueda_realizada:
   - rastreo del sitio web de la facultad, incluidas rutas de grados y títulos, trámites y normatividad
@@ -33,8 +46,8 @@ enfoques_admitidos:
 - cualitativo
 estilo_citas: '[PENDIENTE-NORMATIVA]'
 estilo_citas_fuente: Ni la facultad ni la norma general fijan un estilo. El Anexo 2A dice «según los estilos
-  de cita-referencia de acuerdo a las áreas del conocimiento». Debe decidirlo el asesor y registrarse
-  como decisión del tesista en /iniciar.
+  de cita-referencia de acuerdo a las áreas del conocimiento». Lo decide el tesista y queda registrado
+  en /iniciar; conversarlo con el asesor ayuda, pero no hay que esperarlo.
 csl: null
 persona_gramatical:
 - '[PENDIENTE-NORMATIVA]'

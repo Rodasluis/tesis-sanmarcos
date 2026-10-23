@@ -25,25 +25,40 @@ CSL_POR_ESTILO = {
 }
 
 
-def _csl_de(perfil: Perfil) -> tuple[str | None, str | None]:
-    """Devuelve (ruta_csl, aviso)."""
+def _csl_de(perfil: Perfil, raiz: pathlib.Path = RAIZ) -> tuple[str | None, str | None]:
+    """Devuelve (ruta_csl, aviso).
+
+    Se comprueba que el archivo exista. Un `csl:` que apunta a un archivo que no
+    está no da error al activar el perfil: lo da pandoc al renderizar, mucho
+    después y con otro mensaje. Dos perfiles apuntaban a `apa-es.csl`, que nunca
+    existió —el APA en español es `apa.csl` más `locales-es-ES.xml` y
+    `lang: es`—.
+    """
     declarado = perfil.get("csl")
     if isinstance(declarado, str) and declarado and declarado != PENDIENTE:
-        ruta = declarado.replace("plantillas/csl/apa-es.csl", "plantillas/csl/apa.csl")
-        return ruta, None
+        if (raiz / declarado).exists():
+            return declarado, None
+        return None, (
+            f"el perfil declara `csl: {declarado}` y ese archivo no existe. El "
+            f"_quarto.yml queda sin `csl` para que el render no falle; corrige la "
+            f"ruta en el perfil."
+        )
     estilo = perfil.get("estilo_citas")
     if estilo in CSL_POR_ESTILO:
-        return CSL_POR_ESTILO[estilo], None
+        ruta = CSL_POR_ESTILO[estilo]
+        if (raiz / ruta).exists():
+            return ruta, None
+        return None, f"falta {ruta}, que es el CSL del estilo `{estilo}`"
     return None, (
         "el perfil no fija estilo de citas. El _quarto.yml queda sin `csl` y la "
-        "bibliografía saldrá con el estilo por defecto de pandoc. Decide el estilo "
-        "con el asesor y regístralo antes de redactar."
+        "bibliografía saldrá con el estilo por defecto de pandoc. Decídelo y "
+        "regístralo antes de redactar."
     )
 
 
 def construir_quarto_yml(perfil: Perfil, raiz: pathlib.Path = RAIZ) -> tuple[str, list[str]]:
     avisos: list[str] = []
-    csl, aviso = _csl_de(perfil)
+    csl, aviso = _csl_de(perfil, raiz)
     if aviso:
         avisos.append(aviso)
 

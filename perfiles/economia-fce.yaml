@@ -1,24 +1,41 @@
 # Facultad de Ciencias Económicas.
-# Su guía regula SOLO el proyecto o diseño de investigación, y no acredita rango
-# normativo. El informe final se rige por el perfil base.
+#
+# DECISIÓN DEL TESISTA (2026-10-23): esta facultad se rige por el marco
+# normativo general de la universidad. La guía que publica la escuela regula
+# solo el proyecto, no acredita rango normativo —sin resolución, sin fecha, sin
+# firma— y nunca apareció la resolución que la aprueba. Mantenerla como fuente
+# a medias obligaba a advertir en cada etapa sobre algo que no cambia la
+# estructura de la tesis.
+#
+# La guía NO se borra: queda como `documentos_complementarios`, porque describe
+# lo que la escuela pide para el proyecto y eso sigue siendo útil. Lo que
+# cambia es que ya no se presenta como norma.
 
 id: economia-fce
 facultad: Facultad de Ciencias Económicas
 escuelas: [Economía, Economía Internacional, Economía Pública]
 nivel: pregrado
 hereda_de: unmsm-general
-estado: verificar
+estado: hereda_general
 
 fuente:
-  documento: "Estructura del diseño y/o proyecto de investigación para optar el título profesional de economista (el archivo se titula «PAUTAS PARA SUSTENTACION DE TESIS»)"
+  documento: (sin documento con rango normativo; rige la directiva general)
   norma: null
   fecha: null
   pagina: null
   url: null
+  archivo_local: null
+  estado: hereda_general
+  norma_aplicable: >-
+    Directiva general RR N.° 00744-R-20, Anexos 2A y 2B, por el perfil base
+    `unmsm-general`.
+
+documentos_complementarios:
+- nombre: "Estructura del diseño y/o proyecto de investigación para optar el título profesional de economista (el archivo se titula «PAUTAS PARA SUSTENTACION DE TESIS»)"
   archivo_local: normativa/facultades/PAUTAS_PARA_SUSTENTACION_DE_TESIS_economia-fce.docx
-  estado: verificar
-  cadena_de_aprobacion: []
-  por_que_no_es_verificado: >-
+  estado: sin_rango_normativo
+  que_regula: solo el proyecto o diseño de investigación, no el informe final
+  por_que_no_es_norma: >-
     El documento no consigna número de resolución, fecha, firma ni código de
     verificación, y él mismo se declara «una GUIA BREVE […] en concordancia con
     el Reglamento General de Grados y Títulos». La RR 00744-R-20 §6.3 exige que
@@ -36,7 +53,7 @@ estilo_citas_fuente: >-
   La guía dice «siguiendo para estos casos, las NORMAS APPA» (sic, con esa
   errata) y no precisa edición ni año. Se adopta APA 7 como valor operativo y
   queda marcado: [PENDIENTE-NORMATIVA] en cuanto a la edición exigida.
-csl: plantillas/csl/apa-es.csl
+csl: plantillas/csl/apa.csl   # con locales-es-ES.xml y `lang: es`; no existe un apa-es.csl
 
 persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
 formato: {hereda: unmsm-general}

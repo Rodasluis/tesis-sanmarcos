@@ -32,7 +32,7 @@ enfoques_admitidos: [cuantitativo, cualitativo, argumentativo]
 
 estilo_citas: apa7
 estilo_citas_fuente: "Anexo 2, incisos 4, 8 y 10: «según el estilo APA (7.ª ed.)»"
-csl: plantillas/csl/apa-es.csl
+csl: plantillas/csl/apa.csl   # con locales-es-ES.xml y `lang: es`; no existe un apa-es.csl
 
 persona_gramatical: ["[PENDIENTE-NORMATIVA]"]
 

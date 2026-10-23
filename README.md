@@ -232,7 +232,7 @@ norma, más específica:
 | Medicina | Su propio reglamento: Vancouver, comité de ética, cronograma y presupuesto obligatorios |
 | Letras y Ciencias Humanas | Su propio instructivo: APA 7, márgenes y formato propios |
 | Derecho y Ciencia Política | Su reglamento, que remite a la estructura general |
-| Ciencias Económicas | Su guía para el proyecto; el informe final usa la general |
+| Ciencias Administrativas | Su directiva propia: cinco capítulos, con la discusión dentro del de resultados |
 | Las otras 16 | La estructura general de la universidad |
 
 Si tu escuela no tiene norma propia, **no estás en desventaja**: la estructura
