@@ -117,3 +117,35 @@ ningún archivo derivado de pandoc.
 Los PDF de `normativa/` son normas de la UNMSM, del CONCYTEC, de la SUNEDU y del Estado peruano.
 Se conservan como documentos de referencia, con su fuente registrada en `normativa/requisitos.md`.
 No forman parte del software ni se cubren con la licencia MIT de este repositorio.
+
+## 5. El escudo de la Universidad Nacional Mayor de San Marcos
+
+En `plantillas/marca/` hay dos archivos derivados del logo institucional de la UNMSM:
+
+| Archivo | Qué es |
+|---|---|
+| `logo_unmsm.webp` | El logo oficial tal como lo publica la universidad, sin modificar |
+| `escudo_unmsm.png` | Recorte del blasón, sin la palabra «UNMSM», compuesto sobre blanco |
+| `logo_unmsm.png` | El logo completo en PNG, por si se necesita |
+
+El recorte lo hace `herramientas/marca.py`, de forma reproducible: no se retocó a mano.
+
+**Estos archivos NO están cubiertos por la licencia MIT de este repositorio.** El escudo es el
+emblema institucional de la Universidad Nacional Mayor de San Marcos y le pertenece a ella. Se
+incluye aquí con un único propósito: que la carátula de la tesis de un tesista de la UNMSM lleve
+el escudo de su universidad, que es exactamente lo que exige el Anexo 2A de la
+RR N.° 00744-R-20 («escudo de la universidad») y lo que se ve en todas las tesis publicadas en
+Cybertesis.
+
+Qué significa eso en la práctica:
+
+- **Si eres tesista de la UNMSM**, úsalo: es el escudo de tu universidad y tu carátula lo
+  necesita.
+- **Si reutilizas este repositorio para otra universidad**, quita estos archivos y pon la marca
+  que corresponda. `herramientas/marca.py` recorta cualquier logo con la misma lógica.
+- **No uses el escudo** para dar a entender que la UNMSM respalda, patrocina o aprueba este
+  repositorio. **No lo hace.** `tesis-sanmarcos` es un proyecto independiente, sin relación
+  oficial con la universidad.
+
+Si la universidad considera que esta inclusión es inadecuada, basta con borrar `plantillas/marca/`:
+las herramientas avisan de que falta el escudo y generan la carátula igual, sin él.

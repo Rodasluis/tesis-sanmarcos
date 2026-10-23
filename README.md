@@ -38,7 +38,9 @@ tú. Puedes dejarlo semanas y volver; `/estado` te dice dónde quedaste y qué s
 - Redacta el proyecto y los capítulos con la estructura exacta que exige tu escuela.
 - Verifica que cada cifra del texto salga de un archivo de resultados, y que cada
   cita exista en tu biblioteca de Zotero.
-- Genera los dos archivos `.docx` con la nomenclatura que pide la directiva.
+- **Arma tus dos documentos terminados** —el proyecto de tesis y la tesis—
+  **en Word y en PDF**, con la carátula oficial y el escudo de la UNMSM, y con
+  los nombres de archivo que pide la directiva.
 - Prepara diapositivas, guion y un simulacro de sustentación con preguntas.
 
 **No hace**
@@ -48,6 +50,34 @@ tú. Puedes dejarlo semanas y volver; `/estado` te dice dónde quedaste y qué s
 - No hace nada para "bajar el porcentaje de similitud". Eso es falta sancionable
   según la directiva de originalidad, y este repositorio no lo implementa.
 - No reemplaza a tu asesor.
+
+---
+
+## Qué tienes al final
+
+Dos documentos, cada uno en los dos formatos que la universidad pide por normas
+distintas:
+
+| | Word | PDF |
+|---|---|---|
+| **Proyecto de tesis** | `entregables/PROYECTO/` | sí |
+| **Tesis** | `entregables/TEXTO/`, los dos archivos del art. 13 | sí |
+
+Los dos llevan la **carátula oficial**: el escudo de la UNMSM, tu facultad, tu
+escuela, el título, la fórmula «Para optar el Título Profesional de…», tu
+nombre, el de tu asesor y el año. El diseño se tomó de tesis reales publicadas
+en Cybertesis, no de una plantilla inventada.
+
+El `.docx` es lo que se entrega para la evaluación de originalidad (art. 13 de
+la Directiva de originalidad). El **PDF** es lo que exige la directiva de
+depósito en Cybertesis (RR N.° 06893-R-18) y lo que vas a imprimir o adjuntar.
+Es el mismo documento convertido, no otro: así el PDF que se deposita es
+exactamente el `.docx` que se evaluó.
+
+Además, en `entregables/DOCUMENTO/`: el checklist de tu expediente, la
+declaración jurada del Anexo 4, la autorización de depósito en Cybertesis con su
+licencia, la hoja de metadata complementaria y —si decides presentarla— la
+declaración de uso de IA.
 
 ---
 
@@ -68,7 +98,20 @@ dónde termina el apoyo. Está explicado en `normativa/conflictos.md`, C-01.
 
 ## Instalación en Windows, paso a paso
 
-Vas a instalar cuatro cosas. Tarda unos 20 minutos.
+Elige una carpeta corta y luego instala cinco cosas. Tarda unos 20 minutos.
+
+### 0. Dónde poner la carpeta de tu tesis
+
+Ponla en una ruta **corta**: `C:\tesis`, o `C:\Users\tu-usuario\tesis`.
+
+No es manía. Los nombres de archivo que exige la directiva llevan tus apellidos,
+tus nombres, el título completo de la tesis y el año, así que son largos.
+Windows no admite rutas de más de 260 caracteres, y si además la carpeta está en
+`Descargas\Mi carpeta de la universidad\Tesis 2026\…`, se cruza el límite.
+
+Las herramientas lo comprueban **antes** de generar nada y te dicen cuántos
+caracteres sobran, en lugar de dejarte un documento a medio hacer. Pero es más
+cómodo empezar bien.
 
 ### 1. Git
 
@@ -84,7 +127,12 @@ winget install --id Python.Python.3.12 -e --accept-source-agreements --accept-pa
 winget install --id astral-sh.uv -e --scope user --accept-package-agreements
 winget install --id Posit.Quarto -e --accept-package-agreements
 winget install --id JohnMacFarlane.Pandoc -e --accept-package-agreements
+winget install --id TheDocumentFoundation.LibreOffice -e --accept-package-agreements
 ```
+
+LibreOffice es gratuito y aquí se usa solo para una cosa: convertir a PDF los
+documentos que ya se generaron en Word. Si no lo instalas, el `.docx` se genera
+igual y el PDF queda pendiente con un aviso que te dice cómo obtenerlo.
 
 **Cierra PowerShell y ábrelo de nuevo.** Los programas recién instalados no
 aparecen hasta que abres una ventana nueva.
@@ -96,6 +144,7 @@ git --version
 uv --version
 quarto --version
 pandoc --version
+uv run python -m herramientas.pdf --comprobar
 ```
 
 Si alguno responde "no se reconoce", vuelve a instalarlo.
@@ -204,12 +253,12 @@ avanzar** y ninguna etapa queda esperándolo.
 | `/explorar-datos` | Encuentra y descarga los datos |
 | `/afinar-idea` | Convierte tu interés en una pregunta investigable |
 | `/literatura` | Busca y ordena lo que ya se ha escrito |
-| `/proyecto` | Redacta el proyecto de tesis |
+| `/proyecto` | Redacta el proyecto y lo genera en Word y PDF, con carátula |
 | `/analizar` | Hace el análisis y prueba su robustez |
 | `/redactar <capítulo>` | Escribe cada capítulo |
 | `/jurado` | Simula al jurado para encontrar problemas antes que ellos |
 | `/verificar` | Revisa citas, cifras, estructura y formato |
-| `/entregar` | Genera los archivos de entrega y las declaraciones |
+| `/entregar` | Genera la tesis en Word y PDF, con carátula, y las declaraciones |
 | `/sustentacion` | Diapositivas, guion y ensayo con preguntas |
 
 Además, cuatro comandos que no son etapas:
@@ -322,6 +371,8 @@ uv run python -m herramientas.verificar_todo --raiz .ejemplos-montados/economia-
 ---
 
 ## Más documentación
+
+Índice completo en **[`docs/`](docs/README.md)**. Lo más usado:
 
 - **[`docs/integridad.md`](docs/integridad.md)** — qué se puede y qué no, con el
   artículo de la norma que lo dice. Si tiene dudas sobre el porcentaje de

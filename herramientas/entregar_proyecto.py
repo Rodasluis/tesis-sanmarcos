@@ -36,6 +36,7 @@ from herramientas import caratula, pdf
 from herramientas.entregar import (
     _render,
     cargar_datos,
+    comprobar_rutas,
     leer_autores,
     nombre_archivo,
     revisar_docx,
@@ -160,6 +161,9 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
     destino_dir = raiz / "entregables" / "PROYECTO"
     destino_dir.mkdir(parents=True, exist_ok=True)
     destino = destino_dir / nombre
+
+    if not comprobar_rutas([destino], inf):
+        return inf
 
     ok, motivo = _render(entradas, destino, referencia, raiz)
     if not ok:

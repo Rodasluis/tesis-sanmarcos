@@ -577,7 +577,11 @@ def _render(entradas: list[pathlib.Path], destino: pathlib.Path,
         return False, _motivo_util(r.stderr, r.stdout) or "quarto no escribió el .docx"
 
     destino.parent.mkdir(parents=True, exist_ok=True)
-    salida.replace(destino)
+    try:
+        _mover(salida, destino)
+    except OSError as e:
+        return False, (f"no se pudo mover el documento a su carpeta: {e}. "
+                       f"{_consejo_ruta_larga(destino)}")
 
     perdidas = [ln.split("Could not fetch resource", 1)[1].split(":")[0].strip()
                 for ln in (r.stderr or "").splitlines()
@@ -616,6 +620,73 @@ def _reubicar_rutas(texto: str, desde: pathlib.Path, hacia: pathlib.Path) -> str
 
     texto = RE_RUTA_MD.sub(lambda m: m.group(1) + nueva(m.group(2)), texto)
     return RE_INCLUDE_QMD.sub(lambda m: m.group(1) + nueva(m.group(2)), texto)
+
+
+#: Longitud a partir de la cual una ruta de Windows deja de funcionar con las
+#: llamadas normales del sistema.
+MAX_RUTA_WINDOWS = 260
+
+
+def _ruta_larga(ruta: pathlib.Path) -> str:
+    """La ruta con el prefijo que Windows necesita para pasar de 260 caracteres.
+
+    Los nombres del art. 13 son largos por diseño —llevan apellidos, nombres,
+    el título completo y el año— así que basta con que el proyecto esté dos
+    carpetas más abajo de lo habitual para cruzar el límite. Sin este prefijo,
+    mover el archivo falla con «el sistema no puede encontrar la ruta
+    especificada», que no dice nada de lo que pasa en realidad.
+    """
+    absoluta = ruta.resolve()
+    if os.name != "nt" or str(absoluta).startswith("\\\\?\\"):
+        return str(absoluta)
+    return "\\\\?\\" + str(absoluta)
+
+
+def _mover(origen: pathlib.Path, destino: pathlib.Path) -> None:
+    """Mueve un archivo, aguantando rutas largas en Windows."""
+    try:
+        origen.replace(destino)
+    except OSError:
+        if os.name != "nt":
+            raise
+        os.replace(_ruta_larga(origen), _ruta_larga(destino))
+
+
+def _consejo_ruta_larga(destino: pathlib.Path) -> str:
+    largo = len(str(destino.resolve()))
+    if largo < MAX_RUTA_WINDOWS:
+        return ""
+    return (f"La ruta completa tiene {largo} caracteres y Windows admite "
+            f"{MAX_RUTA_WINDOWS}. Mueve la carpeta de tu tesis a una ruta más "
+            f"corta, por ejemplo C:\\tesis, o acorta el título.")
+
+
+def comprobar_rutas(destinos: list[pathlib.Path], inf: Informe) -> bool:
+    """¿Caben estas rutas en Windows? Se comprueba ANTES de generar nada.
+
+    Los nombres que exige el art. 13 llevan apellidos, nombres, el título
+    completo y el año, así que son largos por diseño. Si además la tesis está
+    en una carpeta honda, se cruza el límite de 260 caracteres de Windows.
+
+    Lo que falla entonces no es solo mover el archivo: tampoco lo abre
+    python-docx para poner la carátula, ni LibreOffice para convertirlo a PDF.
+    Y el error que da Windows —«el sistema no puede encontrar la ruta
+    especificada»— no se parece en nada a la causa.
+
+    Por eso se avisa antes, con el número y con qué hacer, en lugar de dejar al
+    tesista con un documento a medio generar.
+    """
+    if os.name != "nt":
+        return True
+    largas = [(d, len(str(d.resolve()))) for d in destinos
+              if len(str(d.resolve())) >= MAX_RUTA_WINDOWS]
+    for ruta, largo in largas:
+        inf.error("T28", f"la ruta de «{ruta.name}» tendría {largo} caracteres y "
+                         f"Windows admite {MAX_RUTA_WINDOWS}. No se genera nada, "
+                         f"para no dejarlo a medias. Mueve la carpeta de tu tesis "
+                         f"a una ruta más corta —por ejemplo C:\\tesis— y vuelve "
+                         f"a ejecutarlo")
+    return not largas
 
 
 def _bib(raiz: pathlib.Path) -> str:
@@ -766,6 +837,9 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
 
     dir_texto = raiz / "entregables" / "TEXTO"
     dir_texto.mkdir(parents=True, exist_ok=True)
+
+    if not comprobar_rutas([dir_texto / n for n in nombres.values()], inf):
+        return inf
 
     posicion = "inferior_derecha"
     numeracion = (perfil.get("formato") or {}).get("numeracion") or {}

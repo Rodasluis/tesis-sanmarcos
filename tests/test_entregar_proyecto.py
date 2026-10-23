@@ -200,3 +200,43 @@ def test_el_proyecto_se_genera_entero(proyecto):
     assert "<w:drawing" in doc.paragraphs[0]._p.xml, "falta el escudo"
     textos = [p.text for p in doc.paragraphs if p.text.strip()]
     assert "PROYECTO DE TESIS" in textos
+
+
+# --- el límite de rutas de Windows ----------------------------------------
+
+def test_una_ruta_demasiado_larga_se_avisa_antes_de_generar(tmp_path, monkeypatch):
+    """Los nombres del art. 13 son largos por diseño.
+
+    Si la tesis está en una carpeta honda se cruzan los 260 caracteres de
+    Windows, y entonces no falla solo mover el archivo: tampoco lo abre
+    python-docx para poner la carátula ni LibreOffice para convertirlo. El
+    error de Windows no se parece en nada a la causa, así que se avisa antes.
+    """
+    from herramientas.informe import Informe
+
+    monkeypatch.setattr(entregar.os, "name", "nt")
+    inf = Informe("t", "t", raiz=tmp_path)
+    larga = tmp_path / ("x" * 150) / ("y" * 150) / "tesis.docx"
+
+    assert entregar.comprobar_rutas([larga], inf) is False
+    assert any(h.codigo == "T28" for h in inf.errores)
+    mensaje = inf.errores[0].mensaje
+    assert "260" in mensaje
+    assert "ruta más corta" in mensaje, "tiene que decir qué hacer"
+
+
+def test_una_ruta_normal_no_molesta(tmp_path, monkeypatch):
+    from herramientas.informe import Informe
+    monkeypatch.setattr(entregar.os, "name", "nt")
+    inf = Informe("t", "t", raiz=tmp_path)
+    assert entregar.comprobar_rutas([tmp_path / "tesis.docx"], inf) is True
+    assert not inf.hay_errores
+
+
+def test_fuera_de_windows_no_hay_limite(tmp_path, monkeypatch):
+    from herramientas.informe import Informe
+    monkeypatch.setattr(entregar.os, "name", "posix")
+    inf = Informe("t", "t", raiz=tmp_path)
+    larga = tmp_path / ("x" * 150) / ("y" * 150) / "tesis.docx"
+    assert entregar.comprobar_rutas([larga], inf) is True
+    assert not inf.hay_errores
