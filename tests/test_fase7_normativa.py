@@ -261,3 +261,106 @@ def test_los_entregables_incluyen_los_anexos_del_deposito(tmp_path):
     assert "3.1" in E.autorizacion_cybertesis(autores, datos)
     assert "3.2" in E.solicitud_postergacion(autores, datos)
     assert "Anexo 4" in E.metadata_complementaria(autores, datos)
+
+
+# --- el RENATI, ya citable -------------------------------------------------
+
+def test_los_ids_de_requisitos_no_se_repiten():
+    """R-26, R-27 y R-28 llegaron a nombrar dos requisitos distintos cada uno.
+
+    El bloque de los anexos de estructura y el del depósito en Cybertesis se
+    pisaron. Las referencias externas apuntaban al segundo, así que se renumeró
+    el primero; esta prueba evita que vuelva a pasar.
+    """
+    texto = (RAIZ / "normativa" / "requisitos.md").read_text(encoding="utf8")
+    ids = re.findall(r"^### (R-\d+) ", texto, re.M)
+    repetidos = {i for i in ids if ids.count(i) > 1}
+    assert not repetidos, f"ids duplicados: {sorted(repetidos)}"
+
+
+def test_el_renati_oficial_reemplazo_a_la_copia_de_terceros():
+    """P-06. El texto resultó idéntico, pero el archivo en disco es el oficial."""
+    assert (RAIZ / "normativa" / "RENATI_reglamento_texto_integrado_OFICIAL.pdf").exists()
+    assert not list((RAIZ / "normativa").glob("*COPIA-TERCEROS*"))
+    texto = (RAIZ / "normativa" / "requisitos.md").read_text(encoding="utf8")
+    assert "Copia alojada por un tercero" not in texto
+
+
+def test_el_requisito_del_renati_esta_extraido_con_su_articulo():
+    texto = (RAIZ / "normativa" / "requisitos.md").read_text(encoding="utf8")
+    assert "### R-32" in texto
+    assert "art. 8.2" in texto
+    assert "033-2016-SUNEDU/CD" in texto
+
+
+def test_la_cita_del_renati_es_literal():
+    """Se compara contra el PDF, no contra lo que recordamos de él."""
+    import pypdf
+    ruta = RAIZ / "normativa" / "RENATI_reglamento_texto_integrado_OFICIAL.pdf"
+    crudo = "\n".join((p.extract_text() or "") for p in pypdf.PdfReader(ruta).pages)
+    aplanado = re.sub(r"\s+", " ", crudo)
+    assert "contener entre sus p" in aplanado  # el extractor rompe los acentos
+    assert "ginas preliminares el resultado del informe de similitud" in aplanado
+    assert "una declaraci" in aplanado and "n de originalidad" in aplanado
+
+
+def test_la_declaracion_de_originalidad_nombra_al_autor_y_al_asesor():
+    """La norma pide «los nombres completos del responsable de la asesoría y
+    del autor»: los dos, no solo el autor."""
+    datos = _datos(asesor={"nombres_y_apellidos": "Ana Quispe"})
+    texto = entregar.declaracion_de_originalidad([AUTOR], datos)
+    assert "Luis" in texto and "Rojas Díaz" in texto
+    assert "Ana Quispe" in texto
+    assert "asesor" in texto.lower()
+
+
+def test_la_declaracion_de_originalidad_se_declara_subsidiaria():
+    """La norma dice «en su defecto»: lo primero es el informe de similitud."""
+    texto = entregar.declaracion_de_originalidad([AUTOR], _datos())
+    assert "en su defecto" in texto
+    assert "PIDS" in texto
+    assert "8.2" in texto
+
+
+def test_la_declaracion_de_originalidad_aguanta_sin_datos():
+    texto = entregar.declaracion_de_originalidad([AUTOR], {})
+    assert texto.strip()
+    assert "__________" in texto
+
+
+def test_el_checklist_separa_lo_que_va_dentro_del_documento():
+    """No es un papel del expediente: es una página del texto depositado."""
+    from herramientas.perfiles import cargar as _cargar
+    texto = entregar.checklist_expediente(_cargar("unmsm-general"), [AUTOR], _datos())
+    assert "RENATI" in texto
+    assert "páginas preliminares" in texto
+
+
+def test_los_preliminares_del_anexo_2a_no_traen_esta_pagina():
+    """Si el Anexo 2A ya la pidiera, R-32 y su generador sobrarían."""
+    partes = [p["parte"] for p in cargar("unmsm-general").get("preliminares")]
+    assert not any("originalidad" in p or "similitud" in p for p in partes)
+
+
+def test_el_bloque_de_datos_personales_no_le_sale_a_quien_uso_datos_abiertos():
+    """`_procedencia.md` lo escribe todo proyecto que siga la etapa 1.
+
+    Si cuenta como transcripción, el bloque de la Ley 29733 le aparece también
+    a quien solo bajó series del Banco Mundial, y una advertencia que le sale a
+    todo el mundo deja de leerse.
+    """
+    from herramientas.entregar import _hay_transcripciones
+    assert not _hay_transcripciones(RAIZ / "ejemplos" / "economia-cuantitativo")
+    assert _hay_transcripciones(RAIZ / "ejemplos" / "medicina-cualitativo")
+
+
+def test_el_papeleo_de_crudos_no_cuenta_como_transcripcion(tmp_path):
+    from herramientas.entregar import _hay_transcripciones
+    crudos = tmp_path / "datos" / "crudos"
+    crudos.mkdir(parents=True)
+    for nombre in ("_procedencia.md", "LEEME.md", "README.txt"):
+        (crudos / nombre).write_text("x", encoding="utf8")
+    assert not _hay_transcripciones(tmp_path)
+
+    (crudos / "entrevista_E-01.txt").write_text("x", encoding="utf8")
+    assert _hay_transcripciones(tmp_path)

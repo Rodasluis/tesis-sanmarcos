@@ -10,6 +10,7 @@ Fecha de extracción: 2026-09-16.
 - **Página**: se indica `pág. N PDF` (número de página del archivo) y, cuando difieren, `pág. M impresa` (la numeración impresa dentro del documento). Se citan ambas porque los PDF de la UNMSM suelen llevar carátula de resolución antes del anexo.
 - **Cita literal**: texto copiado del documento, entre comillas. Cuando el PDF trae erratas o espaciado irregular del OCR original, se transcribe tal cual.
 - **ID**: `R-NN`. Las herramientas de `herramientas/` referencian estos IDs.
+  Son identificadores, **no un orden de lectura**: un requisito leído después puede quedar antes en el documento. Lo que no puede pasar es que dos requisitos distintos lleven el mismo ID; si vas a agregar uno, toma el siguiente libre del final, no el que parezca encajar por tema.
 - **Motor**: qué parte de `tesis-sanmarcos` implementa o verifica el requisito.
 
 ## 1. Inventario de documentos leídos
@@ -21,11 +22,12 @@ Fecha de extracción: 2026-09-16.
 | 3 | Directiva general para realizar, presentar y sustentar el TI, la tesis o el TSP — **resolución** | RR N.° 00744-R-20 | 18/02/2020 | `RR_00744-2020-R_directiva_general_tesis.pdf` | Sí | Verificado |
 | 3b | La misma directiva — **anexo, 16 folios** (es el texto normativo) | Anexo de RR N.° 00744-R-20 | 18/02/2020 | `RR_00744-2020-R_ANEXO_directiva_general_tesis.pdf` | **No (escaneo)** | Verificado por lectura de imagen |
 | 4 | Código de Ética en Investigación de la UNMSM | RR N.° 012648-2023-R | 2023 | `RR_012648-2023-R_codigo_etica_investigacion.pdf` | Sí | Verificado |
-| 5 | Código Nacional de Integridad Científica (CONCYTEC) | RP 028-2024 y 035-2024-CONCYTEC-P | 2024 | `CONCYTEC_codigo_integridad_cientifica_portal.pdf` (17 pág.) y `..._gobpe.pdf` (10 pág.) | Sí | **Verificar cuál versión rige** |
+| 5 | Código Nacional de Integridad Científica (CONCYTEC) | RP N.° 028-2024-CONCYTEC-P, del 04/03/2024 | 2024 | `CONCYTEC_RP_028-2024_codigo_integridad_cientifica_VIGENTE.pdf` (10 pág.) | Sí | Verificado. La versión de 2019 se conserva como `..._2019_DEROGADO.pdf` |
 | 6 | Guía para el uso de la IA generativa para docentes de la UNMSM | RR N.° 008449-2025-R | 07/07/2025 | `RR_008449-2025-R_guia_IA_generativa_docentes.pdf` | Sí | Verificado |
 | 7 | Ley N.° 29733, de Protección de Datos Personales | Ley 29733 | 2011 | `Ley_29733_proteccion_datos_personales.pdf` (El Peruano, **escaneo**) y `Ley_29733_texto_vigente_2025_SMV.pdf` (texto) | Mixto | Verificado |
 | 7b | Reglamento de la Ley 29733 | DS N.° 016-2024-JUS | 30/11/2024 | `DS_016-2024-JUS_reglamento_ley_29733.pdf` | Sí | Verificado |
-| 8 | Reglamento del RENATI (texto integrado) | RCD 033-2016-SUNEDU/CD, mod. RCD 174-2019-SUNEDU/CD | — | `RENATI_reglamento_texto_integrado_COPIA-TERCEROS.pdf` | Sí | **Copia alojada por un tercero** (ver §8) |
+| 8 | Reglamento del RENATI (texto integrado) | RCD 033-2016-SUNEDU/CD, mod. RCD 174-2019-SUNEDU/CD y RCD 084-2022-SUNEDU/CD | Compilado marzo 2023 | `RENATI_reglamento_texto_integrado_OFICIAL.pdf` | Sí | Verificado. Descargado de `cdn.www.gob.pe`; ver P-06 |
+| 8b | Directiva de originalidad **anterior** (contexto del umbral de 10 %) | RR N.° 002616-2023-R | 2023 | `RR_002616-2023-R_directiva_originalidad_ANTERIOR.pdf` | Sí | Leída. Superada por la de 2026; se conserva porque explica el 10 % que citan las facultades |
 | 9 | Directiva para el depósito de documentos de grados y títulos en Cybertesis | RR N.° 06893-R-18 | 2018 | `RR_06893-R-18_directiva_deposito_cybertesis.pdf` | **No (escaneo)** | **Leído en la Fase 7** por rasterización de páginas; requisitos en R-25 |
 | 10 | Protocolo para el depósito en Cybertesis | — | — | `Protocolo_deposito_cybertesis_UNMSM.pdf` | Sí | Verificado |
 
@@ -168,7 +170,7 @@ Documento escaneado; leído por rasterización de páginas. Las páginas citadas
 
 **Motor:** `/afinar-idea` debe preguntar por la línea de investigación y advertir que la pregunta elegida requiere estar en la relación de la EP o coordinarse para incluirla. **Restricción que el encargo no contemplaba y que condiciona la etapa 2.**
 
-### R-26 · Estructura general de la tesis para título (Anexo 2A)
+### R-29 · Estructura general de la tesis para título (Anexo 2A)
 **Anexo 2A**, pág. 13 de 16. Añadido en la Fase 0b.
 
 Fija las tres partes del documento y el contenido de los preliminares:
@@ -180,7 +182,7 @@ Fija las tres partes del documento y el contenido de los preliminares:
 
 **Motor:** define la carátula y los preliminares que genera `entregar.py` para **todas** las facultades. La última frase es la base normativa de que el estilo de citas viva en el perfil y no en el motor.
 
-### R-27 · Estructura del cuerpo de la tesis (Anexo 2B)
+### R-30 · Estructura del cuerpo de la tesis (Anexo 2B)
 **Anexo 2B**, pág. 14 de 16. Añadido en la Fase 0b. Dos modelos de siete capítulos:
 
 | Cap. | Modelo 1 (cuantitativa) | Modelo 2 (cualitativa) |
@@ -197,7 +199,7 @@ Se diferencian en el detalle: el modelo 1 incluye `III.3 Operacionalización de 
 
 **Motor:** es el **piso normativo** de la estructura. Un perfil de facultad especializa este esquema al amparo del §6.3 (R-13); una facultad sin norma propia lo hereda tal cual. Esto sustituye la idea de una "plantilla no normativa" para las escuelas sin documento.
 
-### R-28 · Estructuras del trabajo de investigación para bachiller (Anexo 1)
+### R-31 · Estructuras del trabajo de investigación para bachiller (Anexo 1)
 **Anexo 1**, págs. 9 a 12 de 16. El TI tiene extensión de **10 000 a 20 000 palabras (20 a 50 páginas)** y cuatro modelos de cuerpo, según la naturaleza del trabajo: **1B documental**, **1C empírica**, **1D teórica o ensayo** y **1E técnica, tecnológica o innovación**.
 
 **Motor:** fuera del alcance de la versión 1, que se centra en la tesis para título. Se registra para no perderlo.
@@ -242,8 +244,8 @@ Se diferencian en el detalle: el modelo 1 incluye `III.3 Operacionalización de 
 ### R-24 · Marco aplicable a los datos que el tesista recolecte
 El Código de Ética remite expresamente a la Ley 29733 en su base legal (pág. 4 PDF). El reglamento vigente es el **DS 016-2024-JUS** (30/11/2024), que derogó el DS 003-2013-JUS y entró en vigor el 30/03/2025.
 
-**Motor:** `datos/crudos/` fuera de git; anonimización antes de salir de `datos/crudos/`; consentimiento informado documentado. La extracción artículo por artículo de los 135 artículos del reglamento se hará al implementar la Fase 3 y no antes, porque solo aplica a proyectos con datos personales.
-**Estado:** parcial — `[PENDIENTE-NORMATIVA] P-05`.
+**Motor:** `datos/crudos/` fuera de git y cerrado a Write y Edit; anonimización antes de que nada salga de ahí; consentimiento informado documentado.
+**Estado:** completo. Los artículos que tocan a una tesis están extraídos en **R-28**.
 
 ## 7. Repositorio: RENATI y Cybertesis
 
@@ -302,20 +304,161 @@ sirve de constancia de entrega y depósito.
 **Motor:** `entregar.py` genera los anexos 3.1, 3.2 y 4, este último también en
 .docx, y avisa si falta alguno de los tres campos obligatorios.
 
+### R-27 · Cuál Código de Integridad Científica rige, y cómo distinguirlos
+
+Había dos PDF en `normativa/` y no estaba claro cuál era el vigente. **Rige el de
+10 páginas**, aprobado por la **RP N.° 028-2024-CONCYTEC-P** del 04/03/2024.
+
+No hace falta una fuente externa para distinguirlos: cada uno lo dice en su
+propio objetivo, en la primera página.
+
+| | Vigente (2024) | Derogado (2019) |
+|---|---|---|
+| Archivo | `CONCYTEC_RP_028-2024_codigo_integridad_cientifica_VIGENTE.pdf` | `CONCYTEC_codigo_integridad_cientifica_2019_DEROGADO.pdf` |
+| Páginas | 10 | 17 |
+| Objetivo | «Establecer **principios, buenas prácticas y obligaciones** en las distintas facetas de la investigación científica» | «Establecer **normas de conducta, infracciones y sanciones** para toda persona natural o jurídica» |
+| Capítulo de infracciones y sanciones | **No lo tiene** | Lo tiene (capítulo IV) |
+| Resolución más reciente en su base legal | RP N.° 090-2021-CONCYTEC-P | RP N.° 215-2018-CONCYTEC-P |
+
+El cambio de 2024 fue deliberado: el código pasó a recoger solo principios y
+obligaciones, y el procedimiento sancionador salió de él. Por eso el documento
+vigente es **más corto** que el derogado, que es justo lo contrario de lo que
+uno supondría al ver dos archivos y quedarse con el más extenso.
+
+**Lo que esto cambia para una tesis.** Nada de lo que el repositorio ya hace: la
+prohibición de fabricar o manipular datos sigue estando, y además en el Código de
+Ética de la UNMSM (R-19), que es la norma que se cita. Lo que cambia es dónde
+**no** hay que buscar sanciones: en el código vigente no están.
+
+**Pendiente menor:** la especificación mencionaba una RP 035-2024-CONCYTEC-P como
+modificatoria. No se localizó y no se cita nada de ella.
+
+### R-28 · Qué exige la ley de datos personales a una tesis con participantes
+
+Ley N.° 29733 y su reglamento, el **DS N.° 016-2024-JUS**. Leído artículo por
+artículo para la parte que toca a una tesis.
+
+**No hay excepción para la investigación académica.** El art. 3 de la Ley
+excluye solo dos cosas: los bancos creados por personas naturales «para fines
+exclusivamente relacionados con su vida privada o familiar» y los de la
+administración pública en el ejercicio de sus competencias. Una tesis no entra
+en ninguna de las dos.
+
+#### El consentimiento
+
+| Requisito | Dónde | Qué dice |
+|---|---|---|
+| Debe ser **libre, previo, expreso e inequívoco, e informado** | Reglamento, art. 2 | las cuatro a la vez |
+| **Antes** de recoger el dato | art. 4 | «con anterioridad a la recopilación» |
+| Si hay **datos sensibles**, por escrito y firmado | art. 8 | «debe ser otorgado por escrito, a través de su firma manuscrita, digital, electrónica o cualquier otra modalidad que garantice la voluntad» |
+| **La prueba la tiene que dar el investigador** | art. 9 | «la carga de la prueba recae en todos los casos en el titular del banco de datos personales o quien resulte el responsable del tratamiento» |
+
+**Qué cuenta como dato sensible** (definición 6 del reglamento): salud física o
+mental, datos genéticos o biométricos, datos neuronales, «datos morales o
+emocionales», hechos de la vida afectiva o familiar, los hábitos de la esfera
+más íntima, la afiliación sindical. En la práctica, **casi cualquier entrevista
+en salud, educación o trabajo social toca datos sensibles**, y entonces el
+consentimiento firmado no es una buena práctica del comité de ética: es la ley.
+
+#### Disociar no es anonimizar
+
+Es la distinción que más consecuencias tiene y la más fácil de pasar por alto:
+
+> «La **disociación** es el procedimiento que impide la identificación o que no
+> hace identificable al titular de los datos personales. **Este procedimiento es
+> reversible**.» — art. 41.1
+
+Sustituir los nombres por códigos —E-01, E-02— **y guardar la tabla que los
+relaciona** es disociación, no anonimización. El dato sigue siendo personal y
+sigue dentro de la ley. Solo deja de serlo cuando la reidentificación ya no es
+posible.
+
+Y «identificable» es más amplio de lo que parece: el reglamento lo define como
+poder verificar la identidad «de manera directa o **indirectamente a partir de
+la combinación de datos** a través de medios que puedan ser razonablemente
+utilizados». En investigación cualitativa eso importa mucho: ocho entrevistas en
+un solo centro de salud, con el oficio, la composición familiar y el barrio de
+cada persona, pueden identificar a alguien sin que aparezca un nombre.
+
+#### El registro del banco de datos
+
+El art. 42.1 del reglamento obliga a inscribir en el **Registro Nacional de
+Protección de Datos Personales** a quien cree un banco de datos personales. Y
+«banco de datos personales» está definido de forma amplia: «el conjunto de datos
+de personas naturales computarizado o no, y estructurado conforme a criterios
+específicos, que permita acceder sin esfuerzos desproporcionados».
+
+Una carpeta con transcripciones y una tabla de códigos encaja en esa definición.
+
+**Qué hacer con esto.** No es una puerta: es información que el tesista debe
+conocer, y que el checklist del expediente recoge. La salida práctica, y la que
+este repositorio recomienda, es **no crear un banco de datos personales que
+sobreviva al trabajo de campo**: anonimizar de verdad, destruir la tabla de
+códigos cuando ya no haga falta, y conservar solo lo anonimizado. Lo que no
+existe no se inscribe.
+
+**Motor:** `datos/crudos/` fuera de git y cerrado a Write y Edit; anonimización
+antes de que nada salga de ahí; `datos_personales.py` revisa lo que está a punto
+de subirse; el hook de pre-commit lo detiene si encuentra indicios.
+
+### R-32 · El RENATI exige una página de originalidad dentro del texto
+
+Reglamento del RENATI, **texto integrado, art. 8.2, folio 11**. Aprobado por
+RCD N.° 033-2016-SUNEDU/CD y modificado por las RCD N.° 174-2019-SUNEDU/CD y
+N.° 084-2022-SUNEDU/CD. Es norma de la Sunedu, no de la UNMSM, y por tanto se
+aplica a cualquier facultad.
+
+> «El texto completo del trabajo conducente a un grado o título **deberá
+> contener entre sus páginas preliminares** el resultado del informe de
+> similitud del trabajo o, en su defecto, una **declaración de originalidad**
+> consignando los nombres completos del responsable de la asesoría y del autor.»
+
+**Por qué importa aquí.** Es la única exigencia del RENATI que recae sobre el
+documento y no sobre el trámite, y **no figura en las páginas preliminares del
+Anexo 2A** (R-29), que es de donde el repositorio sacaba su lista. Una tesis
+puede cumplir el Anexo 2A entero y seguir sin esta página.
+
+La norma admite dos formas de cumplirla, y la segunda es expresamente
+subsidiaria («en su defecto»):
+
+1. el resultado del informe de similitud —en la UNMSM, el de la PIDS—, o
+2. una declaración de originalidad con los nombres completos del asesor y del
+   autor.
+
+**Lo que no dice.** No fija formato, ni firma, ni lugar exacto dentro de los
+preliminares. No se inventa ninguna de esas tres cosas: la declaración que
+genera el motor sigue la forma de las otras declaraciones del expediente.
+
+**Qué más carga el RENATI, y sobre quién.** El resto del art. 8 obliga a la
+**universidad**, no al tesista: designar responsable del repositorio (8.1),
+declarar ante la Sunedu que sometió el trabajo a control de originalidad al
+pedir la inscripción del título (8.3), e informar con cinco días hábiles de
+anticipación si va a retirar un trabajo (8.6, y art. 21). El art. 12 define los
+cuatro tipos de acceso —abierto, restringido, con embargo y cerrado—, que es el
+marco en el que encaja la postergación del Anexo 3.2 (R-26). El art. 20 regula
+qué pasa ante una presunta falta a la integridad académica: la universidad
+investiga, informa a la Sunedu en quince días hábiles, y mientras tanto el
+trabajo lleva el rótulo **«Observado»** en el repositorio y en el recolector.
+
+**Motor:** `entregar.py` genera `declaracion_de_originalidad.md` y el checklist
+lo recuerda como ítem propio, separado de los del expediente, porque va dentro
+del documento que se deposita.
+
 ## 8. Pendientes y salvedades
 
 | ID | Asunto | Estado |
 |---|---|---|
-| **P-01** | **Declaración de uso de IA por el tesista.** Ninguna de las normas leídas exige declarar el uso de IA generativa en una tesis, ni fija un formato. La RR 008449-2025-R es una guía **pedagógica para docentes** (planificación de clases, evaluación, ejemplos de prompts); no regula la redacción de tesis por estudiantes ni establece obligación de declarar. | `[PENDIENTE-NORMATIVA]`. El anexo de declaración de uso de IA que genera el repositorio es una **medida voluntaria de transparencia**, apoyada en el principio de transparencia del Código de Ética (R-21), **no** un requisito normativo. Debe presentarse así al tesista. |
-| **P-02** | **Guía de IA generativa para estudiantes de la UNMSM.** Buscada; no encontrada. | `[PENDIENTE-NORMATIVA]`, conforme a lo previsto en el encargo. |
-| **P-03** | **Versión vigente del Código Nacional de Integridad Científica.** Hay dos PDF con distinta extensión (10 y 17 páginas) y dos resoluciones (RP 028-2024 y RP 035-2024-CONCYTEC-P, esta última modificatoria). | Verificar cuál es el texto vigente antes de citar artículos. |
+| | **Siete de los diez están cerrados.** P-01 no es un pendiente sino un hallazgo: se deja en la tabla porque es la pregunta que más se repite. | |
+| **P-01** | **(No es un pendiente, es un hallazgo.) Declaración de uso de IA por el tesista.** Ninguna de las normas leídas exige declarar el uso de IA generativa en una tesis, ni fija un formato. **Corrección:** antes se decía aquí que la RR 008449-2025-R era una guía «para docentes». Su título lo dice, pero su objetivo declarado es «proporcionar a nuestros docentes, **estudiantes** y personal administrativo, una comprensión profunda de la IAG». Alcanza a los estudiantes. Lo que **no** hace es regular la redacción de tesis: la palabra «declarar» no aparece ni una vez en sus 49 000 caracteres, y «tesis» aparece una sola vez, en un ejemplo de examen de biología. Es una guía de diseño de prompts y uso en clase. | `[PENDIENTE-NORMATIVA]`. El anexo de declaración de uso de IA que genera el repositorio es una **medida voluntaria de transparencia**, apoyada en el principio de transparencia del Código de Ética (R-21), **no** un requisito normativo. Debe presentarse así al tesista. |
+| **P-02** | **Guía de IA generativa para estudiantes de la UNMSM.** | **Cerrado.** No existe una guía aparte: la RR 008449-2025-R ya alcanza a los estudiantes en su objetivo (ver P-01). Se buscó además en el Vicerrectorado Académico de Pregrado y en los dominios de la universidad. La «Guía para la investigación formativa en el pregrado» (2026), que sí es para estudiantes, **no menciona la IA ni una vez**. |
+| **P-03** | **Versión vigente del Código Nacional de Integridad Científica.** | **Cerrado.** Rige el de **10 páginas**, aprobado por la RP N.° 028-2024-CONCYTEC-P del 04/03/2024. Se distinguen por su propio objetivo, sin necesidad de fuente externa: ver R-27. |
 | **P-04** | **Directiva de depósito en Cybertesis (RR 06893-R-18) y su modificatoria RR 00584-R-19.** | **Cerrado.** La modificatoria es del **05/02/2019** y **modifica el anexo** de la directiva, no su cuerpo. Su contenido vigente está en el «Protocolo para el depósito en CYBERTESIS» (`Protocolo_deposito_cybertesis_UNMSM.pdf`), que reproduce los anexos al día. Ver R-25. |
 | **P-08** | **Reglamento de tesis de la Facultad de Educación (R.D. 1069-D-FE-2017).** Buscado tres veces: en el sitio de la facultad, en el buscador restringido al dominio y por número de resolución. Solo aparece reproducido en sitios de terceros. | **Cerrado el 23/10/2026 por decisión del tesista**: la facultad se rige por el marco general y el perfil pasa a `hereda_general`. La pista queda anotada en el perfil por si aparece el original. |
 | **P-09** | **Resolución que aprueba la guía de la Escuela de Economía.** Buscada varias veces; no aparece. | **Cerrado el 23/10/2026 por decisión del tesista**: la facultad se rige por el marco general y el perfil pasa a `hereda_general`. La guía queda como documento complementario. Ver `conflictos.md`, C-03. |
-| **P-10** | **RR N.° 04305-R-18**, «Procedimiento para la evaluación de la originalidad de los documentos de investigación conducentes a grados o títulos de la UNMSM». Es la norma general de originalidad anterior a la de 2026 y la fuente del 10 % que repiten las directivas de facultad. Confirmada por dos documentos que la citan en su base legal; el texto no se ha descargado. | No bloquea: la norma vigente es la de 2026 y está leída. Ver `conflictos.md`, C-06. |
-| **P-05** | **Obligaciones concretas del DS 016-2024-JUS** aplicables a una tesis con datos personales. | Pendiente para la Fase 3. |
-| **P-06** | **Reglamento del RENATI.** El texto integrado se obtuvo de una copia alojada por la Universidad Nacional de San Agustín, porque el enlace oficial de SUNEDU redirige a gob.pe, que bloquea la descarga automatizada desde este equipo. | No se citará artículo del RENATI hasta contrastarlo con el PDF oficial. |
-| **P-07** | **Edición de APA que exige la Escuela de Economía.** Su guía dice "normas APPA" sin precisar edición ni año. | `[PENDIENTE-NORMATIVA]`; el perfil usará APA 7 como valor operativo, marcado. |
+| **P-10** | **RR N.° 04305-R-18**, el procedimiento de originalidad de 2018, fuente del 10 % que repiten las directivas de facultad. Su texto no se localizó. | **Cerrado en lo que importa.** Se descargó y leyó la directiva **intermedia** RR N.° 002616-2023-R, cuyo art. 20 fija «Permitido 1% al 10%», y se confirmó que la de 2026 deja sin efecto «toda disposición que se oponga». La cadena 2018 → 2023 → 2025 → 2026 está documentada en `conflictos.md`, C-06. El texto de 2018 ya no aporta nada: está doblemente superado. |
+| **P-05** | **Obligaciones concretas del DS 016-2024-JUS** aplicables a una tesis con datos personales. | **Cerrado.** Ver R-28: consentimiento (arts. 2, 4, 8 y 9), la diferencia entre disociar y anonimizar (art. 41) y el registro del banco de datos (art. 42). No hay excepción para la investigación académica. |
+| **P-06** | **Reglamento del RENATI.** El texto integrado se había obtenido de una copia de terceros. | **Cerrado.** Se descargó el PDF oficial de gob.pe (`cdn.www.gob.pe/uploads/document/file/4494607/`, compilación de marzo de 2023) y **su texto es idéntico al de la copia**: mismo hash SHA-256 sobre el texto extraído, 102 541 caracteres. El archivo del repositorio es ahora el oficial. Ya se puede citar. |
+| **P-07** | **Edición de APA que exige la Escuela de Economía.** Su guía decía «normas APPA» sin precisar edición ni año. | **Cerrado.** Desde el 23/10/2026 esa guía ya no es la norma del perfil: Economía hereda el marco general, que deja el estilo de citas a criterio del tesista. APA 7 queda como valor operativo del perfil y el tesista puede cambiarlo. Ver P-09. |
 
 ## 9. Requisitos que el encargo daba por ciertos y que la lectura corrigió o precisó
 
@@ -328,4 +471,4 @@ sirve de constancia de entrega y depósito.
 
    **Decisión tomada:** el repositorio aplica los Anexos 2A y 2B a todo el mundo, sin preguntar el año de ingreso. La razón es de diseño, no normativa: empezar la tesis no debe depender de un trámite ni de una entrevista de admisibilidad (ver `CLAUDE.md`, «Empezar no requiere permiso»). El dato queda anotado aquí para que nadie lo descubra tarde, y porque si un tesista de una promoción anterior encuentra una discrepancia con lo que le pide su escuela, esta es la explicación probable.
 
-7. **Sí existe una estructura de tesis aprobada para toda la UNMSM** (R-26, R-27). La premisa del encargo de que "no existe un esquema único" es cierta solo en cuanto a las especializaciones de facultad: hay un piso común, los Anexos 2A y 2B de la RR 00744-R-20. Se detectó en la Fase 0b, al leer las páginas escaneadas del anexo de la directiva que en la Fase 0 habían quedado sin revisar. Consecuencia de diseño: el perfil `generico-cualitativo` deja de ser una "plantilla no normativa" y pasa a ser un perfil **verificado** derivado del Anexo 2B, modelo 2.
+7. **Sí existe una estructura de tesis aprobada para toda la UNMSM** (R-29, R-30). La premisa del encargo de que "no existe un esquema único" es cierta solo en cuanto a las especializaciones de facultad: hay un piso común, los Anexos 2A y 2B de la RR 00744-R-20. Se detectó en la Fase 0b, al leer las páginas escaneadas del anexo de la directiva que en la Fase 0 habían quedado sin revisar. Consecuencia de diseño: el perfil `generico-cualitativo` deja de ser una "plantilla no normativa" y pasa a ser un perfil **verificado** derivado del Anexo 2B, modelo 2.

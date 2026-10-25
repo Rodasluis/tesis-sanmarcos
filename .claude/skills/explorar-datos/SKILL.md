@@ -87,6 +87,24 @@ Encuestas, entrevistas, registros de su trabajo.
 4. Si hay personas entrevistadas, el consentimiento informado es un anexo del
    proyecto. Pregúntale si ya lo tiene; si no, lo preparan en `/proyecto`.
 
+**Dile estas tres cosas al tesista**, una vez, cuando aparezcan datos de
+personas. No bloquean nada; se las decimos porque la ley es más exigente de lo
+que casi nadie supone (`normativa/requisitos.md`, R-28):
+
+- **Poner códigos no es anonimizar si guarda la tabla de equivalencias.** El
+  art. 41.1 del reglamento llama a eso *disociación* y dice que es reversible:
+  el dato sigue siendo personal. Pregúntale si va a necesitar volver al nombre;
+  si no, que no cree la tabla, y si ya existe, que la destruya cuando deje de
+  hacerle falta.
+- **Con ocho o diez entrevistas en un solo sitio, el nombre no es lo único que
+  identifica.** El oficio, la edad exacta, el barrio y la composición familiar,
+  juntos, pueden señalar a una persona. La ley lo llama identificable
+  «indirectamente a partir de la combinación de datos». Al citar en el texto,
+  quita el detalle que no aporte al argumento.
+- **Si toca salud, vida afectiva o familiar, hábitos íntimos o afiliación
+  sindical, son datos sensibles y el consentimiento va por escrito y firmado**
+  (art. 8), y es el tesista quien tiene que poder probarlo (art. 9).
+
 No puedes escribir en `datos/crudos/`: hay una regla de permisos que lo impide.
 Es deliberado. Para poner archivos ahí, dile al tesista que los copie él, o
 hazlo con Bash y déjalo dicho.

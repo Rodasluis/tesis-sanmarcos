@@ -325,3 +325,62 @@ def test_comprobar_entregables_detecta_que_faltan(tmp_path):
     assert problemas, "recién montado no hay entregables: tiene que avisarlo"
     assert any("proyecto .docx" in p for p in problemas)
     assert any("PDF" in p for p in problemas)
+
+
+# --- el límite de rutas de Windows, al limpiar un montaje anterior ---------
+
+def test_limpiar_culpa_a_la_ruta_larga_cuando_lo_es(tmp_path, monkeypatch):
+    """Pasó de verdad: el montaje del ejemplo de Economía llegó a 261
+    caracteres, uno por encima del límite, y el mensaje decía que cerrara el
+    editor. Se cierra el editor, se reintenta y falla igual.
+    """
+    from herramientas import preparar_ejemplo, rutas
+
+    destino = tmp_path / "montado"
+    destino.mkdir()
+
+    def falla(_):
+        raise OSError(3, "El sistema no puede encontrar la ruta especificada")
+
+    monkeypatch.setattr(preparar_ejemplo.shutil, "rmtree", falla)
+    monkeypatch.setattr(rutas, "mas_larga",
+                        lambda _: (destino / "larguísimo.docx", 261))
+
+    with pytest.raises(RuntimeError) as e:
+        preparar_ejemplo._limpiar(destino)
+
+    mensaje = str(e.value)
+    assert "261" in mensaje
+    assert "no un archivo abierto" in mensaje
+    assert "editor" not in mensaje.split("no un archivo abierto")[0]
+
+
+def test_limpiar_culpa_al_archivo_abierto_cuando_la_ruta_cabe(tmp_path, monkeypatch):
+    from herramientas import preparar_ejemplo, rutas
+
+    destino = tmp_path / "montado"
+    destino.mkdir()
+
+    def falla(_):
+        raise OSError(32, "El proceso no tiene acceso al archivo")
+
+    monkeypatch.setattr(preparar_ejemplo.shutil, "rmtree", falla)
+    monkeypatch.setattr(rutas, "mas_larga", lambda _: (destino / "a.docx", 80))
+
+    with pytest.raises(RuntimeError) as e:
+        preparar_ejemplo._limpiar(destino)
+
+    mensaje = str(e.value)
+    assert "editor" in mensaje
+    assert "261" not in mensaje
+
+
+def test_limpiar_borra_de_verdad(tmp_path):
+    from herramientas import preparar_ejemplo
+
+    destino = tmp_path / "montado"
+    (destino / "dentro").mkdir(parents=True)
+    (destino / "dentro" / "a.txt").write_text("a", encoding="utf8")
+
+    preparar_ejemplo._limpiar(destino)
+    assert not destino.exists()

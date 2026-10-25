@@ -96,13 +96,22 @@ Tres normas dan dos cifras distintas:
 | Directiva de originalidad, RR N.° 000947-2026-R | 2026 | **0 % a 20 %** | el rango vigente, medido en PIDS |
 
 **El 10 % no era una rareza de cada facultad: era la norma general.** La
-directiva de Letras no inventa esa cifra, la copia de la **RR N.° 04305-R-18**,
-que es la norma de originalidad que rigió a toda la universidad hasta que la de
-2026 la reemplazó. Eso explica por qué el 10 % aparece en documentos de
-facultades distintas y de años distintos: todos citan la misma fuente.
+cadena está completa y verificada:
 
-Y explica también por qué va a seguir apareciendo. Las directivas de facultad se
-escribieron con la norma de 2018 delante y no se reescriben solas.
+| Norma de originalidad | Año | Umbral para una tesis |
+|---|---|---|
+| RR N.° 04305-R-18 | 2018 | 10 % (se conoce por las citas de la directiva de depósito y de la de Letras; el texto no se ha localizado) |
+| **RR N.° 002616-2023-R**, art. 20 | 2023 | **«Permitido 1% al 10%» / «Observado Más de 10%»** — texto leído, en `normativa/RR_002616-2023-R_directiva_originalidad_ANTERIOR.pdf` |
+| RR N.° 006482-2025-R | 2025 | no leída; la deja sin efecto la de 2026 |
+| **RR N.° 000947-2026-R** | 2026 | **0 % a 20 %**, la vigente |
+
+La de 2026 «deja sin efecto la Resolución Rectoral N.º 006482-2025-R […] y toda
+disposición que se oponga a la presente», lo que alcanza a las anteriores.
+
+Eso explica por qué el 10 % aparece en documentos de facultades distintas y de
+años distintos: **durante al menos ocho años fue el umbral de la universidad**.
+Las directivas de facultad se escribieron con esa cifra delante y no se
+reescriben solas.
 
 **Resolución en derecho.** La directiva de originalidad de 2026 deja sin efecto
 cualquier norma que se le oponga (Disposición Complementaria Final Segunda), de

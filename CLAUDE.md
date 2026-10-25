@@ -115,6 +115,26 @@ Los datos personales que el tesista recolecte se anonimizan antes de salir de
 `datos/crudos/`, nunca se suben al repositorio remoto, y su tratamiento se
 documenta conforme a la Ley N.° 29733 y su reglamento (DS N.° 016-2024-JUS).
 
+Tres cosas que esa ley exige y conviene no suavizar (detalle en
+`normativa/requisitos.md`, R-28):
+
+- **Disociar no es anonimizar.** Poner códigos E-01, E-02 **y guardar la tabla
+  que los relaciona con los nombres** es disociación, que el art. 41.1 del
+  reglamento define como reversible. El dato sigue siendo personal. Solo deja
+  de serlo cuando la reidentificación ya no es posible, y «identificable»
+  incluye deducirlo «indirectamente a partir de la combinación de datos»: ocho
+  entrevistas en un solo centro, con oficio, familia y barrio, identifican a
+  alguien sin que aparezca un nombre.
+- **Si hay datos sensibles, el consentimiento va firmado.** Salud física o
+  mental, vida afectiva o familiar, hábitos de la esfera íntima, afiliación
+  sindical. El art. 8 lo exige por escrito; no es una buena práctica del comité
+  de ética, es la ley. Y el art. 9 pone la carga de la prueba en el tesista.
+- **No hay excepción para la investigación académica.** El art. 3 de la Ley
+  solo exceptúa los fines privados o familiares y a la administración pública.
+
+Nada de esto bloquea el trabajo: se le dice al tesista cuando recolecta datos y
+queda en el checklist del expediente.
+
 ---
 
 ## 2. Lo que nunca debes hacer

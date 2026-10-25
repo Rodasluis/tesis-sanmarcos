@@ -29,6 +29,7 @@ import pathlib
 import shutil
 import sys
 
+from herramientas import rutas
 from herramientas.perfiles import ErrorDePerfil, cargar, perfil_activo
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
@@ -65,6 +66,41 @@ def _cadena_de_perfiles(pid: str) -> list[str]:
     return cadena
 
 
+def _limpiar(destino: pathlib.Path) -> None:
+    """Borra el montaje anterior, diciendo la verdad si no puede.
+
+    Dos cosas distintas fallan aquí y Windows las reporta igual, con «el
+    sistema no puede encontrar la ruta especificada»:
+
+    - algo tiene un archivo abierto —una terminal dentro de la carpeta, Word
+      con el .docx—, o
+    - alguna ruta pasa de 260 caracteres, que es lo que ocurre de verdad casi
+      siempre, porque los nombres del art. 13 son larguísimos y el montaje los
+      mete dos carpetas más abajo.
+
+    Si se da el segundo caso y se le dice al tesista que cierre el editor, lo
+    cierra, vuelve a intentarlo y falla igual. Así que se distingue.
+    """
+    try:
+        shutil.rmtree(rutas.larga(destino))
+        return
+    except OSError as e:
+        peor, largo = rutas.mas_larga(destino)
+        if largo >= rutas.MAXIMO:
+            raise RuntimeError(
+                f"no se pudo limpiar {destino}: {e}\n"
+                f"La causa es la longitud de la ruta, no un archivo abierto: "
+                f"hay una de {largo} caracteres y Windows corta en "
+                f"{rutas.MAXIMO}.\n  {peor}\n"
+                f"Monta el ejemplo más cerca de la raíz del disco con "
+                f"--destino C:\\t, o borra esa carpeta a mano.") from e
+        raise RuntimeError(
+            f"no se pudo limpiar {destino}: {e}\n"
+            f"Algo lo tiene abierto —una terminal dentro de la carpeta, un "
+            f"editor, un .docx—. Ciérralo y vuelve a intentarlo, o monta en "
+            f"otro sitio con --destino.") from e
+
+
 def preparar(nombre: str, destino_base: pathlib.Path = DESTINO_POR_DEFECTO,
              limpiar: bool = True) -> pathlib.Path:
     """Monta el ejemplo `nombre` y devuelve la raíz del proyecto resultante."""
@@ -81,19 +117,7 @@ def preparar(nombre: str, destino_base: pathlib.Path = DESTINO_POR_DEFECTO,
 
     destino = destino_base / nombre
     if limpiar and destino.exists():
-        try:
-            shutil.rmtree(destino)
-        except OSError as e:
-            # En Windows basta con tener una terminal abierta dentro del
-            # directorio para que el borrado falle a medias. Si eso pasa sin
-            # avisar, queda un árbol incompleto que parece montado y no lo
-            # está: el render dice «no hay archivos de entrada» y nadie sabe
-            # por qué.
-            raise RuntimeError(
-                f"no se pudo limpiar {destino}: {e}\n"
-                f"Algo lo tiene abierto —una terminal dentro de la carpeta, un "
-                f"editor, un .docx—. Ciérralo y vuelve a intentarlo, o monta en "
-                f"otro sitio con --destino.") from e
+        _limpiar(destino)
     destino.mkdir(parents=True, exist_ok=True)
 
     # 1. Lo propio del ejemplo.

@@ -14,6 +14,7 @@ Lo que produce:
       DOCUMENTO/
         checklist_expediente.md
         declaracion_jurada_pids.md          (Anexo 4)
+        declaracion_de_originalidad.md      (RENATI art. 8.2; va dentro del texto)
         declaracion_uso_de_ia.md            (voluntaria, ver más abajo)
 
 Sobre la declaración de uso de IA: **ninguna norma leída la exige** (ver
@@ -41,7 +42,7 @@ from dataclasses import dataclass, field
 import docx
 import yaml
 
-from herramientas import caratula, docx_numeracion, pdf, registro_ia
+from herramientas import caratula, docx_numeracion, pdf, registro_ia, rutas
 from herramientas.informe import Informe
 from herramientas.perfiles import ErrorDePerfil, cargar_de, perfil_activo
 
@@ -331,6 +332,56 @@ def declaracion_jurada_pids(autores: list[Autor], datos: dict) -> str:
             "---",
             "",
         ]
+    return "\n".join(lineas)
+
+
+def declaracion_de_originalidad(autores: list[Autor], datos: dict) -> str:
+    """Página preliminar que exige el RENATI, art. 8.2, folio 11.
+
+    «El texto completo del trabajo conducente a un grado o título deberá
+    contener entre sus páginas preliminares el resultado del informe de
+    similitud del trabajo o, en su defecto, una declaración de originalidad
+    consignando los nombres completos del responsable de la asesoría y del
+    autor.»
+
+    Es la única exigencia del RENATI que cae dentro del documento y no en el
+    trámite, y **no figura en los preliminares del Anexo 2A**. Lo normal en la
+    UNMSM es cumplirla con el reporte de la PIDS; esta declaración es la vía
+    alterna que la propia norma admite, para cuando la escuela no lo adjunta.
+    """
+    asesor = datos.get("asesor") or {}
+    lineas = [
+        "# Declaración de originalidad",
+        "",
+        "> Página preliminar exigida por el Reglamento del RENATI (texto integrado,",
+        "> art. 8.2, folio 11), aprobado por RCD N.° 033-2016-SUNEDU/CD y modificado",
+        "> por las RCD N.° 174-2019-SUNEDU/CD y N.° 084-2022-SUNEDU/CD. Va **dentro**",
+        "> del texto completo que se deposita, no en la carpeta del expediente.",
+        "",
+        "> La norma admite dos formas de cumplirla: el resultado del informe de",
+        "> similitud o, «en su defecto», esta declaración. Si tu escuela adjunta el",
+        "> reporte de la PIDS a las páginas preliminares, con eso basta.",
+        "",
+    ]
+    for a in autores:
+        lineas += [
+            f"Quien suscribe, **{a.nombres} {a.apellidos}**, identificado(a) con DNI "
+            f"**{_dato(a.dni)}**, autor(a) del trabajo titulado "
+            f"«{datos.get('titulo', '')}», declara que su contenido es original y que "
+            "las fuentes empleadas están debidamente citadas y referenciadas.",
+            "",
+            "Lima, ____ de ______________ del 20____",
+            "",
+            f"Firma: ______________________   {a.nombres} {a.apellidos}",
+            "",
+        ]
+    lineas += [
+        "Responsable de la asesoría: "
+        f"**{_dato(asesor.get('nombres_y_apellidos'))}**",
+        "",
+        "Firma: ______________________",
+        "",
+    ]
     return "\n".join(lineas)
 
 
@@ -641,6 +692,31 @@ def _metadata_en_word(destino: pathlib.Path, autores: list[Autor], datos: dict,
                          f".docx: {e}. La versión en Markdown sí está")
 
 
+#: Archivos de `datos/crudos/` que no son datos, sino papeleo de la carpeta.
+#: `_procedencia.md` lo escribe **todo** proyecto que siga la etapa 1, también
+#: uno que solo bajó series del Banco Mundial; si cuenta como transcripción, el
+#: bloque de datos personales le sale a todo el mundo y deja de significar algo.
+PAPELEO_DE_CRUDOS = ("_", "leeme", "readme")
+
+
+def _hay_transcripciones(raiz) -> bool:
+    """¿La tesis recogió datos de personas?
+
+    Se mira si hay transcripciones en `datos/crudos/`. A quien trabajó solo con
+    datos abiertos no le sirve de nada el bloque de datos personales, y un
+    checklist con secciones que no le tocan se deja de leer entero.
+    """
+    if raiz is None:
+        return False
+    base = pathlib.Path(raiz) / "datos" / "crudos"
+    if not base.is_dir():
+        return False
+    return any(
+        r.suffix.lower() in {".txt", ".md", ".vtt", ".srt", ".docx"}
+        and not r.name.lower().startswith(PAPELEO_DE_CRUDOS)
+        for r in base.rglob("*") if r.is_file())
+
+
 def checklist_expediente(perfil, autores: list[Autor], datos: dict) -> str:
     lineas = [
         "# Checklist del expediente",
@@ -664,6 +740,17 @@ def checklist_expediente(perfil, autores: list[Autor], datos: dict) -> str:
         "- [ ] Carpeta `DOCUMENTO/` nombrada según el tipo de documento.",
         "- [ ] Tablas y fórmulas como texto, no como imágenes.",
         "",
+        "## Lo que exige el RENATI dentro del documento (art. 8.2)",
+        "",
+        "Es nacional, de la Sunedu, y es la única exigencia del RENATI que no es "
+        "un trámite sino una página del texto. No está en los preliminares del "
+        "Anexo 2A, así que es fácil que se pase:",
+        "",
+        "- [ ] El texto completo que se deposita lleva, **entre sus páginas "
+        "preliminares**, el reporte de similitud de la PIDS o —«en su defecto», "
+        "dice la norma— la **declaración de originalidad** con los nombres "
+        "completos del asesor y del autor (se generó en esta carpeta).",
+        "",
     ]
 
     if len(autores) > 1:
@@ -683,6 +770,31 @@ def checklist_expediente(perfil, autores: list[Autor], datos: dict) -> str:
                    "- [ ] Aprobación del **Comité de Investigación** de la escuela.",
                    "- [ ] Aprobación de un **Comité de Ética en Investigación**.",
                    "- [ ] Resolución decanal de aprobación del proyecto.", ""]
+
+    # Solo aparece si la tesis recogió datos de personas. A quien trabajó con
+    # datos abiertos no le sirve de nada y sería ruido.
+    if _hay_transcripciones(datos.get("_raiz")):
+        lineas += [
+            "## Datos personales (Ley N.° 29733 y DS N.° 016-2024-JUS)",
+            "",
+            "Tu tesis recogió datos de personas. Esto es información, no un "
+            "trámite que te frene, pero conviene tenerlo resuelto:",
+            "",
+            "- [ ] **Consentimiento informado firmado** de cada participante. Si "
+            "tocaste salud, vida afectiva o familiar, hábitos íntimos o "
+            "afiliación sindical, son datos sensibles y el art. 8 del reglamento "
+            "exige que sea por escrito. El art. 9 pone en ti la carga de probarlo.",
+            "- [ ] **La tabla que relaciona códigos con nombres, destruida** si ya "
+            "no la necesitas. Mientras exista, lo tuyo es disociación y no "
+            "anonimización (art. 41.1), y el dato sigue siendo personal.",
+            "- [ ] **Revisadas las citas del texto** para que nadie sea "
+            "identificable por combinación de datos: oficio más barrio más edad "
+            "más composición familiar puede señalar a una persona sin nombrarla.",
+            "- [ ] Nada de `datos/crudos/` subido al repositorio remoto.",
+            "",
+            "Detalle con artículos en `normativa/requisitos.md`, R-28.",
+            "",
+        ]
 
     vigencia = perfil.get("vigencia_proyecto_meses")
     if isinstance(vigencia, int):
@@ -799,23 +911,9 @@ def _reubicar_rutas(texto: str, desde: pathlib.Path, hacia: pathlib.Path) -> str
 
 
 #: Longitud a partir de la cual una ruta de Windows deja de funcionar con las
-#: llamadas normales del sistema.
-MAX_RUTA_WINDOWS = 260
-
-
-def _ruta_larga(ruta: pathlib.Path) -> str:
-    """La ruta con el prefijo que Windows necesita para pasar de 260 caracteres.
-
-    Los nombres del art. 13 son largos por diseño —llevan apellidos, nombres,
-    el título completo y el año— así que basta con que el proyecto esté dos
-    carpetas más abajo de lo habitual para cruzar el límite. Sin este prefijo,
-    mover el archivo falla con «el sistema no puede encontrar la ruta
-    especificada», que no dice nada de lo que pasa en realidad.
-    """
-    absoluta = ruta.resolve()
-    if os.name != "nt" or str(absoluta).startswith("\\\\?\\"):
-        return str(absoluta)
-    return "\\\\?\\" + str(absoluta)
+#: llamadas normales del sistema. Vive en `rutas`; aquí queda el nombre con el
+#: que lo citan los mensajes y las pruebas.
+MAX_RUTA_WINDOWS = rutas.MAXIMO
 
 
 def _mover(origen: pathlib.Path, destino: pathlib.Path) -> None:
@@ -825,7 +923,7 @@ def _mover(origen: pathlib.Path, destino: pathlib.Path) -> None:
     except OSError:
         if os.name != "nt":
             raise
-        os.replace(_ruta_larga(origen), _ruta_larga(destino))
+        os.replace(rutas.larga(origen), rutas.larga(destino))
 
 
 def _consejo_ruta_larga(destino: pathlib.Path) -> str:
@@ -986,13 +1084,16 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
     (dir_documento / "declaracion_uso_de_ia.md").write_text(
         declaracion_uso_de_ia(raiz, autores, datos), encoding="utf8")
     (dir_documento / "checklist_expediente.md").write_text(
-        checklist_expediente(perfil, autores, datos), encoding="utf8")
+        checklist_expediente(perfil, autores, {**datos, "_raiz": raiz}),
+        encoding="utf8")
     (dir_documento / "autorizacion_cybertesis.md").write_text(
         autorizacion_cybertesis(autores, datos), encoding="utf8")
     (dir_documento / "metadata_complementaria.md").write_text(
         metadata_complementaria(autores, datos), encoding="utf8")
     (dir_documento / "solicitud_postergacion.md").write_text(
         solicitud_postergacion(autores, datos), encoding="utf8")
+    (dir_documento / "declaracion_de_originalidad.md").write_text(
+        declaracion_de_originalidad(autores, datos), encoding="utf8")
     _metadata_en_word(dir_documento, autores, datos, inf)
     inf.info("T20", f"documentos del expediente escritos en "
                     f"{dir_documento.relative_to(raiz)}")
