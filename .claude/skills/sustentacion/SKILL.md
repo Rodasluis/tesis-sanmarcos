@@ -20,7 +20,7 @@ Todo lo que sigue depende de esos tiempos. **No asumas veinte minutos.** Si el
 perfil dice `[PENDIENTE-NORMATIVA]`, dile al tesista que lo confirme en su
 facultad y prepara con un tiempo supuesto, declarado como supuesto.
 
-Donde la norma lo fija, es estricta. Medicina (RR N.° 00170-D-FM-2024, arts. 33 y
+Donde la norma lo fija, es estricta. Medicina (RD N.° 002373-2023-D-FM, arts. 33 y
 34): 15 a 20 minutos de exposición, hasta 20 de preguntas, el asesor delibera con
 voz pero sin voto, y la rúbrica reparte 20 puntos así:
 

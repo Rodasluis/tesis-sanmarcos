@@ -130,7 +130,7 @@ El Código de Ética exige consentimiento informado (art. 12) y confidencialidad
 (art. 5). En algunas facultades el comité de ética es obligatorio: en Medicina lo
 es, junto con la aprobación del Comité de Investigación de la escuela y la
 resolución decanal, antes de ejecutar el proyecto (art. 23 del reglamento de la
-facultad, RR N.° 00170-D-FM-2024).
+facultad, RD N.° 002373-2023-D-FM).
 
 ### Protección de datos personales
 

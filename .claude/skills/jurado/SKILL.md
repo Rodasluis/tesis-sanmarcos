@@ -31,7 +31,7 @@ cuánto las preguntas, y si hay rúbrica**. Si el perfil dice
 `[PENDIENTE-NORMATIVA]`, di que no lo sabemos y simula con la estructura general.
 No inventes una composición de jurado.
 
-Medicina (RR N.° 00170-D-FM-2024, arts. 33 y 34) es el caso con todo definido:
+Medicina (RD N.° 002373-2023-D-FM, arts. 33 y 34) es el caso con todo definido:
 cuatro miembros, 15 a 20 minutos de exposición, hasta 20 de preguntas, el asesor
 delibera con voz pero sin voto, y una rúbrica de 20 puntos en cinco criterios.
 Si el perfil activo la trae, úsala.
