@@ -205,6 +205,23 @@ def _solo_iconos(tbl_xml: str) -> bool:
                for cx, cy in medidas)
 
 
+def _imagenes_sin_iconos(xml: str) -> int:
+    """Cuántas imágenes del documento podrían ser una fórmula rasterizada.
+
+    Ninguna fórmula cabe en 12 puntos, así que los iconos de los callouts no
+    cuentan. Sin este descuento, un documento sin una sola ecuación —el
+    proyecto de tesis cualitativo, por ejemplo— recibía el aviso T12 y mandaba
+    al tesista a buscar una fórmula fotografiada que no existe.
+
+    Lo que no declara tamaño se cuenta igual: `<w:pict>` (VML) no trae
+    `<wp:extent>`, y preferimos avisar de más a callar una imagen real.
+    """
+    pequenas = sum(1 for cx, cy in RE_EXTENT.findall(xml)
+                   if int(cx) < MEDIA_PULGADA_EMU and int(cy) < MEDIA_PULGADA_EMU)
+    total = xml.count("<w:drawing") + xml.count("<w:pict")
+    return max(total - pequenas, 0)
+
+
 def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
     """Art. 13 A.6: tablas y fórmulas como texto, nunca como imágenes."""
     try:
@@ -242,7 +259,7 @@ def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
     # Una ecuación correcta viaja como OMML (<m:oMath>). Si no hay ninguna y sí
     # hay imágenes sueltas, puede que las fórmulas se hayan rasterizado.
     tiene_omml = "<m:oMath" in xml
-    imagenes = xml.count("<w:drawing") + xml.count("<w:pict")
+    imagenes = _imagenes_sin_iconos(xml)
     if imagenes and not tiene_omml:
         inf.aviso("T12", f"el documento tiene {imagenes} imágenes y ninguna ecuación "
                          "en formato de Word. Comprueba que ninguna fórmula esté "
@@ -884,6 +901,29 @@ def claves_citadas(entradas: list[pathlib.Path]) -> list[str]:
     return list(vistas)
 
 
+def _cabecera(raiz: pathlib.Path, meta: dict[str, str] | None = None) -> str:
+    """El encabezado YAML del .qmd combinado.
+
+    El archivo combinado no hereda el `_quarto.yml` del proyecto, porque no
+    está en su lista de `render:`. Todo lo que ese archivo declara hay que
+    repetirlo aquí o se pierde, **y lo que se pierde no falla: sale distinto**.
+
+    - Sin `lang`, las leyendas salen en inglés —«Figure 1», «Table 2»— en una
+      tesis escrita en español.
+    - Sin `csl`, la bibliografía sale en el estilo por defecto de pandoc en
+      lugar del que exige la facultad.
+    """
+    lineas = ["---", "lang: es"]
+    if _bib(raiz):
+        lineas.append(f'bibliography: "{_bib(raiz)}"')
+    if _csl(raiz):
+        lineas.append(f'csl: "{_csl(raiz)}"')
+    for clave, valor in (meta or {}).items():
+        lineas.append(f"{clave}: {valor}")
+    lineas.append("---")
+    return "\n".join(lineas)
+
+
 def _render(entradas: list[pathlib.Path], destino: pathlib.Path,
             referencia: pathlib.Path, raiz: pathlib.Path,
             meta: dict[str, str] | None = None,
@@ -905,14 +945,7 @@ def _render(entradas: list[pathlib.Path], destino: pathlib.Path,
     partes = [_reubicar_rutas(r.read_text(encoding="utf8", errors="replace"),
                               r.parent, raiz)
               for r in entradas]
-    # El archivo combinado no hereda el `_quarto.yml` del proyecto, porque no
-    # está en su lista de `render:`. Sin declarar el idioma, las leyendas salen
-    # en inglés —«Figure 1», «Table 2»— en una tesis escrita en español.
-    cabecera = ["---", "lang: es", f'bibliography: "{_bib(raiz)}"' if _bib(raiz) else ""]
-    for clave, valor in (meta or {}).items():
-        cabecera.append(f"{clave}: {valor}")
-    cabecera += ["---", ""]
-    texto = "\n".join(ln for ln in cabecera if ln) + "\n\n" + "\n\n".join(partes)
+    texto = _cabecera(raiz, meta) + "\n\n" + "\n\n".join(partes)
     if cola:
         texto += "\n\n" + cola + "\n"
     combinado.write_text(texto, encoding="utf8")
@@ -1033,6 +1066,32 @@ def comprobar_rutas(destinos: list[pathlib.Path], inf: Informe) -> bool:
 def _bib(raiz: pathlib.Path) -> str:
     """`referencias.bib`, si existe. Sin él, las citas saldrían sin resolver."""
     return "referencias.bib" if (raiz / "referencias.bib").exists() else ""
+
+
+def _csl(raiz: pathlib.Path) -> str:
+    """El estilo de citas del perfil activo, leído del `_quarto.yml` generado.
+
+    Hace falta por lo mismo que `lang`: el .qmd combinado no hereda el
+    `_quarto.yml` del proyecto. Sin esta línea, pandoc aplicaba su estilo por
+    defecto —Chicago autor-año— **en los dos .docx que el tesista entrega**,
+    fuera cual fuera el que exige su facultad. Una tesis de Medicina salía con
+    la bibliografía alfabética y las citas en autor-año cuando los anexos C a F
+    de su reglamento piden Vancouver, numerado y por orden de aparición; y el
+    render de `quarto render` sí lo hacía bien, de modo que lo que el tesista
+    veía al trabajar no era lo que entregaba.
+
+    Se lee del `_quarto.yml` porque es el archivo que `activar_perfil` genera
+    desde el perfil, y que ya comprobó que el .csl existe.
+    """
+    conf = raiz / "_quarto.yml"
+    if not conf.exists():
+        return ""
+    try:
+        datos = yaml.safe_load(conf.read_text(encoding="utf8")) or {}
+    except yaml.YAMLError:
+        return ""
+    csl = str(datos.get("csl") or "").strip()
+    return csl if csl and (raiz / csl).exists() else ""
 
 
 def _limpiar_residuos(combinado: pathlib.Path) -> None:

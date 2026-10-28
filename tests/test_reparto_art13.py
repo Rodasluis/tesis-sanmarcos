@@ -210,3 +210,58 @@ def test_revisar_docx_no_revienta_con_una_tabla_sin_tblgrid(tmp_path):
     d.save(str(f))
 
     _revisar(f)  # no debe lanzar
+
+
+def test_el_icono_de_un_callout_no_dispara_el_aviso_de_formula_fotografiada(tmp_path):
+    """T12 contaba cualquier imagen, incluido el icono de 12 puntos.
+
+    Un documento sin una sola ecuacion —el proyecto de tesis cualitativo, por
+    ejemplo— recibia el aviso y mandaba al tesista a buscar una formula
+    rasterizada que no existe.
+    """
+    f = tmp_path / "callout.docx"
+    _docx_con_tabla(f, filas=2, cols=2, emu=152400)
+    assert not [h.codigo for h in _revisar(f).avisos if h.codigo == "T12"]
+
+
+def test_una_imagen_grande_sin_ecuaciones_si_se_avisa(tmp_path):
+    """El aviso tiene que seguir saltando donde puede haber una formula."""
+    f = tmp_path / "grande.docx"
+    _docx_con_tabla(f, filas=1, cols=1, emu=4572000)
+    assert [h.codigo for h in _revisar(f).avisos if h.codigo == "T12"]
+
+
+# --- el estilo de citas del perfil llega al documento entregado -----------
+
+def test_la_cabecera_del_combinado_declara_el_csl_del_perfil(tmp_path):
+    """Sin esto, los dos .docx del art. 13 salian en el estilo de pandoc.
+
+    El .qmd combinado no hereda el `_quarto.yml`, de modo que la bibliografia
+    se imprimia en Chicago autor-anio aunque el perfil exigiera Vancouver. Y no
+    fallaba: salia distinto. El tesista veia Vancouver al renderizar con Quarto
+    y entregaba otra cosa.
+    """
+    (tmp_path / "referencias.bib").write_text("", encoding="utf8")
+    (tmp_path / "plantillas" / "csl").mkdir(parents=True)
+    (tmp_path / "plantillas" / "csl" / "vancouver.csl").write_text("<style/>",
+                                                                  encoding="utf8")
+    (tmp_path / "_quarto.yml").write_text(
+        "lang: es\ncsl: plantillas/csl/vancouver.csl\n", encoding="utf8")
+
+    cabecera = entregar._cabecera(tmp_path)
+    assert 'csl: "plantillas/csl/vancouver.csl"' in cabecera
+    assert 'bibliography: "referencias.bib"' in cabecera
+
+
+def test_un_csl_declarado_que_no_existe_no_se_declara(tmp_path):
+    """Pandoc falla entero si el .csl no esta; mejor el estilo por defecto."""
+    (tmp_path / "_quarto.yml").write_text("csl: plantillas/csl/fantasma.csl\n",
+                                          encoding="utf8")
+    assert "csl:" not in entregar._cabecera(tmp_path)
+
+
+def test_sin_quarto_yml_la_cabecera_sigue_saliendo(tmp_path):
+    """Las pruebas y los proyectos a medio montar no tienen `_quarto.yml`."""
+    cabecera = entregar._cabecera(tmp_path)
+    assert cabecera.startswith("---")
+    assert "lang: es" in cabecera
