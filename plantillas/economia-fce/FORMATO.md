@@ -1,8 +1,8 @@
 # Formato aplicado — `economia-fce`
 
 - Facultad: Facultad de Ciencias Económicas
-- Estado del perfil: `verificar`
-- Fuente del formato: Estructura del diseño y/o proyecto de investigación para optar el título profesional de economista (el archivo se titula «PAUTAS PARA SUSTENTACION DE TESIS»)
+- Estado del perfil: `hereda_general`
+- Fuente del formato: (sin documento con rango normativo; rige la directiva general)
 
 ## Valores con los que se generó `referencia.docx`
 

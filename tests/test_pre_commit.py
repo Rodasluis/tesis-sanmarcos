@@ -129,3 +129,58 @@ def test_no_revienta_si_no_encuentra_python(repo, monkeypatch):
     r = subprocess.run(["git", "commit", "-m", "sin python"], cwd=str(repo),
                        capture_output=True, text=True, timeout=120, env=entorno)
     assert r.returncode == 0, (r.stdout + r.stderr)
+
+
+# --- nada personal en un repositorio publico -------------------------------
+
+#: `tests/` queda fuera a proposito: sus archivos existen para contener correos
+#: y datos falsos con los que se prueba el detector de datos personales.
+NO_SE_REVISA = ("tests/",)
+
+#: Marcadores de posicion que un README tiene que poder usar.
+MARCADORES = ("tu-usuario", "usuario", "tuusuario", "ejemplo")
+
+
+def _publicados(sufijos=(".py", ".md", ".yaml", ".yml")):
+    import subprocess
+    salida = subprocess.run(["git", "ls-files"], cwd=RAIZ_REAL, capture_output=True,
+                            text=True, encoding="utf8").stdout
+    for nombre in salida.splitlines():
+        if not nombre or nombre.startswith(NO_SE_REVISA):
+            continue
+        if pathlib.Path(nombre).suffix not in sufijos:
+            continue
+        ruta = RAIZ_REAL / nombre
+        if ruta.exists():
+            yield nombre, ruta.read_text(encoding="utf8", errors="replace")
+
+
+def test_ningun_correo_personal_incrustado():
+    """El correo del tesista estaba en los dos ejemplos, como `mailto:` del
+    «polite pool» de Crossref. En un repositorio publico MIT eso es su
+    direccion expuesta a cualquier rastreador. Ahora sale de
+    `CROSSREF_MAILTO`, y sin esa variable se usa la cola comun.
+    """
+    import re
+    correo = re.compile(r"[\w.+-]+@(?!unmsm\.edu\.pe|ejemplo\.)[\w-]+\.[\w.]+")
+    permitidos = {"noreply@anthropic.com"}
+    hallados = [f"{n}: {m}" for n, txt in _publicados()
+                for m in correo.findall(txt) if m not in permitidos]
+    assert not hallados, f"correos personales en archivos publicados: {hallados}"
+
+
+def test_ninguna_ruta_de_la_maquina_de_nadie():
+    """Una ruta como la del equipo de alguien, en un archivo publicado, dice
+    de quien es la maquina y que carpetas tiene. Aparecio en el plan de
+    implementacion, con el nombre de una carpeta del tesista."""
+    import re
+    patron = re.compile(r"[Cc]:.Users.([A-Za-z0-9_.-]+)|/home/([a-z0-9_-]+)/")
+    hallados = []
+    for nombre, txt in _publicados():
+        for a, b in patron.findall(txt):
+            quien = a or b
+            if quien.lower() not in MARCADORES:
+                hallados.append(f"{nombre}: {quien}")
+    assert not hallados, (
+        f"rutas de una maquina concreta (usa un marcador como «tu-usuario»): "
+        f"{hallados}")

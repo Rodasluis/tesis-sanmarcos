@@ -114,3 +114,29 @@ def test_letras_usa_apa_y_no_el_inexistente_apa_es():
 def test_los_csl_declarados_existen_en_disco():
     for nombre in ("apa.csl", "vancouver.csl", "locales-es-ES.xml"):
         assert (RAIZ / "plantillas" / "csl" / nombre).exists()
+
+
+def test_formato_md_no_se_desfasa_del_perfil():
+    """`FORMATO.md` lo genera `plantilla_docx`, pero nadie lo regeneraba.
+
+    Tres quedaron mintiendo: `administrativas-fca` decía `hereda_general`
+    cuando ya era `verificado`, y `economia-fce` y `educacion-fe` seguían con
+    los estados intermedios que el tesista eliminó. El tesista lee ese archivo
+    para saber de dónde sale el formato de su plantilla.
+    """
+    import re
+
+    import yaml
+
+    desfasados = []
+    for f in sorted((RAIZ / "plantillas").glob("*/FORMATO.md")):
+        m = re.search(r"Estado del perfil: `([^`]+)`", f.read_text(encoding="utf8"))
+        perfil = RAIZ / "perfiles" / f"{f.parent.name}.yaml"
+        if not (m and perfil.exists()):
+            continue
+        real = (yaml.safe_load(perfil.read_text(encoding="utf8")) or {}).get("estado")
+        if m.group(1) != real:
+            desfasados.append(f"{f.parent.name}: dice {m.group(1)!r}, es {real!r}")
+    assert not desfasados, (
+        "regenera con `uv run python -m herramientas.plantilla_docx --todos`: "
+        + "; ".join(desfasados))

@@ -97,9 +97,14 @@ jobs:
           uv run python -m herramientas.entregar_proyecto --raiz "$raiz" --detalle
           uv run python -m herramientas.entregar --raiz "$raiz" --detalle
 
-      - name: Comprobar la carátula y el escudo
+      - name: Comprobar la carátula, el escudo y el reparto del art. 13
+        # Comprueba que estén los cuatro entregables, que la carátula lleve el
+        # escudo y que sea el archivo de «Protocolo y Complemento» quien la
+        # lleve: el art. 13 A.2 a) describe el de Desarrollo como el documento
+        # «sin carátula […] ni referencias bibliográficas».
         run: |
-          uv run python -m herramientas.preparar_ejemplo             --comprobar-entregables economia-cuantitativo
+          uv run python -m herramientas.preparar_ejemplo \
+            --comprobar-entregables economia-cuantitativo
 
       - name: Guardar los entregables
         if: always()

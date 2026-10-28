@@ -81,8 +81,9 @@ Tres preguntas, en orden:
 
 - **¿Tiene número de resolución?** Un «instructivo» o unas «pautas» sin
   resolución pueden ser el documento que la escuela usa en la práctica, y aun así
-  no acreditan rango normativo. Eso es exactamente el caso de `economia-fce`, que
-  está en estado `verificar`.
+  no acreditan rango normativo. Eso fue exactamente el caso de la guía de
+  Economía: se conserva como documento complementario del perfil, pero el
+  perfil hereda la norma general.
 - **¿Es de pregrado?** Muchas facultades tienen reglamento de posgrado y es otra
   cosa.
 - **¿Está vigente?** Busque si una resolución posterior la derogó.

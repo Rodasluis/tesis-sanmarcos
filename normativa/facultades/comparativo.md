@@ -150,10 +150,12 @@ dicen los documentos y hace que una facultad sin norma propia no necesite una
 
 ## 7. Qué queda pendiente
 
-1. **R.D. 1069-D-FE-2017 (Educación)**: no localizada. Sigue como
-   `solo_fuente_secundaria`.
+1. **R.D. 1069-D-FE-2017 (Educación)**: no localizada. Por decisión del
+   tesista (23/10/2026) el perfil pasó a `hereda_general`; la pista queda
+   anotada por si aparece el original.
 2. **Resolución que aprueba la guía de Economía**: no localizada. El perfil
-   `economia-fce` no puede ser `verificado` sin ella.
+   `economia-fce` pasó también a `hereda_general`, y la guía se conserva como
+   documento complementario.
 3. **Resolución decanal que aprueba el Reglamento de Grados y Títulos de Derecho**:
    el PDF está firmado pero no se identificó su RD.
 4. **15 facultades sin documento de estructura propio.** Antes de crear un

@@ -823,8 +823,35 @@ def _quarto() -> str | None:
     return shutil.which("quarto")
 
 
+#: Prefijos de referencia cruzada de Quarto. `@fig-dispersion` no es una cita:
+#: es un «ver figura 1». Si se cuela en el `nocite` del archivo de Complemento,
+#: citeproc busca esa clave en el .bib, no la encuentra y la imprime en crudo.
+PREFIJOS_CRUZADOS = ("fig-", "tbl-", "eq-", "sec-", "lst-", "thm-", "ref-")
+
+RE_CITA = re.compile(r"(?<![\w@])@([A-Za-z][\w:.#$%&+?<>~/-]*)")
+
+
+def claves_citadas(entradas: list[pathlib.Path]) -> list[str]:
+    """Las claves de Zotero citadas en estos capítulos, en orden de aparición.
+
+    Hacen falta porque la bibliografía se imprime en el archivo de «Protocolo y
+    Complemento» (art. 13 A.2 b) mientras que las citas viven en el de
+    Desarrollo. Sin esta lista, citeproc no tendría de dónde saber qué obras
+    listar en un documento que no cita a ninguna.
+    """
+    vistas: dict[str, None] = {}
+    for ruta in entradas:
+        texto = ruta.read_text(encoding="utf8", errors="replace")
+        for clave in RE_CITA.findall(texto):
+            if not clave.startswith(PREFIJOS_CRUZADOS):
+                vistas.setdefault(clave.rstrip(".,;:"), None)
+    return list(vistas)
+
+
 def _render(entradas: list[pathlib.Path], destino: pathlib.Path,
-            referencia: pathlib.Path, raiz: pathlib.Path) -> tuple[bool, str]:
+            referencia: pathlib.Path, raiz: pathlib.Path,
+            meta: dict[str, str] | None = None,
+            cola: str = "") -> tuple[bool, str]:
     quarto = _quarto()
     if quarto is None:
         return False, "no se encontró quarto en el PATH"
@@ -845,9 +872,13 @@ def _render(entradas: list[pathlib.Path], destino: pathlib.Path,
     # El archivo combinado no hereda el `_quarto.yml` del proyecto, porque no
     # está en su lista de `render:`. Sin declarar el idioma, las leyendas salen
     # en inglés —«Figure 1», «Table 2»— en una tesis escrita en español.
-    cabecera = ["---", "lang: es", f'bibliography: "{_bib(raiz)}"' if _bib(raiz) else "",
-                "---", ""]
+    cabecera = ["---", "lang: es", f'bibliography: "{_bib(raiz)}"' if _bib(raiz) else ""]
+    for clave, valor in (meta or {}).items():
+        cabecera.append(f"{clave}: {valor}")
+    cabecera += ["---", ""]
     texto = "\n".join(ln for ln in cabecera if ln) + "\n\n" + "\n\n".join(partes)
+    if cola:
+        texto += "\n\n" + cola + "\n"
     combinado.write_text(texto, encoding="utf8")
 
     salida = raiz / destino.name
@@ -1135,12 +1166,36 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
     if "superior" in str(numeracion.get("posicion", "")).lower():
         posicion = "superior_derecha"
 
+    # El reparto lo fija el art. 13 A.2, y no es cosmético: el primer archivo
+    # es el que se somete al análisis de similitud, así que todo lo que no es
+    # cuerpo —carátula, bibliografía, anexos— sale de él a propósito. Si se
+    # queda dentro, infla el porcentaje con texto que no escribió el tesista.
+    citadas = claves_citadas(desarrollo) if _bib(raiz) else []
+    ya_hay_refs = any("{#refs}" in r.read_text(encoding="utf8", errors="replace")
+                      for r in complemento)
+    cola_refs = ""
+    if citadas and not ya_hay_refs:
+        cola_refs = "# Referencias {.unnumbered}\n\n::: {#refs}\n:::"
+
     generados: list[pathlib.Path] = []
     for etiqueta, entradas in (("desarrollo", desarrollo), ("complemento", complemento)):
-        if not entradas:
+        # El de Complemento se genera SIEMPRE, aunque no haya ningún .qmd
+        # suyo: lleva como mínimo la carátula, y antes se saltaba en silencio
+        # dejando un solo .docx en `TEXTO/` y ni un aviso.
+        if not entradas and etiqueta == "desarrollo":
             continue
+        meta = {"suppress-bibliography": "true"} if etiqueta == "desarrollo" else {}
+        cola = ""
+        if etiqueta == "complemento":
+            if citadas:
+                meta["nocite"] = "|\n  " + ", ".join(f"@{c}" for c in citadas)
+            cola = cola_refs
+            if not entradas and not cola:
+                inf.aviso("T30", f"«{nombres[etiqueta]}» saldría vacío: no hay "
+                                 f"capítulos de anexos ni citas que listar. Se "
+                                 f"genera solo con la carátula")
         destino = dir_texto / nombres[etiqueta]
-        ok, motivo = _render(entradas, destino, referencia, raiz)
+        ok, motivo = _render(entradas, destino, referencia, raiz, meta, cola)
         if not ok:
             inf.error("T15", f"no se pudo generar el archivo de {etiqueta}: {motivo}")
             continue
@@ -1153,11 +1208,12 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
                              f"rutas en los capítulos")
         revisar_docx(destino, inf)
 
-        # La carátula va en el archivo de Desarrollo, que es el que abre la
-        # tesis. Se inserta sobre el .docx YA RENDERIZADO: la plantilla de
-        # referencia solo aporta estilos, y copiarla traería su contenido de
-        # muestra.
-        if etiqueta == "desarrollo":
+        # La carátula va en el archivo de «Protocolo y Complemento»: el art. 13
+        # A.2 a) describe el primer archivo como el documento «sin carátula», y
+        # A.2 b) pone la carátula en el segundo. Se inserta sobre el .docx YA
+        # RENDERIZADO: la plantilla de referencia solo aporta estilos, y
+        # copiarla traería su contenido de muestra.
+        if etiqueta == "complemento":
             try:
                 for aviso in caratula.anteponer(destino, datos, perfil, "tesis", raiz):
                     inf.aviso("T27", aviso, archivo=destino)
@@ -1170,7 +1226,9 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
             for falta in caratula.faltantes(datos, perfil):
                 inf.aviso("T24", f"la carátula va incompleta: falta {falta}")
 
-        if etiqueta == "complemento":
+            # Después de la carátula: la numeración busca dónde empieza el
+            # cuerpo para pasar de romanos a arábigos, y la carátula es parte
+            # de lo que va en romanos.
             try:
                 docx_numeracion.aplicar(destino, posicion=posicion)
             except docx_numeracion.SinInicioDeCuerpo:

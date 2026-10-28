@@ -2,7 +2,7 @@
 
 - Facultad: Facultad de Ingeniería Industrial
 - Estado del perfil: `hereda_general`
-- Fuente del formato: (sin documento propio de facultad localizado en el relevamiento de la Fase 0b)
+- Fuente del formato: (sin documento con rango normativo localizado; ver documentos_complementarios)
 
 ## Valores con los que se generó `referencia.docx`
 

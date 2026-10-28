@@ -1,8 +1,8 @@
 # Formato aplicado — `educacion-fe`
 
 - Facultad: Facultad de Educación
-- Estado del perfil: `solo_fuente_secundaria`
-- Fuente del formato: R.D. 1069-D-FE-2017, esquema de tesis de la Facultad de Educación
+- Estado del perfil: `hereda_general`
+- Fuente del formato: (sin documento propio localizado; rige la directiva general)
 
 ## Valores con los que se generó `referencia.docx`
 

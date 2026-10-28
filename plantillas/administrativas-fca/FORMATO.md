@@ -1,8 +1,8 @@
 # Formato aplicado — `administrativas-fca`
 
 - Facultad: Facultad de Ciencias Administrativas
-- Estado del perfil: `hereda_general`
-- Fuente del formato: (sin documento propio de facultad localizado en el relevamiento de la Fase 0b)
+- Estado del perfil: `verificado`
+- Fuente del formato: Directiva para la obtención del Grado Académico de Bachiller y el Título Profesional en la Facultad de Ciencias Administrativas - UNMSM
 
 ## Valores con los que se generó `referencia.docx`
 

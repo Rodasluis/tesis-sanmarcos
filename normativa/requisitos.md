@@ -76,7 +76,11 @@ Concordante con el **art. 12, inciso c**, pág. 10 PDF / pág. 9 impresa, que co
 
   Ejemplos que trae la propia directiva: `Julca Pereda Dante Jorge - Desarrollo Competencia digitales en personas adultas - 2025.docx` y `Julca Pereda Dante Jorge - Protocolo y Complemento Competencia digitales en personas adultas - 2025.docx`.
 
+**Por qué el reparto importa, y no es cosmético.** El **primer archivo es el que se somete al análisis de similitud**. La carátula y la bibliografía son texto que el tesista no redactó y que coincide con el de cualquier otra tesis de la universidad; dejarlas dentro infla el porcentaje sin que haya nada que corregir. Por eso la norma las saca del primero y las pone en el segundo, y por eso el art. 14 excluye además los entrecomillados y las cadenas cortas (R-07).
+
 **Motor:** `entregar.py`. La nomenclatura se genera, no se pide al tesista. Obsérvese que el ejemplo oficial **no** usa guion entre el rótulo y el título.
+
+El reparto también se genera: el archivo de Desarrollo se renderiza con `suppress-bibliography`, y el de Protocolo y Complemento lleva la carátula y la lista de referencias, construida con las claves citadas en el cuerpo. **El segundo archivo se genera siempre**, aunque la tesis no tenga capítulos de anexos, porque como mínimo lleva la carátula.
 
 ### R-05 · Estructura de carpetas de entrega
 **Art. 13, A.4**, pág. 11 PDF / pág. 10 impresa.

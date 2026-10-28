@@ -1,7 +1,12 @@
 # Plan de implementación — `tesis-sanmarcos`
 
+> **Documento histórico.** Es el plan por fases tal como se escribió al empezar,
+> el 16 de septiembre de 2026, antes de existir una línea de código. Se conserva
+> porque explica **por qué** el repositorio es como es: qué supuestos del encargo
+> corrigió la lectura de la normativa y qué apareció al construirlo. Donde difiera
+> de lo construido, manda lo construido.
+
 Respuesta a la sección 1 del prompt: plan por fases, estructura de archivos, dependencias y riesgos.
-**No he escrito código todavía.** Este documento espera tu aprobación.
 
 Fecha: 2026-09-16
 
@@ -26,7 +31,8 @@ Todo lo de esta tabla lo comprobé ejecutando comandos; no es supuesto.
 
 ### Documento de facultad encontrado (fuera de la carpeta)
 
-Encontré y **leí** `C:\Users\rodas\Downloads\Tesis de Educación en pandemia\documentos\PAUTAS PARA SUSTENTACION DE TESIS.docx`.
+Encontré y **leí** un `PAUTAS PARA SUSTENTACION DE TESIS.docx` que el tesista
+tenía en su equipo, fuera de la carpeta del repositorio.
 Su contenido corresponde al documento de la Escuela de Economía descrito en la sección 3.4: índice con Definición y Planteamiento del Problema → Formulación de Hipótesis → Objetivos → Marco Teórico → Metodología → Esquema tentativo → Bibliografía → Anexos; introducción con antecedentes e importancia; permiso explícito de excluir ítems con justificación; bibliografía en orden alfabético según "normas APPA" (así, con esa errata, en el original).
 
 Advertencias sobre ese archivo, relevantes para el perfil:

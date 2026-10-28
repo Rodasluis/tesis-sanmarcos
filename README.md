@@ -68,6 +68,14 @@ escuela, el título, la fórmula «Para optar el Título Profesional de…», tu
 nombre, el de tu asesor y el año. El diseño se tomó de tesis reales publicadas
 en Cybertesis, no de una plantilla inventada.
 
+**Si abres el archivo de «Desarrollo» y no ves la carátula, está bien.** El
+art. 13 parte la tesis en dos: el de Desarrollo lleva el cuerpo y nada más
+—«sin carátula […] ni referencias bibliográficas»—, y el de «Protocolo y
+Complemento» lleva la carátula, las listas, la bibliografía y los anexos. No es
+un capricho: el primero es el que se somete al análisis de similitud, y la
+carátula y la bibliografía coinciden con las de cualquier otra tesis, así que
+dentro solo servirían para subirte el porcentaje.
+
 El `.docx` es lo que se entrega para la evaluación de originalidad (art. 13 de
 la Directiva de originalidad). El **PDF** es lo que exige la directiva de
 depósito en Cybertesis (RR N.° 06893-R-18) y lo que vas a imprimir o adjuntar.
@@ -76,8 +84,8 @@ exactamente el `.docx` que se evaluó.
 
 Además, en `entregables/DOCUMENTO/`: el checklist de tu expediente, la
 declaración jurada del Anexo 4, la autorización de depósito en Cybertesis con su
-licencia, la hoja de metadata complementaria y —si decides presentarla— la
-declaración de uso de IA.
+licencia, la hoja de metadata complementaria, la declaración de originalidad que
+pide el RENATI y —si decides presentarla— la declaración de uso de IA.
 
 ---
 

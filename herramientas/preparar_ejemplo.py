@@ -220,14 +220,21 @@ def comprobar_entregables(nombre: str, destino_base: pathlib.Path) -> list[str]:
     esperados = {
         "proyecto .docx": list(raiz.glob("PROYECTO/*.docx")),
         "proyecto PDF": list(raiz.glob("PROYECTO/*.pdf")),
-        "tesis .docx": list(raiz.glob("TEXTO/*.docx")),
+        # El art. 13 A.2 pide DOS archivos, no «al menos uno»: con un glob
+        # suelto, una entrega a la que le faltaba el segundo pasaba la
+        # comprobación sin que nadie lo notara.
+        "archivo de Desarrollo": list(raiz.glob("TEXTO/*Desarrollo*.docx")),
+        "archivo de Protocolo y Complemento":
+            list(raiz.glob("TEXTO/*Protocolo y Complemento*.docx")),
         "tesis PDF": list(raiz.glob("TEXTO/*.pdf")),
     }
     for etiqueta, hallados in esperados.items():
         if not hallados:
             problemas.append(f"{nombre}: no se generó el {etiqueta}")
 
-    for patron in ("PROYECTO/*.docx", "TEXTO/*Desarrollo*.docx"):
+    # La carátula va en el de Complemento (art. 13 A.2 b), no en el de
+    # Desarrollo, que la norma describe como el documento «sin carátula».
+    for patron in ("PROYECTO/*.docx", "TEXTO/*Protocolo y Complemento*.docx"):
         for archivo in raiz.glob(patron):
             doc = docx.Document(str(archivo))
             if not doc.paragraphs:

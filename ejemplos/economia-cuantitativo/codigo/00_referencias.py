@@ -14,6 +14,7 @@ Uso:
 """
 from __future__ import annotations
 
+import os
 import pathlib
 import urllib.error
 import urllib.parse
@@ -21,8 +22,13 @@ import urllib.request
 
 AQUI = pathlib.Path(__file__).resolve().parent.parent
 
-CORREO = "rodasluis1308@gmail.com"
-UA = f"tesis-sanmarcos/0.1 (mailto:{CORREO})"
+#: Crossref atiende mejor a quien se identifica —es su «polite pool»—, pero un
+#: repositorio publico no puede llevar el correo de nadie incrustado. Pon el
+#: tuyo en la variable de entorno si quieres esa cola:
+#:     CROSSREF_MAILTO=tucorreo@ejemplo.pe uv run python codigo/00_referencias.py
+#: Sin ella funciona igual, solo que en la cola comun.
+CORREO = os.environ.get("CROSSREF_MAILTO", "").strip()
+UA = f"tesis-sanmarcos/0.1 (mailto:{CORREO})" if CORREO else "tesis-sanmarcos/0.1"
 
 #: Las fuentes de la tesis, cada una con por qué está. El orden es el de la
 #: discusión del capítulo II, no alfabético.

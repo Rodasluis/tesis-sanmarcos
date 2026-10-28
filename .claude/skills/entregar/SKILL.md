@@ -22,10 +22,26 @@ entregables/
   DOCUMENTO/
     checklist_expediente.md
     declaracion_jurada_pids.md
+    declaracion_de_originalidad.md
     declaracion_uso_de_ia.md
     autorizacion_cybertesis.md
     metadata_complementaria.md
 ```
+
+**Qué va en cada uno, y por qué importa.** El art. 13 A.2 reparte así:
+
+| Archivo | Qué lleva |
+|---|---|
+| **Desarrollo** | El cuerpo de la investigación y nada más: «sin carátula, dedicatorias, agradecimientos, lista de figuras, lista de tablas, referencias bibliográficas ni anexos» |
+| **Protocolo y Complemento** | La carátula, las dedicatorias, el agradecimiento, las listas de figuras y tablas, **la bibliografía** y los anexos |
+
+El reparto no es cosmético: **el primero es el que se somete al análisis de
+similitud**. La carátula y la bibliografía son texto que el tesista no redactó y
+que coincide con el de cualquier otra tesis, así que dejarlas dentro infla el
+porcentaje sin motivo. Por eso salen de ahí.
+
+Lo hace `entregar.py` solo: pone la carátula en el segundo archivo e imprime
+allí la bibliografía, aunque las citas estén en el primero.
 
 **Los dos formatos hacen falta, y por normas distintas.** El .docx es lo que
 exige el art. 13 para la evaluación de originalidad. El **PDF** es lo que exige
