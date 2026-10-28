@@ -361,7 +361,7 @@ cambio, así que un ejemplo roto avisa de que algo se rompió.
 
 | | `economia-cuantitativo` | `medicina-cualitativo` |
 |---|---|---|
-| Perfil | `economia-fce` (estado `verificar`) | `medicina-fm` (verificado) |
+| Perfil | `economia-fce` (`hereda_general`) | `medicina-fm` (verificado) |
 | Datos | **reales**: API del Banco Mundial | **ficticios**: 8 transcripciones |
 | Citas | APA 7 | Vancouver |
 | Lo que muestra | un resultado nulo reportado sin maquillaje | una saturación que no se alcanzó, declarada |
