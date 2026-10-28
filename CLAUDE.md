@@ -355,9 +355,14 @@ enseña nada.
 
 ## 7. Los dos ejemplos
 
-`ejemplos/` tiene dos tesis de demostración que recorren el flujo entero. Sirven
-de molde y, sobre todo, de prueba: el CI las verifica y las renderiza en cada
+`ejemplos/` tiene dos tesis de demostración. Sirven de molde y, sobre todo, de
+prueba: el CI las verifica, las renderiza y genera sus entregables en cada
 cambio, así que un ejemplo roto avisa de que algo se rompió.
+
+**El cualitativo no está completo:** le falta `proyecto/`. Tiene registrada su
+decisión de la etapa 4, pero el documento no se escribió, así que
+`entregar_proyecto` no produce nada ahí y el CI se lo salta. Todo lo demás —
+hasta los dos .docx del art. 13 con sus PDF— sí lo recorre.
 
 | | `economia-cuantitativo` | `medicina-cualitativo` |
 |---|---|---|
