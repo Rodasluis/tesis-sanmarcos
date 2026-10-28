@@ -384,3 +384,37 @@ def test_limpiar_borra_de_verdad(tmp_path):
 
     preparar_ejemplo._limpiar(destino)
     assert not destino.exists()
+
+
+def test_los_dos_ejemplos_pueden_llegar_a_entregar():
+    """Al cualitativo le faltaba `datos_de_entrega.yaml`.
+
+    Verificaba y renderizaba, pero `/entregar` se detenia en T07 y nunca
+    producia los dos .docx del art. 13. El CI solo corria los entregables del
+    cuantitativo, asi que la mitad cualitativa del flujo —la que el README
+    promete «desde la idea hasta la sustentacion»— no se probaba entera.
+    """
+    import yaml as _yaml
+
+    for nombre in ("economia-cuantitativo", "medicina-cualitativo"):
+        ruta = RAIZ / "ejemplos" / nombre / "entregables" / "datos_de_entrega.yaml"
+        assert ruta.exists(), f"{nombre} no puede generar entregables: falta {ruta.name}"
+
+        datos = _yaml.safe_load(ruta.read_text(encoding="utf8")) or {}
+        # Los tres que el Anexo 4 vigente marca obligatorios y que, si faltan,
+        # Biblioteca no deposita (R-26).
+        asesor = datos.get("asesor") or {}
+        assert asesor.get("orcid"), f"{nombre}: falta el ORCID del asesor"
+        assert asesor.get("dni"), f"{nombre}: falta el DNI del asesor"
+        assert (datos.get("autores") or [{}])[0].get("dni"), (
+            f"{nombre}: falta el DNI del autor")
+
+
+def test_los_datos_de_entrega_de_los_ejemplos_se_declaran_ficticios():
+    """Un expediente de ejemplo con pinta de real es justo lo que no debe
+    circular: alguien podria tomarlo por una entrega de verdad."""
+    for nombre in ("economia-cuantitativo", "medicina-cualitativo"):
+        ruta = RAIZ / "ejemplos" / nombre / "entregables" / "datos_de_entrega.yaml"
+        cabecera = ruta.read_text(encoding="utf8")[:600].upper()
+        assert "FICTICIO" in cabecera, (
+            f"{nombre}: los datos de entrega no se declaran ficticios")

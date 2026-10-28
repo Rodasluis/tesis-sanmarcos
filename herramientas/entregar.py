@@ -176,6 +176,35 @@ def comprobar_datos(datos: dict, inf: Informe) -> list[Autor]:
 # Comprobaciones sobre el .docx generado
 # ---------------------------------------------------------------------------
 
+#: Un EMU es 1/914400 de pulgada. Media pulgada de ancho es el corte entre un
+#: icono y algo que de verdad podría ser una tabla fotografiada: el icono de un
+#: callout de Quarto mide 152400 EMU, o sea 12 puntos.
+MEDIA_PULGADA_EMU = 457200
+
+RE_EXTENT = re.compile(r'<wp:extent\s+cx="(\d+)"\s+cy="(\d+)"')
+
+
+def _una_sola_celda(tabla) -> bool:
+    """¿Es la tabla de una celda con que pandoc envuelve cada figura?
+
+    `len(tabla.columns)` revienta con `InvalidXmlError` si el `<w:tbl>` no
+    trae `<w:tblGrid>`, cosa que pasa en las tablas que pandoc genera para los
+    callouts. Se cuentan las celdas a mano.
+    """
+    if len(tabla.rows) != 1:
+        return False
+    return len(tabla.rows[0].cells) == 1
+
+
+def _solo_iconos(tbl_xml: str) -> bool:
+    """¿Todas las imágenes de esta tabla son del tamaño de un icono?"""
+    medidas = RE_EXTENT.findall(tbl_xml)
+    if not medidas:
+        return False
+    return all(int(cx) < MEDIA_PULGADA_EMU and int(cy) < MEDIA_PULGADA_EMU
+               for cx, cy in medidas)
+
+
 def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
     """Art. 13 A.6: tablas y fórmulas como texto, nunca como imágenes."""
     try:
@@ -189,13 +218,20 @@ def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
 
     imagenes_en_tabla = 0
     for tabla in doc.tables:
-        if "<w:drawing" not in tabla._tbl.xml and "<w:pict" not in tabla._tbl.xml:
+        tbl_xml = tabla._tbl.xml
+        if "<w:drawing" not in tbl_xml and "<w:pict" not in tbl_xml:
             continue
         # Pandoc emite cada figura con su leyenda dentro de una tabla de una
         # sola celda. Eso es una figura, no una tabla de datos rasterizada, y
         # el art. 13 A.6 habla de lo segundo. Contarlas como infracción
         # bloqueaba la entrega de cualquier tesis que tuviera un gráfico.
-        if len(tabla.rows) == 1 and len(tabla.columns) == 1:
+        if _una_sola_celda(tabla):
+            continue
+        # Y los callouts de Quarto —`::: {.callout-note}`— salen como una tabla
+        # de dos filas cuya primera celda lleva el icono del callout. Es una
+        # imagen de 12 pt, no una tabla fotografiada. Acusar de infracción a
+        # quien usó un callout lo manda a buscar un problema que no existe.
+        if _solo_iconos(tbl_xml):
             continue
         imagenes_en_tabla += 1
     if imagenes_en_tabla:

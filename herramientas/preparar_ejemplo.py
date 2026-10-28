@@ -218,8 +218,6 @@ def comprobar_entregables(nombre: str, destino_base: pathlib.Path) -> list[str]:
     problemas: list[str] = []
 
     esperados = {
-        "proyecto .docx": list(raiz.glob("PROYECTO/*.docx")),
-        "proyecto PDF": list(raiz.glob("PROYECTO/*.pdf")),
         # El art. 13 A.2 pide DOS archivos, no «al menos uno»: con un glob
         # suelto, una entrega a la que le faltaba el segundo pasaba la
         # comprobación sin que nadie lo notara.
@@ -228,6 +226,13 @@ def comprobar_entregables(nombre: str, destino_base: pathlib.Path) -> list[str]:
             list(raiz.glob("TEXTO/*Protocolo y Complemento*.docx")),
         "tesis PDF": list(raiz.glob("TEXTO/*.pdf")),
     }
+    # El proyecto de tesis solo se exige a los ejemplos que lo tienen
+    # redactado. Al cualitativo le falta `proyecto/`: tiene registrada su
+    # decisión de la etapa 4, pero nadie escribió el documento.
+    if (raiz.parent / "proyecto").is_dir():
+        esperados["proyecto .docx"] = list(raiz.glob("PROYECTO/*.docx"))
+        esperados["proyecto PDF"] = list(raiz.glob("PROYECTO/*.pdf"))
+
     for etiqueta, hallados in esperados.items():
         if not hallados:
             problemas.append(f"{nombre}: no se generó el {etiqueta}")
@@ -273,7 +278,10 @@ def main(argv: list[str] | None = None) -> int:
         if problemas:
             return 1
         for nombre in objetivos:
-            print(f"  {nombre}: proyecto y tesis, en .docx y PDF, con escudo")
+            con_proyecto = (DESTINO_POR_DEFECTO.parent / "ejemplos" / nombre
+                            / "proyecto").is_dir()
+            que = "proyecto y tesis" if con_proyecto else "tesis (sin proyecto)"
+            print(f"  {nombre}: {que}, en .docx y PDF, con escudo")
         return 0
 
     if args.comprobar_render:

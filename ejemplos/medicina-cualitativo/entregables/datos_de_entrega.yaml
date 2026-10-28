@@ -1,0 +1,43 @@
+# Datos de entrega del EJEMPLO. El tesista es FICTICIO, como las decisiones y
+# como las ocho transcripciones. En una tesis real estos datos son los tuyos y
+# este archivo no se versiona.
+#
+# Sin este archivo el ejemplo se quedaba a medias: verificaba y renderizaba,
+# pero `/entregar` se detenía en T07 y nunca producía los dos .docx del art. 13.
+# El CI solo corría los entregables del ejemplo cuantitativo, así que la mitad
+# cualitativa del flujo no se probaba de punta a punta.
+
+titulo: "Barreras percibidas para la adherencia al tratamiento antihipertensivo en usuarios de un centro de salud de Lima"
+anio: 2026
+
+autores:
+  - apellidos: "Ejemplo Ficticio"
+    nombres: "María Elena"
+    dni: "00000001"
+    objetivos: []
+
+asesor:
+  nombres: "Carlos"
+  apellidos: "Tesista De Ejemplo"
+  grado: "Dr."
+  genero: "m"
+  nombres_y_apellidos: "Carlos Tesista De Ejemplo"
+  correo: "asesor.ficticio@unmsm.edu.pe"
+  orcid: "0000-0002-1825-0097"
+  dni: "00000002"
+
+facultad: "Facultad de Medicina"
+escuela: "Escuela Profesional de Medicina Humana"
+titulo_profesional: "Médico Cirujano"
+grupo_de_investigacion: "Grupo de ejemplo (FICTICIO)"
+fuente_de_financiamiento: "Sin financiamiento externo"
+disciplina_ocde: "3.02 Medicina Clínica"
+titulo_en_ingles: "Perceived barriers to antihypertensive treatment adherence among users of a health centre in Lima"
+
+orcid_autor: "0000-0001-2345-6789"
+ubicacion_geografica: "Lima, Perú (-12.0464, -77.0428)"
+anios_de_la_investigacion: "2025-2026"
+domicilio_para_el_deposito: "Dirección de ejemplo, Lima"
+correo_institucional: "ejemplo.ficticio@unmsm.edu.pe"
+telefono: "900000000"
+tipo_de_documento: "Tesis"

@@ -82,3 +82,16 @@ En Windows, `$env:QUARTO_PYTHON = (Resolve-Path ".venv\Scripts\python.exe").Path
 - **Lo ético donde corresponde**: consentimiento obligatorio, comité de ética
   obligatorio (art. 23), anonimización antes de que nada salga de
   `datos/crudos/`.
+
+## Lo que a este ejemplo le falta
+
+**No tiene `proyecto/` redactado.** La decisión de la etapa 4 está registrada
+—eligió el modelo cualitativo del reglamento de la Facultad de Medicina— pero
+nadie escribió el documento del proyecto de tesis. Por eso
+`uv run python -m herramientas.entregar_proyecto` no produce nada aquí, y el CI
+se lo salta a propósito.
+
+El ejemplo sí recorre el resto del flujo entero y genera sus dos .docx del
+art. 13 con sus PDF. Si quieres completarlo, el molde está en
+`ejemplos/economia-cuantitativo/proyecto/`: cuatro .qmd, unas 220 líneas en
+total. Es una contribución bienvenida.

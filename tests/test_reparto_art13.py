@@ -138,3 +138,75 @@ def test_la_cita_en_el_texto_se_queda_en_el_cuerpo(proyecto):
     f = list((proyecto / "entregables" / "TEXTO").glob("*Desarrollo*.docx"))[0]
     cuerpo = " ".join(p.text for p in docx.Document(str(f)).paragraphs)
     assert "Czernich" in cuerpo, "la cita en el texto tiene que seguir ahi"
+
+
+# --- el art. 13 A.6 y los callouts de Quarto ------------------------------
+
+def _docx_con_tabla(ruta: pathlib.Path, filas: int, cols: int, emu: int | None) -> None:
+    """Un .docx con una tabla que lleva —o no— una imagen de `emu` de lado."""
+    import docx
+    from docx.shared import Emu
+
+    d = docx.Document()
+    t = d.add_table(rows=filas, cols=cols)
+    t.cell(0, 0).text = "contenido"
+    if emu is not None:
+        png = ruta.parent / "punto.png"
+        png.write_bytes(bytes.fromhex(
+            "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4"
+            "890000000a49444154789c6300010000050001" "0d0a2db4" "0000000049454e44ae426082"))
+        t.cell(0, 0).paragraphs[0].add_run().add_picture(str(png), width=Emu(emu),
+                                                         height=Emu(emu))
+    d.save(str(ruta))
+
+
+def _revisar(ruta: pathlib.Path):
+    from herramientas.informe import Informe
+    inf = Informe("prueba", "Prueba")
+    entregar.revisar_docx(ruta, inf)
+    return inf
+
+
+def test_un_callout_de_quarto_no_es_una_tabla_fotografiada(tmp_path):
+    """`::: {.callout-note}` sale como tabla de dos filas con el icono dentro.
+
+    El icono mide 152400 EMU, que son 12 puntos. Acusar de infringir el
+    art. 13 A.6 a quien uso un callout lo manda a buscar un problema que no
+    existe, y era un ERROR que detenia la entrega: le pasaba al ejemplo
+    cualitativo del propio repositorio.
+    """
+    f = tmp_path / "callout.docx"
+    _docx_con_tabla(f, filas=2, cols=2, emu=152400)
+    assert not [h.codigo for h in _revisar(f).errores if h.codigo == "T11"]
+
+
+def test_una_tabla_de_verdad_fotografiada_si_se_detecta(tmp_path):
+    """Lo que el art. 13 A.6 prohibe de verdad: la tabla pegada como imagen."""
+    f = tmp_path / "rasterizada.docx"
+    _docx_con_tabla(f, filas=2, cols=2, emu=4572000)  # 5 pulgadas
+    assert [h.codigo for h in _revisar(f).errores if h.codigo == "T11"]
+
+
+def test_la_figura_envuelta_por_pandoc_sigue_sin_contar(tmp_path):
+    """Pandoc mete cada figura con su leyenda en una tabla de una celda."""
+    f = tmp_path / "figura.docx"
+    _docx_con_tabla(f, filas=1, cols=1, emu=4572000)
+    assert not [h.codigo for h in _revisar(f).errores if h.codigo == "T11"]
+
+
+def test_revisar_docx_no_revienta_con_una_tabla_sin_tblgrid(tmp_path):
+    """`len(tabla.columns)` lanza InvalidXmlError si falta `<w:tblGrid>`, que
+    es justo lo que traen las tablas de los callouts."""
+    import docx
+    from docx.oxml.ns import qn
+
+    f = tmp_path / "sin_grid.docx"
+    _docx_con_tabla(f, filas=1, cols=1, emu=152400)
+    d = docx.Document(str(f))
+    tbl = d.tables[0]._tbl
+    grid = tbl.find(qn("w:tblGrid"))
+    if grid is not None:
+        tbl.remove(grid)
+    d.save(str(f))
+
+    _revisar(f)  # no debe lanzar
