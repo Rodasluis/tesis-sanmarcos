@@ -359,10 +359,13 @@ enseña nada.
 prueba: el CI las verifica, las renderiza y genera sus entregables en cada
 cambio, así que un ejemplo roto avisa de que algo se rompió.
 
-**El cualitativo no está completo:** le falta `proyecto/`. Tiene registrada su
-decisión de la etapa 4, pero el documento no se escribió, así que
-`entregar_proyecto` no produce nada ahí y el CI se lo salta. Todo lo demás —
-hasta los dos .docx del art. 13 con sus PDF— sí lo recorre.
+Los dos tienen `proyecto/` y `capitulos/`, y los dos generan sus cuatro
+entregables: proyecto de tesis y tesis, cada uno en .docx y PDF. Ninguno
+registra decisiones más allá de la etapa 6.
+
+El proyecto del cualitativo sigue el **anexo D** del reglamento de Medicina, no
+el anexo 2A de la universidad: es el único esquema de proyecto por enfoque que
+hay en los perfiles, y por eso ese ejemplo es también la prueba de que se lee.
 
 | | `economia-cuantitativo` | `medicina-cualitativo` |
 |---|---|---|
