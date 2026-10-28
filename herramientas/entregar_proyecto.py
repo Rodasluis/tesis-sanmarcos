@@ -42,7 +42,12 @@ from herramientas.entregar import (
     revisar_docx,
 )
 from herramientas.informe import Informe
-from herramientas.perfiles import ErrorDePerfil, cargar_de, perfil_activo
+from herramientas.perfiles import (
+    ErrorDePerfil,
+    cargar_de,
+    enfoque_activo,
+    perfil_activo,
+)
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 
@@ -60,11 +65,28 @@ def capitulos_del_proyecto(raiz: pathlib.Path) -> list[pathlib.Path]:
 LA_PONE_LA_CARATULA = ("primera pagina", "primera página", "caratula", "carátula",
                        "portada")
 
+#: El índice de un .docx es un campo de Word, no texto del .qmd: se inserta en
+#: el documento ya generado y se actualiza solo. Reclamarlo aquí mandaría al
+#: tesista a teclear a mano una lista de páginas que queda falsa en cuanto
+#: corrija un párrafo. Se avisa aparte, con Y15.
+LO_PONE_WORD = ("indice", "índice", "indice general", "índice general",
+                "tabla de contenido")
 
-def secciones_esperadas(perfil) -> list[str]:
-    """Las secciones que el perfil pide para el proyecto, si las define."""
+
+def titulos_del_esquema(perfil, enfoque: str | None = None) -> list[str]:
+    """Los títulos del esquema de proyecto, tal como los escribe el perfil.
+
+    Un perfil puede declararlos de dos maneras. La mayoría pone una sola lista
+    en `proyecto.secciones`. Medicina trae **un esquema por enfoque** —el anexo
+    C para el cuantitativo y el D para el cualitativo— en `proyecto.modelos`, y
+    hasta la revisión de publicación nadie los leía: el proyecto cualitativo se
+    generaba sin comprobar ni una sección del anexo que lo rige.
+    """
     proyecto = perfil.get("proyecto") or {}
     crudas = proyecto.get("secciones") or []
+    if not crudas and enfoque:
+        modelo = (proyecto.get("modelos") or {}).get(enfoque) or {}
+        crudas = modelo.get("secciones") or []
     titulos = []
     for s in crudas:
         if isinstance(s, dict):
@@ -73,7 +95,14 @@ def secciones_esperadas(perfil) -> list[str]:
                 titulos.append(str(t))
         elif isinstance(s, str):
             titulos.append(s)
-    return [t for t in titulos if t.strip().lower() not in LA_PONE_LA_CARATULA]
+    return titulos
+
+
+def secciones_esperadas(perfil, enfoque: str | None = None) -> list[str]:
+    """Las del esquema que el tesista sí tiene que escribir en `proyecto/`."""
+    fuera = LA_PONE_LA_CARATULA + LO_PONE_WORD
+    return [t for t in titulos_del_esquema(perfil, enfoque)
+            if t.strip().lower() not in fuera]
 
 
 def _normalizar(texto: str) -> str:
@@ -84,8 +113,9 @@ def _normalizar(texto: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]+", " ", t.lower())).strip()
 
 
-def revisar_secciones(raiz: pathlib.Path, perfil, inf: Informe) -> None:
-    esperadas = secciones_esperadas(perfil)
+def revisar_secciones(raiz: pathlib.Path, perfil, inf: Informe,
+                      enfoque: str | None = None) -> None:
+    esperadas = secciones_esperadas(perfil, enfoque)
     if not esperadas:
         inf.info("Y05", "el perfil no define secciones propias para el proyecto: "
                         "se usa el orden que el tesista haya decidido")
@@ -99,6 +129,13 @@ def revisar_secciones(raiz: pathlib.Path, perfil, inf: Informe) -> None:
     for t in faltan:
         inf.aviso("Y06", f"no se encontró la sección «{t}» que el perfil pide para "
                          f"el proyecto")
+
+    if any(t.strip().lower() in LO_PONE_WORD
+           for t in titulos_del_esquema(perfil, enfoque)):
+        inf.info("Y15", "el esquema del perfil incluye un índice. No se escribe en "
+                        "el .qmd: se inserta en el .docx generado, con Referencias "
+                        "→ Tabla de contenido, para que las páginas se actualicen "
+                        "solas")
 
 
 def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
@@ -115,7 +152,11 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
     except ErrorDePerfil as e:
         inf.error("Y00", f"no se pudo cargar el perfil: {e}")
         return inf
-    inf.anotar(perfil=pid)
+    # El esquema del proyecto depende del enfoque donde la facultad trae uno
+    # por enfoque, como Medicina: el anexo C para el cuantitativo y el D
+    # para el cualitativo. Sin `.enfoque` no se adivina.
+    enfoque = enfoque_activo(raiz)
+    inf.anotar(perfil=pid, enfoque=enfoque or "sin declarar")
 
     entradas = capitulos_del_proyecto(raiz)
     inf.anotar(qmd_del_proyecto=len(entradas))
@@ -142,7 +183,7 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
     for falta in caratula.faltantes(datos, perfil):
         inf.aviso("Y04", f"la carátula del proyecto va incompleta: falta {falta}")
 
-    revisar_secciones(raiz, perfil, inf)
+    revisar_secciones(raiz, perfil, inf, enfoque)
 
     if solo_comprobar or inf.hay_errores:
         return inf

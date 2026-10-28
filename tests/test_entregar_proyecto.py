@@ -240,3 +240,48 @@ def test_fuera_de_windows_no_hay_limite(tmp_path, monkeypatch):
     larga = tmp_path / ("x" * 150) / ("y" * 150) / "tesis.docx"
     assert entregar.comprobar_rutas([larga], inf) is True
     assert not inf.hay_errores
+
+
+# --- el esquema por enfoque del proyecto ----------------------------------
+
+def test_medicina_trae_un_esquema_de_proyecto_por_enfoque():
+    """El anexo C es para el cuantitativo y el D para el cualitativo.
+
+    Medicina los declara en `proyecto.modelos`, no en `proyecto.secciones`, y
+    hasta la revisión de publicación nadie los leía: el proyecto cualitativo
+    se generaba sin comprobar ni una sección del anexo que lo rige.
+    """
+    perfil = cargar("medicina-fm")
+    assert entregar_proyecto.secciones_esperadas(perfil) == [], \
+        "sin enfoque no hay esquema que comprobar"
+
+    cual = entregar_proyecto.secciones_esperadas(perfil, "cualitativo")
+    assert "CAPITULO I" in cual
+    assert any(t.startswith("Referencias") for t in cual)
+    assert "Anexos" in cual
+
+
+def test_el_indice_no_se_reclama_como_seccion_del_qmd():
+    """El índice de un .docx es un campo de Word, no texto del .qmd."""
+    perfil = cargar("medicina-fm")
+    esperadas = entregar_proyecto.secciones_esperadas(perfil, "cualitativo")
+    assert not any(t.strip().lower() in entregar_proyecto.LO_PONE_WORD
+                   for t in esperadas)
+    assert any(t.strip().lower() in entregar_proyecto.LO_PONE_WORD
+               for t in entregar_proyecto.titulos_del_esquema(perfil, "cualitativo")), \
+        "el anexo D sí pide índice; lo que no pide es escribirlo a mano"
+
+
+def test_el_enfoque_declarado_elige_el_esquema(proyecto):
+    """`.enfoque` es lo que decide, no el orden de los modelos del perfil."""
+    from herramientas.informe import Informe
+
+    _proyecto_listo(proyecto)
+    (proyecto / ".enfoque").write_text("cualitativo", encoding="utf8")
+    perfil = cargar("medicina-fm")
+
+    inf = Informe("p", "p", raiz=proyecto)
+    entregar_proyecto.revisar_secciones(proyecto, perfil, inf, "cualitativo")
+    faltan = [h.mensaje for h in inf.avisos if h.codigo == "Y06"]
+    assert len(faltan) == 5, "un proyecto de dos secciones no cumple el anexo D"
+    assert not inf.hay_errores, "faltar secciones avisa, no bloquea"

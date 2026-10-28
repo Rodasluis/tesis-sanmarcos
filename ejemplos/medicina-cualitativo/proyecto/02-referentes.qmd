@@ -1,0 +1,155 @@
+# CAPÍTULO II. Referente teórico y referente metodológico
+
+## Referente teórico
+
+### Antecedentes
+
+Herrera-Añazco et al. [@Herrera_A_azco_2017] describen para el Perú la secuencia
+en la que se pierde el control de la hipertensión. Su aporte es dimensionar el
+problema; su límite, el de cualquier encuesta, es que no puede explicar las
+razones. Es el antecedente que justifica preguntar, no el que responde.
+
+Tsiantou et al. [@Tsiantou_2010] abordan esas razones con entrevistas a
+pacientes hipertensos y encuentran que la decisión de tomar o no el medicamento
+no es un olvido sino una evaluación: el paciente pesa lo que cree que le hace la
+pastilla contra lo que siente en el cuerpo. Es el antecedente metodológicamente
+más cercano a este proyecto, y de él se toma la idea de entrevistar sobre la
+decisión y no sobre el cumplimiento.
+
+Maguire et al. [@Maguire_2008] muestran que las creencias sobre el medicamento
+—su necesidad y su peligro— predicen la adherencia mejor que las variables
+sociodemográficas. De ahí se sigue que indagar esas creencias no es un detalle
+cualitativo: es mirar donde está la variación.
+
+### Base teórica
+
+Dos ideas organizan el estudio.
+
+**La enfermedad asintomática rompe la lógica del síntoma.** La mayor parte de la
+experiencia de enfermar está guiada por lo que el cuerpo avisa: duele, se toma
+algo, deja de doler. La hipertensión no avisa, de modo que la pastilla no tiene
+retroalimentación. Tomarla exige sustituir la evidencia del cuerpo por la
+confianza en una explicación, y eso traslada todo el peso a la calidad de esa
+explicación.
+
+**El paciente construye un modelo explicativo propio.** Cuando la información
+clínica no se entiende o no se da, el hueco no queda vacío: se llena con lo que
+la persona ya sabe, con lo que le funcionó a su familia y con lo que observa en
+su cuerpo. Ese modelo propio no es ignorancia, es una teoría en uso, y compite
+con la indicación médica en igualdad de condiciones.
+
+### Definición de términos
+
+**Adherencia al tratamiento.** Grado en que el comportamiento de una persona
+—tomar la medicación, seguir la dieta, acudir a los controles— coincide con las
+recomendaciones acordadas con el personal de salud. Se usa este término y no
+«cumplimiento» porque el segundo supone una indicación que se obedece y no un
+acuerdo.
+
+**Barrera percibida.** Obstáculo que el participante identifica y nombra como
+razón de su conducta. Lo que importa es que él lo reconozca como obstáculo, no
+que un observador externo lo clasifique como tal.
+
+**Saturación de códigos.** Punto del análisis en que entrevistas adicionales
+dejan de producir códigos nuevos. El número de entrevistas que hacen falta no se
+fija de antemano: se observa [@Squire_2024].
+
+## Referente metodológico
+
+### Tipo de investigación
+
+Estudio cualitativo con diseño **fenomenológico**. Se elige este diseño porque la
+pregunta es por la experiencia tal como la vive y la nombra el participante, y no
+por la frecuencia de un hecho ni por la construcción de una teoría. No se busca
+llegar a un modelo explicativo general, que sería el objetivo de una teoría
+fundamentada.
+
+El estudio no formula hipótesis a contrastar. Lleva un supuesto de trabajo
+—enunciado en el capítulo I— que el trabajo de campo puede desmentir, y el
+reglamento de la facultad admite la hipótesis solo «si es pertinente».
+
+### Características de las unidades informantes
+
+Usuarios del centro de salud con diagnóstico de hipertensión arterial registrado
+en la historia clínica.
+
+**Criterios de inclusión.** Diagnóstico de al menos un año, indicación de
+tratamiento farmacológico vigente, capacidad de sostener una entrevista en
+español, aceptación voluntaria tras el consentimiento informado.
+
+**Criterios de exclusión.** Deterioro cognitivo registrado en la historia
+clínica, hospitalización en el mes previo.
+
+**Muestreo.** Por conveniencia, con variación buscada en sexo, situación laboral
+y tiempo desde el diagnóstico, para que las barreras que aparezcan no sean las de
+un solo tipo de usuario. **El número de entrevistas no se fija de antemano:** se
+entrevista hasta que dejen de aparecer códigos nuevos o hasta agotar el plazo del
+trabajo de campo, lo que ocurra primero. Se prevén entre ocho y doce entrevistas;
+esa cifra es una previsión de planificación y de presupuesto, no un tamaño de
+muestra calculado.
+
+### Técnicas a emplearse
+
+**Entrevista semiestructurada**, con una guía de seis preguntas abiertas y
+repreguntas según lo que surja (anexo 1). Las entrevistas se realizarán en un
+consultorio del propio centro, en horario acordado con el participante, y se
+grabarán en audio previa autorización explícita.
+
+**Análisis: codificación temática**, en cuatro pasos: lectura completa de cada
+transcripción sin codificar; codificación abierta de fragmentos; agrupación de
+códigos en categorías por sentido compartido; y revisión de cada categoría contra
+las transcripciones completas.
+
+El producto del análisis será un **libro de códigos** en el que cada código conste
+con su definición, su criterio de inclusión, su criterio de **exclusión**, las
+entrevistas en que apareció y una cita que lo ilustre. El criterio de exclusión es
+lo que permitirá a un tercero revisar por qué un fragmento se codificó así y no de
+otra forma.
+
+La saturación se documentará contando los códigos nuevos que aporta cada
+entrevista. **Se informará lo que resulte, se haya alcanzado o no.**
+
+### Plan de trabajo de campo
+
+1. Aprobación del proyecto por el Comité de Investigación de la escuela y por un
+   Comité de Ética en Investigación, y resolución decanal (art. 23 del reglamento
+   de la facultad).
+2. Coordinación con la jefatura del establecimiento.
+3. Identificación de usuarios que cumplan los criterios, en la consulta.
+4. Invitación, lectura y firma del consentimiento informado.
+5. Entrevista, grabación y notas de campo.
+6. Transcripción literal, incluidas pausas y titubeos.
+7. **Anonimización antes de que la transcripción salga del archivo original**:
+   nombres, edades exactas y referencias geográficas sustituidos.
+8. Codificación, construcción del libro de códigos y cómputo de la saturación.
+
+### Consideraciones éticas
+
+El reglamento de la Facultad de Medicina (RD N.° 002373-2023-D-FM, art. 23) exige
+la aprobación del Comité de Investigación de la escuela y de un Comité de Ética en
+Investigación antes de ejecutar el proyecto, además de la resolución decanal. El
+trabajo de campo no empieza antes de eso.
+
+**El consentimiento informado es obligatorio y consta por escrito** (anexo 2). Se
+informará del objetivo del estudio, del carácter voluntario de la participación,
+del derecho a interrumpir la entrevista sin consecuencia alguna sobre su atención,
+y del uso que se dará a la grabación. No hay compensación económica.
+
+El estado de salud es un **dato sensible** según la Ley N.° 29733 de protección de
+datos personales, y su reglamento (DS N.° 016-2024-JUS) exige para esos datos un
+consentimiento escrito, no uno verbal. La ley no exceptúa a la investigación
+académica.
+
+Los códigos E-01, E-02 y siguientes **disocian, no anonimizan**: mientras exista
+la tabla que los relaciona con los nombres, el dato sigue siendo personal y
+reversible (art. 41.1 del reglamento). Por eso esa tabla se mantendrá separada de
+las transcripciones, bajo llave, y se destruirá al terminar el trabajo de campo.
+A partir de ese momento ni el propio investigador podrá reidentificar a nadie.
+
+La anonimización no se agota en quitar el nombre. Un conjunto de entrevistas de un
+solo establecimiento, con oficio, composición familiar y barrio, identifica a una
+persona por combinación de datos. Las citas que se publiquen se revisarán con ese
+criterio, y se omitirá cualquier detalle que, junto a los demás, permita
+reconocer a alguien.
+
+Las transcripciones no se publicarán ni se versionarán en ningún repositorio.

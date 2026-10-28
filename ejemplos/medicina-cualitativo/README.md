@@ -83,15 +83,32 @@ En Windows, `$env:QUARTO_PYTHON = (Resolve-Path ".venv\Scripts\python.exe").Path
   obligatorio (art. 23), anonimización antes de que nada salga de
   `datos/crudos/`.
 
-## Lo que a este ejemplo le falta
+## El proyecto de tesis, escrito contra el anexo D
 
-**No tiene `proyecto/` redactado.** La decisión de la etapa 4 está registrada
-—eligió el modelo cualitativo del reglamento de la Facultad de Medicina— pero
-nadie escribió el documento del proyecto de tesis. Por eso
-`uv run python -m herramientas.entregar_proyecto` no produce nada aquí, y el CI
-se lo salta a propósito.
+`proyecto/` trae el documento que la escuela registra y aprueba **antes** de que
+exista un solo dato. Sigue el anexo D del reglamento de la Facultad de Medicina
+—el esquema del proyecto cualitativo— y por eso tiene tres capítulos y no los
+del anexo 2A de la universidad: problema, referentes teórico y metodológico, y
+cronograma con presupuesto y recursos.
 
-El ejemplo sí recorre el resto del flujo entero y genera sus dos .docx del
-art. 13 con sus PDF. Si quieres completarlo, el molde está en
-`ejemplos/economia-cuantitativo/proyecto/`: cuatro .qmd, unas 220 líneas en
-total. Es una contribución bienvenida.
+Léelo junto a `capitulos/` y se ve la distancia entre lo que se promete y lo que
+sale:
+
+- **El proyecto dice que se entrevistará hasta que dejen de aparecer códigos
+  nuevos «o hasta agotar el plazo, lo que ocurra primero».** La tesis informa que
+  ocurrió lo segundo. El proyecto no prometió una saturación que no podía
+  garantizar, y la tesis no fingió haberla alcanzado.
+- **El proyecto prevé «entre ocho y doce entrevistas» y dice por qué esa cifra no
+  es un tamaño de muestra**: es una previsión de presupuesto.
+- **Las consideraciones éticas están en el proyecto, que es donde sirven**:
+  antes del trabajo de campo, no después. Incluyen por qué el consentimiento va
+  firmado y por qué una lista de códigos E-01 a E-08 disocia pero no anonimiza.
+
+## Hasta dónde llega
+
+Trae las decisiones registradas de las etapas 0 a 6 y genera sus cuatro
+entregables: proyecto y tesis, cada uno en .docx y PDF, con carátula y escudo.
+
+No trae decisiones registradas de las etapas 7 a 10 —jurado, verificación,
+entrega y sustentación—, igual que el ejemplo cuantitativo. Lo que no tiene, y
+es deliberado, son datos reales.

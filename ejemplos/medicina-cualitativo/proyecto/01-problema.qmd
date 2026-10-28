@@ -1,0 +1,99 @@
+::: {.callout-important}
+## Este proyecto forma parte del ejemplo ficticio
+
+Es el proyecto de tesis que precede a la tesis de `capitulos/`. Describe un
+trabajo de campo que **nunca ocurrió**: no hubo centro de salud, participantes
+ni comité de ética. Sirve para mostrar qué se escribe antes de recolectar nada.
+:::
+
+# CAPÍTULO I. El problema de investigación
+
+## Delimitación y formulación del problema
+
+La hipertensión arterial se controla con medicamentos que funcionan y cuestan
+poco, y aun así una proporción grande de las personas diagnosticadas no alcanza
+el control de su presión. Herrera-Añazco et al. [@Herrera_A_azco_2017]
+documentan esa brecha en el Perú con datos de alcance nacional: personas que no
+saben que la tienen, personas que lo saben y no reciben tratamiento, y personas
+que lo reciben y no llegan a la meta.
+
+Una encuesta dimensiona el problema, pero no puede decir **por qué**. Cuando se
+pregunta en un formulario si el paciente tomó su medicación, la respuesta es sí
+o no; lo que queda fuera es la cadena de razones por la que ese no fue un no.
+
+El término clínico para esa brecha es «falta de adherencia», y la palabra ya
+contiene un juicio: adherirse es lo que hace el paciente que coopera. Este
+proyecto parte de la sospecha contraria, que es su supuesto de trabajo y no una
+hipótesis a contrastar: que buena parte de lo que se registra como
+incumplimiento es la respuesta razonable de alguien a condiciones que no
+eligió.
+
+**Delimitación.** El estudio se limita a usuarios adultos con diagnóstico de
+hipertensión arterial de al menos un año, atendidos en un centro de salud del
+primer nivel de atención de Lima, durante el trabajo de campo previsto en el
+cronograma. No cubre al personal de salud, ni otros establecimientos, ni otras
+enfermedades crónicas.
+
+**Pregunta de investigación.** ¿Cómo describen los usuarios de un centro de
+salud de Lima las barreras que encuentran para seguir su tratamiento
+antihipertensivo?
+
+**Preguntas específicas.**
+
+1. ¿Qué significados atribuyen a una enfermedad que no produce síntomas?
+2. ¿Qué obstáculos materiales identifican en su vida cotidiana?
+3. ¿Qué entendieron de la información que recibieron en la consulta?
+4. ¿Qué elementos reconocen como apoyo para continuar?
+
+## Objetivos
+
+**Objetivo general.** Comprender las barreras que los usuarios de un centro de
+salud de Lima perciben para adherirse al tratamiento antihipertensivo.
+
+**Objetivos específicos.**
+
+1. Describir los significados que los participantes atribuyen a vivir con una
+   enfermedad asintomática y de tratamiento indefinido.
+2. Identificar las barreras materiales que reconocen en su vida cotidiana.
+3. Caracterizar la relación entre la información recibida y las explicaciones
+   propias que construyeron sobre su enfermedad.
+4. Identificar los elementos que los participantes señalan como apoyo para
+   continuar el tratamiento.
+
+## Justificación de la investigación
+
+Un programa de control de hipertensión que atribuye el incumplimiento a la
+desinformación del paciente diseña charlas educativas. Si lo que impide tomar la
+pastilla es que no hay en la farmacia o que venir cuesta un día de trabajo, la
+charla no va a cambiar nada, y la evaluación del programa concluirá que los
+pacientes no colaboran.
+
+Distinguir unas barreras de otras tiene consecuencias prácticas inmediatas sobre
+lo que un establecimiento decide hacer. Un estudio cualitativo es el que puede
+hacer esa distinción, porque deja que las razones aparezcan en las palabras de
+quien las vive en lugar de proponerlas de antemano en un cuestionario.
+
+La viabilidad está resuelta: el estudio no requiere equipamiento ni laboratorio,
+las entrevistas se realizan en el propio establecimiento y el análisis se hace
+con software libre. Lo que sí exige tiempo es el trámite de aprobación por los
+comités, previsto en el cronograma.
+
+## Limitaciones del estudio
+
+**Un solo escenario.** Los participantes provendrán de un único establecimiento.
+El desabastecimiento, los horarios y la continuidad del médico tratante son
+rasgos de ese servicio, y otro centro puede funcionar de otra manera. Los
+resultados no se generalizan: se ofrecen para que otro juzgue si son
+transferibles a su contexto.
+
+**El número de entrevistas no se puede fijar de antemano.** El muestreo debe
+continuar hasta que las entrevistas dejen de aportar códigos nuevos, y cuántas
+hagan falta se observa, no se decide por adelantado [@Squire_2024]. El plazo del
+trabajo de campo es finito, de modo que es posible que termine antes de la
+saturación. Si eso ocurre, se declarará en el informe final y las conclusiones
+se limitarán en consecuencia.
+
+**Lo que el participante dice no es necesariamente lo que hace.** La entrevista
+recoge lo que alguien cuenta de su tratamiento, con todo lo que eso tiene de
+reconstrucción y de respuesta a quien pregunta desde el establecimiento. El
+diseño no incluye observación ni registros de dispensación.

@@ -91,22 +91,18 @@ jobs:
         # Es la prueba de punta a punta que importa: proyecto de tesis y tesis,
         # cada uno en .docx y PDF, con la carátula y el escudo de la UNMSM.
         #
-        # Van LOS DOS. Antes solo corría el cuantitativo, y por eso nadie vio
-        # que al cualitativo le faltaba `datos_de_entrega.yaml`: verificaba y
-        # renderizaba, pero `/entregar` se detenía y jamás producía sus .docx.
+        # Van LOS DOS, y los dos completos. Antes solo corría el cuantitativo,
+        # y por eso nadie vio que al cualitativo le faltaba
+        # `datos_de_entrega.yaml`: verificaba y renderizaba, pero `/entregar`
+        # se detenía y jamás producía sus .docx. Después se saltaba su
+        # proyecto, porque no estaba redactado. Ya lo está.
         env:
           QUARTO_PYTHON: ${{ github.workspace }}/.venv/bin/python
         run: |
           for ejemplo in economia-cuantitativo medicina-cualitativo; do
             echo "::group::entregables $ejemplo"
             raiz=".ejemplos-montados/$ejemplo"
-            # El proyecto de tesis solo si el ejemplo lo tiene redactado: al
-            # cualitativo le falta `proyecto/` todavia (ver su README).
-            if [ -d "$raiz/proyecto" ]; then
-              uv run python -m herramientas.entregar_proyecto --raiz "$raiz" --detalle
-            else
-              echo "sin proyecto/ redactado; se omite entregar_proyecto"
-            fi
+            uv run python -m herramientas.entregar_proyecto --raiz "$raiz" --detalle
             uv run python -m herramientas.entregar --raiz "$raiz" --detalle
             echo "::endgroup::"
           done

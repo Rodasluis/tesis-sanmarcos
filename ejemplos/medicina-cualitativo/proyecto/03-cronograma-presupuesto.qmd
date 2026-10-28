@@ -1,0 +1,69 @@
+# CAPÍTULO III. Cronograma, presupuesto y recursos
+
+## Cronograma del trabajo
+
+El trabajo de campo no empieza hasta que los comités aprueban el proyecto, y ese
+trámite ocupa el primer tercio del cronograma. Las entrevistas y el análisis
+avanzan en paralelo a propósito: la saturación solo se puede observar si se
+codifica mientras se entrevista.
+
+| Actividad | M1 | M2 | M3 | M4 | M5 | M6 | M7 | M8 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| Revisión de literatura | X | X | | | | | | |
+| Elaboración del proyecto y de los instrumentos | X | X | | | | | | |
+| Presentación al Comité de Investigación de la EP | | X | | | | | | |
+| Presentación al Comité de Ética en Investigación | | | X | X | | | | |
+| Coordinación con el establecimiento | | | | X | | | | |
+| Entrevistas y notas de campo | | | | | X | X | | |
+| Transcripción y anonimización | | | | | X | X | | |
+| Codificación y libro de códigos | | | | | | X | X | |
+| Redacción del informe final | | | | | | | X | X |
+| Revisión del asesor y correcciones | | | | | | | | X |
+| Trámite de sustentación | | | | | | | | X |
+
+El proyecto aprobado tiene **vigencia de un año calendario**; vencido ese plazo
+sin informe final se anula de oficio, y solo cabe pedir una prórroga de hasta seis
+meses, por única vez (art. 42 del reglamento de la facultad). El cronograma de
+ocho meses deja holgura dentro de ese año.
+
+## Presupuesto
+
+| Rubro | Cantidad | Costo unitario (S/) | Total (S/) |
+|---|:-:|---:|---:|
+| Grabadora de audio digital | 1 | 180 | 180 |
+| Materiales de escritorio y fotocopias | — | — | 120 |
+| Impresión de consentimientos y guías | 30 | 0,50 | 15 |
+| Movilidad al establecimiento | 30 viajes | 12 | 360 |
+| Internet y electricidad durante el estudio | 8 meses | 60 | 480 |
+| Impresión y empastado del informe final | 3 | 90 | 270 |
+| Trámites de titulación | — | — | 500 |
+| **Total** | | | **1 925** |
+
+**Financiamiento: autofinanciado por la tesista.** No hay fuente externa, y por
+tanto no hay conflicto de interés que declarar por esa vía.
+
+Dos rubros que no aparecen porque no corresponde que aparezcan: no hay
+compensación económica a los participantes, y la transcripción la hace la propia
+tesista, lo que evita que las grabaciones salgan de sus manos.
+
+## Recursos disponibles
+
+**Humanos.** La tesista, que realiza las entrevistas, la transcripción y la
+codificación; y el asesor designado, que revisa el diseño, el libro de códigos y
+el informe. La codificación de un segundo analista sería deseable y no está
+disponible: se compensa en parte documentando los criterios de exclusión de cada
+código, que es lo que permite a un tercero auditar la decisión.
+
+**Institucionales.** El centro de salud, que facilita un consultorio en horario no
+asistencial para las entrevistas; la Escuela Profesional, por su Comité de
+Investigación; y el Sistema de Bibliotecas de la UNMSM, para el acceso a las
+bases de datos suscritas.
+
+**Materiales.** Computadora personal, grabadora de audio, y software libre para
+el análisis y la redacción. No se requiere equipamiento de laboratorio ni
+licencias pagadas.
+
+**Lo que no está disponible y condiciona el diseño.** No hay presupuesto para
+contratar transcripción ni para ampliar el trabajo de campo más allá de los dos
+meses previstos. Esa restricción es la razón por la que el plazo puede terminar
+antes que la saturación, y está declarada entre las limitaciones del capítulo I.

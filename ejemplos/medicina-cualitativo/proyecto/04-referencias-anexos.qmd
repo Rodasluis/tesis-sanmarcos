@@ -1,0 +1,62 @@
+# Referencias bibliográficas
+
+Las referencias se citan en **normas de Vancouver**, como exige el anexo D del
+reglamento de la Facultad de Medicina: numeradas por orden de aparición.
+
+::: {#refs}
+:::
+
+# Anexos
+
+## Anexo 1. Guía de entrevista semiestructurada
+
+Seis preguntas abiertas. El orden es orientativo y las repreguntas dependen de lo
+que el participante traiga. Ninguna pregunta usa la palabra «cumplir» ni pide
+justificar una conducta: la guía está escrita para que no haya una respuesta
+correcta que dar.
+
+1. Cuénteme cómo se enteró de que tenía la presión alta. ¿Qué entendió usted en
+   ese momento?
+2. ¿Cómo es un día suyo desde que toma el tratamiento? ¿En qué cambió?
+3. Cuénteme qué pasa cuando le toca recoger su medicamento.
+4. ¿Ha habido veces en que no lo tomó? Cuénteme una de esas veces.
+5. ¿Qué le explicaron sobre lo que ocurre si deja el tratamiento? ¿Qué piensa
+   usted que ocurre?
+6. ¿Quién o qué le ayuda a seguir con el tratamiento?
+
+**Repreguntas previstas.** Para el costo: ¿de dónde sale el dinero del
+medicamento? Para el servicio: ¿siempre lo atiende el mismo médico? Para la
+información: ¿pudo preguntar lo que no entendió?
+
+## Anexo 2. Consentimiento informado
+
+Documento de una página, en lenguaje llano, que se lee en voz alta antes de la
+entrevista y se firma por duplicado: un ejemplar queda con el participante.
+Contiene:
+
+- Objetivo del estudio y qué se le pide al participante.
+- Duración aproximada de la entrevista y que será grabada en audio.
+- Que la participación es **voluntaria** y que puede interrumpirla en cualquier
+  momento, **sin ninguna consecuencia sobre su atención en el establecimiento**.
+- Que no hay compensación económica ni beneficio directo.
+- Qué se hará con la grabación y con la transcripción, y durante cuánto tiempo.
+- Que su nombre no aparecerá en ningún documento, y que la lista que relaciona su
+  nombre con su código se destruirá al terminar el trabajo de campo.
+- Datos de contacto de la tesista, del asesor y del Comité de Ética.
+
+El consentimiento es **escrito y no verbal** porque el estado de salud es un dato
+sensible (Ley N.° 29733, art. 8), y la carga de probar que se obtuvo recae en
+quien trata los datos (art. 9).
+
+## Anexo 3. Matriz de consistencia
+
+| Pregunta específica | Objetivo específico | Eje de la guía | Técnica |
+|---|---|---|---|
+| ¿Qué significados atribuyen a una enfermedad sin síntomas? | Describir esos significados | Preguntas 1 y 2 | Entrevista semiestructurada |
+| ¿Qué obstáculos materiales identifican? | Identificar las barreras materiales | Preguntas 3 y 4 | Entrevista semiestructurada |
+| ¿Qué entendieron de la información recibida? | Caracterizar información recibida y explicación propia | Preguntas 1 y 5 | Entrevista semiestructurada |
+| ¿Qué reconocen como apoyo? | Identificar los apoyos | Pregunta 6 | Entrevista semiestructurada |
+
+Los ejes de la guía **no son categorías de análisis**. Las categorías se
+construyen desde los datos durante la codificación; esta matriz solo muestra que
+cada pregunta de investigación tiene por dónde ser contestada.

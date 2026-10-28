@@ -225,13 +225,12 @@ def comprobar_entregables(nombre: str, destino_base: pathlib.Path) -> list[str]:
         "archivo de Protocolo y Complemento":
             list(raiz.glob("TEXTO/*Protocolo y Complemento*.docx")),
         "tesis PDF": list(raiz.glob("TEXTO/*.pdf")),
+        # Los dos ejemplos traen su `proyecto/`. Mientras al cualitativo le
+        # faltó, esto fue condicional, y un ejemplo que no llegaba al final
+        # del flujo pasaba el CI sin que nadie lo notara.
+        "proyecto .docx": list(raiz.glob("PROYECTO/*.docx")),
+        "proyecto PDF": list(raiz.glob("PROYECTO/*.pdf")),
     }
-    # El proyecto de tesis solo se exige a los ejemplos que lo tienen
-    # redactado. Al cualitativo le falta `proyecto/`: tiene registrada su
-    # decisión de la etapa 4, pero nadie escribió el documento.
-    if (raiz.parent / "proyecto").is_dir():
-        esperados["proyecto .docx"] = list(raiz.glob("PROYECTO/*.docx"))
-        esperados["proyecto PDF"] = list(raiz.glob("PROYECTO/*.pdf"))
 
     for etiqueta, hallados in esperados.items():
         if not hallados:
@@ -278,10 +277,7 @@ def main(argv: list[str] | None = None) -> int:
         if problemas:
             return 1
         for nombre in objetivos:
-            con_proyecto = (DESTINO_POR_DEFECTO.parent / "ejemplos" / nombre
-                            / "proyecto").is_dir()
-            que = "proyecto y tesis" if con_proyecto else "tesis (sin proyecto)"
-            print(f"  {nombre}: {que}, en .docx y PDF, con escudo")
+            print(f"  {nombre}: proyecto y tesis, en .docx y PDF, con escudo")
         return 0
 
     if args.comprobar_render:
