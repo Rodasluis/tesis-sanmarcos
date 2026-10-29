@@ -23,6 +23,14 @@ cuál es el flujo. Después, estos dos, en este orden:
   decisiones del tesista y los informes de verificación. Incluye las tres
   preguntas que de verdad distinguen a quien entendió su trabajo.
 
+## Si vas a explicarlo a otros
+
+- **[`guion_video.md`](guion_video.md)** — guion de rodaje del video
+  introductorio: nueve minutos, qué se ve en pantalla y qué se dice encima,
+  con los capítulos para la descripción. Se graba contra los ejemplos, nunca
+  contra una tesis real: en cuanto hay captura de pantalla, lo que esté en
+  `datos/crudos/` queda publicado.
+
 ## Si quieres mejorar el repositorio
 
 - **[`agregar_facultad.md`](agregar_facultad.md)** — cómo corregir el perfil de
