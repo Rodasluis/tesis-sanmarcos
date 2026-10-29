@@ -123,6 +123,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ejemplos-entregables
+          # Los ejemplos se montan en `.ejemplos-montados/`, que empieza por
+          # punto, y upload-artifact ignora los archivos ocultos desde la
+          # v4.4: subía 0 archivos y, con `if-no-files-found: error`, fallaba
+          # el job entero después de que los doce pasos de trabajo pasaran.
+          include-hidden-files: true
           path: |
             .ejemplos-montados/*/entregables/_render/**/*.docx
             .ejemplos-montados/*/entregables/PROYECTO/*

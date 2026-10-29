@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import shutil
 import subprocess
 import sys
 
@@ -349,8 +350,49 @@ def test_el_matcher_no_registra_lecturas():
         assert herramienta in IH.MATCHER
 
 
+def test_comprobar_pasa_en_una_copia_recien_instalada(tmp_path):
+    """`comprobar()` sobre una copia donde el instalador acaba de correr.
+
+    Antes esto solo se probaba contra RAIZ_REAL, y por tanto el resultado
+    dependía de si quien ejecutaba las pruebas tenía los hooks instalados en su
+    equipo. En un clon recién hecho no lo están —`settings.local.json` no se
+    versiona y el intérprete cambia en cada máquina—, así que la primera
+    corrida del CI falló aquí, en la prueba, y no en el código.
+    """
+    copia = tmp_path / "repo"
+    (copia / ".claude" / "hooks").mkdir(parents=True)
+    shutil.copy2(RAIZ_REAL / ".claude" / "hooks" / "registrar_ia.py",
+                 copia / ".claude" / "hooks" / "registrar_ia.py")
+    (copia / ".githooks").mkdir()
+    shutil.copy2(RAIZ_REAL / ".githooks" / "pre-commit",
+                 copia / ".githooks" / "pre-commit")
+    subprocess.run(["git", "init", "-q"], cwd=str(copia), check=True, timeout=60)
+
+    IH.instalar_hook_claude(copia)
+    ok, detalle = IH.instalar_hook_git(copia)
+    assert ok, detalle
+
+    fallan = [f"{nombre}: {detalle}"
+              for nombre, bien, detalle in IH.comprobar(copia) if not bien]
+    assert not fallan, fallan
+
+
+def _hooks_instalados_aqui() -> bool:
+    ajustes = RAIZ_REAL / ".claude" / "settings.local.json"
+    return (ajustes.exists()
+            and "registrar_ia" in ajustes.read_text(encoding="utf8", errors="replace"))
+
+
+@pytest.mark.skipif(
+    not _hooks_instalados_aqui(),
+    reason="los hooks no están instalados en esta copia, y se instalan por máquina: "
+           "`uv run python -m herramientas.instalar_hooks`")
 def test_la_comprobacion_del_repositorio_real_pasa():
-    """Prueba de regresión: los hooks instalados aquí funcionan de verdad."""
+    """Los hooks instalados **en este equipo** funcionan de verdad.
+
+    Se salta donde no estén instalados. Lo que no depende del equipo lo prueba
+    `test_comprobar_pasa_en_una_copia_recien_instalada`.
+    """
     filas = IH.comprobar(RAIZ_REAL)
     fallan = [nombre for nombre, ok, _ in filas if not ok]
     assert not fallan, f"fallan: {fallan}"
