@@ -184,13 +184,13 @@ def test_norma_de_posgrado_no_sustenta_pregrado(tmp_path):
 def test_nadie_cita_una_resolucion_de_medicina_que_el_perfil_no_declara():
     """Una norma que no consta en `normativa/` no se cita: no la sabemos.
 
-    El repositorio citaba cuatro veces una «RR N.° 00170-D-FM-2024» que no
+    El repositorio citaba cinco veces una «RR N.° 00170-D-FM-2024» que no
     existe en `normativa/`, no aparece en el indice de facultades y no tiene
     archivo local. La norma verificada de Medicina es la RD N.° 002373-2023-D-FM,
-    y es la que trae los articulos que esas cuatro citas invocaban —23, 33 y 34—.
+    y es la que trae los articulos que esas cinco citas invocaban —23, 33 y 34—.
 
-    `datos/crudos/` queda fuera del barrido porque las reglas de permisos lo
-    cierran a escritura. Su LEEME todavia arrastra la cita vieja.
+    El barrido cubre el repositorio entero, incluido el LEEME de
+    `datos/crudos/` del ejemplo cualitativo, que fue la quinta.
     """
     import re
 
@@ -200,7 +200,7 @@ def test_nadie_cita_una_resolucion_de_medicina_que_el_perfil_no_declara():
     malas = []
     for ruta in list(RAIZ.glob("**/*.md")) + list(RAIZ.glob("**/*.qmd")):
         partes = ruta.relative_to(RAIZ).parts
-        if partes[0] in (".venv", ".ejemplos-montados", ".git") or "crudos" in partes:
+        if partes[0] in (".venv", ".ejemplos-montados", ".git"):
             continue
         for cita in patron.findall(ruta.read_text(encoding="utf8", errors="replace")):
             if cita.strip().rstrip(".,;:)") != buena:

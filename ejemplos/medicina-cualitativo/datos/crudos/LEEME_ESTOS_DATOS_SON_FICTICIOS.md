@@ -38,4 +38,4 @@ fuera del control de versiones y hay una regla de permisos que impide escribir e
 va como anexo del proyecto.
 
 El Comité de Ética en Investigación es obligatorio en Medicina (art. 23 del
-reglamento de la facultad, RR N.° 00170-D-FM-2024).
+reglamento de la facultad, RD N.° 002373-2023-D-FM).
