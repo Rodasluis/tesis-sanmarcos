@@ -15,9 +15,6 @@ puede hacer nadie más por ti, y son justamente las que el jurado va a evaluar.
   <img src="video/tesis-sanmarcos.webp" alt="Así se usa tesis-sanmarcos: instalar, /iniciar, las etapas, /verificar y /entregar, en una ventana recreada de Claude Code" width="800">
 </p>
 
-> **Así se usa, en menos de dos minutos.** Sin audio: el texto va en pantalla.
-> Versión en MP4: [`video/tesis-sanmarcos.mp4`](video/tesis-sanmarcos.mp4).
-
 ## Puedes empezar hoy
 
 No hay requisitos para arrancar. No te vamos a preguntar si ya tienes el grado de
