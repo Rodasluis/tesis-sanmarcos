@@ -277,6 +277,17 @@ def test_no_marca_los_correos_de_ejemplo():
     assert not DP.revisar_contenido("x.md", texto)
 
 
+def test_una_version_fijada_de_un_paquete_no_es_un_correo():
+    """`hyperframes@0.8.222` tiene arroba y puntos, y no es de nadie.
+
+    Saltaba en cada commit que tocara `video/`, y saltaría con cualquier
+    `paquete@1.2.3` que el tesista escriba en una nota. Un aviso que se
+    equivoca a menudo es un aviso que se deja de leer.
+    """
+    texto = "npx hyperframes@0.8.222 render\n  \"render\": \"react@18.3.1\"\n"
+    assert not DP.revisar_contenido("video/package.json", texto)
+
+
 def test_el_informe_distingue_bloqueo_de_aviso():
     bloquea = DP.revisar_ruta("datos/crudos/x.txt")
     texto = DP.informar(bloquea)

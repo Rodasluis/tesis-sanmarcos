@@ -162,10 +162,19 @@ def test_ningun_correo_personal_incrustado():
     `CROSSREF_MAILTO`, y sin esa variable se usa la cola comun.
     """
     import re
-    correo = re.compile(r"[\w.+-]+@(?!unmsm\.edu\.pe|ejemplo\.)[\w-]+\.[\w.]+")
+
+    from herramientas import datos_personales as DP
+
+    # La expresion vive en `datos_personales`, no aqui. Mientras estuvo
+    # duplicada, arreglar un falso positivo en el modulo no arreglaba el de
+    # esta prueba: `hyperframes@0.8.222` seguia contando como correo.
+    institucional = re.compile(r"@(unmsm\.edu\.pe|ejemplo\.)", re.I)
     permitidos = {"noreply@anthropic.com"}
     hallados = [f"{n}: {m}" for n, txt in _publicados()
-                for m in correo.findall(txt) if m not in permitidos]
+                for m in DP.RE_CORREO.findall(txt)
+                if m not in permitidos
+                and not institucional.search(m)
+                and not DP.CORREOS_INOCUOS.search(m)]
     assert not hallados, f"correos personales en archivos publicados: {hallados}"
 
 
