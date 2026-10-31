@@ -6,199 +6,67 @@
     }
     #root .clip {
       position: absolute;
-      inset: 0;
-    }
-    #root .rotulo {
-      position: absolute;
-      top: 150px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    #root .grupo {
-      position: absolute;
-      inset: 240px 160px 140px;
+      inset: 112px 90px 120px 404px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 30px;
     }
-    #root #lim-mitos {
-      gap: 48px;
-    }
-    #root .mito .mal {
-      position: relative;
-      display: inline-block;
-      font-size: 44px;
-      font-weight: 500;
-      color: var(--dim);
-    }
-    #root .mito .tacha {
-      position: absolute;
-      left: -6px;
-      right: -6px;
-      top: 54%;
-      height: 4px;
-      background: var(--bad);
-      transform-origin: left center;
-    }
-    #root .mito .bien {
-      font-size: 44px;
+    #root #lim-h {
+      font-size: 32px;
       font-weight: 700;
-      color: var(--ink);
-      margin-top: 10px;
-    }
-    #root #lim-sat {
-      align-items: center;
-      opacity: 0;
-    }
-    #root #lim-barras {
-      display: flex;
-      align-items: flex-end;
-      gap: 28px;
-      height: 320px;
-    }
-    #root .col {
-      width: 86px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      height: 100%;
-    }
-    #root .barra {
-      width: 100%;
-      background: var(--accent);
-      border-radius: 6px 6px 0 0;
-      transform-origin: bottom center;
-    }
-    #root .eje {
-      margin-top: 14px;
-      font-family: var(--font-mono);
-      font-size: 28px;
-      color: var(--dim);
-    }
-    #root #lim-ejey {
-      font-size: 28px;
-      color: var(--dim);
-      margin-bottom: 26px;
-    }
-    #root #lim-ficticio {
-      margin-top: 30px;
-      font-size: 28px;
-      color: var(--bad);
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
     }
-    #root #lim-dice {
-      margin-top: 40px;
-      font-size: 46px;
+    #root .no {
+      font-size: 54px;
       font-weight: 700;
       color: var(--ink);
-      text-align: center;
-      max-width: 1480px;
-      line-height: 1.26;
+      line-height: 1.15;
     }
-    #root #lim-dice b {
-      color: var(--accent);
+    #root .no span {
+      color: var(--dim);
+      font-weight: 500;
+    }
+    #root #lim-ej {
+      margin-top: 18px;
+      font-size: 32px;
+      color: var(--dim);
+      max-width: 1240px;
+      line-height: 1.35;
+      border-left: 5px solid var(--borde);
+      padding-left: 22px;
+    }
+    #root #lim-ej b {
+      color: var(--good);
+      font-weight: 600;
     }
   </style>
 
   <div id="root" data-composition-id="limites" data-width="1920" data-height="1080">
-    <div id="lim-todo" class="clip" data-start="0" data-duration="21" data-track-index="1">
-      <div id="lim-rotulo" class="rotulo">5 — Lo que no hace</div>
-
-      <div id="lim-mitos" class="grupo">
-        <div class="mito" id="lim-m1">
-          <div class="mal">
-            &laquo;El jurado simulado es tu nota.&raquo;
-            <div class="tacha" id="lim-t1"></div>
-          </div>
-          <div class="bien" id="lim-b1">Es el mismo sistema que escribi&oacute; el borrador.</div>
-        </div>
-        <div class="mito" id="lim-m2">
-          <div class="mal">
-            &laquo;Mide tu porcentaje de similitud.&raquo;
-            <div class="tacha" id="lim-t2"></div>
-          </div>
-          <div class="bien" id="lim-b2">Lo mide tu escuela, en su plataforma.</div>
-        </div>
-        <div class="mito" id="lim-m3">
-          <div class="mal">
-            &laquo;Declarar el uso de IA es obligatorio.&raquo;
-            <div class="tacha" id="lim-t3"></div>
-          </div>
-          <div class="bien" id="lim-b3">Es voluntario. Ninguna norma le&iacute;da lo exige.</div>
-        </div>
-      </div>
-
-      <div id="lim-sat" class="grupo" data-layout-allow-overlap>
-        <div id="lim-ejey">C&oacute;digos nuevos que aport&oacute; cada entrevista</div>
-        <div id="lim-barras">
-          <div class="col"><div class="barra" id="lim-s1" style="height: 150px"></div><div class="eje">E-01</div></div>
-          <div class="col"><div class="barra" id="lim-s2" style="height: 150px"></div><div class="eje">E-02</div></div>
-          <div class="col"><div class="barra" id="lim-s3" style="height: 100px"></div><div class="eje">E-03</div></div>
-          <div class="col"><div class="barra" id="lim-s4" style="height: 50px"></div><div class="eje">E-04</div></div>
-          <div class="col"><div class="barra" id="lim-s5" style="height: 50px"></div><div class="eje">E-05</div></div>
-          <div class="col"><div class="barra" id="lim-s6" style="height: 100px"></div><div class="eje">E-06</div></div>
-          <div class="col"><div class="barra" id="lim-s7" style="height: 100px"></div><div class="eje">E-07</div></div>
-          <div class="col"><div class="barra" id="lim-s8" style="height: 100px"></div><div class="eje">E-08</div></div>
-        </div>
-        <div id="lim-ficticio">Ejemplo del repositorio &middot; transcripciones ficticias</div>
-        <div id="lim-dice" data-hold>
-          La octava entrevista todav&iacute;a aport&oacute; c&oacute;digos nuevos.<br />
-          El ejemplo declara que <b>no hubo saturaci&oacute;n</b>.
-        </div>
+    <div id="lim-todo" class="clip" data-start="0" data-duration="13" data-track-index="1">
+      <div id="lim-h">Lo que no hace</div>
+      <div class="no" id="lim-1">No escribe tu tesis por ti.</div>
+      <div class="no" id="lim-2">No mide tu porcentaje de similitud. <span>Eso lo hace tu escuela.</span></div>
+      <div class="no" id="lim-3">No inventa datos. <span>Si faltan, lo dice.</span></div>
+      <div id="lim-ej" data-hold>
+        En el ejemplo, la &uacute;ltima entrevista todav&iacute;a trajo ideas nuevas. El texto
+        <b>lo declara</b>, en vez de taparlo para que parezca completo.
       </div>
     </div>
   </div>
 
   <script>
     const tl = gsap.timeline({ paused: true });
-    const entra = (sel, t, dy) =>
-      tl.fromTo(
-        sel,
-        { opacity: 0, y: dy === undefined ? 20 : dy },
-        { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
-        t,
-      );
-
-    entra("#lim-rotulo", 0.2, 10);
-
-    const mito = (n, t) => {
-      entra("#lim-m" + n, t, 16);
-      tl.fromTo(
-        "#lim-t" + n,
-        { scaleX: 0 },
-        { scaleX: 1, duration: 0.3, ease: "power2.inOut" },
-        t + 1.0,
-      );
-      entra("#lim-b" + n, t + 1.4, 10);
-    };
-    mito(1, 0.8);
-    mito(2, 3.0);
-    mito(3, 5.2);
-
-    tl.to("#lim-mitos", { opacity: 0, duration: 0.5, ease: "power2.in" }, 8.6);
-    tl.fromTo("#lim-sat", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 9.2);
-
-    entra("#lim-ejey", 9.4, 10);
-    for (let i = 1; i <= 8; i += 1) {
-      tl.fromTo(
-        "#lim-s" + i,
-        { scaleY: 0 },
-        { scaleY: 1, duration: 0.42, ease: "power3.out" },
-        9.9 + i * 0.26,
-      );
-    }
-    entra("#lim-ficticio", 12.6, 10);
-    entra("#lim-dice", 14.4);
-
+    const entra = (sel, t) =>
+      tl.fromTo(sel, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+    entra("#lim-h", 0.2);
+    entra("#lim-1", 0.9);
+    entra("#lim-2", 2.9);
+    entra("#lim-3", 5.2);
+    entra("#lim-ej", 7.6);
     window.__timelines["limites"] = tl;
   </script>
 </template>

@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #root .clip {
+      position: absolute;
+      inset: 112px 90px 120px 404px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 26px;
+    }
+    #root #ini-titulo {
+      font-family: var(--font-mono);
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    #root #ini-sub {
+      font-size: 60px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    #root #ini-que {
+      font-size: 36px;
+      color: var(--dim);
+      max-width: 1100px;
+      line-height: 1.35;
+    }
+  </style>
+
+  <div id="root" data-composition-id="inicio" data-width="1920" data-height="1080">
+    <div id="ini-todo" class="clip" data-start="0" data-duration="7" data-track-index="1">
+      <div id="ini-titulo">tesis-sanmarcos</div>
+      <div id="ini-sub">As&iacute; se usa, en dos minutos.</div>
+      <div id="ini-que" data-hold>
+        Tu tesis de pregrado de la UNMSM, con Claude Code. No la escribe por ti.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t) =>
+      tl.fromTo(sel, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+    // El título está desde el frame 0: es la miniatura.
+    entra("#ini-sub", 0.8);
+    entra("#ini-que", 1.8);
+    window.__timelines["inicio"] = tl;
+  </script>
+</template>

@@ -1,15 +1,17 @@
 # `video/` — el video de los pasos
 
-Written for: quien quiera regenerar o corregir el video introductorio.
+Written for: quien quiera regenerar o corregir el video que va en el README.
 
 Composición de [HyperFrames](https://hyperframes.heygen.com): HTML con
 animaciones seekables que se renderiza a MP4 con Chrome headless y FFmpeg, en
-local. Dura 2:03 y cubre los siete bloques de `docs/guion_video.md`.
+local. Dura 1:48 y cubre los siete bloques de `docs/guion_video.md`, en
+lenguaje llano y sobre una ventana dibujada que recrea una aplicación de
+escritorio.
 
 ```
-npx hyperframes check      # lint, layout, contraste, movimiento
-npx hyperframes snapshot --at 22,58,96   # PNG de esos segundos, para mirarlos
-npx hyperframes render     # MP4 a .hyperframes/
+npx hyperframes check                     # lint, layout, contraste, movimiento
+npx hyperframes snapshot --at 14,32,62    # PNG de esos segundos, para mirarlos
+npx hyperframes render                    # MP4 en renders/
 ```
 
 Requiere Node 22+ y FFmpeg (`winget install Gyan.FFmpeg.Essentials`).
@@ -21,71 +23,82 @@ Requiere Node 22+ y FFmpeg (`winget install Gyan.FFmpeg.Essentials`).
 > `%LOCALAPPDATA%\Microsoft\WinGet\Links`, y el PATH no cambia en las
 > terminales que ya estaban abiertas.
 
-## Qué es y qué no es
+## Qué es: una recreación con contenido real
 
-**Es una ilustración de los pasos, no una captura de pantalla.** Esa distinción
-manda sobre todo lo demás y explica cada decisión del diseño:
+La ventana —barra de título, lateral con los comandos, paneles de chat y de
+terminal— es dibujada, y el video lo dice en una esquina durante todo el
+metraje. Lo que aparece **dentro** de esa ventana no se inventó:
 
-- Nada imita una ventana de Word ni una terminal. Los comandos se ven como
-  tipografía monoespaciada sobre el fondo, no dentro de un marco que finja ser
-  una consola.
-- **Ninguna salida de comando aparece en el video.** No se ve lo que imprime
-  `entregar.py`, porque eso solo se puede mostrar de verdad grabando una
-  ejecución de verdad. Para eso está el screencast de `docs/guion_video.md`.
-- Todo string que sale en pantalla viene del repositorio: los comandos existen,
-  el patrón de nombre de archivo es el que produce `entregar.py`, las cifras de
-  perfiles salen de `perfiles/` y las de saturación de
-  `ejemplos/medicina-cualitativo/resultados/saturacion.csv`.
-- La gráfica de saturación lleva impreso **«ejemplo del repositorio ·
-  transcripciones ficticias»**, porque esos datos son material de prueba y
-  presentarlos como investigación sería justo lo que el principio 1 prohíbe.
+- Las salidas de `instalar_hooks --comprobar`, `/verificar` y `/entregar` son
+  las que imprimieron las herramientas sobre el ejemplo
+  `medicina-cualitativo`, línea por línea. Lo único alterado es la ruta local
+  del intérprete, abreviada con «…».
+- Los nombres de los dos .docx son los que produjo `entregar.py` para ese
+  ejemplo, completos.
+- Las tres opciones de `/iniciar` y la respuesta del tesista son las de
+  `ejemplos/medicina-cualitativo/decisiones/00_iniciar.md`, marcadas
+  `FICTICIO` allí. La respuesta corta previa («Medicina Humana… ocho
+  entrevistas») resume datos del mismo ejemplo; es la única línea del tesista
+  que no es cita literal.
+- Los archivos que «se generan» en la escena de etapas son los que existen en
+  `ejemplos/medicina-cualitativo/`, con sus nombres reales.
 
-No lleva el escudo de la UNMSM. El escudo va en la carátula de una tesis porque
-la norma lo pide ahí; ponerlo en un video de un repositorio de terceros lo haría
-parecer institucional, y no lo es.
+Lo que no hay: salidas inventadas, cifras que ninguna herramienta produjo, ni
+el escudo de la UNMSM. El escudo va en la carátula de una tesis porque la norma
+lo pide ahí; en un video de un repositorio independiente lo haría parecer
+institucional.
 
 ## El silencio es deliberado
 
-`check` avisa `film_silent`: un video de más de 15 s sin pista de audio. Se
-mantiene así a propósito, por dos razones:
-
-1. Una pista musical es material de terceros con su licencia, y entraría en
-   `NOTICE.md` como cualquier otra cosa. No vale la pena para esto.
-2. La narración correcta de este video ya está escrita, bloque por bloque, en
-   `docs/guion_video.md`. Quien lo doble con su voz o con un TTS tiene el texto;
-   la pista se agrega como un `<audio>` y se vuelve a renderizar.
+`check` avisa `film_silent`. Se mantiene: una pista musical es material de
+terceros con su licencia, y la narración correcta ya está escrita, bloque por
+bloque, en `docs/guion_video.md`. Quien lo doble con su voz o con un TTS tiene
+el texto; la pista se agrega como un `<audio>` y se vuelve a renderizar.
 
 ## Estructura
 
-| Archivo | Bloque del guion | Entra en |
+| Archivo | Qué muestra | Entra en |
 |---|---|---|
-| `compositions/situacion.html` | 1 — qué es y para quién | 0 s |
-| `compositions/instalacion.html` | 2 — instalación | 13 s |
-| `compositions/perfil.html` | 3 — el perfil de tu escuela | 33 s |
-| `compositions/flujo.html` | 4 — `/iniciar` y el punto de decisión | 49 s |
-| `compositions/entrega.html` | 5 — los dos .docx del art. 13 | 69 s |
-| `compositions/limites.html` | 6 — lo que no hace | 89 s |
-| `compositions/cierre.html` | 7 — cierre | 110 s |
+| `compositions/inicio.html` | título y una frase | 0 s |
+| `compositions/instalar.html` | terminal: clonar, `uv sync`, `instalar_hooks --comprobar` | 7 s |
+| `compositions/iniciar.html` | chat: `/iniciar`, tres opciones, la decisión guardada | 22 s |
+| `compositions/etapas.html` | cinco comandos y los archivos que generan | 42 s |
+| `compositions/entrega.html` | terminal: `/verificar` y `/entregar` con sus salidas | 66 s |
+| `compositions/limites.html` | lo que no hace, en tres frases | 88 s |
+| `compositions/cierre.html` | cierre y URL | 101 s |
 
-`index.html` es la raíz: la paleta, las fuentes y los siete hosts. Cada escena
-va en su archivo, dentro de `<template>`, con su propia línea de tiempo
-registrada en `window.__timelines`.
+`index.html` es la raíz: la paleta, las fuentes, la ventana dibujada y los
+siete hosts. Cada escena va en su archivo, dentro de `<template>`, con su
+línea de tiempo registrada en `window.__timelines`.
+
+## Cómo llega al README
+
+GitHub recorta el autoplay de los `<video>` en Markdown, así que el README
+incrusta una **imagen animada** con `<img>`, como hace el propio repositorio de
+HyperFrames, y enlaza el MP4 debajo. Las dos se generan desde `renders/`:
+
+```
+ffmpeg -i renders/<render>.mp4 -vf "fps=12,scale=960:-1" -loop 0 -quality 60 tesis-sanmarcos.webp
+cp renders/<render>.mp4 tesis-sanmarcos.mp4
+```
+
+Los dos archivos de la raíz de `video/` sí se versionan, con nombre estable;
+`renders/` y `.hyperframes/` no. Se vuelven a commitear cuando el video cambie
+de verdad, no en cada prueba: cada versión queda en el historial de git para
+siempre.
 
 ## Si cambias el repositorio, revisa el video
 
-Lo que queda desactualizado primero, en orden: la URL del repositorio en
-`cierre.html` e `instalacion.html`, el número de perfiles que heredan la norma
-general en `perfil.html`, los once comandos de `flujo.html`, y la resolución
-citada en `entrega.html`. Todo eso tiene su fuente en el repositorio; contrástalo
-contra ella y no contra la versión anterior del video.
+Lo que queda desactualizado primero: la URL en `cierre.html` e `instalar.html`,
+los comandos del lateral en `index.html`, las salidas de `/verificar` y
+`/entregar` en `entrega.html` si cambian los informes, y los nombres de archivo
+del ejemplo en `etapas.html`. Todo tiene su fuente en el repositorio;
+contrástalo contra ella, no contra la versión anterior del video.
 
 ## Sobre `AGENTS.md`
 
-Lo escribió `hyperframes init` y es la guía del proveedor para agentes: los
-comandos, el contrato de render y sus reglas. Se conserva tal cual.
-
-El mismo comando dejó también un `CLAUDE.md` idéntico en esta carpeta, y ese se
-quitó. Un archivo de instrucciones de un tercero dentro de este repositorio se
+Lo escribió `hyperframes init` y es la guía del proveedor para agentes. Se
+conserva tal cual. El mismo comando dejó un `CLAUDE.md` idéntico, y ese se
+quitó: un archivo de instrucciones de un tercero dentro de este repositorio se
 cargaría como si fueran las reglas del proyecto, y las reglas del proyecto son
-las del `CLAUDE.md` de la raíz. El contenido no se perdió: es el mismo que
-`AGENTS.md`.
+las del `CLAUDE.md` de la raíz.

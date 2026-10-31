@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <title>tesis-sanmarcos: los pasos</title>
+    <title>tesis-sanmarcos: así se usa</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
     <style>
       :root {
         --ground: #0a0f1c;
         --ground-2: #111a2e;
+        --panel: #0e1526;
         --ink: #eef2f7;
         --dim: #8b98ad;
         --accent: #e8b33c;
         --good: #4fb286;
         --bad: #d4654f;
+        --borde: #2b3a57;
         --font-display: Inter;
         --font-mono: "JetBrains Mono";
       }
@@ -42,6 +44,75 @@
           radial-gradient(1200px 700px at 22% 18%, #16233d 0%, rgba(22, 35, 61, 0) 70%),
           var(--ground);
       }
+      /* La ventana dibujada: una aplicación de escritorio genérica, sin logos. */
+      #ventana {
+        position: absolute;
+        inset: 40px 60px;
+        border: 1px solid var(--borde);
+        border-radius: 16px;
+        background: var(--panel);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+      }
+      #barra {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 48px;
+        border-bottom: 1px solid var(--borde);
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        gap: 10px;
+        font-size: 22px;
+        color: var(--dim);
+      }
+      #barra i {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #3a4a6a;
+        display: inline-block;
+      }
+      #barra span {
+        margin-left: 14px;
+        font-family: var(--font-mono);
+      }
+      #lateral {
+        position: absolute;
+        left: 0;
+        top: 48px;
+        bottom: 0;
+        width: 320px;
+        border-right: 1px solid var(--borde);
+        padding: 24px 20px;
+        font-size: 22px;
+        color: var(--dim);
+        line-height: 1.9;
+      }
+      #lateral b {
+        display: block;
+        color: var(--ink);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      #lateral div {
+        font-family: var(--font-mono);
+        font-size: 28px;
+        line-height: 1.75;
+      }
+      #recreacion {
+        position: absolute;
+        right: 84px;
+        bottom: 54px;
+        font-size: 28px;
+        color: var(--dim);
+        letter-spacing: 0.02em;
+      }
+      #recreacion b {
+        color: var(--accent);
+        font-weight: 700;
+      }
     </style>
   </head>
   <body>
@@ -49,107 +120,56 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="123"
+      data-duration="108"
       data-width="1920"
       data-height="1080"
     >
       <div id="fondo"></div>
+      <div id="ventana" data-layout-ignore>
+        <div id="barra"><i></i><i></i><i></i><span>Claude Code — C:\tesis</span></div>
+        <div id="lateral">
+          <b>tesis-sanmarcos</b>
+          <div>/iniciar</div>
+          <div>/explorar-datos</div>
+          <div>/afinar-idea</div>
+          <div>/literatura</div>
+          <div>/proyecto</div>
+          <div>/analizar</div>
+          <div>/redactar</div>
+          <div>/jurado</div>
+          <div>/verificar</div>
+          <div>/entregar</div>
+          <div>/sustentacion</div>
+        </div>
+      </div>
+      <div id="recreacion"><b>Recreación.</b> La ventana es dibujada; lo que muestra es real.</div>
 
-      <div
-        id="situacion"
-        data-composition-id="situacion"
-        data-composition-src="compositions/situacion.html"
-        data-start="0"
-        data-duration="13"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 1"
-      ></div>
-
-      <div
-        id="instalacion"
-        data-composition-id="instalacion"
-        data-composition-src="compositions/instalacion.html"
-        data-start="13"
-        data-duration="20"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 2"
-      ></div>
-
-      <div
-        id="perfil"
-        data-composition-id="perfil"
-        data-composition-src="compositions/perfil.html"
-        data-start="33"
-        data-duration="16"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 3"
-      ></div>
-
-      <div
-        id="flujo"
-        data-composition-id="flujo"
-        data-composition-src="compositions/flujo.html"
-        data-start="49"
-        data-duration="20"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 4"
-      ></div>
-
-      <div
-        id="entrega"
-        data-composition-id="entrega"
-        data-composition-src="compositions/entrega.html"
-        data-start="69"
-        data-duration="20"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 5"
-      ></div>
-
-      <div
-        id="limites"
-        data-composition-id="limites"
-        data-composition-src="compositions/limites.html"
-        data-start="89"
-        data-duration="21"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 6"
-      ></div>
-
-      <div
-        id="cierre"
-        data-composition-id="cierre"
-        data-composition-src="compositions/cierre.html"
-        data-start="110"
-        data-duration="13"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1920"
-        data-height="1080"
-        style="z-index: 7"
-      ></div>
+      <div id="inicio" data-composition-id="inicio" data-composition-src="compositions/inicio.html"
+        data-start="0" data-duration="7" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div id="instalar" data-composition-id="instalar" data-composition-src="compositions/instalar.html"
+        data-start="7" data-duration="15" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 2"></div>
+      <div id="iniciar" data-composition-id="iniciar" data-composition-src="compositions/iniciar.html"
+        data-start="22" data-duration="20" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 3"></div>
+      <div id="etapas" data-composition-id="etapas" data-composition-src="compositions/etapas.html"
+        data-start="42" data-duration="24" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 4"></div>
+      <div id="entrega" data-composition-id="entrega" data-composition-src="compositions/entrega.html"
+        data-start="66" data-duration="22" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 5"></div>
+      <div id="limites" data-composition-id="limites" data-composition-src="compositions/limites.html"
+        data-start="88" data-duration="13" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 6"></div>
+      <div id="cierre" data-composition-id="cierre" data-composition-src="compositions/cierre.html"
+        data-start="101" data-duration="7" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 7"></div>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      tl.to("#fondo", { opacity: 1, duration: 123 }, 0);
+      tl.to("#fondo", { opacity: 1, duration: 108 }, 0);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>

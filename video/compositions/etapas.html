@@ -1,0 +1,103 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #root .clip {
+      position: absolute;
+      inset: 112px 90px 120px 404px;
+    }
+    #root #eta-izq {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    #root .paso .cmd {
+      font-family: var(--font-mono);
+      font-size: 34px;
+      color: var(--ink);
+    }
+    #root .paso .cmd::before {
+      content: "> ";
+      color: var(--accent);
+    }
+    #root .paso .que {
+      font-size: 29px;
+      color: var(--dim);
+      margin-top: 4px;
+    }
+    #root #eta-der {
+      position: absolute;
+      left: 530px;
+      right: 0;
+      top: 0;
+      height: 570px;
+      background: #070b14;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 22px 28px;
+      font-family: var(--font-mono);
+      font-size: 28px;
+      line-height: 1.42;
+      color: var(--dim);
+      white-space: pre-wrap;
+    }
+    #root #eta-der .ln {
+      color: var(--ink);
+    }
+    #root #eta-der .nuevo {
+      color: var(--good);
+    }
+    #root #eta-nota {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      border-left: 6px solid var(--accent);
+      padding-left: 24px;
+    }
+  </style>
+
+  <div id="root" data-composition-id="etapas" data-width="1920" data-height="1080">
+    <div id="eta-todo" class="clip" data-start="0" data-duration="24" data-track-index="1">
+      <div id="eta-izq">
+        <div class="paso" id="eta-p1"><div class="cmd">/explorar-datos</div><div class="que">ordena tus datos y quita lo que identifica a alguien</div></div>
+        <div class="paso" id="eta-p2"><div class="cmd">/literatura</div><div class="que">busca art&iacute;culos y los guarda en Zotero</div></div>
+        <div class="paso" id="eta-p3"><div class="cmd">/proyecto</div><div class="que">escribe el proyecto que tu escuela aprueba, en Word y PDF</div></div>
+        <div class="paso" id="eta-p4"><div class="cmd">/analizar</div><div class="que">codifica las entrevistas, con cada cita rastreable</div></div>
+        <div class="paso" id="eta-p5"><div class="cmd">/redactar</div><div class="que">redacta cap&iacute;tulo por cap&iacute;tulo, desde tus resultados</div></div>
+      </div>
+      <div id="eta-der"><div class="ln">tesis/</div><div class="nuevo" id="eta-f1">  datos/crudos/FICTICIA_entrevista_E-01 &hellip; E-08.txt</div><div class="nuevo" id="eta-f2">  referencias.bib   (4 referencias, Vancouver)</div><div class="nuevo" id="eta-f3">  proyecto/01-problema.qmd &hellip; 04-referencias-anexos.qmd</div><div class="nuevo" id="eta-f3b">  entregables/PROYECTO/&hellip;Proyecto de Tesis&hellip;.docx .pdf</div><div class="nuevo" id="eta-f4">  resultados/libro_de_codigos.yaml</div><div class="nuevo" id="eta-f4b">  resultados/saturacion.csv  contexto.json</div><div class="nuevo" id="eta-f5">  capitulos/00-preliminares.qmd &hellip; 05-conclusiones.qmd</div></div>
+      <div id="eta-nota" data-hold>
+        Nada sale de la nada: cada cifra del texto viene de un archivo de resultados que
+        gener&oacute; tu c&oacute;digo.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t) =>
+      tl.fromTo(sel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+    const aparece = (sel, t) =>
+      tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, t);
+
+    entra("#eta-p1", 0.4);  aparece("#eta-f1", 1.4);
+    entra("#eta-p2", 3.8);  aparece("#eta-f2", 4.8);
+    entra("#eta-p3", 7.2);  aparece("#eta-f3", 8.2); aparece("#eta-f3b", 8.9);
+    entra("#eta-p4", 11.4); aparece("#eta-f4", 12.4); aparece("#eta-f4b", 12.9);
+    entra("#eta-p5", 15.2); aparece("#eta-f5", 16.2);
+    entra("#eta-nota", 18.6);
+
+    window.__timelines["etapas"] = tl;
+  </script>
+</template>

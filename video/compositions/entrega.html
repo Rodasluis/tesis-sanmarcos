@@ -6,138 +6,108 @@
     }
     #root .clip {
       position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 140px;
+      inset: 112px 90px 120px 404px;
     }
-    #root .rotulo {
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 46px;
-    }
-    #root #ent-par {
-      display: flex;
-      gap: 48px;
-      align-items: stretch;
-    }
-    #root .doc {
-      width: 740px;
-      background: var(--ground-2);
-      border: 2px solid #2b3a57;
-      border-radius: 16px;
-      padding: 34px 36px;
-    }
-    #root .doc .nombre {
+    #root #ent-term {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 650px;
+      background: #070b14;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 22px 30px;
       font-family: var(--font-mono);
       font-size: 28px;
-      line-height: 1.45;
-      color: var(--ink);
-    }
-    #root .doc .nombre em {
-      color: var(--accent);
-      font-style: normal;
-      font-weight: 700;
-    }
-    #root .doc .hr {
-      height: 2px;
-      background: #2b3a57;
-      margin: 26px 0 22px;
-    }
-    #root .doc .lleva {
-      font-size: 28px;
-      line-height: 1.5;
+      line-height: 1.38;
       color: var(--dim);
     }
-    #root .doc .lleva .si {
+    #root .ln {
+      white-space: pre;
+    }
+    #root .ln span {
+      display: inline-block;
+    }
+    #root .cmd {
+      color: var(--ink);
+    }
+    #root .cmd::before {
+      content: "> ";
+      color: var(--accent);
+    }
+    #root .ok {
       color: var(--good);
-      font-weight: 600;
     }
-    #root .doc .lleva .no {
-      color: var(--bad);
-      font-weight: 600;
-    }
-    #root #ent-porque {
-      margin-top: 52px;
-      font-size: 40px;
-      font-weight: 500;
+    #root .fuerte {
       color: var(--ink);
-      text-align: center;
-      max-width: 1500px;
+    }
+    #root .nombre {
+      white-space: normal;
+      color: var(--ink);
+      padding-left: 56px;
+      text-indent: -56px;
+    }
+    #root #ent-nota {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--ink);
       line-height: 1.3;
+      border-left: 6px solid var(--accent);
+      padding-left: 24px;
     }
-    #root #ent-porque b {
+    #root #ent-nota b {
       color: var(--accent);
-      font-weight: 700;
-    }
-    #root #ent-norma {
-      margin-top: 30px;
-      font-size: 28px;
-      color: var(--dim);
     }
   </style>
 
   <div id="root" data-composition-id="entrega" data-width="1920" data-height="1080">
-    <div id="ent-todo" class="clip" data-start="0" data-duration="20" data-track-index="1">
-      <div id="ent-rotulo" class="rotulo">4 — La entrega son dos archivos</div>
-
-      <div id="ent-par">
-        <div class="doc" id="ent-doc1">
-          <div class="nombre">Apellidos Nombres - <em>Desarrollo</em> T&iacute;tulo - A&ntilde;o.docx</div>
-          <div class="hr"></div>
-          <div class="lleva">
-            <span class="no">sin</span> car&aacute;tula<br />
-            <span class="no">sin</span> bibliograf&iacute;a
-          </div>
-        </div>
-        <div class="doc" id="ent-doc2">
-          <div class="nombre">Apellidos Nombres - <em>Protocolo y Complemento</em> T&iacute;tulo - A&ntilde;o.docx</div>
-          <div class="hr"></div>
-          <div class="lleva">
-            <span class="si">con</span> car&aacute;tula y escudo<br />
-            <span class="si">con</span> bibliograf&iacute;a
-          </div>
-        </div>
+    <div id="ent-todo" class="clip" data-start="0" data-duration="22" data-track-index="1">
+      <div id="ent-term">
+        <div class="ln cmd"><span id="ent-c1">/verificar</span></div>
+        <div class="ln fuerte" id="ent-v0">Verificaci&oacute;n completa</div>
+        <div class="ln" id="ent-v1">  <span class="ok">[ok]</span> Perfil y normativa                   100/100   0 errores, 0 avisos</div>
+        <div class="ln" id="ent-v2">  <span class="ok">[ok]</span> Decisiones del tesista               100/100   0 errores, 0 avisos</div>
+        <div class="ln" id="ent-v3">  <span class="ok">[ok]</span> Citas y referencias                  100/100   0 errores, 0 avisos</div>
+        <div class="ln" id="ent-v4">  <span class="ok">[ok]</span> Cifras y citas de participantes      100/100   0 errores, 0 avisos</div>
+        <div class="ln" id="ent-v5">  <span class="ok">[ok]</span> Estructura del documento             100/100   0 errores, 0 avisos</div>
+        <div class="ln" id="ent-v6">  <span class="ok">[ok]</span> Repeticiones y fragmentos sin citar  100/100   0 errores, 0 avisos</div>
+        <div class="ln fuerte" id="ent-v7">Puntaje global: 100/100, sobre 6 de 6 componentes</div>
+        <div class="ln" id="ent-v8">  entregar: s&iacute;</div>
+        <div class="ln cmd"><span id="ent-c2">/entregar</span></div>
+        <div class="ln nombre" id="ent-e1">archivo_desarrollo:  Ejemplo Ficticio Mar&iacute;a Elena - Desarrollo Barreras percibidas para la adherencia al tratamiento antihipertensivo en usuarios de un centro de salud de Lima - 2026.docx</div>
+        <div class="ln nombre" id="ent-e2">archivo_complemento: Ejemplo Ficticio Mar&iacute;a Elena - Protocolo y Complemento Barreras percibidas para la adherencia al tratamiento antihipertensivo en usuarios de un centro de salud de Lima - 2026.docx</div>
+        <div class="ln fuerte" id="ent-e3">Resultado: 0 errores, 0 avisos, 8 notas.</div>
       </div>
-
-      <div id="ent-porque">
-        El primero es el que va al <b>an&aacute;lisis de similitud</b>. Lo que no escribiste t&uacute; no entra ah&iacute;.
+      <div id="ent-nota" data-hold>
+        Dos archivos de Word con el nombre exacto que pide la norma, y sus PDF. El de
+        <b>Desarrollo</b> es el que pasa por el control de originalidad.
       </div>
-
-      <div id="ent-norma" data-hold>Art. 13 de la RR N.&deg; 000947-2026-R &middot; m&aacute;s sus PDF, convertidos del mismo .docx</div>
     </div>
   </div>
 
   <script>
     const tl = gsap.timeline({ paused: true });
-    const entra = (sel, t, dy) =>
-      tl.fromTo(
-        sel,
-        { opacity: 0, y: dy === undefined ? 20 : dy },
-        { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" },
-        t,
-      );
+    const teclea = (sel, t, dur) =>
+      tl.fromTo(sel, { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+    const sale = (sel, t) =>
+      tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, t);
 
-    entra("#ent-rotulo", 0.2, 10);
-    tl.fromTo(
-      "#ent-doc1",
-      { opacity: 0, x: -40 },
-      { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
-      1.2,
-    );
-    tl.fromTo(
-      "#ent-doc2",
-      { opacity: 0, x: 40 },
-      { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
-      3.2,
-    );
-    entra("#ent-porque", 6.4);
-    entra("#ent-norma", 9.6, 12);
+    tl.set(["#ent-c1", "#ent-c2"], { clipPath: "inset(0 100% 0 0)" }, 0);
+
+    teclea("#ent-c1", 0.3, 0.5);
+    ["#ent-v0", "#ent-v1", "#ent-v2", "#ent-v3", "#ent-v4", "#ent-v5", "#ent-v6", "#ent-v7", "#ent-v8"]
+      .forEach((s, i) => sale(s, 1.2 + i * 0.2));
+    teclea("#ent-c2", 5.4, 0.5);
+    sale("#ent-e1", 6.4);
+    sale("#ent-e2", 7.2);
+    sale("#ent-e3", 8.1);
+    tl.fromTo("#ent-nota", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 10.4);
 
     window.__timelines["entrega"] = tl;
   </script>
