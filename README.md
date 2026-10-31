@@ -11,6 +11,10 @@ datos, revisa literatura, analiza, redacta los capítulos, da formato y arma los
 archivos de entrega. **Tú decides, firmas y sustentas.** Esas tres cosas no las
 puede hacer nadie más por ti, y son justamente las que el jurado va a evaluar.
 
+> **Los pasos en 2 minutos:** [`sitio/tesis-sanmarcos.mp4`](sitio/tesis-sanmarcos.mp4)
+> — sin audio, el texto va en pantalla. Es una ilustración de los pasos, no una
+> grabación de la herramienta funcionando. Se regenera desde [`video/`](video/).
+
 ## Puedes empezar hoy
 
 No hay requisitos para arrancar. No te vamos a preguntar si ya tienes el grado de
