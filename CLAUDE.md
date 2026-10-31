@@ -195,11 +195,8 @@ formato y requisitos de sustentación. Vive en `perfiles/`.
 - `medicina-fm`, `letras-flch`, `derecho-fdcp`, `administrativas-fca` — norma
   propia verificada.
 - **Los otros dieciséis** — `hereda_general`. Entre ellos `economia-fce` y
-  `educacion-fe`, que antes tenían estados intermedios: por decisión del
-  tesista (23/10/2026) se rigen por el marco normativo general, porque sus
-  documentos nunca acreditaron rango normativo y mantenerlos a medias obligaba
-  a advertir en cada etapa sobre algo que no cambia la estructura de la tesis.
-  Sus documentos siguen en el perfil como `documentos_complementarios`.
+  `educacion-fe`, cuyos documentos propios no acreditan rango normativo y
+  quedan en el perfil como `documentos_complementarios`.
 
 Reglas de oro:
 
@@ -363,9 +360,8 @@ Los dos tienen `proyecto/` y `capitulos/`, y los dos generan sus cuatro
 entregables: proyecto de tesis y tesis, cada uno en .docx y PDF. Ninguno
 registra decisiones más allá de la etapa 6.
 
-El proyecto del cualitativo sigue el **anexo D** del reglamento de Medicina, no
-el anexo 2A de la universidad: es el único esquema de proyecto por enfoque que
-hay en los perfiles, y por eso ese ejemplo es también la prueba de que se lee.
+El proyecto del cualitativo sigue el **anexo D** del reglamento de Medicina, el
+único esquema de proyecto por enfoque que hay en los perfiles.
 
 | | `economia-cuantitativo` | `medicina-cualitativo` |
 |---|---|---|
