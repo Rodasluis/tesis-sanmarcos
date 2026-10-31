@@ -78,12 +78,7 @@ build/
 !ejemplos/*/entregables/
 !ejemplos/*/entregables/datos_de_entrega.yaml
 
-# ---------------------------------------------------------------------------
-# El video
-# ---------------------------------------------------------------------------
-# La composicion de `video/` si se versiona: es texto y es lo que permite
-# regenerar el MP4. Lo que sale del render, no: pesa y se reproduce con
-# `npx hyperframes render`.
+# Salidas del render del video de `video/`
 video/.hyperframes/
 video/renders/
 video/node_modules/

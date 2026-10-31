@@ -1,11 +1,6 @@
 # Datos de entrega del EJEMPLO. El tesista es FICTICIO, como las decisiones y
 # como las ocho transcripciones. En una tesis real estos datos son los tuyos y
 # este archivo no se versiona.
-#
-# Sin este archivo el ejemplo se quedaba a medias: verificaba y renderizaba,
-# pero `/entregar` se detenía en T07 y nunca producía los dos .docx del art. 13.
-# El CI solo corría los entregables del ejemplo cuantitativo, así que la mitad
-# cualitativa del flujo no se probaba de punta a punta.
 
 titulo: "Barreras percibidas para la adherencia al tratamiento antihipertensivo en usuarios de un centro de salud de Lima"
 anio: 2026

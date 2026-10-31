@@ -102,7 +102,7 @@ verificarán contra su documentación vigente antes de documentarlas.
 | `reference.docx` base de las plantillas | pandoc (`--print-default-data-file`) | GPL-2.0-or-later | No se redistribuye: se extrae de pandoc al generar cada plantilla |
 | Quarto | Posit | MIT | Dependencia externa, no se redistribuye |
 | Pandoc | John MacFarlane | GPL-2.0-or-later | Dependencia externa, no se redistribuye |
-| Andamiaje de `video/` (`index.html` de partida, `hyperframes.json`, `package.json`, `AGENTS.md`) | HyperFrames, de HeyGen | Apache-2.0 | Generado por `npx hyperframes init` el 2026-10-30 |
+| Andamiaje de `video/` (`hyperframes.json`, `package.json`, `meta.json`) | HyperFrames, de HeyGen | Apache-2.0 | Generado por `npx hyperframes init` el 2026-10-30 |
 | HyperFrames CLI y su runtime | HeyGen | Apache-2.0 | Dependencia externa, no se redistribuye |
 | GSAP 3.15.0 | GreenSock | «Standard no charge license», https://gsap.com/standard-license (campo `license` del paquete npm) | No se redistribuye: `video/index.html` lo carga desde jsDelivr |
 | FFmpeg | proyecto FFmpeg | LGPL-2.1-or-later / GPL según la compilación | Dependencia externa, no se redistribuye |

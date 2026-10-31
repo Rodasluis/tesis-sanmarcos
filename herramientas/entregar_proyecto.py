@@ -1,8 +1,7 @@
 """Genera el proyecto de tesis en .docx y PDF.
 
 El proyecto de tesis es un documento aparte de la tesis y llega antes: es lo que
-la escuela registra y aprueba para que el trabajo empiece. Hasta ahora el
-repositorio lo redactaba en `proyecto/` y ahí se quedaba, en Markdown.
+la escuela registra y aprueba para que el trabajo empiece.
 
 Qué hace esta herramienta:
 
@@ -66,9 +65,7 @@ LA_PONE_LA_CARATULA = ("primera pagina", "primera página", "caratula", "carátu
                        "portada")
 
 #: El índice de un .docx es un campo de Word, no texto del .qmd: se inserta en
-#: el documento ya generado y se actualiza solo. Reclamarlo aquí mandaría al
-#: tesista a teclear a mano una lista de páginas que queda falsa en cuanto
-#: corrija un párrafo. Se avisa aparte, con Y15.
+#: el documento ya generado. No se reclama como sección; se avisa con Y15.
 LO_PONE_WORD = ("indice", "índice", "indice general", "índice general",
                 "tabla de contenido")
 
@@ -78,9 +75,7 @@ def titulos_del_esquema(perfil, enfoque: str | None = None) -> list[str]:
 
     Un perfil puede declararlos de dos maneras. La mayoría pone una sola lista
     en `proyecto.secciones`. Medicina trae **un esquema por enfoque** —el anexo
-    C para el cuantitativo y el D para el cualitativo— en `proyecto.modelos`, y
-    hasta la revisión de publicación nadie los leía: el proyecto cualitativo se
-    generaba sin comprobar ni una sección del anexo que lo rige.
+    C para el cuantitativo y el D para el cualitativo— en `proyecto.modelos`.
     """
     proyecto = perfil.get("proyecto") or {}
     crudas = proyecto.get("secciones") or []

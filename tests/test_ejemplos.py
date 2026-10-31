@@ -294,13 +294,8 @@ def test_los_ejemplos_montados_verifican_sin_errores(tmp_path, nombre):
 
 @pytest.mark.parametrize("nombre", ["economia-cuantitativo", "medicina-cualitativo"])
 def test_cada_ejemplo_trae_su_proyecto_de_tesis(nombre):
-    """`proyecto/` y `capitulos/` son dos documentos distintos.
-
-    Los dos ejemplos tienen que traer los dos. Mientras al cualitativo le faltó
-    el proyecto, la mitad cualitativa del flujo terminaba en `/redactar` y el
-    repositorio no tenía ningún ejemplo de un proyecto escrito contra el anexo
-    D del reglamento de Medicina, que es el que rige al enfoque cualitativo.
-    """
+    """`proyecto/` y `capitulos/` son dos documentos distintos, y cada
+    ejemplo trae los dos."""
     base = ejemplo(nombre)
     assert list((base / "proyecto").glob("*.qmd")), "sin proyecto de tesis"
     assert list((base / "capitulos").glob("*.qmd")), "sin capítulos de la tesis"

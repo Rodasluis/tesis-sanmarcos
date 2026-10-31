@@ -25,7 +25,7 @@ DATOS = {
     "facultad": "Facultad de Prueba",
     "escuela": "Escuela Profesional de Prueba",
     "titulo_profesional": "Licenciado en Pruebas",
-    "autores": [{"nombres": "Luis Alberto", "apellidos": "Rodas Díaz"}],
+    "autores": [{"nombres": "Luis Alberto", "apellidos": "Paredes Díaz"}],
     "asesor": {"nombres": "Ana María", "apellidos": "Quispe Vargas",
                "grado": "Dra.", "genero": "f"},
 }

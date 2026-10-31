@@ -278,12 +278,7 @@ def test_no_marca_los_correos_de_ejemplo():
 
 
 def test_una_version_fijada_de_un_paquete_no_es_un_correo():
-    """`hyperframes@0.8.222` tiene arroba y puntos, y no es de nadie.
-
-    Saltaba en cada commit que tocara `video/`, y saltaría con cualquier
-    `paquete@1.2.3` que el tesista escriba en una nota. Un aviso que se
-    equivoca a menudo es un aviso que se deja de leer.
-    """
+    """`hyperframes@0.8.222` tiene arroba y puntos, y no es de nadie."""
     texto = "npx hyperframes@0.8.222 render\n  \"render\": \"react@18.3.1\"\n"
     assert not DP.revisar_contenido("video/package.json", texto)
 
@@ -364,11 +359,9 @@ def test_el_matcher_no_registra_lecturas():
 def test_comprobar_pasa_en_una_copia_recien_instalada(tmp_path):
     """`comprobar()` sobre una copia donde el instalador acaba de correr.
 
-    Antes esto solo se probaba contra RAIZ_REAL, y por tanto el resultado
-    dependía de si quien ejecutaba las pruebas tenía los hooks instalados en su
-    equipo. En un clon recién hecho no lo están —`settings.local.json` no se
-    versiona y el intérprete cambia en cada máquina—, así que la primera
-    corrida del CI falló aquí, en la prueba, y no en el código.
+    No depende de que los hooks estén instalados en el equipo que corre las
+    pruebas: `settings.local.json` no se versiona y el intérprete cambia en
+    cada máquina.
     """
     copia = tmp_path / "repo"
     (copia / ".claude" / "hooks").mkdir(parents=True)

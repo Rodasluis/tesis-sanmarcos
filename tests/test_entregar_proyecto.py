@@ -20,7 +20,7 @@ DATOS_YAML = """\
 titulo: "Una tesis de prueba"
 anio: 2026
 autores:
-  - apellidos: "Rodas Díaz"
+  - apellidos: "Paredes Díaz"
     nombres: "Luis Alberto"
     dni: "12345678"
     objetivos: []
@@ -247,9 +247,7 @@ def test_fuera_de_windows_no_hay_limite(tmp_path, monkeypatch):
 def test_medicina_trae_un_esquema_de_proyecto_por_enfoque():
     """El anexo C es para el cuantitativo y el D para el cualitativo.
 
-    Medicina los declara en `proyecto.modelos`, no en `proyecto.secciones`, y
-    hasta la revisión de publicación nadie los leía: el proyecto cualitativo
-    se generaba sin comprobar ni una sección del anexo que lo rige.
+    Medicina los declara en `proyecto.modelos`, no en `proyecto.secciones`.
     """
     perfil = cargar("medicina-fm")
     assert entregar_proyecto.secciones_esperadas(perfil) == [], \

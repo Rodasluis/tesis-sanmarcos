@@ -16,10 +16,7 @@ puede hacer nadie más por ti, y son justamente las que el jurado va a evaluar.
 </p>
 
 > **Así se usa, en menos de dos minutos.** Sin audio: el texto va en pantalla.
-> La ventana es una recreación; lo que muestra dentro —las salidas de los
-> comandos, los archivos, las decisiones— es real, del ejemplo del
-> repositorio. Versión en MP4: [`video/tesis-sanmarcos.mp4`](video/tesis-sanmarcos.mp4).
-> Se regenera desde [`video/`](video/).
+> Versión en MP4: [`video/tesis-sanmarcos.mp4`](video/tesis-sanmarcos.mp4).
 
 ## Puedes empezar hoy
 

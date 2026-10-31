@@ -90,12 +90,6 @@ jobs:
       - name: Generar los entregables de los dos ejemplos
         # Es la prueba de punta a punta que importa: proyecto de tesis y tesis,
         # cada uno en .docx y PDF, con la carátula y el escudo de la UNMSM.
-        #
-        # Van LOS DOS, y los dos completos. Antes solo corría el cuantitativo,
-        # y por eso nadie vio que al cualitativo le faltaba
-        # `datos_de_entrega.yaml`: verificaba y renderizaba, pero `/entregar`
-        # se detenía y jamás producía sus .docx. Después se saltaba su
-        # proyecto, porque no estaba redactado. Ya lo está.
         env:
           QUARTO_PYTHON: ${{ github.workspace }}/.venv/bin/python
         run: |
@@ -124,9 +118,7 @@ jobs:
         with:
           name: ejemplos-entregables
           # Los ejemplos se montan en `.ejemplos-montados/`, que empieza por
-          # punto, y upload-artifact ignora los archivos ocultos desde la
-          # v4.4: subía 0 archivos y, con `if-no-files-found: error`, fallaba
-          # el job entero después de que los doce pasos de trabajo pasaran.
+          # punto, y upload-artifact ignora los archivos ocultos desde la v4.4.
           include-hidden-files: true
           path: |
             .ejemplos-montados/*/entregables/_render/**/*.docx

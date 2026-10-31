@@ -1,8 +1,5 @@
 # Integridad: qué se puede y qué no, con el artículo que lo dice
 
-Written for: tesistas de la UNMSM que usan este repositorio y necesitan saber
-dónde está la línea, y por qué está ahí.
-
 ---
 
 Este documento no es una lista de buenas intenciones. Cada prohibición viene con

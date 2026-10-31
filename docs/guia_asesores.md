@@ -1,8 +1,5 @@
 # Guía para asesores
 
-Written for: asesores de tesis de la UNMSM que reciben un trabajo hecho con este
-repositorio y quieren saber qué están revisando.
-
 ---
 
 Su asesorado usó `tesis-sanmarcos`, un repositorio que acompaña la elaboración de

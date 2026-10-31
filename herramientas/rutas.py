@@ -3,8 +3,8 @@
 Los nombres de archivo que exige el art. 13 de la Directiva de originalidad son
 largos por diseño: llevan apellidos, nombres, el título completo de la tesis y
 el año. Con un título de los normales, el nombre solo ya pasa de 120 caracteres.
-Basta con que el proyecto esté dos carpetas más abajo de lo habitual —y
-`Downloads/Repositorio de…/` lo está— para cruzar el límite.
+Basta con que el proyecto esté dos carpetas más abajo de lo habitual para
+cruzar el límite.
 
 Cuando se cruza, Windows no dice que la ruta es larga: dice «el sistema no puede
 encontrar la ruta especificada», que lleva a buscar el archivo que falta en vez

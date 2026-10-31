@@ -209,12 +209,8 @@ def _imagenes_sin_iconos(xml: str) -> int:
     """Cuántas imágenes del documento podrían ser una fórmula rasterizada.
 
     Ninguna fórmula cabe en 12 puntos, así que los iconos de los callouts no
-    cuentan. Sin este descuento, un documento sin una sola ecuación —el
-    proyecto de tesis cualitativo, por ejemplo— recibía el aviso T12 y mandaba
-    al tesista a buscar una fórmula fotografiada que no existe.
-
-    Lo que no declara tamaño se cuenta igual: `<w:pict>` (VML) no trae
-    `<wp:extent>`, y preferimos avisar de más a callar una imagen real.
+    cuentan. Lo que no declara tamaño se cuenta igual: `<w:pict>` (VML) no
+    trae `<wp:extent>`, y es preferible avisar de más a callar una imagen real.
     """
     pequenas = sum(1 for cx, cy in RE_EXTENT.findall(xml)
                    if int(cx) < MEDIA_PULGADA_EMU and int(cy) < MEDIA_PULGADA_EMU)
@@ -240,14 +236,12 @@ def revisar_docx(ruta: pathlib.Path, inf: Informe) -> None:
             continue
         # Pandoc emite cada figura con su leyenda dentro de una tabla de una
         # sola celda. Eso es una figura, no una tabla de datos rasterizada, y
-        # el art. 13 A.6 habla de lo segundo. Contarlas como infracción
-        # bloqueaba la entrega de cualquier tesis que tuviera un gráfico.
+        # el art. 13 A.6 habla de lo segundo.
         if _una_sola_celda(tabla):
             continue
-        # Y los callouts de Quarto —`::: {.callout-note}`— salen como una tabla
-        # de dos filas cuya primera celda lleva el icono del callout. Es una
-        # imagen de 12 pt, no una tabla fotografiada. Acusar de infracción a
-        # quien usó un callout lo manda a buscar un problema que no existe.
+        # Los callouts de Quarto —`::: {.callout-note}`— salen como una tabla
+        # de dos filas cuya primera celda lleva el icono del callout: una
+        # imagen de 12 pt, no una tabla fotografiada.
         if _solo_iconos(tbl_xml):
             continue
         imagenes_en_tabla += 1
@@ -905,13 +899,10 @@ def _cabecera(raiz: pathlib.Path, meta: dict[str, str] | None = None) -> str:
     """El encabezado YAML del .qmd combinado.
 
     El archivo combinado no hereda el `_quarto.yml` del proyecto, porque no
-    está en su lista de `render:`. Todo lo que ese archivo declara hay que
-    repetirlo aquí o se pierde, **y lo que se pierde no falla: sale distinto**.
+    está en su lista de `render:`. Lo que ese archivo declara se repite aquí:
 
-    - Sin `lang`, las leyendas salen en inglés —«Figure 1», «Table 2»— en una
-      tesis escrita en español.
-    - Sin `csl`, la bibliografía sale en el estilo por defecto de pandoc en
-      lugar del que exige la facultad.
+    - `lang`, para que las leyendas salgan en español («Figura 1», «Tabla 2»).
+    - `csl`, para que la bibliografía siga el estilo que exige la facultad.
     """
     lineas = ["---", "lang: es"]
     if _bib(raiz):
@@ -1071,14 +1062,9 @@ def _bib(raiz: pathlib.Path) -> str:
 def _csl(raiz: pathlib.Path) -> str:
     """El estilo de citas del perfil activo, leído del `_quarto.yml` generado.
 
-    Hace falta por lo mismo que `lang`: el .qmd combinado no hereda el
-    `_quarto.yml` del proyecto. Sin esta línea, pandoc aplicaba su estilo por
-    defecto —Chicago autor-año— **en los dos .docx que el tesista entrega**,
-    fuera cual fuera el que exige su facultad. Una tesis de Medicina salía con
-    la bibliografía alfabética y las citas en autor-año cuando los anexos C a F
-    de su reglamento piden Vancouver, numerado y por orden de aparición; y el
-    render de `quarto render` sí lo hacía bien, de modo que lo que el tesista
-    veía al trabajar no era lo que entregaba.
+    El .qmd combinado no hereda el `_quarto.yml` del proyecto, así que el CSL
+    se declara en su encabezado igual que `lang`. Sin él, pandoc aplica su
+    estilo por defecto (Chicago autor-año) en los documentos entregados.
 
     Se lee del `_quarto.yml` porque es el archivo que `activar_perfil` genera
     desde el perfil, y que ya comprobó que el .csl existe.
@@ -1274,9 +1260,8 @@ def preparar(raiz: pathlib.Path = RAIZ, solo_comprobar: bool = False,
 
     generados: list[pathlib.Path] = []
     for etiqueta, entradas in (("desarrollo", desarrollo), ("complemento", complemento)):
-        # El de Complemento se genera SIEMPRE, aunque no haya ningún .qmd
-        # suyo: lleva como mínimo la carátula, y antes se saltaba en silencio
-        # dejando un solo .docx en `TEXTO/` y ni un aviso.
+        # El de Complemento se genera siempre, aunque no haya ningún .qmd
+        # suyo: lleva como mínimo la carátula y la bibliografía.
         if not entradas and etiqueta == "desarrollo":
             continue
         meta = {"suppress-bibliography": "true"} if etiqueta == "desarrollo" else {}

@@ -4,10 +4,6 @@ No es cosmético: **el archivo de Desarrollo es el que se somete al análisis de
 similitud**. La carátula y la bibliografía son texto que el tesista no redactó
 y que coincide con el de cualquier otra tesis, así que la norma los saca de ahí
 y los pone en el de «Protocolo y Complemento».
-
-El motor hacía lo contrario: metía la carátula y la bibliografía en el primero
-y, si no había ningún .qmd de anexos —el caso normal—, **no generaba el segundo
-y no avisaba**. Quedaba un solo .docx en `TEXTO/` con 0 errores y 0 avisos.
 """
 from __future__ import annotations
 
@@ -104,8 +100,7 @@ def test_la_caratula_y_la_bibliografia_van_en_el_segundo_archivo(proyecto):
     complemento = list(texto.glob("*Protocolo y Complemento*.docx"))
     assert desarrollo, "falta el archivo de Desarrollo"
     assert complemento, (
-        "falta el de Protocolo y Complemento: el art. 13 A.2 pide DOS archivos, "
-        "y antes se saltaba en silencio cuando no habia .qmd de anexos")
+        "falta el de Protocolo y Complemento: el art. 13 A.2 pide DOS archivos")
 
     def parrafos(f):
         return [p.text.strip() for p in docx.Document(str(f)).paragraphs if p.text.strip()]
@@ -213,12 +208,7 @@ def test_revisar_docx_no_revienta_con_una_tabla_sin_tblgrid(tmp_path):
 
 
 def test_el_icono_de_un_callout_no_dispara_el_aviso_de_formula_fotografiada(tmp_path):
-    """T12 contaba cualquier imagen, incluido el icono de 12 puntos.
-
-    Un documento sin una sola ecuacion —el proyecto de tesis cualitativo, por
-    ejemplo— recibia el aviso y mandaba al tesista a buscar una formula
-    rasterizada que no existe.
-    """
+    """El icono de 12 puntos de un callout no es una formula rasterizada."""
     f = tmp_path / "callout.docx"
     _docx_con_tabla(f, filas=2, cols=2, emu=152400)
     assert not [h.codigo for h in _revisar(f).avisos if h.codigo == "T12"]
@@ -234,13 +224,7 @@ def test_una_imagen_grande_sin_ecuaciones_si_se_avisa(tmp_path):
 # --- el estilo de citas del perfil llega al documento entregado -----------
 
 def test_la_cabecera_del_combinado_declara_el_csl_del_perfil(tmp_path):
-    """Sin esto, los dos .docx del art. 13 salian en el estilo de pandoc.
-
-    El .qmd combinado no hereda el `_quarto.yml`, de modo que la bibliografia
-    se imprimia en Chicago autor-anio aunque el perfil exigiera Vancouver. Y no
-    fallaba: salia distinto. El tesista veia Vancouver al renderizar con Quarto
-    y entregaba otra cosa.
-    """
+    """El .qmd combinado no hereda el `_quarto.yml`: el CSL va en su encabezado."""
     (tmp_path / "referencias.bib").write_text("", encoding="utf8")
     (tmp_path / "plantillas" / "csl").mkdir(parents=True)
     (tmp_path / "plantillas" / "csl" / "vancouver.csl").write_text("<style/>",

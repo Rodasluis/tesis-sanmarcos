@@ -156,18 +156,14 @@ def _publicados(sufijos=(".py", ".md", ".yaml", ".yml")):
 
 
 def test_ningun_correo_personal_incrustado():
-    """El correo del tesista estaba en los dos ejemplos, como `mailto:` del
-    «polite pool» de Crossref. En un repositorio publico MIT eso es su
-    direccion expuesta a cualquier rastreador. Ahora sale de
-    `CROSSREF_MAILTO`, y sin esa variable se usa la cola comun.
+    """Ningun correo personal en archivos publicados. El `mailto:` de Crossref
+    sale de `CROSSREF_MAILTO`; sin esa variable se usa la cola comun.
     """
     import re
 
     from herramientas import datos_personales as DP
 
-    # La expresion vive en `datos_personales`, no aqui. Mientras estuvo
-    # duplicada, arreglar un falso positivo en el modulo no arreglaba el de
-    # esta prueba: `hyperframes@0.8.222` seguia contando como correo.
+    # La expresion vive en `datos_personales`, no aqui.
     institucional = re.compile(r"@(unmsm\.edu\.pe|ejemplo\.)", re.I)
     permitidos = {"noreply@anthropic.com"}
     hallados = [f"{n}: {m}" for n, txt in _publicados()

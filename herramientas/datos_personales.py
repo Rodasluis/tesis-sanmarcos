@@ -36,9 +36,8 @@ RE_DNI = re.compile(
     r"(?:\b(?:dni|d\.n\.i\.?|documento de identidad|c[eé]dula)\b[^\n]{0,40}?(?<!\d)(\d{8})(?!\d)"
     r"|(?<!\d)(\d{8})(?!\d)[^\n]{0,20}?\b(?:dni|d\.n\.i\.?)\b)", re.I)
 
-#: Un dominio termina en letras. Sin esa exigencia, `hyperframes@0.8.222`
-#: —una versión fijada de un paquete— se denunciaba como correo personal, y
-#: con ella se denunciaría cualquier `paquete@1.2.3` que el tesista escriba.
+#: El dominio termina en letras: `paquete@1.2.3` es una versión fijada, no
+#: un correo.
 RE_CORREO = re.compile(r"\b[\w.+-]+@[\w-]+(?:\.[\w-]+)*\.[A-Za-z]{2,}\b")
 RE_TELEFONO = re.compile(r"(?<!\d)(?:\+51\s?)?9\d{8}(?!\d)")
 #: Nombres de archivo que suelen acompañar a datos sin anonimizar.

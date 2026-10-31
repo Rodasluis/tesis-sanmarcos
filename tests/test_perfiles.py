@@ -94,10 +94,8 @@ def test_derecho_hereda_la_estructura_del_perfil_base():
 def test_solo_esta_verificado_lo_que_tiene_documento_en_disco():
     """La regla que importa, comprobada sobre los 21 perfiles.
 
-    Antes esto se probaba nombrando a `economia-fce`, que entonces estaba en
-    `verificar`. Pero lo que hay que proteger no es el estado de una facultad
-    concreta —puede cambiar, y cambió— sino la regla: nadie lleva
-    `verificado` sin el documento que lo respalde.
+    Lo que se protege no es el estado de una facultad concreta sino la regla:
+    nadie lleva `verificado` sin el documento que lo respalde.
     """
     for pid in P.listar():
         perfil = P.cargar(pid)
@@ -182,15 +180,10 @@ def test_norma_de_posgrado_no_sustenta_pregrado(tmp_path):
 
 
 def test_nadie_cita_una_resolucion_de_medicina_que_el_perfil_no_declara():
-    """Una norma que no consta en `normativa/` no se cita: no la sabemos.
+    """Una norma que no consta en `normativa/` no se cita.
 
-    El repositorio citaba cinco veces una «RR N.° 00170-D-FM-2024» que no
-    existe en `normativa/`, no aparece en el indice de facultades y no tiene
-    archivo local. La norma verificada de Medicina es la RD N.° 002373-2023-D-FM,
-    y es la que trae los articulos que esas cinco citas invocaban —23, 33 y 34—.
-
-    El barrido cubre el repositorio entero, incluido el LEEME de
-    `datos/crudos/` del ejemplo cualitativo, que fue la quinta.
+    La norma verificada de Medicina es la RD N.° 002373-2023-D-FM. Cualquier
+    otra resolucion «D-FM» citada en los .md y .qmd del repositorio es un error.
     """
     import re
 

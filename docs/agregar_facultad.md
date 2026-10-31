@@ -1,8 +1,5 @@
 # Agregar o corregir el perfil de una facultad
 
-Written for: quien quiera que el repositorio conozca bien la norma de su escuela
-—el tesista, su asesor, o alguien que contribuya al proyecto.
-
 ---
 
 Las 20 facultades de la UNMSM ya tienen perfil. Este documento es para dos

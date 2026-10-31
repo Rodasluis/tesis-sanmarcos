@@ -225,9 +225,7 @@ def comprobar_entregables(nombre: str, destino_base: pathlib.Path) -> list[str]:
         "archivo de Protocolo y Complemento":
             list(raiz.glob("TEXTO/*Protocolo y Complemento*.docx")),
         "tesis PDF": list(raiz.glob("TEXTO/*.pdf")),
-        # Los dos ejemplos traen su `proyecto/`. Mientras al cualitativo le
-        # faltó, esto fue condicional, y un ejemplo que no llegaba al final
-        # del flujo pasaba el CI sin que nadie lo notara.
+        # El proyecto de tesis, en .docx y PDF, igual que la tesis.
         "proyecto .docx": list(raiz.glob("PROYECTO/*.docx")),
         "proyecto PDF": list(raiz.glob("PROYECTO/*.pdf")),
     }
