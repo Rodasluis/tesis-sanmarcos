@@ -1,0 +1,144 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #root .clip {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 140px;
+    }
+    #root .rotulo {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 46px;
+    }
+    #root #ent-par {
+      display: flex;
+      gap: 48px;
+      align-items: stretch;
+    }
+    #root .doc {
+      width: 740px;
+      background: var(--ground-2);
+      border: 2px solid #2b3a57;
+      border-radius: 16px;
+      padding: 34px 36px;
+    }
+    #root .doc .nombre {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    #root .doc .nombre em {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 700;
+    }
+    #root .doc .hr {
+      height: 2px;
+      background: #2b3a57;
+      margin: 26px 0 22px;
+    }
+    #root .doc .lleva {
+      font-size: 28px;
+      line-height: 1.5;
+      color: var(--dim);
+    }
+    #root .doc .lleva .si {
+      color: var(--good);
+      font-weight: 600;
+    }
+    #root .doc .lleva .no {
+      color: var(--bad);
+      font-weight: 600;
+    }
+    #root #ent-porque {
+      margin-top: 52px;
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--ink);
+      text-align: center;
+      max-width: 1500px;
+      line-height: 1.3;
+    }
+    #root #ent-porque b {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #root #ent-norma {
+      margin-top: 30px;
+      font-size: 28px;
+      color: var(--dim);
+    }
+  </style>
+
+  <div id="root" data-composition-id="entrega" data-width="1920" data-height="1080">
+    <div id="ent-todo" class="clip" data-start="0" data-duration="20" data-track-index="1">
+      <div id="ent-rotulo" class="rotulo">4 — La entrega son dos archivos</div>
+
+      <div id="ent-par">
+        <div class="doc" id="ent-doc1">
+          <div class="nombre">Apellidos Nombres - <em>Desarrollo</em> T&iacute;tulo - A&ntilde;o.docx</div>
+          <div class="hr"></div>
+          <div class="lleva">
+            <span class="no">sin</span> car&aacute;tula<br />
+            <span class="no">sin</span> bibliograf&iacute;a
+          </div>
+        </div>
+        <div class="doc" id="ent-doc2">
+          <div class="nombre">Apellidos Nombres - <em>Protocolo y Complemento</em> T&iacute;tulo - A&ntilde;o.docx</div>
+          <div class="hr"></div>
+          <div class="lleva">
+            <span class="si">con</span> car&aacute;tula y escudo<br />
+            <span class="si">con</span> bibliograf&iacute;a
+          </div>
+        </div>
+      </div>
+
+      <div id="ent-porque">
+        El primero es el que va al <b>an&aacute;lisis de similitud</b>. Lo que no escribiste t&uacute; no entra ah&iacute;.
+      </div>
+
+      <div id="ent-norma" data-hold>Art. 13 de la RR N.&deg; 000947-2026-R &middot; m&aacute;s sus PDF, convertidos del mismo .docx</div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t, dy) =>
+      tl.fromTo(
+        sel,
+        { opacity: 0, y: dy === undefined ? 20 : dy },
+        { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" },
+        t,
+      );
+
+    entra("#ent-rotulo", 0.2, 10);
+    tl.fromTo(
+      "#ent-doc1",
+      { opacity: 0, x: -40 },
+      { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
+      1.2,
+    );
+    tl.fromTo(
+      "#ent-doc2",
+      { opacity: 0, x: 40 },
+      { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
+      3.2,
+    );
+    entra("#ent-porque", 6.4);
+    entra("#ent-norma", 9.6, 12);
+
+    window.__timelines["entrega"] = tl;
+  </script>
+</template>

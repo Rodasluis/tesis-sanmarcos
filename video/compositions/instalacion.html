@@ -1,0 +1,88 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #root .clip {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 160px;
+    }
+    #root .rotulo {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 44px;
+    }
+    #root .cmd {
+      font-family: var(--font-mono);
+      font-size: 40px;
+      line-height: 1.5;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    #root .cmd span {
+      color: var(--dim);
+      margin-right: 22px;
+    }
+    #root .nota {
+      margin-top: 52px;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--ink);
+      border-left: 5px solid var(--accent);
+      padding-left: 26px;
+      line-height: 1.35;
+      max-width: 1500px;
+    }
+    #root .nota b {
+      color: var(--accent);
+      font-weight: 700;
+    }
+  </style>
+
+  <div id="root" data-composition-id="instalacion" data-width="1920" data-height="1080">
+    <div id="ins-todo" class="clip" data-start="0" data-duration="20" data-track-index="1">
+      <div id="ins-rotulo" class="rotulo">1 — Instalar</div>
+      <div id="ins-c1" class="cmd"><span>$</span>git clone https://github.com/Rodasluis/tesis-sanmarcos.git tesis</div>
+      <div id="ins-c2" class="cmd"><span>$</span>cd tesis</div>
+      <div id="ins-c3" class="cmd"><span>$</span>git remote remove origin</div>
+      <div id="ins-c4" class="cmd"><span>$</span>uv sync --extra analisis</div>
+      <div id="ins-c5" class="cmd"><span>$</span>uv run python -m herramientas.instalar_hooks</div>
+      <div id="ins-nota1" class="nota">
+        <b>Ruta corta.</b> Los nombres de archivo que exige la norma son largos.
+      </div>
+      <div id="ins-nota2" class="nota" data-hold>
+        <b>Quita el remoto.</b> Ahí van a vivir tus datos crudos.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t, dy) =>
+      tl.fromTo(
+        sel,
+        { opacity: 0, y: dy === undefined ? 18 : dy },
+        { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
+        t,
+      );
+
+    entra("#ins-rotulo", 0.2, 10);
+    entra("#ins-c1", 1.2);
+    entra("#ins-c2", 3.0);
+    entra("#ins-c3", 4.6);
+    entra("#ins-c4", 6.6);
+    entra("#ins-c5", 8.4);
+    entra("#ins-nota1", 11.0, 22);
+    entra("#ins-nota2", 13.9, 22);
+
+    window.__timelines["instalacion"] = tl;
+  </script>
+</template>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>tesis-sanmarcos: los pasos</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #0a0f1c;
+        --ground-2: #111a2e;
+        --ink: #eef2f7;
+        --dim: #8b98ad;
+        --accent: #e8b33c;
+        --good: #4fb286;
+        --bad: #d4654f;
+        --font-display: Inter;
+        --font-mono: "JetBrains Mono";
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+        font-family: var(--font-display);
+        color: var(--ink);
+      }
+      #fondo {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(1200px 700px at 22% 18%, #16233d 0%, rgba(22, 35, 61, 0) 70%),
+          var(--ground);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="123"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="fondo"></div>
+
+      <div
+        id="situacion"
+        data-composition-id="situacion"
+        data-composition-src="compositions/situacion.html"
+        data-start="0"
+        data-duration="13"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 1"
+      ></div>
+
+      <div
+        id="instalacion"
+        data-composition-id="instalacion"
+        data-composition-src="compositions/instalacion.html"
+        data-start="13"
+        data-duration="20"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 2"
+      ></div>
+
+      <div
+        id="perfil"
+        data-composition-id="perfil"
+        data-composition-src="compositions/perfil.html"
+        data-start="33"
+        data-duration="16"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 3"
+      ></div>
+
+      <div
+        id="flujo"
+        data-composition-id="flujo"
+        data-composition-src="compositions/flujo.html"
+        data-start="49"
+        data-duration="20"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 4"
+      ></div>
+
+      <div
+        id="entrega"
+        data-composition-id="entrega"
+        data-composition-src="compositions/entrega.html"
+        data-start="69"
+        data-duration="20"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 5"
+      ></div>
+
+      <div
+        id="limites"
+        data-composition-id="limites"
+        data-composition-src="compositions/limites.html"
+        data-start="89"
+        data-duration="21"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 6"
+      ></div>
+
+      <div
+        id="cierre"
+        data-composition-id="cierre"
+        data-composition-src="compositions/cierre.html"
+        data-start="110"
+        data-duration="13"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 7"
+      ></div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#fondo", { opacity: 1, duration: 123 }, 0);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

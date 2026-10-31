@@ -1,0 +1,133 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #root .clip {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 140px;
+    }
+    #root .rotulo {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 48px;
+    }
+    #root #flu-etapas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 18px;
+      max-width: 1560px;
+    }
+    #root .etapa {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      color: var(--ink);
+      background: var(--ground-2);
+      border: 2px solid #2b3a57;
+      border-radius: 10px;
+      padding: 14px 22px;
+    }
+    #root #flu-decision {
+      margin-top: 60px;
+      font-size: 46px;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+    }
+    #root #flu-ficha {
+      margin-top: 36px;
+      display: flex;
+      gap: 0;
+      border: 2px solid var(--good);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    #root .campo {
+      padding: 18px 30px;
+      font-size: 28px;
+      color: var(--ink);
+      border-right: 2px solid var(--good);
+    }
+    #root .campo:last-child {
+      border-right: none;
+    }
+    #root .campo b {
+      display: block;
+      color: var(--good);
+      font-size: 28px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    #root #flu-cierre {
+      margin-top: 38px;
+      font-size: 32px;
+      color: var(--dim);
+      text-align: center;
+      max-width: 1320px;
+      line-height: 1.35;
+    }
+  </style>
+
+  <div id="root" data-composition-id="flujo" data-width="1920" data-height="1080">
+    <div id="flu-todo" class="clip" data-start="0" data-duration="20" data-track-index="1">
+      <div id="flu-rotulo" class="rotulo">3 — Once etapas, una por comando</div>
+
+      <div id="flu-etapas">
+        <div class="etapa" id="flu-e1">/iniciar</div>
+        <div class="etapa" id="flu-e2">/explorar-datos</div>
+        <div class="etapa" id="flu-e3">/afinar-idea</div>
+        <div class="etapa" id="flu-e4">/literatura</div>
+        <div class="etapa" id="flu-e5">/proyecto</div>
+        <div class="etapa" id="flu-e6">/analizar</div>
+        <div class="etapa" id="flu-e7">/redactar</div>
+        <div class="etapa" id="flu-e8">/jurado</div>
+        <div class="etapa" id="flu-e9">/verificar</div>
+        <div class="etapa" id="flu-e10">/entregar</div>
+        <div class="etapa" id="flu-e11">/sustentacion</div>
+      </div>
+
+      <div id="flu-decision">Cada etapa cierra con una decisi&oacute;n tuya.</div>
+
+      <div id="flu-ficha">
+        <div class="campo"><b>Opci&oacute;n elegida</b>la que t&uacute; marcaste</div>
+        <div class="campo"><b>En tus palabras</b>textual, sin resumir</div>
+        <div class="campo"><b>Fecha y etapa</b>para volver semanas despu&eacute;s</div>
+      </div>
+
+      <div id="flu-cierre" data-hold>
+        Y dos o tres preguntas tipo jurado. No bloquean nada: reaparecen en la sustentaci&oacute;n.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t, dy) =>
+      tl.fromTo(
+        sel,
+        { opacity: 0, y: dy === undefined ? 20 : dy },
+        { opacity: 1, y: 0, duration: 0.36, ease: "power3.out" },
+        t,
+      );
+
+    entra("#flu-rotulo", 0.2, 10);
+    for (let i = 1; i <= 11; i += 1) entra("#flu-e" + i, 0.9 + i * 0.3, 14);
+    entra("#flu-decision", 5.4);
+    entra("#flu-ficha", 7.6, 24);
+    entra("#flu-cierre", 10.8);
+
+    window.__timelines["flujo"] = tl;
+  </script>
+</template>
